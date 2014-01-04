@@ -9,7 +9,7 @@
 // };
 
 var myringtones = {
-  LetMeHitIt: 'LetMe.mp3'
+  LetMeHitIt: 'sounds/LetMe.ogg'
 };
 
 //
@@ -78,7 +78,7 @@ navigator.mozSetMessageHandler('activity', function(activity) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', selectedRadioButton.dataset.url);
     xhr.responseType = 'blob';         // We want the result as a Blob.
-    xhr.overrideMimeType('audio/mpeg'); // Important! Set Blob type correctly.
+    xhr.overrideMimeType('audio/ogg'); // Important! Set Blob type correctly.
     xhr.send();
     xhr.onload = function() {          // When we get the blob
       activity.postResult({            // We post it to the invoking app
