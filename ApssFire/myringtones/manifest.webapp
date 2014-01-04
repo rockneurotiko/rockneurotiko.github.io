@@ -1,0 +1,20 @@
+{
+  "name": "My Ringtones",
+  "description": "My Ringtone Picker",
+  "role": "system",
+  "developer": {
+    "name": "David Flanagan",
+    "url": "http://blog.djf.net"
+  },
+  "installs_allowed_from": ["*"],
+  "activities": {
+    "pick": {
+      "filters": {
+        "type": ["ringtone"]
+       },
+      "disposition": "inline",
+      "returnValue": true,
+      "href": "/index.html"
+    }
+  }
+}
