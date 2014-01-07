@@ -3,15 +3,15 @@
   "description": "kdb Files reader",
   "version": "0.1",
   "launch_path": "/index.html",
-  "type": "privileged",
+  "icons": {
+  	"32": "/img/icon32.jpg",
+  	"60": "/img/icon60.jpg",
+  	"64": "/img/icon64.jpg",
+    "256": "/img/icon256.png"
+  },
   "developer": {
     "name": "Rock Neurotiko",
     "url": "http://rockneurotiko.github.io"
   },
-  "installs_allowed_from": ["*"],
-  "permissions": {
-    "device-storage:sdcard": {
-      "description" : "For get the file kdb"
-    }
-  }
+  "installs_allowed_from": ["*"]
 }
