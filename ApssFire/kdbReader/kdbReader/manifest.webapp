@@ -1,0 +1,10 @@
+{
+  "name": "kdbReader",
+  "description": "kdb Files reader",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Rock Neurotiko",
+    "url": "http://rockneurotiko.github.io"
+  },
+  "installs_allowed_from": ["*"]
+}

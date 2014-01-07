@@ -1,0 +1,153 @@
+body {
+	margin: 0;
+	height: 1000px;
+	background-color: #dde;
+	font-family: Helvetica, Arial, san-serif;
+}
+
+#wrapper {
+	position: relative;
+}
+
+.clearer {
+	clear: both;
+}
+
+#db-contents-wrapper,
+#keepassopenform {
+	position: relative;
+	width: 400px;
+	margin: 50px auto;
+	background-color: #fff;
+	border: 2px solid #444;
+	padding: 1em;
+	border-radius: 0.5em;
+}
+#keepassopenform label,
+#keepassopenform input {
+	font-size: 12pt;
+}
+#keepassopenform label {
+	display: inline-block;
+	margin-top: 5px;
+}
+#keepassopenform input,
+#keepassopenform button {
+	display: inline-block;
+	float: right;
+}
+#keepassopenform input[type='checkbox'] {
+	width: 12px;
+	padding: 1px;
+	margin: 7px 10px;
+}
+#keepassopenform input[type='text'],
+#keepassopenform input[type='file'],
+#keepassopenform input[type='password'] {
+	padding: 1px;
+	border: 2px inset;
+	width: 270px;
+}
+#keepassopenform #keepassfile {
+	width: 270px;
+}
+#keepassopenform button {
+	margin-top: 10px;
+	height: 50px;
+	font-size: 16pt;
+}
+.field {
+	clear: both;
+	margin-bottom: 10px;
+}
+.field.buttons {
+	margin-bottom: 0;
+}
+label.implied {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+#errors {
+	display: none;
+	border-color: red;
+	color: red;
+}
+#status {
+	height: 50px;
+	float: left;
+	width: 310px;
+	margin-top: 10px;
+}
+#status p {
+	display: none;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+#status img {
+	display: none;
+	float: right;
+	margin-left: 0.5em;
+}
+#status progress {
+	display: none;
+	clear:both;
+	width: 100%;
+}
+
+#db-contents-wrapper {
+	display: none;
+	width: 700px;
+}
+#db-contents ul {
+	margin-top: 25px;
+	width: 100px;
+}
+#db-contents table {
+	position: absolute;
+	right: 20px;
+	top: 45px;
+	display: none;
+	width: 550px;
+	height: 100%;
+	margin-left: 100px;
+	overflow: auto;
+}
+#db-contents table.entries,
+#db-contents table.entries tr,
+#db-contents table.entries td,
+#db-contents table.entries th {
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+#db-contents table.entries td,
+#db-contents table.entries th {
+	padding: 5px;
+	width: 132px;
+	overflow: auto;
+}
+#db-contents .password input,
+#db-contents .password span {
+	display: inline-block;
+	width: 105px;
+	overflow: hidden;
+}
+.password-toggle,
+#close {
+	display: block;
+	float: right;
+	background-image: url('close.png');
+	width: 0px;
+	height: 16px;
+	overflow: hidden;
+	padding-left: 16px;
+}
+.password-toggle {
+	float: right;
+	background-image: url('visible.png');
+}
+.password-toggle.hidden {
+	background-image: url('hidden.png');
+}

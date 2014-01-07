@@ -1,0 +1,92 @@
+<!doctype html>
+<!--
+Copyright (C) 2012 Richard Mitchell
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<html manifest="cache.manifest">
+<head>
+<title>KeePassJS</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script type="text/javascript" src="../lib/cryptojs/core.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/md5.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/evpkdf.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/cipher-core.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/aes.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/mode-ecb.js"></script>
+<script type="text/javascript" src="../lib/cryptojs/sha256.js"></script>
+<script type="text/javascript" src="../lib/base64.js"></script>
+<script type="text/javascript" src="../lib/jspack.js"></script>
+<script type="text/javascript" src="../bouncycastle/twofish.js"></script>
+
+<script type="text/javascript" src="../src/keepass.js"></script>
+<script type="text/javascript" src="../src/constants.js"></script>
+<script type="text/javascript" src="../utils/strings.js"></script>
+<script type="text/javascript" src="../utils/events.js"></script>
+<script type="text/javascript" src="../utils/utils.js"></script>
+<script type="text/javascript" src="../src/time.js"></script>
+<script type="text/javascript" src="../src/ExtData.js"></script>
+<script type="text/javascript" src="../src/entry.js"></script>
+<script type="text/javascript" src="../src/group.js"></script>
+<script type="text/javascript" src="../src/database.js"></script>
+<script type="text/javascript" src="../src/manager.js"></script>
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<script type="text/javascript" src="browser.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<form action="#" id="keepassopenform">
+<div id="errors"></div>
+<div class="field">
+	<label for="keepassfile">KeePass file</label>
+	<input type="file" id="keepassfile" name="keepassfile" />
+</div>
+<div class="field">
+	<label for="password">Password</label>
+	<input type="password" id="password" name="password" />
+	<label for="use_password" class="implied">Use password?</label>
+	<input type="checkbox" name="use_password" id="use_password" checked/>
+</div>
+<div class="field">
+	<label for="keyfile">Key file</label>
+	<input type="file" id="keyfile" name="keyfile" />
+	<label for="use_keyfile" class="implied">Use key file?</label>
+	<input type="checkbox" name="use_keyfile" id="use_keyfile"/>
+</div>
+<div class="field buttons">
+    <div id="status">
+        <img src="spinner.gif" />
+        <p></p>
+        <progress value="0" max="100">0%</progress>
+    </div>
+    <button id="open">Open</button>
+    <div class="clearer"></div>
+</div>
+</form>
+<div id="db-contents-wrapper">
+<a id="close" href="#close">Close</a>
+<div id="db-contents">
+</div>
+</div>
+</div>
+</body>
+</html>
