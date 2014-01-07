@@ -1,10 +1,17 @@
 {
   "name": "kdbReader",
   "description": "kdb Files reader",
+  "version": "0.1",
   "launch_path": "/index.html",
+  "type": "privileged",
   "developer": {
     "name": "Rock Neurotiko",
     "url": "http://rockneurotiko.github.io"
   },
-  "installs_allowed_from": ["*"]
+  "installs_allowed_from": ["*"],
+  "permissions": {
+    "device-storage:sdcard": {
+      "description" : "For get the file kdb"
+    }
+  }
 }
