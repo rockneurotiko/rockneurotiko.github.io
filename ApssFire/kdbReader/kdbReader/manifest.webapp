@@ -7,11 +7,13 @@
   	"32": "/img/icon32.jpg",
   	"60": "/img/icon60.jpg",
   	"64": "/img/icon64.jpg",
+    "128": "/img/icon128.jpg",
     "256": "/img/icon256.png"
   },
   "developer": {
     "name": "Rock Neurotiko",
     "url": "http://rockneurotiko.github.io"
   },
-  "installs_allowed_from": ["*"]
+  "installs_allowed_from": ["*"],
+  "orientation": "landscape-primary"
 }
