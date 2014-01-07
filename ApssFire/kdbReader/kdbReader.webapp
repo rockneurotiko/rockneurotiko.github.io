@@ -1,7 +1,7 @@
 {
   "name": "kdbReader",
   "package_path": "http://rockneurotiko.github.io/ApssFire/kdbReader/kdbReader.zip",
-  "version": 0.1,
+  "version": "0.11",
   "developer": {
     "name": "Rock Neurotiko",
     "url": "http://rockneurotiko.github.io"
