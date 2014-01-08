@@ -89,7 +89,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	<div id="errors"></div>
 	<div class="field">
 		<label for="keepassfile">KeePass file</label>
-		<input type="file" id="keepassfile" name="keepassfile" />
+		<label id="keepassfile" name="keepassfile"></label>
 	</div>
 	<div class="field">
 		<label for="password">Password</label>
@@ -97,11 +97,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<label for="use_password" class="implied">Use password?</label>
 		<input type="checkbox" name="use_password" id="use_password" checked/>
 	</div>
-	<div class="field">
+	<div class="field" style=" display:none;">
 		<label for="keyfile">Key file</label>
-		<input type="file" id="keyfile" name="keyfile" />
-		<label for="use_keyfile" class="implied">Use key file?</label>
-		<input type="checkbox" name="use_keyfile" id="use_keyfile"/>
+		<!--<input type="file" id="keyfile" name="keyfile" /> -->
+		<label for="use_keyfile"> Not suported yet..(File search is horrible) </label>
+		<label for="use_keyfile" class="implied" style=" display:none;"></label>
+		<input type="checkbox" name="use_keyfile" id="use_keyfile" style=" display:none;"/>
 	</div>
 	<div class="field buttons">
 	    <div id="status">
