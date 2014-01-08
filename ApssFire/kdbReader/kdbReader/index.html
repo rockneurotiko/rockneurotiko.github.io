@@ -24,7 +24,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <html manifest="cache.manifest">
 <head>
 <title>KeePassJS</title>
+
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="./css/lists.css">
+<link rel="stylesheet" href="./css/headers.css">
+<link rel="stylesheet" href="./css/util.css">
+
 <script type="text/javascript" src="lib/cryptojs/core.js"></script>
 <script type="text/javascript" src="lib/cryptojs/md5.js"></script>
 <script type="text/javascript" src="lib/cryptojs/evpkdf.js"></script>
@@ -53,40 +60,67 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <script type="text/javascript" src="browser.js"></script>
 </head>
 <body>
-<div id="wrapper">
-<form action="#" id="keepassopenform">
-<div id="errors"></div>
-<div class="field">
-	<label for="keepassfile">KeePass file</label>
-	<input type="file" id="keepassfile" name="keepassfile" />
-</div>
-<div class="field">
-	<label for="password">Password</label>
-	<input type="password" id="password" name="password" />
-	<label for="use_password" class="implied">Use password?</label>
-	<input type="checkbox" name="use_password" id="use_password" checked/>
-</div>
-<div class="field">
-	<label for="keyfile">Key file</label>
-	<input type="file" id="keyfile" name="keyfile" />
-	<label for="use_keyfile" class="implied">Use key file?</label>
-	<input type="checkbox" name="use_keyfile" id="use_keyfile"/>
-</div>
-<div class="field buttons">
-    <div id="status">
-        <img src="spinner.gif" />
-        <p></p>
-        <progress value="0" max="100">0%</progress>
+
+
+<section id="index" data-position="current">
+<section role="region">
+  <header class="fixed">
+    <menu type="toolbar">
+    <a href="#" id="refreshBtn"><span class="icon settings-icon updateBalance">refresh</span></a>
+    </menu>
+    <h1>Kdb Reader <em>v0.2</em></h1>
+  </header>
+  <article class="content scrollable header">
+    <div data-type="list">
+      <ul id="item-list"><li><p>Please, add a kdb file in your SDCARD.</p></li></ul>
     </div>
-    <button id="open">Open</button>
-    <div class="clearer"></div>
-</div>
-</form>
-<div id="db-contents-wrapper">
-<a id="close" href="#close">Close</a>
-<div id="db-contents">
-</div>
-</div>
-</div>
+  </article>
+</section>
+
+
+
+</section>
+
+
+
+<section id="selectAll" data-position="current" style=" display:none;">
+	<div id="wrapper">
+	<form action="#" id="keepassopenform">
+	<div id="errors"></div>
+	<div class="field">
+		<label for="keepassfile">KeePass file</label>
+		<input type="file" id="keepassfile" name="keepassfile" />
+	</div>
+	<div class="field">
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password" />
+		<label for="use_password" class="implied">Use password?</label>
+		<input type="checkbox" name="use_password" id="use_password" checked/>
+	</div>
+	<div class="field">
+		<label for="keyfile">Key file</label>
+		<input type="file" id="keyfile" name="keyfile" />
+		<label for="use_keyfile" class="implied">Use key file?</label>
+		<input type="checkbox" name="use_keyfile" id="use_keyfile"/>
+	</div>
+	<div class="field buttons">
+	    <div id="status">
+	        <img src="spinner.gif" />
+	        <p></p>
+	        <progress value="0" max="100">0%</progress>
+	    </div>
+	    <button id="open">Open</button>
+	    <div class="clearer"></div>
+	</div>
+	</form>
+	<div id="db-contents-wrapper">
+	<a id="close" href="#close">Close</a>
+	<div id="db-contents">
+	</div>
+	</div>
+	</div>
+</section>
+
+<script type="text/javascript" defer src="engine.js"></script>
 </body>
 </html>

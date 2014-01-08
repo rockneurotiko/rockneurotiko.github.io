@@ -1,7 +1,8 @@
 {
   "name": "kdbReader",
   "description": "kdb Files reader",
-  "version": "0.11",
+  "type" : "privileged",
+  "version": "0.2",
   "launch_path": "/index.html",
   "icons": {
   	"32": "/img/icon32.jpg",
@@ -14,6 +15,12 @@
   "developer": {
     "name": "Rock Neurotiko",
     "url": "http://rockneurotiko.github.io"
+  },
+  "permissions": {
+    "device-storage:sdcard": {
+      "description" : "Para elegir un archivo pdf de la SDCARD",
+      "access": "readonly"
+    }
   },
   "installs_allowed_from": ["*"],
   "orientation": "landscape-primary"
