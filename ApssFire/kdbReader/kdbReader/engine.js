@@ -45,11 +45,10 @@
           if ($(this).attr("id") != "Message"){
             var fileName = $(this).attr("id");
             $('#index').hide();
-            
+
             $('#keepassfile').value(fileName);
             $('#selectAll').show();
-                        
-            $("#pdf_viewer").html(iframe);
+
           }
         });
         
