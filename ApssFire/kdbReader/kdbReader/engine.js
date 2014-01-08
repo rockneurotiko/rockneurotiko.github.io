@@ -46,7 +46,7 @@
             var fileName = $(this).attr("id");
             $('#index').hide();
 
-            $('#keepassfile').value(fileName);
+            $('#keepassfile').text(fileName);
             $('#selectAll').show();
 
           }

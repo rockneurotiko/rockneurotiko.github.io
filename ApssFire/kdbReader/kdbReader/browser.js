@@ -32,36 +32,33 @@
         var opening = false,
             passwordToggle = '<a href="#" class="password-toggle hidden">Show password</a>';
 
-        function readFiles(files, callback) {
-            var reader = new FileReader(),
-                fileArray = [],
-                i;
+        function readFiles(file, callback) {
+            var storage = navigator.getDeviceStorage("sdcard");
+            
+            var reader = new FileReader();
 
-            if (files.length !== 1) {
+            if (file == ""){
                 return false;
             }
-            for (i = 0; i < files.length; i += 1) {
-                fileArray.push(files[i]);
-            }
-
-            function doRead(fileArray) {
+            var kdb_file = storage.get(file);
+            pdf_file.onerror = function() {
+                console.error("Error in: ", kdb_file.error.name);
+            };
+            
+            function doRead(kdb_file) {
                 $(reader).bind('loadend', function (ev) {
-                    var file = {
-                        name: fileArray[0].name,
-                        size: fileArray[0].size,
-                        type: fileArray[0].type,
+                    var fileGet = {
+                        //name: kdb_file.name,
+                        //size: kdb_file.size,
+                        //type: kdb_file.type,
                         data: reader.result
                     };
-                    callback(file);
-                    fileArray.shift();
-                    if (fileArray.length) {
-                        doRead(fileArray);
-                    }
+                    callback(fileGet);
                 });
-                reader.readAsBinaryString(fileArray[0]);
+                reader.readAsBinaryString(kdb_file);
             }
 
-            doRead(fileArray);
+            doRead(kdb_file);
         }
 
         function pwMask(len) {
@@ -200,7 +197,7 @@
             $('#open').attr('disabled', 'disabled');
 
             function loadWithKeyFile(keyFile) {
-                readFiles($('#keepassfile').get(0).files, function (file) {
+                readFiles($('#keepassfile').text(), function (file) {
                     manager.setMasterKey(
                     key,
                     diskDrive,
