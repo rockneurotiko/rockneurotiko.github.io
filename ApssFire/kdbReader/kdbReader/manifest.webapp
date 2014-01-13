@@ -2,12 +2,12 @@
   "name": "kdbReader",
   "description": "kdb Files reader",
   "type" : "privileged",
-  "version": "0.2",
+  "version": "0.3",
   "launch_path": "/index.html",
   "icons": {
-  	"32": "/img/icon32.jpg",
-  	"60": "/img/icon60.jpg",
-  	"64": "/img/icon64.jpg",
+  	"32": "/img/icon32.png",
+  	"60": "/img/icon60.png",
+  	"64": "/img/icon64.png",
     "90": "/img/icon90.png",
     "128": "/img/icon128.png",
     "256": "/img/icon256.png"
