@@ -1,0 +1,100 @@
+<div id="_contact_search_form" class="MdMN05Search" role="search">
+    <fieldset>
+        <label class="MdHide" for="">search</label>
+        <div class="mdMN05Input ExPlaceholder">
+            <input type="search" name="q" role="textbox" placeholder="<%= SEARCH %>" value="" class="_search_text">
+            <input type="button" value="delete" class="mdMN05Delete MdNonDisp _btn_input_clear">
+        </div>
+        <div class="mdMN05Cancel MdNonDisp _wrap_btn_cancel" data-pressed-class="ExTap"><input type="button" value="<%= CANCEL %>" class="_btn_cancel"></div>
+
+    </fieldset>
+    <!--/MdMN05Search-->
+</div>
+
+
+<div id="_mode_contact_list" class="MdScroll01" style="position:relative;">
+    <section class="MdList01">
+        <h2 class="MdMN01Head"><%= PROFILE %></h2>
+
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_contact_list_profile">
+
+            </ul><!--/MdMN02List-->
+        </div>
+    </section>
+
+    <section class="MdList01 MdNonDisp" id="_wrap_new_friends">
+        <h2 class="MdMN01Head"><%= FRIENDS_STACK_TITLE_NEW_FRIENDS %> <span id="_new_friend_count">0</span></h2>
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_new_friend_list">
+
+            </ul><!--/MdMN02List--></div>
+    </section>
+
+    <!-- invitations group spec out -->
+    <section class="MdList01 MdNonDisp" id="_wrap_invitee">
+        <h2 class="MdMN01Head"><%= GROUP_INVITATIONS %> <span id="_invitee_count">0</span></h2>
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_invitee_list">
+
+            </ul>
+        </div>
+    </section>
+
+    <section class="MdList01 MdNonDisp" id="_wrap_groups">
+        <h2 class="MdMN01Head"><%= GROUPS_STACK_TITLE_FRIENDS %> <span id="_group_count">0</span></h2>
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_group_list">
+
+            </ul><!--/MdMN02List-->
+        </div>
+
+    </section>
+
+    <section class="MdList01 MdNonDisp" id="_wrap_friends">
+        <h2 class="MdMN01Head"><%= FRIENDS_STACK_TITLE_FRIENDS %> <span id="_friend_count">0</span></h2>
+
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul _surf _area" id="_friend_list">
+
+            </ul>
+            <!--/MdMN02List-->
+        </div>
+    </section>
+
+    <section class="MdMN04Empty" id="_wrap_empty_friends">
+
+    </section>
+
+<!--/MdScroll01-->
+</div>
+
+<div id="_mode_search_list" class="MdScroll01 MdNonDisp"><div class="mdScroll01Inner">
+
+    <section class="MdList01" id="_wrap_searched_groups">
+        <h2 class="MdMN01Head"><%= GROUP %> <span id="_searched_group_count">0</span></h2>
+
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_searched_group_list">
+
+            </ul><!--/MdMN02List--></div>
+
+    </section>
+
+    <section class="MdList01" id="_wrap_searched_friends">
+        <h2 class="MdMN01Head"><%= FRIEND %> <span id="_searched_friend_count">0</span></h2>
+
+        <div class="MdMN02List">
+            <ul class="mdMN02Ul" id="_searched_friend_list">
+
+            </ul>
+            <!--/MdMN02List-->
+        </div>
+
+    </section>
+
+    <section id="_wrap_searched_empty" class="MdBox01">
+        <h2 class="MdTxtNotice MdAC"><%= SEARCH_NO_RESULTS %></h2>
+    </section>
+
+</div><!--/MdScroll01--></div>

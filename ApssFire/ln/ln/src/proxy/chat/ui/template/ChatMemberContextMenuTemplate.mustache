@@ -1,0 +1,36 @@
+<div role="dialog" data-type="action" class="wrap_member_context_menu">
+    <header>{{printName}}</header> <!-- this header is optional -->
+    <menu type="toolbar">
+        {{#isFriend}}
+            {{^isHidden}}
+                {{#isBlocked}}
+                    <button data-action="unblock-{{mid}}"><%=UNBLOCK%></button>
+                {{/isBlocked}}
+                {{^isBlocked}}
+                    <button data-action="block-{{mid}}"><%=BLOCK%></button>
+                {{/isBlocked}}
+            {{/isHidden}}
+
+            {{^isBlocked}}
+                {{#isHidden}}
+                    <button data-action="unhide-{{mid}}"><%=HIDE_MENU_TEXT%></button>
+                {{/isHidden}}
+                {{^isHidden}}
+                    <button data-action="hide-{{mid}}"><%=HIDE_MENU_TEXT%></button>
+                {{/isHidden}}
+            {{/isBlocked}}
+
+        {{/isFriend}}
+        {{^isFriend}}
+            {{#isBlocked}}
+                <button data-action="add-{{mid}}" disabled><%=ADD%></button>
+                <button data-action="unblock-{{mid}}"><%=UNBLOCK%></button>
+            {{/isBlocked}}
+            {{^isBlocked}}
+                <button data-action="add-{{mid}}"><%=ADD%></button>
+                <button data-action="block-{{mid}}"><%=BLOCK%></button>
+            {{/isBlocked}}
+        {{/isFriend}}
+        <button data-action="cancel-{{mid}}"><%=CANCEL%></button>
+    </menu>
+</div>

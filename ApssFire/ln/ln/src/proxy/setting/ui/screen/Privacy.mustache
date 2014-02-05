@@ -1,0 +1,43 @@
+
+<!--<div class="_privacy">-->
+    <!--<ul class="_privacy_list">-->
+        <!--<li>Public User ID <button data-name="ALLOW_SEARCH_BY_USERID" data-value="{{allowSearchByUserid}}">{{allowSearchByUserid}}</button></li>-->
+        <!--<li class="_clear_chat_history_btn" style="color:#FF0000;">Clear Chat History</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!--MAIN-FRAME-->
+<div class="_privacy LyMain" role="main">
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= PRIVACY_PUBLIC_USER_ID %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="ALLOW_SEARCH_BY_USERID" data-value="{{allowSearchByUserid}}" class="mdMN13Box _action_btn {{#allowSearchByUserid}}mdMN13IsOn{{/allowSearchByUserid}} {{^allowSearchByUserid}}mdMN13IsOff{{/allowSearchByUserid}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+
+            <!--/MdMN15List--></ul>
+
+
+        <ul class="MdMN15List">
+            <li data-pressed-class="ExTap"><a class="mdMN15Tbl01 _clear_chat_history_btn" href="#">
+                <div class="mdMN15Cell"><%= CLEAR_CHAT_HISTORY %></div>
+            </a></li>
+            <!--/MdMN15List--></ul>
+    </section>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

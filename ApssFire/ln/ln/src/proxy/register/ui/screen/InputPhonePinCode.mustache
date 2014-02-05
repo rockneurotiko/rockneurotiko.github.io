@@ -1,0 +1,26 @@
+<!--MAIN-FRAME-->
+<div id="_input_pin_code_view" class="_input_pin_code_view LyMain" role="main">
+
+    <section>
+        <div class="MdMN17Notice mdMN17Type02">
+        <p class="MdTxt01"><%= VERIFICATION_CODE_SMS_SENT %><br><em class="mdMN17No _phone_number_display">{{phoneNumber}}</em><input type="button" class="MdBtn05SR _edit_phone_number_btn" value="<%= EDIT %>"></p>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input"><input type="number" pattern="[0-9]*" class="_pincode_text" name="" placeholder="<%= ENTER_VERIFICATION_CODE %>" value=""></div></div></li>
+
+            <!--/MdMN15List--></ul>
+        </div>
+    </section>
+
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="MdBtn01 _confirm_btn" data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= NEXT %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+    <aside class="MdBox02">
+    <p class="MdTxt02 MdAC"><%= VERIFICATION_CODE_DONOT_RECEIVE_DESCRIPTION %></p>
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="MdBtn03 _resend_btn {{#resendFlag}} ExDisabled {{/resendFlag}}" data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= GET_SMS_AGAIN %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+    </aside>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

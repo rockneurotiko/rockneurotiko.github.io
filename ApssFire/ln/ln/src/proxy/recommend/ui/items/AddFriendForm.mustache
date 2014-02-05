@@ -1,0 +1,19 @@
+{{#userid}}
+    <div class="MdMN07Head MdAC"><h2 class="mdMN07Ttl"><%= MY_LINE_ID %> <b>{{userid}}</b></h2></div>
+{{/userid}}
+{{^userid}}
+    <div class="MdMN07Head MdAC"><h2 class="mdMN07Ttl"><a class="mdMN07Link _btn_userid_set" href="#"><%= MY_LINE_ID %> <b><%= NOT_SET %></b></a></h2></div>
+{{/userid}}
+<div class="MdMN06Search" role="search" id="_wrap_search_friend">
+    <fieldset>
+        <label class="MdHide" for=""><%= SEARCH_FRIEND_BY_ID %></label>
+        <div class="mdMN06Input ExPlaceholder">
+            <input type="search" name="q" role="textbox" placeholder="<%= ENTER_FRIEND_ID %>" id="_input_userid">
+            <input type="button" value="delete" class="mdMN06Delete MdNonDisp _btn_cancel">
+        </div>
+        <div class="mdMN06Search" data-pressed-class="ExTap"><input type="submit" value="search" id="_btn_search"></div>
+    </fieldset>
+    <!--/MdMN05Search--></div>
+<div id="_wrap_search_result">
+
+</div>

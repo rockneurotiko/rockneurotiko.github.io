@@ -1,0 +1,44 @@
+<!--MAIN-FRAME-->
+<div id="_confirm_term_view" class="_confirm_term_view LyMain" role="main">
+
+        <section>
+            <dl class="MdMN14List">
+                <dt><%= TERMS_OF_SERVICE %></dt>
+                <dd>
+                    <div class="MdMN16Terms" style="padding:0;margin:0;overflow: hidden;line-height:0;">
+                        <iframe class="_resize_overflow" src="{{termsOfServiceUrl}}" frameborder="0" style="border:0;height:125px;width:100%;" mozbrowser remote></iframe>
+                    </div>
+                    {{#showAgreeTermCheckBox}}
+                    <p class="mdMN14Opt01"><label class="_check_box" data-name="terms"><span class="MdIcoCheck02"><input type="checkbox"></span><%= REGISTER_AGREEMENT_TERM %></label></p>
+                    {{/showAgreeTermCheckBox}}
+                </dd>
+                <!--/MdMN14List--></dl>
+
+        </section>
+
+        <section>
+            <dl class="MdMN14List">
+                <dt><%= PRIVACY_POLICY %></dt>
+                <dd>
+                    <div class="MdMN16Terms" style="padding:0;margin:0;overflow: hidden;line-height:0;">
+                        <iframe class="_resize_overflow" src="{{termsAndPrivacyPolicy}}" frameborder="0" style="border:0;height:125px;width:100%;" mozbrowser remote></iframe>
+                    </div>
+
+                    {{#showAgreeTermCheckBox}}
+                    <p class="mdMN14Opt01"><label class="_check_box" data-name="privacyPolicy"><span class="MdIcoCheck02"><input type="checkbox"></span><%= REGISTER_AGREEMENT_PRIVACY_POLICY %></label></p>
+                    {{/showAgreeTermCheckBox}}
+                    {{^showAgreeTermCheckBox}}
+                    <br>
+                    {{/showAgreeTermCheckBox}}
+                </dd>
+                <!--/MdMN14List--></dl>
+
+        </section>
+
+        <p class="MdTxt02 MdAC"><%= REGISTER_AGREEMENT_LABEL %></p>
+        <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+            <li><a class="MdBtn01 _confirm_btn"  data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= AGREEMENT %></a></li>
+        </ul><!--/MdMN09BtnSet--></div>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

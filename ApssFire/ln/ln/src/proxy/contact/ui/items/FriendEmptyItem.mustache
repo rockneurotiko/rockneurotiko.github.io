@@ -1,0 +1,12 @@
+{{#privacySyncContacts}}
+    <div class="mdMN04Img"><img src="/res/img/MdMN/img_mdMN04Empty_01.png" height="112"></div>
+    <h2 class="mdMN04Ttl"><%= BLANK_CHATS_LIST_CASE_ADD_FRIENDS_ON_TITLE %></h2>
+    <p class="mdMN04Desc"><%= BLANK_CHATS_LIST_CASE_ADD_FRIENDS_ON_TEXT %></p>
+    <div class="mdMN04Btn"><a class="MdBtn01 _btn_add_friend" href="#" data-pressed-class="ExTap"><%= TAP_NAME_ADD_FRIENDS %></a></div>
+{{/privacySyncContacts}}
+{{^privacySyncContacts}}
+    <div class="mdMN04Img"><img src="/res/img/MdMN/img_mdMN04Empty_01.png" height="112"></div>
+    <h2 class="mdMN04Ttl"><%= BLANK_CHATS_LIST_CASE_ADD_FRIENDS_OFF_TITLE %></h2>
+    <!--<p class="mdMN04Desc"><%= BLANK_CHATS_LIST_CASE_ADD_FRIENDS_OFF_TEXT %></p>-->
+    <div class="mdMN04Btn"><a class="MdBtn01 _btn_setting" href="#" data-pressed-class="ExTap"><%= TAP_NAME_SETTINGS %></a></div>
+{{/privacySyncContacts}}

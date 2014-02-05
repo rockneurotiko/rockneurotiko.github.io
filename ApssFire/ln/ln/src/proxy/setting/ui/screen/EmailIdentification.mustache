@@ -1,0 +1,37 @@
+<!--MAIN-FRAME-->
+<div id="_email_identification_view" class="_email_identification_view LyMain" role="main">
+
+    <div class="MdMN17Notice mdMN17Type01">
+        <p class="mdMN17Desc"><%= IDENTIFICATION_SECURITY_TEXT %></p>
+        <!--/MdMN17Notice--></div>
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input"><input type="text" class="_email_text" placeholder="<%= EMAIL %>" value=""></div></div></li>
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input ExPlaceholder"><input type="text" class="_password_text" placeholder="<%= PASSWORD %>" value=""></div></div></li>
+
+            <!--/MdMN15List--></ul>
+
+    </section>
+
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="MdBtn03 _confirm_btn ExDisabled" data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= CONFIRM %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+    <p class="MdTxt01 _forgot_password_btn"><span class="MdIcoKey"></span><a href="#"><%= FORGOT_YOUR_PASSWORD %></a></p>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
+
+
+<!--LAYER-AREA-->
+<div class="MdOverlay _reset_md_overlay MdNonDisp" style=""></div><div class="MdLYR03Box _center_box _reset_md MdNonDisp" style="top: 20px;">
+    <p class="mdLYR03Desc"><%= RESET_MAIL_SEND_MESSAGE %></p>
+    <div class="mdLYR03Form"><input type="text" class="mdLYR03Input ExPlaceholder _reset_email_text" placeholder="Email address" value=""></div>
+    <div class="MdMN09BtnSet mdMN09Row"><ul class="mdMN09Ul">
+        <li><a data-pressed-class="ExTap" class="MdBtn03 _cancel_reset_password_btn" href="#"><%= CANCEL %></a></li>
+        <li><a data-pressed-class="ExTap" data-disabled-class="ExDisabled" class="MdBtn01 ExDisabled _reset_password_btn" href="#"><%= CONFIRM %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+    <!--/MdLYR03Box--></div>
+

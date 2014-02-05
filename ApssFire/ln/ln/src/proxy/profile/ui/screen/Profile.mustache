@@ -1,0 +1,88 @@
+<!--MAIN-FRAME-->
+<div  class="_profile_view LyMain" role="main">
+
+    <section>
+        <div class="MdMN18ImgSet mdMN18Setting">
+            <div class="mdMN18Inner">
+                <div class="mdMN18Thumb">
+                    <div class="mdMN18ThumbInner _profile_image">
+                        <img src="/res/img/noimg/profile_img90x90.png" data-src="{{thumbnail}}" alt="UserName"  width="90" height="90">
+                        <div class="MdIcoEdit"><%= EDIT %></div>
+                    </div><!--/mdMN18Thumb--></div>
+                <div class="mdMN18Txt _change_display_name" data-value="{{displayName}}">
+                    <h2 class="mdMN18Head">{{displayName}}</h2>
+                    <!--/mdMN18Txt--></div>
+            </div>
+            <!--/MdMN18ImgSet--></div>
+
+    </section>
+
+    <section>
+        <dl class="MdMN14List">
+            <dt><%= STATUS_MESSAGE %></dt>
+            <dd>
+                <ul class="MdMN15List">
+                    <li data-pressed-class="ExTap"><a class="mdMN15Tbl01 _change_status_message"  data-value="{{statusMessage}}" href="#">
+                        {{#statusMessage}}<div class="mdMN15Cell mdMN15Txt02">{{statusMessage}}</div>{{/statusMessage}}
+                        {{^statusMessage}}<div class="mdMN15Cell MdTxtNodata"><%= NOT_SET %></div>{{/statusMessage}}
+                    </a></li>
+                    <!--/MdMN15List--></ul>
+            </dd>
+            <!--/MdMN14List--></dl>
+    </section>
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell"><%= PHONE_NUMBER %></div><div class="mdMN15Cell">{{authorizedPhoneNumber}}</div></div></li>
+
+            {{#userid}}
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell"><%= USER_ID %></div><div class="mdMN15Cell">{{userid}}</div></div></li>
+            {{/userid}}
+            {{^userid}}
+            <li data-pressed-class="ExTap"><a href="#" class="mdMN15Tbl01 _add_user_id"><div class="mdMN15Cell"><%= USER_ID %></div>
+                <div class="mdMN15Cell MdTxtNodata"><%= NOT_SET %></div></a></li>
+            {{/userid}}
+
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= PRIVACY_PUBLIC_USER_ID %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+
+                    {{#allowSearchByUserid}}
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div class="mdMN13Box mdMN13IsOn _toggle_pub_userid_btn">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    {{/allowSearchByUserid}}
+                    {{^allowSearchByUserid}}
+                    <select name="">
+                        <option value="on">on</option>
+                        <option value="off" selected>off</option>
+                    </select>
+                    <div class="mdMN13Box mdMN13IsOff _toggle_pub_userid_btn">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    {{/allowSearchByUserid}}
+
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+            <!--/MdMN15List--></ul>
+
+        <p class="MdTxt01 mdTxt01Setting"><%= PEOPLE_CAN_ADD_YOU_AS_A_FRIEND_BY_ID %></p>
+
+        <ul class="MdMN15List">
+            <li data-pressed-class="ExTap"><a class="mdMN15Tbl01 _delete_account" href="#"><div class="mdMN15Cell"><%= DELETE_ACCOUNT %></div></a></li>
+            <!--/MdMN15List--></ul>
+    </section>
+
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

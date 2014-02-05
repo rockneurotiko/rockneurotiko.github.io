@@ -1,0 +1,30 @@
+<!--MAIN-FRAME-->
+<div id="_email_input_pin_code_view" class="_email_input_pin_code_view LyMain" role="main">
+
+    <div class="MdMN17Notice mdMN17Type01">
+        <p class="mdMN17Email">{{userMail}}</p>
+        <p class="mdMN17Desc"><%= VERIFICATION_CODE_EMAIL_SENT %></p>
+        <!--/MdMN17Notice--></div>
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input ExPlaceholder"><input type="number" name="" class="_pincode_text" placeholder="<%= ENTER_VERIFICATION_CODE %>" value=""></div></div></li>
+
+            <!--/MdMN15List--></ul>
+
+    </section>
+
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="_confirm_btn MdBtn03 ExDisabled" data-pressed-class="ExTap" data-disabled-class="ExDisabled" href="#"><%= REGISTER_EMAIL %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+
+    <p class="MdTxt01 mdTxt01Setting"><%= VERIFICATION_CODE_DONOT_RECEIVE_CHECK_EITHER %></p>
+
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="MdBtn04 _resend_pin_code_btn" data-pressed-class="ExTap" href="#"><%= GET_SMS_AGAIN %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
