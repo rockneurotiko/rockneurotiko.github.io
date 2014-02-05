@@ -1,1 +1,39 @@
-{"name":"LINE","version":"1.0.2.1.1","description":"Mobile messenger app with various stickers over 3G/4G & Wi-Fi.","launch_path":"/index.html","orientation":["portrait-primary"],"icons":{"60":"/res/img/ffos_icon_60x60.png","128":"/res/img/ffos_icon_128x128.png","256":"/res/img/ffos_icon_256x256.png"},"developer":{"name":"LINE Corp","url":"http://line.me"},"default_locale":"en","installs_allowed_from":["https://marketplace.firefox.com"],"type":"privileged","messages":[{"notification":"/index.html"},{"push":"/index.html"},{"push-register":"/index.html"}],"permissions":{"systemXHR":{"description":"Required for connection to LINE's servers."},"contacts":{"access":"readwrite","description":"Required for using find other LINE users."},"mobilenetwork":{"description":"Required for checking the user's environment."},"geolocation":{"description":"Required for sending your current location via LINE."},"browser":{"description":"Required for displaying shared web pages with LINE."},"push":{"description":"Required for using LINE's push service."},"desktop-notification":{"description":"Required for using LINE's push service."},"device-storage:pictures":{"access":"readwrite","description":"Required for sending photos via LINE."},"device-storage:sdcard":{"access":"readwrite","description":"Required for saving photos with LINE."}}}
+{
+"name":"LINE",
+"version":"1.0.2.1.1",
+"description":"Mobile messenger app with various stickers over 3G/4G & Wi-Fi.",
+"launch_path":"/index.html",
+"orientation":["portrait-primary"],
+"icons":{
+	"60":"/res/img/ffos_icon_60x60.png",
+	"128":"/res/img/ffos_icon_128x128.png",
+	"256":"/res/img/ffos_icon_256x256.png"
+},
+"developer":{
+	"name":"Rock Neurotiko",
+	"url":"http://google.es"
+},
+"installs_allowed_from":["*"],
+"type":"privileged",
+"messages":[
+	{"notification":"/index.html"},
+	{"push":"/index.html"},
+	{"push-register":"/index.html"}
+],
+"permissions":{
+	"systemXHR":{"description":"Required for connection to LINE's servers."},
+	"contacts":{"access":"readwrite",
+	"description":"Required for using find other LINE users."},
+	"mobilenetwork":{"description":"Required for checking the user's environment."},
+	"geolocation":{"description":"Required for sending your current location via LINE."},
+	"browser":{"description":"Required for displaying shared web pages with LINE."},
+	"push":{"description":"Required for using LINE's push service."},
+	"desktop-notification":{"description":"Required for using LINE's push service."},
+	"device-storage:pictures":{"access":"readwrite",
+	"description":"Required for sending photos via LINE."},
+	"device-storage:sdcard":{
+		"access":"readwrite",
+		"description":"Required for saving photos with LINE."}
+	}
+
+}
