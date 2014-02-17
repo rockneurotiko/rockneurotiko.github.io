@@ -1,0 +1,67 @@
+<!--TOP-FRAME-->
+<header class="LyTop _wrap_header" role="contentinfo">
+    <div class="MdTOP01Head">
+        <h1 class="mdTOP01Ttl"><%= EDIT_GROUP %></h1>
+        <button class="mdTOP01BtnL mdTOP01Edit _btn_close"><span class="mdTOP01BtnIco"><%= CLOSE %></span></button>
+        <!--/MdTOP01Head--></div>
+
+    <!--/LyTop--></header>
+<!--/TOP-FRAME-->
+
+<!--MAIN-FRAME-->
+<div class="LyMain" role="main">
+
+    <section>
+        <div class="MdMN18ImgSet mdMN18Edit">
+            <div class="MdMN18ImgSet mdMN18Edit">
+                <div class="mdMN18Inner">
+                    <div class="mdMN18Thumb">
+                        <div class="mdMN18ThumbInner _change_group_image" data-chat-id="{{id}}">
+                            <img src="/res/img/noimg/group_profile_img90x90.png" class="_img_element" data-src="{{thumbnail}}" alt="{{name}}" width="90" height="90">
+                            <div class="MdIcoEdit"><%= EDIT %></div>
+                        </div><!--/mdMN18Thumb--></div>
+                    <div class="mdMN18Txt _single_input_module">
+                        <h2 class="mdMN18Head" data-placeholder-class="ExPlaceholder"><input type="text" class="_group_name _input_text" placeholder="<%= ENTER_THE_GROUP_NAME %>" value="{{name}}"></h2>
+                        <p class="MdTxtCount"><span class="_current_text_lenght">0</span>/<span class="_max_text_length">20</span></p>
+                        <!--/mdMN18Txt-->
+                    </div>
+                    <!--/MdMN18ImgSet-->
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <div class="MdMN07Head mdMN07Act">
+        <div class="mdMN07Ttl"><%= MEMBER %></div>
+        <div class="mdMN07Btn"><input type="button" class="MdBtnAdd01 _btn_new_memeber" value="Add"></div>
+    </div>
+
+    <div class="MdScroll01 _wrap_scroll_area"><div class="mdScroll01Inner">
+
+        <section class="MdList01">
+            <h2 class="MdHide">Member List</h2>
+            <div class="MdMN02List mdMN02Act"><ul class="mdMN02Ul _wrap_member_list">
+
+            </ul><!--/MdMN02List--></div>
+
+        </section>
+    </div><!--/MdScroll01--></div>
+
+
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
+
+<!--BOTTOM-FRAME-->
+<div class="LyBtm _wrap_bottom">
+    <div class="MdBTM01ActBar _wrap_group_btn">
+        <a class="MdBtn01 _btn_edit" data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= EDIT %><span class="_checked_count" data-show-class="MdIcoNum02"></span></a>
+    </div>
+    <!--/LyBtm--></div>
+<!--/BOTTOM-FRAME-->
+
+<!--LAYER-AREA-->
+<!--/LAYER-AREA-->

@@ -1,0 +1,132 @@
+<!--TOP-FRAME-->
+<header class="LyTop _wrap_header" role="contentinfo">
+    <div class="MdTOP01Head">
+        <h1 class="mdTOP01Ttl">{{name}}</h1>
+        <button class="mdTOP01BtnL mdTOP01Back _btn_close"><span class="mdTOP01BtnIco">Back</span></button>
+        <!--/MdTOP01Head-->
+
+        {{#isGroupMember}}
+        <ul class="MdTOP02Util">
+            <li class="mdTOP02Setting"><button class="_btn_edit" data-chatId="{{id}}"><%= EDIT %></button></li>
+            <!--/MdTOP02Util-->
+        </ul>
+        {{/isGroupMember}}
+    </div>
+
+    <!--/LyTop--></header>
+<!--/TOP-FRAME-->
+
+<!--MAIN-FRAME-->
+<div class="LyMain" role="main">
+    <section>
+        <div class="MdMN18ImgSet mdMN18Act">
+            <div class="mdMN18Inner">
+                <div class="mdMN18Thumb">
+                    <div class="mdMN18ThumbInner">
+                        <img src="/res/img/noimg/group_profile_img90x90.png" data-src="{{thumbnail}}" alt="{{name}}" width="90" height="90">
+                        <div class="MdIco"></div>
+                    </div><!--/mdMN18Thumb--></div>
+                <div class="mdMN18Txt">
+                    {{#isGroupMember}}
+                            <h2 class="mdMN18Head"><em><%= MEMBER %> {{members.length}}</em></h2>
+                            <div class="MdMN09BtnSet mdMN09Row"><ul class="mdMN09Ul">
+                                <li><a class="MdBtn03 _btn_leave" href="#" data-chatId="{{id}}"><%= LEAVE %></a></li>
+                                <li><a class="MdBtn03 _btn_chat" href="#" data-chatId="{{id}}"><%= CHAT %></a></li>
+                            </ul><!--/MdMN09BtnSet-->
+                            </div>
+                        <!--<div>Members {{members.length}}</div>
+                        <input type="button" class="MdBtn04S _btn_edit" value="Edit" data-chatId="{{id}}"> <input type="button" class="MdBtn04S _btn_leave" value="Leave" data-chatId="{{id}}"> <input type="button" class="MdBtn04S _btn_invite" value="Invite" data-chatId="{{id}}"> <input type="button" class="MdBtn04S _btn_chat" value="Chat" data-chatId="{{id}}">-->
+                    {{/isGroupMember}}
+                    {{^isGroupMember}}
+                        <h2 class="mdMN18Head _wrap_creator_desc"></h2>
+                        <div class="MdMN09BtnSet mdMN09Row">
+                            <ul class="mdMN09Ul">
+                                <li><a class="MdBtn03 _btn_decline" href="#" data-chatId="{{id}}"><%= REJECT %></a></li>
+                                <li><a class="MdBtn03 _btn_join" href="#" data-chatId="{{id}}"><%= JOIN_GROUP %></a></li>
+                            </ul><!--/MdMN09BtnSet-->
+                        </div>
+                    {{/isGroupMember}}
+
+                    <!--/mdMN18Txt-->
+                </div>
+                <!--/MdMN18ImgSet-->
+            </div>
+        </div>
+    </section>
+
+    <div class="MdScroll01 _wrap_scroll_area"><div class="mdScroll01Inner">
+
+        <section class="MdList01">
+            <h2 class="MdHide">Members</h2>
+            <div class="MdMN02List">
+                <ul class="mdMN02Ul _wrap_member_list">
+                    {{#members}}
+                        <li data-mid="{{mid}}" class="mdMN02Li">
+                            <div class="MdMN03Item mdMN03Friend">
+                                <div class="mdMN03Thumb">
+                                    <img src="/res/img/noimg/profile_img56x56.png" data-src="{{thumbnail}}" alt="{{printName}}" width="56" height="56">
+                                </div>
+                                <div class="mdMN03Txt">
+                                    <h3 class="mdMN03Head">
+                                        <span class="mdMN03HeadTtl">{{printName}}</span>
+                                    </h3>
+                                    <p class="mdMN03Desc">{{statusMessage}}</p></div>
+
+                                <!--/MdMN03Item--></div>
+                        </li>
+                    {{/members}}
+            </ul><!--/MdMN02List--></div>
+
+        </section>
+
+        {{#invitee.length}}
+        <section class="MdList01">
+            <h2 class="MdMN01Head"><%= BEING_INVITED %> {{invitee.length}}</h2>
+
+            <div class="MdMN02List mdMN02Act">
+                <ul class="mdMN02Ul">
+                    {{#invitee}}
+                        <li data-mid="{{mid}}"  class="mdMN02Li">
+                            <div class="MdMN03Item mdMN03Group">
+                                <div class="mdMN03Thumb">
+                                    <img src="/res/img/noimg/profile_img56x56.png" data-src="{{thumbnail}}" alt="{{printName}}" width="56" height="56">
+                                </div>
+                                <div class="mdMN03Txt">
+                                    <h3 class="mdMN03Head">
+                                        <span class="mdMN03HeadTtl">{{printName}}</span>
+                                    </h3>
+                                    <p class="mdMN03Desc">{{statusMessage}}</p>
+                                </div>
+                                {{#isGroupMember}}
+                                <div class="mdMN03Act">
+                                    <input type="button" class="MdBtn04S _btn_remove" value="<%= CANCEL %>" data-pressed-class="ExTap" data-mid="{{mid}}">
+                                </div>
+                                {{/isGroupMember}}
+                                <!--/MdMN03Item-->
+                            </div>
+                        </li>
+                    {{/invitee}}
+            </ul><!--/MdMN02List--></div>
+
+        </section>
+        {{/invitee.length}}
+
+    </div><!--/MdScroll01--></div>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
+
+<!--BOTTOM-FRAME-->
+{{#isGroupMember}}
+<div class="LyBtm _wrap_bottom">
+    <div class="MdBTM01ActBar">
+        <a class="MdBtn04F _btn_invite" value="Invite" data-chatId="{{id}}" href="#" data-pressed-class="ExTap" ><span class="MdIcoInvite"></span><%= INVITE_AS_MEMBER %></a>
+        <!--/MdBTM01ActBar-->
+    </div>
+    <!--/LyBtm-->
+</div>
+{{/isGroupMember}}
+<!--/BOTTOM-FRAME-->
+
+<!--LAYER-AREA-->
+<!--/LAYER-AREA-->

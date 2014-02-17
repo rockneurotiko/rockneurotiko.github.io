@@ -1,0 +1,8 @@
+<div role="dialog" data-type="action" class="wrap_media_context_menu">
+    <header>{{title}}</header> <!-- this header is optional -->
+    <menu type="toolbar">
+        <button data-action="photo"><%= PHOTOS %></button>
+        {{#remove}}<button data-action="delete" class="danger"><%= REMOVE %></button>{{/remove}}
+        <button data-action="cancel"><%= CANCEL %></button>
+    </menu>
+</div>

@@ -1,0 +1,39 @@
+<!--MAIN-FRAME-->
+<div id="_email_change_address_view" class="_email_change_address_view LyMain" role="main">
+
+    <div class="MdMN17Notice mdMN17Type01">
+        <p class="mdMN17Desc"><%= ACCOUNT_CURRENT_EMAIL_TEXT %></p>
+        <p class="mdMN17Email">{{email}}</p>
+        <!--/MdMN17Notice--></div>
+
+    <section>
+        <dl class="MdMN14List">
+            <dt><%= EMAIL %></dt>
+            <dd>
+                <ul class="MdMN15List">
+                    <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input ExPlaceholder"><input type="text" class="_email_login_text" placeholder="<%= EMAIL %>" value=""></div></div></li>
+
+                    <!--/MdMN15List--></ul>
+
+            </dd>
+            <!--/MdMN14List--></dl>
+
+        <dl class="MdMN14List">
+            <dt><%= PASSWORD %><span class="MdTxtCount _password_count">0/20</span></dt>
+            <dd>
+                <ul class="MdMN15List mdMN15Part">
+                    <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input ExPlaceholder"><input type="text" class="_email_password_text" placeholder="<%= PASSWORD %>" value=""></div></div></li>
+                    <li><div class="mdMN15Tbl01"><div class="mdMN15Cell mdMN15Input ExPlaceholder"><input type="text" class="_email_re_password_text" placeholder="<%= RE-CONFIRM_PASSWORD %>" value=""></div></div></li>
+
+                    <!--/MdMN15List--></ul>
+
+            </dd>
+            <!--/MdMN14List--></dl>
+    </section>
+
+    <div class="MdMN09BtnSet mdMN09Col"><ul class="mdMN09Ul">
+        <li><a class="MdBtn03 ExDisabled _confirm_btn" data-pressed-class="ExTap" data-disabled-class="ExDisabled" href="#"><%= CONFIRM %></a></li>
+    </ul><!--/MdMN09BtnSet--></div>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

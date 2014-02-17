@@ -1,0 +1,55 @@
+<!--MAIN-FRAME-->
+<div id="_invite_friends_list" class="_invite_friends_list LyMain" role="main">
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= AUTO_ADD_FRIENDS %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch" data-name="auto_add_friends">
+
+
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div class="mdMN13Box {{#privacySyncContacts}}mdMN13IsOn{{/privacySyncContacts}}{{^privacySyncContacts}}mdMN13IsOff{{/privacySyncContacts}} _action_btn" data-name="auto_add_friends">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+
+                    <!--/MdMN13Switch--></div>
+                </div>
+            </div></li>
+            <li><div class="mdMN15Tbl01">
+                <div class="mdMN15Cell mdMN15Txt01"><%= LAST_AUTO_ADD %> : <time class="_last_sync_date">{{syncDate}}</time></div>
+                <div class="mdMN15Cell"><input type="button" class="MdBtnReload _action_btn" data-name="sync_contacts" value="Reload"></div>
+            </div></li>
+            <!--/MdMN15List--></ul>
+        <p class="MdTxt01 mdTxt01Setting"><%= AUTO_ADD_SETTING_DESCRIPTION %></p>
+
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= ALLOW_OTHERS_TO_ADD %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="" id="">
+                        <option value="on">on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div class="mdMN13Box {{#privacySearchByPhoneNumber}}mdMN13IsOn{{/privacySearchByPhoneNumber}}{{^privacySearchByPhoneNumber}}mdMN13IsOff{{/privacySearchByPhoneNumber}} _action_btn" data-name="allow_other_to_add">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+
+            <!--/MdMN15List--></ul>
+
+        <p class="MdTxt01 mdTxt01Setting"><%= ALLOW_OTHERS_TO_ADD_DESCRIPTION %></p>
+    </section>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

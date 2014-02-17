@@ -1,0 +1,72 @@
+<div class="_notification_list">
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= NOTIFICATION_CHAT_OPTION %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="NOTIFICATION_ENABLE" data-value="{{notificationEnable}}" class="mdMN13Box _action_btn {{#notificationEnable}}mdMN13IsOn{{/notificationEnable}} {{^notificationEnable}}mdMN13IsOff{{/notificationEnable}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+            <li class="_hide_groups {{^notificationEnable}}MdNonDisp{{/notificationEnable}}"><div class="mdMN15Tbl01 mdMN15Select">
+                <select class="_mute_select">
+                    <option value="-1"><%= MUTE_SETTINGS_UNMUTE %></option>
+                    <option value="1"><%= MUTE_SETTINGS_1HOUR %></option>
+                    <option value="2"><%= MUTE_SETTINGS_8AM %></option>
+                </select>
+                <div class="mdMN15Cell"><%= MUTE %></div>
+                <div class="mdMN15Cell _mute_label"></div>
+            </div></li>
+            </ul>
+
+        <ul class="_hide_groups {{^notificationEnable}}MdNonDisp{{/notificationEnable}} MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= NOTIFICATIONS_NEW_MESSAGES %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="NOTIFICATION_NEW_MESSAGE" data-value="{{notificationNewMessage}}" class="mdMN13Box _action_btn {{#notificationNewMessage}}mdMN13IsOn{{/notificationNewMessage}} {{^notificationNewMessage}}mdMN13IsOff{{/notificationNewMessage}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+            <!--/MdMN15List--></ul>
+
+
+        <ul class="_hide_groups {{^notificationEnable}}MdNonDisp{{/notificationEnable}} MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= NOTIFICATIONS_GROUP_INVITATIONS %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="NOTIFICATION_GROUP_INVITATION" data-value="{{notificationGroupInvitation}}" class="mdMN13Box _action_btn {{#notificationGroupInvitation}}mdMN13IsOn{{/notificationGroupInvitation}} {{^notificationGroupInvitation}}mdMN13IsOff{{/notificationGroupInvitation}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+            <!--/MdMN15List--></ul>
+
+    </section>
+
+</div>

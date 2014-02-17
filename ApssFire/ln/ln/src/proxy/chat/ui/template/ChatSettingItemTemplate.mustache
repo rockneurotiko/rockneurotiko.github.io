@@ -1,0 +1,14 @@
+{{#editGroup}}<li class="_chat_room_options_eiditGroup mdLYR02Edit {{#editGroup.inactive}}ExDisabled{{/editGroup.inactive}}"><button><span class="mdLYR02Txt"><%=EDIT_GROUP%></span></button></li>{{/editGroup}}
+{{#invite}}
+    <li class="_chat_room_option_invite mdLYR02Invite {{#invite.inactive}}ExDisabled{{/invite.inactive}}"><button><span class="mdLYR02Txt"><%=INVITE_AS_MEMBER%></span></button></li>
+{{/invite}}
+{{#notification}}
+    <li class="_chat_room_option_notification {{#notification.active}}mdLYR02PushOff {{#notification.kickout}}ExDisabled{{/notification.kickout}} {{/notification.active}}{{#notification.inactive}}mdLYR02PushOn{{/notification.inactive}}"><button><span class="mdLYR02Txt"><%=CHAT_OPTION_NOTIFICATION%></span></button></li>
+{{/notification}}
+{{#block}}<li class="_chat_room_option_block {{#block.inactive}}mdLYR02Block{{/block.inactive}}{{#block.active}}mdLYR02Unblock{{/block.active}}"><button><span class="mdLYR02Txt">{{#block.inactive}}<%=BLOCK%>{{/block.inactive}}{{#block.active}}<%=UNBLOCK%>{{/block.active}}</span></button></li>{{/block}}
+{{#leave}}<li class="_chat_room_options_leave mdLYR02Leave {{#leave.inactive}}ExDisabled{{/leave.inactive}}"><button><span class="mdLYR02Txt"><%=LEAVE%></span></button></li>{{/leave}}
+{{#createGroup}}<li class="_chat_room_options_createGroup mdLYR02Creat {{#createGroup.inactive}}ExDisabled{{/createGroup.inactive}}"><button><span class="mdLYR02Txt"><%=CREATE_GROUP%></span></button></li>{{/createGroup}}
+{{#photo}}<li class="_chat_room_option_photo mdLYR02Photos {{#block.active}}ExDisabled{{/block.active}}"><button><span class="mdLYR02Txt"><%=PHOTOS%></span></button></li>{{/photo}}
+{{#setting}}<li class="_chat_room_option_setting mdLYR02Settings"><button><span class="mdLYR02Txt"><%=CHAT_ROOM_SETTING%></span></button></li>{{/setting}}
+{{#default}}<li></li>{{/default}}
+{{#default2}}<li></li>{{/default2}}

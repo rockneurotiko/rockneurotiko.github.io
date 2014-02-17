@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!-- RES PRELOAD -->
+<img src="/res/img/logo_line.png" style="display:none;" alt=""/>
+<!-- RES PRELOAD -->
+
+<html lang="en" style="height:100%;overflow:hidden;">
+<head>
+
+    <title>LINE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
+    <!-- style -->
+    
+
+    <!-- firefox os building block -->
+    
+    
+
+    <!-- Additional markup to make Building Blocks kind of cross browser -->
+    
+
+    <!-- deploy css -->
+    <link rel="stylesheet" href="/res/css/line_ffos.css">
+
+    <style type="text/css">
+        html, body div#_wrap_context_menu, #_wrap_context_menu {
+            font-size:10px !important;
+        }
+
+        /* remove firefoxs dotted outline */
+        *::-moz-focus-inner { border: 0; }
+
+        /** CSS FOR list ui (ListUI.js) */
+        ._list_item{position:absolute;}
+        ._surf{position:relative; width:100%;}
+    </style>
+</head>
+<body style="height:100%">
+<div id="_wrap_splash" class="bgTypeL01" style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:10000">
+    <div class="LyMain" role="main">
+        <h1 class="MdLogo"><img src="/res/img/logo_line.png" alt="LINE"></h1>
+    <!--/LyMain--></div>
+</div>
+
+<div id="_wrap_dimmed" class="MdNonDisp">
+    <div id="_wrap_dimmed_content" class="MdLYR04Load mdLYR04LoadImg" style="position:absolute;z-index:10001"></div>
+    <div id="_dimmed_layer" style="width:100%;height:100%;opacity:0.3;position:absolute;top:0;left:0;z-index:10000"></div>
+</div>
+
+<div id="_wrap_page_header">
+    <header class="LyTop _header_group" role="contentinfo">
+        <div class="MdTOP01Head _btn_container">
+            <h1 class="mdTOP01Ttl _header_title">Friends</h1>
+            <span class="_chat_room_member_cnt mdTOP01Num MdNonDisp">(99)</span>
+            <span class="_chat_room_noti_flag MdIcoMute MdNonDisp">Push Off</span>
+
+            <button class="mdTOP01BtnL mdTOP01Back _icon_group" data-name="back"><span class="mdTOP01BtnIco">Back</span></button>
+            <button class="mdTOP01BtnL mdTOP01Edit _icon_group" data-name="close"><span class="mdTOP01BtnIco">Close</span></button>
+            <div class="mdTOP01BtnC"><button class="mdTOP01BtnTxt _icon_group" data-name="header_link">Header Link</button></div>
+
+            <ul class="MdTOP02Util">
+                <!--<li class="mdTOP02AddFriends _icon_group" data-name="add_contact"><button>Add Contact</button></li>-->
+
+                <li class="mdTOP02Talk _icon_group" data-name="talk"><button>Talk</button></li>
+                <li class="mdTOP02Delete _icon_group" data-name="delete"><button>Delete</button></li>
+
+                <!--li class="mdTOP02Choose _choose_friends _icon_group"><button>Choose Friends</button></li>
+                <li class="mdTOP02Edit _edit_chat_list  _icon_group"><button>Edit Chat List</button></li>
+                <li class="mdTOP02OptionOpen _chatroom_option _icon_group"><button>ChattingRoom Option</button></li-->
+
+                <li class="mdTOP02AddFriends _icon_group" data-name="create_group"><button>Create Group</button></li>
+                <li class="mdTOP02Edit _icon_group" data-name="edit_friend_list"><button>Edit Friends List</button></li>
+                <li class="mdTOP02Choose _icon_group" data-name="choose_friends"><button>Choose Friends</button></li>
+                <li class="mdTOP02Edit _icon_group" data-name="edit_chat_list"><button>Edit Chat List</button></li>
+
+                <li class="mdTOP02Help _icon_group" data-name="help"><button>Help</button></li>
+
+                <li class="mdTOP02Block _icon_group" data-name="block"><button>Block</button></li>
+                <li class="mdTOP02Profile _icon_group" data-name="profile"><button>Profile</button></li>
+
+                <li class="mdTOP02OptionOpen _icon_group" data-active-class="mdTOP02OptionClose" data-inactive-class="mdTOP02OptionOpen" data-name="chat_room_option" data-type="active"><button>ChattingRoom Option</button></li>
+
+                <li class="mdTOP02Setting _icon_group" data-name="setting"><button>Setting</button></li>
+                <li class="mdTOP02OptionFriends _icon_group" data-name="friend_option"><button>Friend Option</button></li>
+
+                <!--/MdTOP02Util--></ul>
+
+            <!--/MdTOP01Head--></div>
+
+        <nav id="_wrap_main_menu" class="MdTOP03Nav" role="navigation"><ul>
+            <li class="mdTOP03Friends ExSelected"><button data-screen-name="FRIENDS" data-sub-name="FRIEND_LIST"><span class="mdTOP03Ico">Friends</span><span class="MdBadge01" id="_new_friend_badge"></span></button></li>
+            <li class="mdTOP03Chat"><button data-screen-name="CHAT" data-sub-name="CHAT_LIST"><span class="mdTOP03Ico">Chat</span><span class="MdBadge01" id="_unread_message_badge_count"></span></button></li>
+            <li class="mdTOP03AddFriends"><button data-screen-name="ADD_CONTACT" data-sub-name="ADD_CONTACT_LIST"><span class="mdTOP03Ico">Add Friends</span><span class="MdBadge01" id="_recommend_badge_count"></span></button></li>
+            <li class="mdTOP03Setting"><button data-screen-name="SETTING" data-sub-name="SETTING_LIST"><span class="mdTOP03Ico">Setting</span><span class="MdBadge01 MdNonDisp" id="_setting_badge_count">99</span></button></li>
+        </ul><!--/mdTOP03Nav--></nav>
+
+        <!--/LyTop--></header>
+</div>
+<div id="_wrap_alert" class="MdNonDisp" style="position:absolute;top:0;left:0;right:0;bottom:0;background-color: white;z-index:9999;">
+
+</div>
+
+<div id="_wrap_layers">
+
+    <div id="_wrap_register" class="join MdScroll01">
+    </div>
+
+
+    <div id="_wrap_contact_list" class="friends" class="LyMain" role="main">
+
+    </div>
+
+    <!-- chat list -->
+    <div id="_wrap_chat_list" class="LyMain" role="main">
+
+    </div>
+    <!--// chat list -->
+
+    <!-- chat edit list -->
+    <div id="_wrap_chat_edit_list" class="LyMain" role="main">
+
+    </div>
+    <!--// chat list -->
+
+
+
+
+
+
+    <!-- chat room -->
+    <div id="_wrap_chat_room" class="MdNonDisp bgTypeG02">
+        <!-- add & block ?? ??-->
+        <div class="MdScroll01 _chat_scroll_area"><div class="mdScroll01Inner">
+            <section id="_chat_room_msg_list" class="MdMN11ChatCnt _chat_content_area">
+                <!-- ?? ?? ?? -->
+                <!-- ??? ??? ?? ?? ?? -->
+                <!-- ?? ??? ?? ?? -->
+                <!-- ??? ?? ?? -->
+            </section>
+        </div></div>
+
+        <div class="LyBtm">
+            <div class="MdBTM02Talk">
+                    <div class="mdBTM02Form">
+                        <div class="mdBTM02Add" data-pressed-class="ExTap" id="_chat_room_plus_btn"><input type="button" value="Message Option"></div>
+                        <div class="mdBTM02Sticker" data-pressed-class="ExTap" id="_chat_room_sticker"><input type="button" value="Sticker"></div>
+                        <div class="mdBTM02Input ExPlaceholder">
+                            <textarea id="_chat_room_input" rows="1" placeholder="" maxlength="10000"></textarea>
+                            <input type="submit" id="_chat_room_send_btn" class="mdBTM02Send ExDisabled" value="Send">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="MdLYR05UserList MdNonDisp _wrap_group_member">
+            <a class="mdLYR05Link" href="#" id="_wrap_group_member_list">
+
+            </a><!--/MdLYR05UserList-->
+        </div>
+
+        <div class="_curtainLayer MdOverlay MdNonDisp" style="height:500px"></div>
+
+        <div class="_sticker_layer MdLYR01Sticker MdNonDisp" style="top: 0;">
+            <div class="mdLYR01Nav">
+                <div class="mdLYR01NavWrapper">
+                    <div class="mdLYR01NavScroller">
+                        <ul class="_sticker_layer_header mdLYR01NavUl">
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdLYR01Cont">
+                <div class="mdLYR01ContScroller" style="height: 180px;"><div class="mdLYR01ContScrollerInner">
+                    <ul class="_sticker_layer_body mdLYR01ContUl">
+
+                    </ul>
+                    </ul>
+                </div></div>
+            </div>
+        </div>
+
+    </div>
+    <!--// chat room -->
+
+    <div id="_wrap_chat_etc">
+
+    </div>
+
+
+    <!-- chat room options -->
+    <div class="_chat_room_option_body MdLYR02ChatOpt MdNonDisp" style="top: 36px;"><ul class="mdLYR02Ul">
+    </ul></div>
+    <!--// chat room options -->
+
+
+
+
+    <!-- invite list -->
+    <div id="_wrap_add_friends" class="MdNonDisp">
+    </div>
+    <!--// invite list -->
+
+
+
+
+
+
+
+    <!-- setting -->
+    <div id="_wrap_setting" class="MdNonDisp MdScroll01">
+    </div>
+    <!--// setting -->
+
+
+    <div id="_wrap_confirm" style="position:absolute;top:0;left:0;right:0;bottom:0;background-color: white;z-index:9999;">
+    </div>
+
+    <div id="_wrap_context_menu" style="position:absolute;top:0;left:0;background-color: white;z-index:9999;">
+
+    </div>
+
+    <div id="_wrap_friend_manager" style="position:absolute;width:100%;top:0;left:0;background-color: white;z-index:8000;">
+    </div>
+
+    <div id="_wrap_group_manager" style="position:absolute;width:100%;top:0;left:0;background-color: white;z-index:8000;">
+    </div>
+
+    <div id="_wrap_group" style="position:absolute;top:0;left:0;background-color: white;z-index:8000;">
+    </div>
+
+
+
+    <!--// ETC Layers --->
+    <div id="_wrap_etc">
+
+    </div>
+
+</div>
+
+<!-- dev assets -->
+
+
+<!-- deploy source -->
+<script type="text/javascript" src="/src/line_ffos.lib.min.js"></script>
+<script type="text/javascript" src="/src/line_ffos.src.min.js"></script>
+<script type="text/javascript" src="/src/line_ffos.thrift.min.js"></script>
+<script type="text/javascript" src="/src/app.js"></script>
+
+</body>
+</html>

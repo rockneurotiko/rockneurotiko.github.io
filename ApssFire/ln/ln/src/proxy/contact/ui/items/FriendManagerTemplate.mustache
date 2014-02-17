@@ -1,0 +1,68 @@
+<!--TOP-FRAME-->
+<header class="LyTop _wrap_header" role="contentinfo">
+    <div class="MdTOP01Head">
+        <h1 class="mdTOP01Ttl _wrap_friend_manager_title"><%= EDIT_FRIENDS %></h1>
+        <button class="mdTOP01BtnL mdTOP01Edit _btn_close"><span class="mdTOP01BtnIco"><%= CLOSE %></span></button>
+        <!--/MdTOP01Head--></div>
+
+    <!--/LyTop--></header>
+<!--/TOP-FRAME-->
+
+<!--MAIN-FRAME-->
+<div class="LyMain" role="main">
+        <div class="MdMN05Search _wrap_search" role="search">
+            <label class="MdHide" for=""><%= SEARCH %></label>
+            <div class="mdMN05Input ExPlaceholder">
+                <input type="search" name="q" role="textbox" placeholder="<%= SEARCH %>" value="" class="_search_text">
+                <input type="button" value="delete" class="mdMN05Delete MdNonDisp _btn_cancel">
+            </div>
+            <div class="mdMN05Cancel _wrap_btn_cancel" data-pressed-class="ExTap"><input type="button" value="<%= CANCEL %>" class="_btn_cancel"></div>
+
+        <!--/MdMN05Search--></div>
+    <div class="MdScroll01 _wrap_scroll_area" style="position:relative;">
+        <section class="MdList01">
+            <h2 class="MdMN01Head"><%= FRIEND %> <span class="_wrap_friend_count">0</span></h2>
+
+            <div class="MdMN02List ExEdit mdMN02Edit">
+                <ul class="mdMN02Ul _wrap_friend_list _surf _area">
+
+                </ul>
+                <!--/MdMN02List-->
+            </div>
+        </section>
+
+        <section class="_wrap_no_result MdNonDisp">
+            <h2 class="MdTxtNotice MdAC"><%= SEARCH_NO_RESULTS %></h2>
+        </section>
+
+        <section class="_wrap_no_friend MdNonDisp">
+            <h2 class="MdTxtNotice MdAC"><%= SELECTCHAT_NO_FRIEND %></h2>
+        </section>
+    </div><!--/MdScroll01-->
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
+
+<!--BOTTOM-FRAME-->
+<div class="LyBtm _wrap_bottom">
+    <div class="MdBTM01ActBar _wrap_edit_friend_btn">
+        <ul class="mdBTM01Ul">
+            <li><a class="MdBtn02 ExDisabled _btn_block" href="#" data-disabled-class="ExDisabled" data-pressed-class="ExTap"><%= BLOCK %><span class="_checked_count" data-show-class="MdIcoNum02"></span></a></li>
+            <li><a class="MdBtn03 ExDisabled _btn_hide" href="#" data-disabled-class="ExDisabled" data-pressed-class="ExTap"><%= HIDE_MENU_TEXT %><span class="_checked_count" data-show-class="MdIcoNum02"></span></a></li>
+        </ul><!--/MdBTM01ActBar-->
+    </div>
+
+    <div class="MdBTM01ActBar _wrap_choose_friend_btn">
+        <a class="MdBtn01 ExDisabled _btn_choose" data-disabled-class="ExDisabled" data-pressed-class="ExTap" href="#"><%= CHOOSE %><span class="_checked_count" data-show-class="MdIcoNum02"></span></a>
+    </div>
+
+    <div class="MdBTM01ActBar _wrap_chat_room_btn">
+        <ul class="mdBTM01Ul">
+            <li><a class="MdBtn01 ExDisabled _btn_chat" href="#" data-disabled-class="ExDisabled" data-pressed-class="ExTap"><%= BEGIN_CHAT %><span class="_checked_count" data-show-class="MdIcoNum02"></span></a></li>
+            <li><a class="MdBtn03 ExDisabled _btn_group" href="#" data-disabled-class="ExDisabled" data-pressed-class="ExTap"><%= CREATE_GROUP %></a></li>
+        </ul>
+    </div>
+
+    <!--/LyBtm-->
+</div>
+<!--/BOTTOM-FRAME-->

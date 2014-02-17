@@ -1,0 +1,36 @@
+<div class="LyMain" role="main">
+
+    {{#devices}}
+        <section>
+            <dl class="MdMN14List">
+                <dt>PC</dt>
+
+                <dd>
+                    <ul class="MdMN15List">
+                        {{#devices}}
+                        <li data-session-id="{{tokenKey}}">
+                            <div class="mdMN15Tbl01">
+                                <div class="mdMN15Cell">{{systemName}}</div>
+                            </div>
+                        </li>
+                        {{/devices}}
+                        <!--/MdMN15List--></ul>
+
+                </dd>
+                <!--/MdMN14List--></dl>
+        </section>
+
+    <div class="MdMN09BtnSet mdMN09Col">
+        <ul class="mdMN09Ul">
+            <li><a class="MdBtn03 _btn_logout_session" href="#" data-pressed-class="ExTap"><%= SETTINGS_PRIVACY_ACCOUNT_DEVICES_LOGOUT %></a></li>
+        </ul>
+        <!--/MdMN09BtnSet--></div>
+    {{/devices}}
+    {{^devices}}
+        <section id="_no_result">
+            <div class="MdMN08ImgSet">
+                <h3 class="mdMN08Ttl02">No Result</h3>
+                <!--/MdMN08ImgSet--></div>
+        </section>
+    {{/devices}}
+    <!--/LyMain--></div>

@@ -1,0 +1,18 @@
+<li data-chatId="{{chatId}}" data-isNoJoin="{{#noJoin}}true{{/noJoin}}{{^noJoin}}false{{/noJoin}}" class="mdMN02Li {{#CT_is_first_list}}mdMN02LiF{{/CT_is_first_list}}" data-pressed-class="ExTap">
+    <div class="MdMN03Item mdMN03Friend">
+        <div class="mdMN03Thumb">
+            <img src="{{defaultThumbnail}}" data-src="{{thumbnail}}" alt="photo" width="56">
+        </div>
+        <div class="mdMN03Txt">
+            <h3 class="mdMN03Head">
+                <span class="mdMN03HeadTtl">{{dpName}}</span>
+                <span class="MdIcoNum01 {{^memberCount}}MdNonDisp{{/memberCount}}">{{memberCount}}</span>
+                <span class="MdIcoMute {{^notificationOff}}MdNonDisp{{/notificationOff}}">Push Off</span>
+            </h3>
+            <p class="mdMN03Desc">{{lastMessage}}</p>
+        </div>
+        <p class="mdMN03Time"><time datetime="{{date}}">{{date}}</time></p>
+        <p class="MdIcoFailure01 {{^failure}}MdNonDisp{{/failure}}">Failure</p>
+        <p class="mdMN03Unread {{#noJoin}}MdNonDisp{{/noJoin}} {{^unreadCount}}MdNonDisp{{/unreadCount}}"><span>{{unreadCount}}</span></p>
+    </div>
+</li>

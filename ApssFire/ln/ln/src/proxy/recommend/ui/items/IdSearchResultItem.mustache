@@ -1,0 +1,26 @@
+{{#mid}}
+    <section>
+        <div class="MdMN08ImgSet">
+            <div class="mdMN08Img"><img src="/res/img/noimg/profile_img90x90.png" data-src="{{thumbnail}}" width="90" height="90"></div>
+            <h3 class="mdMN08Ttl">{{displayName}}</h3>
+            {{#isYou}}
+                <div class="mdMN08Desc"><%= IS_YOU %></div>
+            {{/isYou}}
+            {{^isYou}}
+                {{#isFriend}}
+                    <div class="mdMN08Desc"><%= ALREADY_ADDED_AS_FRIEND %></div>
+                {{/isFriend}}
+                {{^isFriend}}
+                    <div class="mdMN08Btn"><input type="button" class="MdBtn01" data-pressed-class="ExTap" value="<%= ADD %>" id="_btn_add_contact" data-mid="{{mid}}"></div><!--/MdMN08ImgSet--></div>
+                {{/isFriend}}
+            {{/isYou}}
+    </section>
+{{/mid}}
+{{^mid}}
+    <section>
+        <div class="MdMN08ImgSet">
+            <h3 class="mdMN08Ttl"><%= USER_NOT_FOUND %></h3>
+
+            <!--/MdMN08ImgSet--></div>
+    </section>
+{{/mid}}

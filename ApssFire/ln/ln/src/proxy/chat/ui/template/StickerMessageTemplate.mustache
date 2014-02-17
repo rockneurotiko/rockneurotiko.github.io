@@ -1,0 +1,40 @@
+<div class="_pan_{{CT_panelIdx}} MdMN12ChatItem {{#CT_isMine}}mdMN12Own{{/CT_isMine}}{{^CT_isMine}}mdMN12Others{{/CT_isMine}}" id="_chat_item_{{localId}}" data-local-id="{{localId}}">
+    <div class="mdMN12ChatItemInner">
+        {{^CT_isMine}} <div class="mdMN12Thumb"><img src="{{CT_thumbnail}}" width="56" height="56" alt="{{CT_displayName}}"></div>{{/CT_isMine}}
+
+        {{#CT_isMine}}
+            <div class="mdMN12Txt">
+                <div class="mdMN12TxtInner">
+
+                    <div class="mdMN12Option">
+                        <p class="mdMN12Read {{^CT_read}}MdNonDisp{{/CT_read}}" id="_chat_room_msg_read_{{localId}}">{{CT_readText}}</p>
+                        <p class="mdMN12Time" id="_chat_room_msg_{{localId}}">{{#CT_isSending}}<time datetime="{{CT_date}}">{{CT_date}}</time><!--span class="MdIcoSending">sending</span-->{{/CT_isSending}}{{#CT_isSent}}<time datetime="{{CT_date}}">{{CT_date}}</time>{{/CT_isSent}}</p>
+                        <p class="MdIcoFailure02 _failure_btn {{^CT_isFail}}MdNonDisp{{/CT_isFail}}" id="_fail_btn_{{localId}}" data-local-id="{{localId}}"><a href="#">Failure</a></p>
+                    </div>
+
+                    <p class="mdMN12Sticker"><img src="{{stickerUrl}}" alt="{{stickerTxt}}"></p>
+
+                </div>
+            </div>
+        {{/CT_isMine}}
+
+        {{^CT_isMine}}
+            <div class="mdMN12Txt">
+                <p class="mdMN12Name">{{CT_displayName}}</p>
+                <div class="mdMN12TxtInner">
+
+                    <p class="mdMN12Sticker"><img src="{{stickerUrl}}" alt="{{stickerTxt}}"></p>
+
+                    <div class="mdMN12Option">
+                        <p class="mdMN12Time"><time datetime="{{CT_date}}">{{CT_date}}</time></p>
+                    </div>
+                </div>
+            </div>
+        {{/CT_isMine}}
+
+    </div>
+</div>
+
+
+
+

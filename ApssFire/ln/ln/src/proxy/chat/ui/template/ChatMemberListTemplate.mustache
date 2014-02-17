@@ -1,0 +1,32 @@
+<div class="LyMain" role="main">
+
+    <div class="MdScroll01">
+
+        <section class="MdList01">
+            <h2 class="MdHide">Group List</h2>
+
+            <div class="MdMN02List">
+                <ul class="mdMN02Ul" id="_wrap_chat_member_list">
+                    {{#members}}
+                        <li data-mid="{{mid}}" class="mdMN02Li">
+                            <div class="MdMN03Item mdMN03Friend">
+                                <div class="mdMN03Thumb">
+                                    <img src="{{thumbnail}}" data-url="{{thumbnail}}" alt="{{printName}}" width="56" height="56">
+                                </div>
+                                <div class="mdMN03Txt">
+                                    <h3 class="mdMN03Head">
+                                        <span class="mdMN03HeadTtl">{{printName}}</span>
+                                    </h3>
+                                    <p class="mdMN03Desc">{{statusMessage}}</p></div>
+
+                                <!--/MdMN03Item--></div>
+                        </li>
+                    {{/members}}
+                </ul><!--/MdMN02List-->
+            </div>
+
+        </section>
+
+    </div><!--/MdScroll01-->
+
+    <!--/LyMain--></div>

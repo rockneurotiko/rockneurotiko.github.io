@@ -1,0 +1,8 @@
+<div role="dialog" data-type="action" class="wrap_chat_image_context_menu">
+    <header>{{printName}}</header> <!-- this header is optional -->
+    <menu type="toolbar">
+        {{#isResendAvailable}}<button data-action="resend-{{localId}}"><%=RETRY_SEND_MESSAGE%></button>{{/isResendAvailable}}
+        <button data-action="delete-{{localId}}"><%=DELETE%></button>
+        <button data-action="cancel"><%=CANCEL%></button>
+    </menu>
+</div>

@@ -1,0 +1,52 @@
+<!--MAIN-FRAME-->
+<div class="LyMain _setting_list" role="main">
+
+    <section>
+        <ul class="MdMN15List">
+
+        <li data-pressed-class="ExTap" data-name="SETTING_PROFILE"><a class="mdMN15Tbl02" href="#">
+            <div class="mdMN15Cell"><span class="mdMN15Thumb"><img src="/res/img/noimg/profile_img56x56.png" data-src="{{thumbnail}}" alt="UserName" width="36" height="36"></span><%= PROFILE %></div>
+        </a></li>
+        <!--/MdMN15List--></ul>
+
+        <ul class="MdMN15List">
+            <li data-pressed-class="ExTap" data-name="SETTING_ACCOUNTS"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= ACCOUNT_MANAGE %></div>
+            </a></li>
+            <!--/MdMN15List--></ul>
+
+
+        <ul class="MdMN15List">
+
+            <li data-pressed-class="ExTap" data-name="SETTING_NOTIFICATIONS"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= NOTIFICATION_SETTINGS %></div>
+
+                <div class="mdMN15Cell">
+                    {{#notificationEnable}}<%= ON %>{{/notificationEnable}}
+                    {{^notificationEnable}}<%= OFF %>{{/notificationEnable}}
+                </div>
+            </a></li>
+
+            <li data-pressed-class="ExTap" data-name="SETTING_CHATS"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= CHAT_SETTINGS %></div>
+            </a></li>
+            <li data-pressed-class="ExTap" data-name="SETTING_FRIENDS"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= FRIEND_SETTINGS %></div>
+            </a></li>
+            <li data-pressed-class="ExTap" data-name="SETTING_PRIVACY"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= PRIVACY_SETTINGS %></div>
+            </a></li>
+            <!--/MdMN15List--></ul>
+
+        <ul class="MdMN15List">
+            <li data-pressed-class="ExTap" data-name="SETTING_HELP"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= HELP %></div>
+            </a></li>
+            <li data-pressed-class="ExTap" data-name="SETTING_ABOUT_LINE"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= ABOUT_LINE_SETTINGS %></div>
+            </a></li>
+            <!--/MdMN15List--></ul>
+
+    </section>
+
+    <!--/LyMain--></div>

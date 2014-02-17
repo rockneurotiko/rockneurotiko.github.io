@@ -1,0 +1,51 @@
+<!--MAIN-FRAME-->
+<div class="_account_list LyMain" role="main">
+
+    <section>
+        <ul class="MdMN15List">
+
+            <li data-name="email_account" data-value="{{isEmailAccountInitialized}}" data-pressed-class="ExTap"><div class="mdMN15Tbl01"><a href="#">
+                <div class="mdMN15Cell"><%= REGISTER_EMAIL %></div>
+                {{#isEmailAccountInitialized}}
+                <div class="mdMN15Cell"><%= EMAIL_REGISTERED %></div>
+                {{/isEmailAccountInitialized}}
+                {{^isEmailAccountInitialized}}
+                <div class="mdMN15Cell"><%= NOT_REGISTERED %></div>
+                {{/isEmailAccountInitialized}}
+            </a></div></li>
+
+
+            <li data-name="phone_number"><div class="mdMN15Tbl01">
+                <div class="mdMN15Cell"><%= PHONE_NUMBER %></div>
+                <div class="mdMN15Cell">{{phoneNumber}}</div>
+            </div></li>
+
+
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= SETTINGS_DESKTOP_LOGIN %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="">
+                        <option value="on" selected>on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="ALLOW_OTHER_DEVICE" data-value="{{privacyAllowSecondaryDeviceLogin}}" class="mdMN13Box _action_btn {{#privacyAllowSecondaryDeviceLogin}}mdMN13IsOn{{/privacyAllowSecondaryDeviceLogin}} {{^privacyAllowSecondaryDeviceLogin}}mdMN13IsOff{{/privacyAllowSecondaryDeviceLogin}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+            <!--/MdMN15List--></ul>
+
+            <p class="MdTxt01 mdTxt01Setting"><%= SETTINGS_DESKTOP_LOGIN_DESC %></p>
+
+
+            <ul class="MdMN15List _wrap_other_device {{^privacyAllowSecondaryDeviceLogin}}MdNonDisp{{/privacyAllowSecondaryDeviceLogin}}">
+                <li data-name="other_device" data-pressed-class="ExTap"><a class="mdMN15Tbl01 _btn_connected_device" href="#"><div class="mdMN15Cell"><%= SETTINGS_PRIVACY_ACCOUNT_DEVICES %></div></a></li>
+            </ul>
+    </section>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->

@@ -1,0 +1,9 @@
+<div id="_chat_room_btn_set" class="MdMN09BtnSet mdMN09Row"><ul class="mdMN09Ul">
+    <li data-pressed-class="ExTap"><a class="MdBtn03 _btn_add" href="#"><%=ADD%></a></li>
+    {{#isBlock}}
+        <li data-pressed-class="ExTap"><a class="MdBtn05 _btn_block blocked" href="#"><%=UNBLOCK%></a></li>
+    {{/isBlock}}
+    {{^isBlock}}
+        <li data-pressed-class="ExTap"><a class="MdBtn05 _btn_block unblocked" href="#"><%=BLOCK%></a></li>
+    {{/isBlock}}
+</ul><!--/MdMN09BtnSet--></div>

@@ -1,0 +1,43 @@
+
+
+<!--MAIN-FRAME-->
+<div class="LyMain _chats_container" role="main">
+
+    <section>
+        <ul class="MdMN15List">
+            <li><div class="mdMN15Tbl03">
+                <div class="mdMN15Cell"><%= AUTO_RESEND %></div>
+                <div class="mdMN15Cell"><div class="MdMN13Switch">
+                    <select name="" id="">
+                        <option value="on">on</option>
+                        <option value="off">off</option>
+                    </select>
+                    <div data-name="chatAutoResend" data-value="{{chatAutoResend}}" class="mdMN13Box _action_btn {{#chatAutoResend}}mdMN13IsOn{{/chatAutoResend}} {{^chatAutoResend}}mdMN13IsOff{{/chatAutoResend}}">
+                        <span class="mdMN13Slider"></span>
+                        <span class="mdMN13L">On</span>
+                        <span class="mdMN13R">Off</span>
+                    </div>
+                    <!--/MdMN13Switch--></div>
+
+                </div>
+            </div></li>
+
+            <!--/MdMN15List--></ul>
+
+
+        <p class="MdTxt01 mdTxt01Setting"><%= AUTO_RESEND_DESC %> </p>
+
+        <ul class="MdMN15List">
+            <li data-pressed-class="ExTap" data-name="clear_chat_history"><a class="mdMN15Tbl01" href="#">
+                <div class="mdMN15Cell"><%= CLEAR_CHAT_HISTORY %></div>
+            </a></li>
+            <!--/MdMN15List--></ul>
+    </section>
+
+    <!--/LyMain--></div>
+<!--/MAIN-FRAME-->
+
+<!--<ul class="_chats_list">-->
+    <!--<li data-name="">Auto Resend <button>TRUE</button> SPEC OUT [WAIT]</li>-->
+    <!--<li data-name="clear_chat_history" style="color:#FF0000;">Clear Chat History</li>-->
+<!--</ul>-->

@@ -1,0 +1,8 @@
+<div role="dialog" data-type="action" class="wrap_hide_context_menu">
+    <header>{{displayNameOverridden}}{{^displayNameOverridden}}{{displayName}}{{/displayNameOverridden}}</header> <!-- this header is optional -->
+    <menu type="toolbar">
+        <button data-action="unhide-{{mid}}"><%= HIDDEN_USER_DISPLY %></button>
+        <button data-action="delete-{{mid}}"><%= REMOVE %></button>
+        <button data-action="cancel-{{mid}}"><%= CANCEL %></button>
+    </menu>
+</div>
