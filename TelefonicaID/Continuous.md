@@ -10,6 +10,7 @@ The process of automatically building and testing your software on a regular bas
 
 - [Wikipedia](http://en.wikipedia.org/wiki/Continuous_integration)
 - [Introduccion con Hudson (Español)](http://www.xnoccio.com//362-hudson-parte-1-introduccion/)
+- [Explicacion Practica (Mantin Fowler)](http://martinfowler.com/articles/continuousIntegration.html)
 - [Meet Jenkins (Web oficial)](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 
 
