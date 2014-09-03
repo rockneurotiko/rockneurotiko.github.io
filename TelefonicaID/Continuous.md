@@ -22,6 +22,17 @@ The process of automatically building and testing your software on a regular bas
 The ultimate culmination of this process; it’s the actual delivery of features and fixes to the customer as soon as they are ready. It usually refers to cloud and SaaS, as these are the most amenable to being silently updated in the background. But some desktop software offers this in the form of optional beta and nightly updates such as Mozilla’s beta and aurora Firefox channels, for example.
 
 
-### Links
+#### Links
 
 - [Atlassion blog](http://blogs.atlassian.com/2014/04/practical-continuous-deployment/)
+
+
+
+## 3. OpenStack
+
+#### Descripcion: (From their web)
+Open source software for building private and public clouds.
+
+#### Links
+
+- [Video "Continuous Integration and Deployment Using OpenStack "](https://www.youtube.com/watch?v=S-ET_GnJCUo)
