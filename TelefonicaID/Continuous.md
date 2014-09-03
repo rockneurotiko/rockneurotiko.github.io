@@ -27,7 +27,6 @@ The ultimate culmination of this process; it’s the actual delivery of features
 - [Atlassion blog](http://blogs.atlassian.com/2014/04/practical-continuous-deployment/)
 
 
-
 ## 3. OpenStack
 
 #### Descripcion: (From their web)
@@ -36,3 +35,4 @@ Open source software for building private and public clouds.
 #### Links
 
 - [Video "Continuous Integration and Deployment Using OpenStack "](https://www.youtube.com/watch?v=S-ET_GnJCUo)
+- [Video "OpenStack Continuous Delivery Best Practices"](https://www.youtube.com/watch?v=R6WBFWoU1Ok)
