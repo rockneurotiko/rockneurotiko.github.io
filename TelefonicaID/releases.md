@@ -1,5 +1,7 @@
 
-[Link Releases](https://wiki.openstack.org/wiki/Releases)
+# [Link Releases](https://wiki.openstack.org/wiki/Releases)
+
+-------
 
 # Release 1 (Austin)
 
@@ -64,4 +66,8 @@
 - Cuotas de usuario y cuenta (swift)
 - Funcionalidad "Celdas" para tener varios clusters (celdas) en distintas zonas geograficas sobra la misma API (nova) (experimental)
 - Computo sin base de datos (nova)
-- 
+- Soporte para redes multiples en nodos con agentes L3 y agentes DHCP (quantum)
+- Balanceo de carga como servicio (quantum)
+
+
+# Release 8 (Havana)
