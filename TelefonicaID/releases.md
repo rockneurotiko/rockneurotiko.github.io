@@ -23,7 +23,7 @@
 # Release 3 (Cactus)
 
 - Introduccion de checksum para deteccion de errores (swift)
-- Servir una web estatica con un Objet Storage usando listados en un index.html (swift)
+- Servir una web estatica con un Object Storage usando listados en un index.html (swift)
 - Soporte IPv6 (Nova)
 - Migrar maquinas virtuales de un nodo a otro sin tener que pararlos. \[HotSwap] (Nova)
 - CLI tool (glance)
@@ -32,7 +32,7 @@
 # Release 4 (Diablo)
 
 - Sincronizacion entre containers (swift)
-- Modulo de autenticacion se separa a un projecto distinto \[swauth] (swift) 
+- Modulo de autenticacion se separa a un proyecto distinto \[swauth] (swift) 
 - Soporte de IP flotante (nova)
 - Crear snapshots, clonar y bootear volumenes. (Nova)
 - Sistema de notificaciones (Nova)
@@ -93,10 +93,10 @@
 - Replicacion de objetos con ssync como alternativa a rsync (swift)
 - Actualizaciones en caliente y gradual (nova)
 - Drivers para Cinder(IBMS SONAS), LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)
-- Se puede cambiar el tipo de un volumen existente \[retype] (cinder)
+- Se puede cambiar el tipo de un volumen existente \[por ejemplo, de small a medium] (cinder)
 - Se pueden borrar cuotas (cinder)
 - HOT templates (En Havana era experimental) (Heat)
 - Los usuarios no admins pueden ejecutar HOT's (Heat)
-- Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes) (Heat)
+- Nota para nosotros: Mirar los recursos añadidos a Heat, ya que no estan en Havana (como por ejemplo, IPsflotantes)
 - Trove es un modulo nuevo de bases de datos relacionales.
 
