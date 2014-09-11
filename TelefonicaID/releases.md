@@ -6,10 +6,10 @@
 # Release 1 (Austin)
 
 
-- Listas de control de acceso y Containers publicos para Object Storage.
-- Soporte Redis
-- Modo de rescate
-- Grupos de seguridad.
+- Listas de control de acceso y Containers publicos para Object Storage. (pre-swift)
+- Soporte Redis. (pre-nova)
+- Modo de rescate. (pre-nova)
+- Grupos de seguridad. (pre-nova)
 - Panel de control.
 
 
