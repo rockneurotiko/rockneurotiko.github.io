@@ -1000,35 +1000,39 @@ body .markdown-body
   }
 }
 </style><title>releases</title></head><body><article class="markdown-body"><h1 id="link-releases"><a href="https://wiki.openstack.org/wiki/Releases">Link Releases</a></h1>
+<!-- # **420 Blaze it faggot** -->
+
 <hr />
 <h1 id="release-1-austin"><a name="user-content-release-1-austin" href="#release-1-austin" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 1 (Austin)</h1>
 <ul>
 <li>Listas de control de acceso y Containers publicos para Object Storage. (pre-swift)</li>
 <li>Soporte Redis. (pre-nova)</li>
 <li>Modo de rescate. (pre-nova)</li>
-<li>Grupos de seguridad. (pre-nova)</li>
-<li>Panel de control.</li>
+<li>Grupos de seguridad de control de acceso. (pre-nova)</li>
+<li>Panel de control web.</li>
 </ul>
 <h1 id="release-2-bexar"><a name="user-content-release-2-bexar" href="#release-2-bexar" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 2 (Bexar)</h1>
 <ul>
 <li>Archivos de mas de 5GB (swift)</li>
-<li>DirectAPI (nova)</li>
-<li>RestAPI mejorada para subida de archivos (glance)</li>
-<li>Twisted ya no es una dependencia, solo Eventlet. (glance)</li>
+<li>Middleware experimental que transforma peticiones de Amazon S3 a swift. (swift)</li>
+<li>Glance es añadido.</li>
 </ul>
 <h1 id="release-3-cactus"><a name="user-content-release-3-cactus" href="#release-3-cactus" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 3 (Cactus)</h1>
 <ul>
+<li>Introduccion de checksum para deteccion de errores (swift)</li>
 <li>Servir una web estatica con un Objet Storage usando listados en un index.html (swift)</li>
-<li>Soporte IPv6 (nova)</li>
-<li>CLI tool (glance) </li>
+<li>Soporte IPv6 (Nova)</li>
+<li>Migrar maquinas virtuales de un nodo a otro sin tener que pararlos. [HotSwap] (Nova)</li>
+<li>CLI tool (glance)</li>
 </ul>
 <h1 id="release-4-diablo"><a name="user-content-release-4-diablo" href="#release-4-diablo" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 4 (Diablo)</h1>
 <ul>
 <li>Sincronizacion entre containers (swift)</li>
+<li>Modulo de autenticacion se separa a un projecto distinto [swauth] (swift) </li>
 <li>Soporte de IP flotante (nova)</li>
-<li>Crear snapshots, clonar y bootear volumenes.</li>
-<li>Sistema de notificaciones</li>
-<li>Integracion con Keystone para autenticacion (glance)</li>
+<li>Crear snapshots, clonar y bootear volumenes. (Nova)</li>
+<li>Sistema de notificaciones (Nova)</li>
+<li>Integracion con Keystone para autenticacion [Keystone es el sistema de control de identidades: Usuarios, proyectos y roles](glance)</li>
 </ul>
 <h1 id="release-5-essex"><a name="user-content-release-5-essex" href="#release-5-essex" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 5 (Essex)</h1>
 <ul>
@@ -1036,10 +1040,12 @@ body .markdown-body
 <li>Control de acceso basado en roles (nova y glance)</li>
 <li>Integracion con keystone para autenticacion (nova)</li>
 <li>Pools de ips flotantes. (nova)</li>
+<li>El Dashboard se denomina Horizon ahora [No se dice expresamente, pero se intuye]</li>
 </ul>
 <h1 id="release-6-folsom"><a name="user-content-release-6-folsom" href="#release-6-folsom" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 6 (Folsom)</h1>
 <ul>
-<li>nova-api puede ejecutar mas de un proceso. (nova)</li>
+<li>Se introducen los workflows (pre-orquestador)</li>
+<li>nova-api puede ejecutar mas de un proceso, debido a que en el modulo anterior las solicitudes se iban apilando en el core una tras otra. (nova)</li>
 <li>Validacion de certificados SSL en glance-api (glance)</li>
 <li>Replicacion de imagenes (glance)</li>
 <li>Soporte para autenticacion a traves de PKI</li>
@@ -1058,8 +1064,8 @@ body .markdown-body
 </ul>
 <h1 id="release-7-grizzly"><a name="user-content-release-7-grizzly" href="#release-7-grizzly" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 7 (Grizzly)</h1>
 <ul>
-<li>Soporte para objetos grandes con archivo manifest (swift)</li>
-<li>Cuotas de usuario y cuenta (swift)</li>
+<li>Soporte para objetos grandes con archivo manifest [Descripcion del objeto] (swift)</li>
+<li>Cuotas de usuario y cuenta con niveles (swift)</li>
 <li>Funcionalidad &ldquo;Celdas&rdquo; para tener varios clusters (celdas) en distintas zonas geograficas sobra la misma API (nova) (experimental)</li>
 <li>Computo sin base de datos (nova)</li>
 <li>Soporte para redes multiples en nodos con agentes L3 y agentes DHCP (quantum)</li>
@@ -1070,24 +1076,22 @@ body .markdown-body
 <li>Soporte para hacer &ldquo;pooling&rdquo; de conexiones a memcache (swift)</li>
 <li>Los volumenes de cinder asociados pueden ser cifrados (nova) </li>
 <li>Quantum pasa a llamarse Neutron!</li>
-<li>VPN as a Service f Firewall as a Service. (neutron)</li>
+<li>VPN as a Service y Firewall as a Service. (neutron)</li>
 <li>El balanceo de carga que era experimental ya es estable (neutron)</li>
 <li>Se puede extender el tamaño de un volumen existente y transferir un volumen de un tenant a otro (cinder)</li>
+<li>Introduccion de Ceilometer (mide los consumos y estadisticas)</li>
 <li>Es la primera vez que aparece Heat en unas notas de version.</li>
 <li>Operaciones de crear, modificar y borrar son independientes y se hacen en paralelo (Heat)</li>
 </ul>
 <h1 id="release-9-icehouse"><a name="user-content-release-9-icehouse" href="#release-9-icehouse" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Release 9 (Icehouse)</h1>
 <ul>
-<li>Ahora un servidor proxy swift responde a peticiones a &ldquo;/info&rdquo; (swift)</li>
 <li>Replicacion de objetos con ssync como alternativa a rsync (swift)</li>
-<li>Reintento automatico en intentos de lectura (swift)</li>
 <li>Actualizaciones en caliente y gradual (nova)</li>
-<li>Mas estabilidad y testing (neutron)</li>
-<li>Drivers para LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)</li>
+<li>Drivers para Cinder(IBMS SONAS), LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)</li>
 <li>Se puede cambiar el tipo de un volumen existente [retype] (cinder)</li>
 <li>Se pueden borrar cuotas (cinder)</li>
-<li>Importar y exportar backups (cinder)</li>
 <li>HOT templates (En Havana era experimental) (Heat)</li>
-<li>Usuarios no admins (Heat)</li>
-<li>Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes)</li>
+<li>Los usuarios no admins pueden ejecutar HOT&rsquo;s (Heat)</li>
+<li>Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes) (Heat)</li>
+<li>Trove es un modulo nuevo de bases de datos relacionales.</li>
 </ul></article></body></html>

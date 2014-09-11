@@ -1,6 +1,7 @@
 
 # [Link Releases](https://wiki.openstack.org/wiki/Releases)
 
+<!-- # **420 Blaze it faggot** -->
 -------
 
 # Release 1 (Austin)
@@ -9,31 +10,33 @@
 - Listas de control de acceso y Containers publicos para Object Storage. (pre-swift)
 - Soporte Redis. (pre-nova)
 - Modo de rescate. (pre-nova)
-- Grupos de seguridad. (pre-nova)
-- Panel de control.
+- Grupos de seguridad de control de acceso. (pre-nova)
+- Panel de control web.
 
 
 # Release 2 (Bexar)
 
 - Archivos de mas de 5GB (swift)
-- DirectAPI (nova)
-- RestAPI mejorada para subida de archivos (glance)
-- Twisted ya no es una dependencia, solo Eventlet. (glance)
+- Middleware experimental que transforma peticiones de Amazon S3 a swift. (swift)
+- Glance es añadido.
 
 # Release 3 (Cactus)
 
+- Introduccion de checksum para deteccion de errores (swift)
 - Servir una web estatica con un Objet Storage usando listados en un index.html (swift)
-- Soporte IPv6 (nova)
-- CLI tool (glance) 
+- Soporte IPv6 (Nova)
+- Migrar maquinas virtuales de un nodo a otro sin tener que pararlos. \[HotSwap] (Nova)
+- CLI tool (glance)
 
 
 # Release 4 (Diablo)
 
 - Sincronizacion entre containers (swift)
+- Modulo de autenticacion se separa a un projecto distinto \[swauth] (swift) 
 - Soporte de IP flotante (nova)
-- Crear snapshots, clonar y bootear volumenes.
-- Sistema de notificaciones
-- Integracion con Keystone para autenticacion (glance)
+- Crear snapshots, clonar y bootear volumenes. (Nova)
+- Sistema de notificaciones (Nova)
+- Integracion con Keystone para autenticacion \[Keystone es el sistema de control de identidades: Usuarios, proyectos y roles](glance)
 
 
 # Release 5 (Essex)
@@ -42,11 +45,13 @@
 - Control de acceso basado en roles (nova y glance)
 - Integracion con keystone para autenticacion (nova)
 - Pools de ips flotantes. (nova)
+- El Dashboard se denomina Horizon ahora \[No se dice expresamente, pero se intuye]
 
 
 # Release 6 (Folsom)
 
-- nova-api puede ejecutar mas de un proceso. (nova)
+- Se introducen los workflows (pre-orquestador)
+- nova-api puede ejecutar mas de un proceso, debido a que en el modulo anterior las solicitudes se iban apilando en el core una tras otra. (nova)
 - Validacion de certificados SSL en glance-api (glance)
 - Replicacion de imagenes (glance)
 - Soporte para autenticacion a traves de PKI
@@ -62,8 +67,8 @@
 
 # Release 7 (Grizzly)
 
-- Soporte para objetos grandes con archivo manifest (swift)
-- Cuotas de usuario y cuenta (swift)
+- Soporte para objetos grandes con archivo manifest \[Descripcion del objeto] (swift)
+- Cuotas de usuario y cuenta con niveles (swift)
 - Funcionalidad "Celdas" para tener varios clusters (celdas) en distintas zonas geograficas sobra la misma API (nova) (experimental)
 - Computo sin base de datos (nova)
 - Soporte para redes multiples en nodos con agentes L3 y agentes DHCP (quantum)
@@ -75,24 +80,23 @@
 - Soporte para hacer "pooling" de conexiones a memcache (swift)
 - Los volumenes de cinder asociados pueden ser cifrados (nova) 
 - Quantum pasa a llamarse Neutron!
-- VPN as a Service f Firewall as a Service. (neutron)
+- VPN as a Service y Firewall as a Service. (neutron)
 - El balanceo de carga que era experimental ya es estable (neutron)
 - Se puede extender el tamaño de un volumen existente y transferir un volumen de un tenant a otro (cinder)
+- Introduccion de Ceilometer (mide los consumos y estadisticas)
 - Es la primera vez que aparece Heat en unas notas de version.
 - Operaciones de crear, modificar y borrar son independientes y se hacen en paralelo (Heat)
 
 
 # Release 9 (Icehouse)
 
-- Ahora un servidor proxy swift responde a peticiones a "/info" (swift)
 - Replicacion de objetos con ssync como alternativa a rsync (swift)
-- Reintento automatico en intentos de lectura (swift)
 - Actualizaciones en caliente y gradual (nova)
-- Mas estabilidad y testing (neutron)
-- Drivers para LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)
+- Drivers para Cinder(IBMS SONAS), LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)
 - Se puede cambiar el tipo de un volumen existente \[retype] (cinder)
 - Se pueden borrar cuotas (cinder)
-- Importar y exportar backups (cinder)
 - HOT templates (En Havana era experimental) (Heat)
-- Usuarios no admins (Heat)
-- Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes)
+- Los usuarios no admins pueden ejecutar HOT's (Heat)
+- Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes) (Heat)
+- Trove es un modulo nuevo de bases de datos relacionales.
+
