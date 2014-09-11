@@ -67,7 +67,32 @@
 - Funcionalidad "Celdas" para tener varios clusters (celdas) en distintas zonas geograficas sobra la misma API (nova) (experimental)
 - Computo sin base de datos (nova)
 - Soporte para redes multiples en nodos con agentes L3 y agentes DHCP (quantum)
-- Balanceo de carga como servicio (quantum)
+- Balanceo de carga como servicio \[experimental\] (quantum)
 
 
 # Release 8 (Havana)
+
+- Soporte para hacer "pooling" de conexiones a memcache (swift)
+- Los volumenes de cinder asociados pueden ser cifrados (nova) 
+- Quantum pasa a llamarse Neutron!
+- VPN as a Service f Firewall as a Service. (neutron)
+- El balanceo de carga que era experimental ya es estable (neutron)
+- Se puede extender el tamaño de un volumen existente y transferir un volumen de un tenant a otro (cinder)
+- Es la primera vez que aparece Heat en unas notas de version.
+- Operaciones de crear, modificar y borrar son independientes y se hacen en paralelo (Heat)
+
+
+# Release 9 (Icehouse)
+
+- Ahora un servidor proxy swift responde a peticiones a "/info" (swift)
+- Replicacion de objetos con ssync como alternativa a rsync (swift)
+- Reintento automatico en intentos de lectura (swift)
+- Actualizaciones en caliente y gradual (nova)
+- Mas estabilidad y testing (neutron)
+- Drivers para LBaaS (Embrane, NetScaler y Radware), VPNaaS (Cisco CSR) (neutron)
+- Se puede cambiar el tipo de un volumen existente \[retype] (cinder)
+- Se pueden borrar cuotas (cinder)
+- Importar y exportar backups (cinder)
+- HOT templates (En Havana era experimental) (Heat)
+- Usuarios no admins (Heat)
+- Mirar los recursos añadidos, ya que no estan en Havana (como por ejemplo, IPsflotantes)
