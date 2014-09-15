@@ -1,10 +1,9 @@
 
 # [Link Releases](https://wiki.openstack.org/wiki/Releases)
 
-<!-- # **420 Blaze it faggot** -->
 -------
 
-# Release 1 (Austin)
+# Release 1 (Austin) - 21/10/2010 - v.2010.1
 
 
 - Listas de control de acceso y Containers publicos para Object Storage. (pre-swift)
@@ -14,13 +13,13 @@
 - Panel de control web.
 
 
-# Release 2 (Bexar)
+# Release 2 (Bexar) - 03/02/2011 - v.2011.1
 
 - Archivos de mas de 5GB (swift)
 - Middleware experimental que transforma peticiones de Amazon S3 a swift. (swift)
 - Glance es añadido.
 
-# Release 3 (Cactus)
+# Release 3 (Cactus) - 15/04/2011 - v.2011.2
 
 - Introduccion de checksum para deteccion de errores (swift)
 - Servir una web estatica con un Object Storage usando listados en un index.html (swift)
@@ -29,7 +28,7 @@
 - CLI tool (glance)
 
 
-# Release 4 (Diablo)
+# Release 4 (Diablo) - 22/09/2011 - v.2011.3
 
 - Sincronizacion entre containers (swift)
 - Modulo de autenticacion se separa a un proyecto distinto \[swauth] (swift) 
@@ -39,7 +38,7 @@
 - Integracion con Keystone para autenticacion \[Keystone es el sistema de control de identidades: Usuarios, proyectos y roles](glance)
 
 
-# Release 5 (Essex)
+# Release 5 (Essex) - 05/04/2012 - v.2012.1
 
 - Objetos con tiempo de expiracion (swift)
 - Control de acceso basado en roles (nova y glance)
@@ -48,7 +47,7 @@
 - El Dashboard se denomina Horizon ahora \[No se dice expresamente, pero se intuye]
 
 
-# Release 6 (Folsom)
+# Release 6 (Folsom) - 27/09/2012 - v.2012.2
 
 - Se introducen los workflows (pre-orquestador)
 - nova-api puede ejecutar mas de un proceso, debido a que en el modulo anterior las solicitudes se iban apilando en el core una tras otra. (nova)
@@ -65,7 +64,7 @@
     +   Crear una imagen a traves de un volumen.
 
 
-# Release 7 (Grizzly)
+# Release 7 (Grizzly) - 04/04/2013 - v.2013.1
 
 - Soporte para objetos grandes con archivo manifest \[Descripcion del objeto] (swift)
 - Cuotas de usuario y cuenta con niveles (swift)
@@ -75,7 +74,7 @@
 - Balanceo de carga como servicio \[experimental\] (quantum)
 
 
-# Release 8 (Havana)
+# Release 8 (Havana) - 17/10/2013 - v.2013.2
 
 - Soporte para hacer "pooling" de conexiones a memcache (swift)
 - Los volumenes de cinder asociados pueden ser cifrados (nova) 
@@ -88,7 +87,7 @@
 - Operaciones de crear, modificar y borrar son independientes y se hacen en paralelo (Heat)
 
 
-# Release 9 (Icehouse)
+# Release 9 (Icehouse) - 17/04/2014 - v.2014.1
 
 - Replicacion de objetos con ssync como alternativa a rsync (swift)
 - Actualizaciones en caliente y gradual (nova)
