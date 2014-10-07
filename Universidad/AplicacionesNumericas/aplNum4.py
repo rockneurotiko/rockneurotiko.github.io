@@ -104,20 +104,47 @@ def comprobacion_matrices(M,V):
     print("-"*20)
 
 
+# Funcion para hacer la media geometrica de una matriz y normalizar.
 def media_geometrica(M):
     geometric = lambda v: reduce(operator.mul, v, 1) ** (1 / len(v))
-    return list(map(geometric, M))
+    return norma_1(np.array(list(map(geometric, M))))
+
+
+M0 = [[1,2,1/4,1,1,2],[1/2,1,1/4,1/2,1/2,1],[4,3,1,3,3,4],[1/2,1,1/4,1,1/2,2],[1,2,1/3,2,1,2],[1/2,1,1/4,1/2,1/2,1]]
+print("DATOS PARA M0")
+V0 = res_min_cuad_logaritmica(M0)
+comprobacion_matrices(M0,V0)
+
+MG0 = media_geometrica(M0)
+print("Vector hayado por la media geometrica:")
+print(MG0)
+print("-"*20)
+
+
+
+M1 = [[1,2,4],[1/2,1,1/3],[1/4,3,1]]
+print("DATOS PARA M1")
+V1 = res_min_cuad_logaritmica(M1)
+comprobacion_matrices(M1,V1)
+
+MG1 = media_geometrica(M1)
+print("Vector hayado por la media geometrica:")
+print(MG1)
+print("-"*20)
+
 
 
 M2 = [[1,2/3,2,1/2],[3/2,1,3,3/4],[1/2,1/3,1,1/4],[2,4/3,4,1]]
-
 print("DATOS PARA M2")
-V = res_min_cuad_logaritmica(M2)
-comprobacion_matrices(M2,V)
+V2 = res_min_cuad_logaritmica(M2)
+comprobacion_matrices(M2,V2)
 
-MG = media_geometrica(M2)
-MG = [x / sum(MG) for x in MG]
-print(MG)
+MG2 = media_geometrica(M2)
+print("Vector hayado por la media geometrica:")
+print(MG2)
+print("-"*20)
+
+
 
 
 # plt.show()
