@@ -8,6 +8,7 @@
 
 
 #### Libros y mas.
+- [Python for Informatics](http://do1.dr-chuck.com/py4inf/EN-us/book.pdf)
 - [Learn Python The hardway](http://learnpythonthehardway.org/book/)
 - [The Hitchhiker’s Guide to Python!](http://docs.python-guide.org/en/latest/) 
 - [How to Think Like a Computer Scientist](http://www.openbookproject.net/thinkcs/python/english2e/)
