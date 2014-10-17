@@ -15,3 +15,10 @@
 - [Full Stack Python](http://www.fullstackpython.com/)
 - [100 projectos para aprender un lenguaje](https://github.com/karan/Projects)
 - [The python challenge](http://www.pythonchallenge.com/) *Warning: En este hay que pensar de modos distintos.*
+
+
+#### Videos!
+- [PyVideo](http://pyvideo.org/)
+
+
+- [PDF Presentacion inicial del SIG](http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf)
