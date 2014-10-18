@@ -75,7 +75,7 @@
     + raise
 12. Iteradores
     + Ejemplos de iteradores (range, file, ...)
-    + Crear un iterador con una clase (__iter__ y __next__) [Ejemplo sencillo: Secuencia Fibonacci]
+    + Crear un iterador con una clase (\_\_iter\_\_ y \_\_next\_\_) [Ejemplo sencillo: Secuencia Fibonacci]
 13. Generadores
     + Que son y como se definen.
     + Palabra clave "yield"
