@@ -8,9 +8,11 @@
 
 
 #### Libros y mas.
+- [Learning Python](http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf)
+- [Python Essential Reference](https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true)
+- [The Hitchiker’s Guide to Python!](http://docs.python-guide.org/en/latest/) 
 - [Python for Informatics](http://do1.dr-chuck.com/py4inf/EN-us/book.pdf)
 - [Learn Python The hardway](http://learnpythonthehardway.org/book/)
-- [The Hitchhiker’s Guide to Python!](http://docs.python-guide.org/en/latest/) 
 - [How to Think Like a Computer Scientist](http://www.openbookproject.net/thinkcs/python/english2e/)
 - [Full Stack Python](http://www.fullstackpython.com/)
 - [100 projectos para aprender un lenguaje](https://github.com/karan/Projects)

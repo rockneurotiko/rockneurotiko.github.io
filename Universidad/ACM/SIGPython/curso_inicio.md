@@ -1,14 +1,29 @@
-### Temario Basico
+### Sobre el curso.
+- Va a ser Python3 (cuidado, que CodeAcademy es Python2)
+- Aqui hay un monton de links de recursos:
+    + [Links](http://rockneurotiko.github.io/Universidad/ACM/SIGPython/how-to-start.html)
+    + Recomiendo:
+        * Apuntarse al curso de coursera
+        * Tutorial de python.org
+        * Dos primeros libros (Learning Python y Essential Reference)
+- Division de los apartados (los que tengais apartados avanzados, tendreis que miraros lo anterior casi seguro)
+    + **Ignacio Ballesteros**: 1, 2 y 3 **HASTA** Expresiones incluidas.
+    + **Javier Gimenez**: **DESDE** 3.Tipos (incluido) y 4
+    + **Adrian Wagg**:5 y 6
+    + **Isidoro Gonzalez**: 7 y 8
+    + **Miguel Garcia**: 9 y 10.
 
-0. Como descargar e instalar Python 3.4
+### Temario Iniciacion
+
+1. Como descargar e instalar Python 3.4
     - Windows y Linux
-1. Como ejecutar un programa Python.
+2. Como ejecutar un programa Python.
     + Interprete
         * IDLE
         * Terminal
     + Desde archivo.
     + Porque usar un editor de textos (sublime text, vim, emacs, ...) y no un IDE (IDLE, eclipse, netbeans, intellij, ...)
-2. Empezando
+3. Empezando
     + Comentarios en linea y bloque
     + Variables
         * Nombres
@@ -28,20 +43,20 @@
             - Archivos ("file")
             - Sets
             - None
-    + I/O simple
+    + I/O simple (no ficheros)
         * Imprimir por pantalla
         * Coger datos de usuario.
-3. Listas
+4. Listas
     + Operaciones basicas
     + Iteracion de listasq.
     + Indexacion, "slicing" y matrices
     + Metodos utiles y comunes de una lista.
     + Mutabilidad de listas (asignaciones)
-4. Condicionales
+5. Condicionales
     + Declaracion "if/elif/else"
     + El valor de las tabulaciones!
     + La expresion if/else ternaria.
-5. Bucles
+6. Bucles
     + while
         * Formato y ejemplos
         * Sentencia "else" en while
@@ -52,52 +67,23 @@
         * range
         * usando for para coger el elemento
         * usando enumerate() para coger elemento Y indice
-6. Archivos
+7. Archivos
     + Tratamiento basico de archivos
         * Abrir y cerrar
         * Modos
         * Operaciones basicas
         * Usando with:
-7. Diccionarios
+8. Diccionarios
     + Operaciones basicas.
     + Mutabilidad de diccionario.
     + Comprehension de diccionario.
     + Uso de dict()
-8. Funciones
+9. Funciones
     + Definiendo funciones
     + Usando funciones
     + Pasando funciones como argumento y devolviendolas en otra funcion
-9. Import
+10. Import
     + Distintos modos, y ejemplos
     + Importar variables y funciones
 
 -------------------
-
-### Mas avanzado
-0. Librerias
-    + PyPi y pip :)
-1. Comprehension.
-    + Listas
-    + Diccionarios
-    + Sets
-2. Lambda functions.
-    + Difinicion y uso general.
-    + map, filter, ...
-3. [no me acuerdo XD]
-3. Clases
-    + Definiendo clases
-    + Usando instancias
-    + Metodos magicos de clases
-    + Todo es un objeto en Python!
-    + Mustiple herencia
-4. Excepciones!
-    + try/except/else/finally basicos
-    + raise
-5. Iteradores
-    + Ejemplos de iteradores (range, file, ...)
-    + Crear un iterador con una clase (\_\_iter\_\_ y \_\_next\_\_) [Ejemplo sencillo: Secuencia Fibonacci]
-6. Generadores
-    + Que son y como se definen. (Ejemplo)
-    + Palabra clave "yield"
-    + Palabra clave "yield from"
-7. Decoradores
