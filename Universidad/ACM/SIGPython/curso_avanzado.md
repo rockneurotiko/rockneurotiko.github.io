@@ -12,7 +12,7 @@
 3. Clases
     + Definiendo clases
     + Usando instancias
-    + Metodos magicos de clases
+    + Metodos magicos de clases [Articulo](http://www.rafekettler.com/magicmethods.html)
     + Todo es un objeto en Python!
     + Mustiple herencia
 4. Excepciones!
