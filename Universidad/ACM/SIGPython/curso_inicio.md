@@ -11,7 +11,7 @@
     + **Javier Gimenez**: **DESDE** 3.Tipos (incluido) y 4
     + **Adrian Wagg**:5 y 6
     + **Isidoro Gonzalez**: 7 y 8
-    + **Miguel Garcia**: 9 y 10.
+    + **Ignacio Rubio**: 9 y 10.
 
 ### Temario Iniciacion
 
