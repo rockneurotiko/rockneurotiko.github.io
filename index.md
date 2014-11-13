@@ -1,7 +1,3 @@
-<!-- <head>    
-<title>Open Web Contents by Rock Neurotiko</title>
-</head>
- -->
 ### Cursos, presentaciones, etc...
 - **2014-2015**
     - [Presentacion SIG Python (PDF)](Universidad/ACM/SIGPython/IntroduccionSIG.pdf)
