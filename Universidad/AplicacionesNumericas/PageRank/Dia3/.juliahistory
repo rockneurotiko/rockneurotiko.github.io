@@ -1,0 +1,105 @@
+exit())
+exit()
+test(100)
+test(100)
+test(100)
+test2())
+test2()
+test2()
+test2()
+sort_with_index(test2())
+test(100)
+exit()
+test2())
+test2()
+test2()
+test2()
+test2()
+test2()
+test(10^3)
+test(10^3)
+@time mdis_A(10)
+@time mdis_A(10^1)
+@time mdis_A(10^1);
+@time mdis_A(10^2);
+@time mdis_A(10^3);
+@time mdis_A(10^4);
+@time mdis_A(10^5);
+@time mdis_A(10^6);
+@time mdis_A(10^7);
+A = mdis_A(10)
+Nj = sum(A,1)
+ dj = [x == 0 ? 1:0 for x=Nj]'
+typeof(dj)
+ones(1,size(dj,2))
+typeof(Nj)
+test(10)
+test(10)
+exit())
+exit()
+test(10)
+test(10)
+test(10);
+test(10^1);
+test(10^2);
+test(10^3);
+test(10^4);
+test(10^5);
+test(10^6);
+test(2*10^6);
+x, p = test(10^1);
+p
+sizeof(x)
+typeof(x)
+x, p = test(10^2);
+sizeof(x)
+p
+x, p = test(10^3);
+x, p = test(10^1);
+p
+sizeof(x)
+x, p = test(10^2);
+p
+sizeof(x)
+x, p = test(10^3);
+p
+sizeof(x)
+x, p = test(10^3);
+p
+sizeof(x)
+x, p = test(10^4);
+p
+sizeof(x)
+
+9.302403205374565e-11
+
+julia> sizeof(x)
+8000
+
+julia> x, p = test(10^4);
+elapsed time: 0.033614157 seconds (13306024 bytes allocated, 59.65% gc time)
+elapsed time: 0.034519361 seconds (53613064 bytes allocated, 45.75% gc time)
+
+julia> 
+9.302403205374565e-11
+
+julia> sizeof(x)
+8000
+
+julia> x, p = test(10^4);
+elapsed time: 0.033614157 seconds (13306024 bytes allocated, 59.65% gc time)
+elapsed time: 0.034519361 seconds (53613064 bytes allocated, 45.75% gc time)
+
+julia> x, p = test(10^5);
+x, p = test(10^4);
+p
+sizeof(x)
+x, p = test(10^5);
+p
+sizeof(x)
+x, p = test(10^6);
+p
+sizeof(x)
+x, p = test(2*10^6);
+p
+sizeof(x)
