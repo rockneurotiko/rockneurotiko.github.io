@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Post test! &middot; Rock Neurotiko</title>
+
+  
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/poole.css">
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/hyde.css">
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/poole-overrides.css">
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/hyde-x.css">
+  <link rel="stylesheet" href="http://rockneurotiko.github.io//css/highlight/monokai.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Rock Neurotiko&#39;s web &lt;3 &middot; Rock Neurotiko" />
+
+  <meta name="description" content="Just a test">
+  <meta name="keywords" content="test">
+  <link rel="author" href="http://plus.google.com/&#43;RockNeurotiko">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/d5ead05d8d898f27907328062fc002f9?s=200" alt="gravatar">
+        <h1><a href="http://rockneurotiko.github.io/">Rock Neurotiko</a></h1>
+      <p class="lead">Open Web Contents.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://rockneurotiko.github.io/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/links/">Lovely links &lt;3</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-item"><a href="https://www.github.com/rockneurotiko">GitHub</a></li>
+        <li class="sidebar-nav-item"><a href="https://www.linkedin.com/miguelglafuente">LinkedIn</a></li>
+      <li class="sidebar-nav-item"><a href="https://plus.google.com/+RockNeurotiko">Google+</a></li>
+        <li class="sidebar-nav-item"><a href="https://www.facebook.com/rockneurotiko">Facebook</a></li>
+        <li class="sidebar-nav-item"><a href="https://www.twitter.com/BinaryRock">Twitter</a></li>
+    </ul>
+
+    <p>Copyright &copy; 2015 <a href="http://rockneurotiko.github.io/license">License</a><br/>
+       
+  </div>
+</div>
+
+<div class="content container">
+  <div class="post">
+    <h1>Post test!</h1>
+    <span class="post-date">Mar 4, 2015 &middot; 1 minute read &middot; <a href="http://rockneurotiko.github.io/blog/2015/03/04/post-test/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    <a class="label" href="http://rockneurotiko.github.io//categories/test">test</a>
+    </span>
+    
+
+<h2 id="toc_0:a8158e2ae96b1b34e1f733f49d15bcfd">:)</h2>
+
+<p>Haskell test:</p>
+
+<pre><code class="language-haskell">import Data.List
+
+compress :: Eq a =&gt; [a] -&gt; [a]
+compress (x:y:zs)
+| x == y   = compress(y:zs)
+| otherwise = x : compress(y:zs)
+compress ys = ys
+
+main = print (compress ['a', 'a', 'a', 'b', 'a'])
+</code></pre>
+
+<p>Python test:</p>
+
+<pre><code class="language-python">print(&quot;test&quot;)
+</code></pre>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "rockneurotiko";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rockneurotiko';
+    var disqus_identifier = 'http:\/\/rockneurotiko.github.io\/blog\/2015\/03\/04\/post-test\/';
+    var disqus_title = 'Post test!';
+    var disqus_url = 'http:\/\/rockneurotiko.github.io\/blog\/2015\/03\/04\/post-test\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://rockneurotiko.github.io//js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

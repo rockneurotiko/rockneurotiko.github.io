@@ -1,0 +1,6 @@
+[submodule "Universidad/ACM/SIGPython/Proyectos/Enigma"]
+	path = Universidad/ACM/SIGPython/Proyectos/Enigma
+	url = git@acm.asoc.fi.upm.es:sig-python/enigma.git
+[submodule "Universidad/ACM/SIGPython/Proyectos/TODO"]
+	path = Universidad/ACM/SIGPython/Proyectos/TODO
+	url = git@acm.asoc.fi.upm.es:sig-python/todo.git

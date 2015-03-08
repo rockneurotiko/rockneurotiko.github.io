@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rock Neurotiko&#39;s web &lt;3</title>
+    <link>http://rockneurotiko.github.io/</link>
+    <description>Recent content on Rock Neurotiko&#39;s web &lt;3</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://rockneurotiko.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>License</title>
+      <link>http://rockneurotiko.github.io/license/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/license/</guid>
+      <description>
+
+&lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
+
+&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Code license&lt;/h3&gt;
+
+&lt;p&gt;All source code files and snippets found on this web, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2015 Rock Neurotiko
+
+-------------------------------------------------------------------------
+&amp;quot;THE BEER-WARE LICENSE&amp;quot; (Revision 42):
+[miguelglafuente @at@ gmail .dot. com] wrote this file.
+As long as you retain this notice you can do whatever you want with this stuff.
+If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+Rock Neurotiko
+-------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://rockneurotiko.github.io/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rockneurotiko.github.io/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;http://elixir-lang.org/&#34;&gt;Elixir&lt;/a&gt; and Java.&lt;/p&gt;
+
+&lt;p&gt;My main interest is in server-side technology and massive scalability, but I&amp;rsquo;ve been known to dabble in native mobile development, user facing web applications and various other projects.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to start with Python</title>
+      <link>http://rockneurotiko.github.io/python/how-to-start/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/python/how-to-start/</guid>
+      <description>
+
+&lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
+
+&lt;h4 id=&#34;tutoriales-y-cursos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Tutoriales y Cursos&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34;&gt;Python.org tutorial&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/course/pythonlearn&#34;&gt;Coursera (curso semanal)&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.checkio.org/&#34;&gt;Checkio&lt;/a&gt; (Aprender con retos) (Py3)&lt;/li&gt;
+&lt;li&gt;CodeAcademy. &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;[En]&lt;/a&gt; &lt;a href=&#34;http://www.codecademy.com/es/tracks/python-traduccion-al-espanol-america-latina-clone-1&#34;&gt;[Es]&lt;/a&gt; (Py2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/&#34;&gt;Learn Python The hardway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.openbookproject.net/thinkcs/python/english2e/&#34;&gt;How to Think Like a Computer Scientist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.fullstackpython.com/&#34;&gt;Full Stack Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/karan/Projects&#34;&gt;100 projectos para aprender un lenguaje&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The python challenge&lt;/a&gt; &lt;em&gt;Warning: En este hay que pensar de modos distintos.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;videos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Videos!&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pyvideo.org/&#34;&gt;PyVideo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lovely links &lt;3</title>
+      <link>http://rockneurotiko.github.io/links/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/links/</guid>
+      <description>
+
+&lt;h3 id=&#34;cursos-presentaciones-etc:424069113a08a4256349764ee38dbbbf&#34;&gt;Cursos, presentaciones, etc&amp;hellip;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2014-2015&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;Presentacion SIG Python (PDF)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/python/how-to-start&#34;&gt;Collecion de links para empezar a aprender Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Cursos/Inicio/PythonIntro.odp&#34;&gt;Curso de iniciacion en Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013-2014&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rockneurotiko/CosasUniversidad/tree/master/Cursos/Python&#34;&gt;Curso Python ETSI-Inf (FI) UPM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/python/links&#34;&gt;Coleccion de links interesantes e indispensables (Python)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;plantillas:424069113a08a4256349764ee38dbbbf&#34;&gt;Plantillas&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.png&#34;&gt;Plantilla Presentaciones Python .png&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.otp&#34;&gt;Plantilla Presentaciones Python .otp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;firefox-os-apps:424069113a08a4256349764ee38dbbbf&#34;&gt;Firefox OS apps!&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Post test!</title>
+      <link>http://rockneurotiko.github.io/blog/2015/03/04/post-test/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/blog/2015/03/04/post-test/</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0:a8158e2ae96b1b34e1f733f49d15bcfd&#34;&gt;:)&lt;/h2&gt;
+
+&lt;p&gt;Haskell test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;import Data.List
+
+compress :: Eq a =&amp;gt; [a] -&amp;gt; [a]
+compress (x:y:zs)
+| x == y   = compress(y:zs)
+| otherwise = x : compress(y:zs)
+compress ys = ys
+
+main = print (compress [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39;a&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Python test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;test&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://rockneurotiko.github.io/python/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/python/links/</guid>
+      <description>
+
+&lt;h3 id=&#34;begginner:424069113a08a4256349764ee38dbbbf&#34;&gt;Begginner&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.python.org/moin/BeginnersGuide/Programmers&#34;&gt;http://wiki.python.org/moin/BeginnersGuide/Programmers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stephensugden.com/crash_into_python/&#34;&gt;A crash course into Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://carlgroner.me/Python/2011/11/09/An-Introduction-to-List-Comprehensions-in-Python.html&#34;&gt;An Introduction to List Comprehensions in Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python-style:424069113a08a4256349764ee38dbbbf&#34;&gt;Python Style&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.python.org/dev/peps/pep-0008/&#34;&gt;PEP8: The Python Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python-books:424069113a08a4256349764ee38dbbbf&#34;&gt;Python Books&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/index.html&#34;&gt;Learn Python the Hard Way&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://static.squarespace.com/static/50b76babe4b05c3cd8bab78a/50b77150e4b0192bc2226d86/50b772fde4b0192bc222822b/1354199805695/?format=original&#34;&gt;Dive into Python 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.swaroopch.com/notes/Python&#34;&gt;A Byte of Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://static.squarespace.com/static/50b76babe4b05c3cd8bab78a/50b77150e4b0192bc2226d86/50b772fde4b0192bc222822b/1354199805695/?format=original&#34;&gt;Porting to Python 3: An in-depth Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python-classes:424069113a08a4256349764ee38dbbbf&#34;&gt;Python Classes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ivory.idyll.org/articles/advanced-swc/&#34;&gt;Intermediate and Advanced Software Carpentry in Python (2007)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://code.google.com/edu/languages/google-python-class/&#34;&gt;Google&amp;rsquo;s Python class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://courses.csail.mit.edu/6.006/spring11/notes.shtml&#34;&gt;Introduction to Algorithms (with Python)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python-history:424069113a08a4256349764ee38dbbbf&#34;&gt;Python History&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://static.squarespace.com/static/50b76babe4b05c3cd8bab78a/50b77150e4b0192bc2226d86/50b772fde4b0192bc222822b/1354199805695/?format=original&#34;&gt;Guido Van Rossum&amp;rsquo;s &amp;ldquo;Python History&amp;rdquo; blog (all of it!)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.artima.com/weblogs/viewpost.jsp?thread=92662&#34;&gt;Interfaces or Abstract Base Classes (2005)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.boredomandlaziness.org/2011/08/of-python-and-road-maps-or-lack-thereof.html&#34;&gt;Of Python and Road Maps (or the lack thereof)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;python-setting-up:424069113a08a4256349764ee38dbbbf&#34;&gt;Python Setting UP&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mirnazim.org/writings/python-ecosystem-introduction/&#34;&gt;Python Ecosystem - An Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://readthedocs.org/docs/ncoghlan_devs-python-notes/en/latest/venv_bootstrap.html&#34;&gt;Bootstrapping a Python Virtual Environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://static.squarespace.com/static/50b76babe4b05c3cd8bab78a/50b77150e4b0192bc2226d86/50b772fde4b0192bc222822b/1354199805695/?format=original&#34;&gt;Hitchhiker&amp;rsquo;s Guide to Packaging&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;object-oriented-programming:424069113a08a4256349764ee38dbbbf&#34;&gt;Object Oriented Programming&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cafepy.com/article/python_types_and_objects/python_types_and_objects.html&#34;&gt;Python Types and Objects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cafepy.com/article/python_attributes_and_methods/&#34;&gt;Python Attributes and Methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rhettinger.wordpress.com/2011/05/26/super-considered-super/&#34;&gt;Python&amp;rsquo;s super() considered super!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lgiordani.github.io/blog/2014/03/05/oop-concepts-in-python-2-dot-x-part-1/&#34;&gt;OOP Concepts in Python 2.x (&lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lgiordani.github.io/blog/2014/03/10/oop-concepts-in-python-2-dot-x-part-2/&#34;&gt;OOP Concepts in Python 2.x (&lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;posts:424069113a08a4256349764ee38dbbbf&#34;&gt;Posts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/231767/the-python-yield-keyword-explained/231855#231855&#34;&gt;The Python yield keyword explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/739654/understanding-python-decorators/1594484#1594484&#34;&gt;Understanding Python Decorators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python/6581949#6581949&#34;&gt;What is a metaclass in Python?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cleverdevil.org/computing/78/&#34;&gt;Metaclasses Demystified&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/5589532/try-catch-or-validation-for-speed/&#34;&gt;Try/Catch for validation or speed?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/4859129/python-and-python-c-api-new-versus-init/&#34;&gt;Python (and Python C API): &lt;strong&gt;new&lt;/strong&gt; versus &lt;strong&gt;init&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/6019627/python-self-keyword&#34;&gt;Python &amp;ldquo;self&amp;rdquo; keyword&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lucumr.pocoo.org/2011/7/9/python-and-pola/&#34;&gt;Python and the Principle of Least Astonishment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.dabeaz.com/coroutines/&#34;&gt;A Curious Course on Coroutines and Concurrency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.dabeaz.com/generators/&#34;&gt;Generator Tricks for Systems Programmers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html&#34;&gt;Code like a Pythonista: Idiomatic Python (2007)&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;strong&gt;entire&lt;/strong&gt; &lt;a href=&#34;http://www.doughellmann.com/PyMOTW/&#34;&gt;Python Module of the week archive&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Also see the book - &amp;ldquo;&lt;a href=&#34;http://amzn.to/mtVrak&#34;&gt;Python Standard Library by Example&lt;/a&gt;&amp;ldquo;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;(By me) &lt;a href=&#34;http://jessenoller.com/blog/2009/02/01/python-threads-and-the-global-interpreter-lock&#34;&gt;Python Threads and the global interpreter lock&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;(By me) &lt;a href=&#34;http://jessenoller.com/blog/2009/02/03/get-with-the-program-as-contextmanager-completely-different&#34;&gt;Get with the program as context manager&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://norvig.com/lispy.html&#34;&gt;How to write a Lisp interpreter in Python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://farmdev.com/talks/unicode/&#34;&gt;Unicode in Python, Completely Demystified&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://pythonconquerstheuniverse.wordpress.com/2010/06/04/unicode-for-dummies-just-use-utf-8/&#34;&gt;Unicode for Dummies - Just use UTF-8&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/&#34;&gt;Debugging in Python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://sayspy.blogspot.com/2009/12/how-to-handle-multiple-inheritance-of.html&#34;&gt;How to handle multiple inheritance of ABCs that implement each others abstract methods&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.aosabook.org/en/packaging.html&#34;&gt;AOSA: Python Packaging&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.stat.washington.edu/~hoytak/blog/whypython.html&#34;&gt;10 Reasons Python Rocks for Research (And a Few Reasons it Doesn&amp;#8217;t)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html&#34;&gt;Beej&amp;rsquo;s Guide to Network Programming&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://scotdoyle.com/python-epoll-howto.html&#34;&gt;How to use Linux epoll with Python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://zephyrfalcon.org/labs/beginners_mistakes.html&#34;&gt;Python beginner&amp;rsquo;s Mistakes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://pythonconquerstheuniverse.wordpress.com/2010/07/25/command-line-syntax-some-basic-concepts/&#34;&gt;Command Line syntax: Some basic Concepts&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://lucumr.pocoo.org/2011/2/1/exec-in-python/&#34;&gt;Be careful with exec and eval in Python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/linux/library/l-cpdecor/index.html&#34;&gt;Decorators make magic easy&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://bugs.python.org/file4451/timsort.txt&#34;&gt;The detailed guide to &amp;ldquo;Timsort&amp;rdquo; (which Java adopted, FWIW)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://svn.python.org/view/*checkout*/python/trunk/Objects/dictnotes.txt&#34;&gt;Notes on optimizing dictionaries&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.python.org/doc/essays/list2str.html&#34;&gt;Python Patterns - An Optimization Anecdote&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.python.org/moin/PythonSpeed/PerformanceTips&#34;&gt;Python Performance Tips&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://users.rcn.com/python/download/Descriptor.htm&#34;&gt;How-to guide for Python Descriptors&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/101268/hidden-features-of-python&#34;&gt;Hidden Features of Python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://dirtsimple.org/2004/12/python-is-not-java.html&#34;&gt;Python is Not Java (2004)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Source: &lt;a href=&#34;http://jessenoller.com&#34;&gt;http://jessenoller.com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
