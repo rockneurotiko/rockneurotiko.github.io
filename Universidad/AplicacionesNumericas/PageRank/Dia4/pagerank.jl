@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Author: Miguel Garcia Lafuente.
 ##
 
@@ -14,6 +15,12 @@ function bar(V)
             println("You don't have any plot library, maybe use \"using Gadfly\"")
         end
     end
+=======
+using Compose, Gadfly
+
+function spy_draw(sp::SparseMatrixCSC)
+    draw(SVG("spy.svg", 5inch, 5inch), spy(sp))
+>>>>>>> 7b844076cfaaee5ec7f84d52fbed8df5a3bf4bf1
 end
 
 function spconvert(path::String)
@@ -21,7 +28,11 @@ function spconvert(path::String)
 
     max = 0
     I,J,V = Int64[], Int64[], Float64[]
+<<<<<<< HEAD
     
+=======
+    ## l = readline(io)
+>>>>>>> 7b844076cfaaee5ec7f84d52fbed8df5a3bf4bf1
     for line in EachLine(io)
         h = split(line)
         i,j = map(int64, h[1:2])
@@ -33,12 +44,17 @@ function spconvert(path::String)
         ## max = (j > max) ? j : max
     end
     close(io)
+<<<<<<< HEAD
     M::SparseMatrixCSC = sparse(J,I,V)
+=======
+    M::SparseMatrixCSC = sparse(I,J,V)
+>>>>>>> 7b844076cfaaee5ec7f84d52fbed8df5a3bf4bf1
     ## M::SparseMatrixCSC = sparse(I,J,V,max,max)
     return M
 end
 
 
+<<<<<<< HEAD
 function randi(a,b,c)
     vec(rand(1:a,b,c))
 end
@@ -189,3 +205,8 @@ end
 full_test("web-Google.txt.dat")
 # full_test("web-BerkStan.txt.dat")
 # full_test("web-Stanford.txt.dat")
+=======
+l = spconvert("stanford-web.dat")
+spy_draw(l)
+#spy_draw(sprand(100,100,0.2))
+>>>>>>> 7b844076cfaaee5ec7f84d52fbed8df5a3bf4bf1
