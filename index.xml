@@ -10,35 +10,6 @@
     <atom:link href="http://rockneurotiko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>License</title>
-      <link>http://rockneurotiko.github.io/license/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockneurotiko.github.io/license/</guid>
-      <description>
-
-&lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
-
-&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;code-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Code license&lt;/h3&gt;
-
-&lt;p&gt;All source code files and snippets found on this web, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2015 Rock Neurotiko
-
--------------------------------------------------------------------------
-&amp;quot;THE BEER-WARE LICENSE&amp;quot; (Revision 42):
-[miguelglafuente @at@ gmail .dot. com] wrote this file.
-As long as you retain this notice you can do whatever you want with this stuff.
-If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
-Rock Neurotiko
--------------------------------------------------------------------------
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>About Me</title>
       <link>http://rockneurotiko.github.io/about/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
@@ -108,6 +79,35 @@ Rock Neurotiko
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>http://rockneurotiko.github.io/license/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://rockneurotiko.github.io/license/</guid>
+      <description>
+
+&lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
+
+&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Code license&lt;/h3&gt;
+
+&lt;p&gt;All source code files and snippets found on this web, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2015 Rock Neurotiko
+
+-------------------------------------------------------------------------
+&amp;quot;THE BEER-WARE LICENSE&amp;quot; (Revision 42):
+[miguelglafuente @at@ gmail .dot. com] wrote this file.
+As long as you retain this notice you can do whatever you want with this stuff.
+If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+Rock Neurotiko
+-------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
