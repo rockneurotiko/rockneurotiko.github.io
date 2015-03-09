@@ -39,53 +39,6 @@ Rock Neurotiko
     </item>
     
     <item>
-      <title>How to start with Python</title>
-      <link>https://rockneurotiko.github.io/python/how-to-start/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rockneurotiko.github.io/python/how-to-start/</guid>
-      <description>
-
-&lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
-
-&lt;h4 id=&#34;tutoriales-y-cursos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Tutoriales y Cursos&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34;&gt;Python.org tutorial&lt;/a&gt; (Py3)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/course/pythonlearn&#34;&gt;Coursera (curso semanal)&lt;/a&gt; (Py3)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.checkio.org/&#34;&gt;Checkio&lt;/a&gt; (Aprender con retos) (Py3)&lt;/li&gt;
-&lt;li&gt;CodeAcademy. &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;[En]&lt;/a&gt; &lt;a href=&#34;http://www.codecademy.com/es/tracks/python-traduccion-al-espanol-america-latina-clone-1&#34;&gt;[Es]&lt;/a&gt; (Py2)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/&#34;&gt;Learn Python The hardway&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.openbookproject.net/thinkcs/python/english2e/&#34;&gt;How to Think Like a Computer Scientist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.fullstackpython.com/&#34;&gt;Full Stack Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/karan/Projects&#34;&gt;100 projectos para aprender un lenguaje&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The python challenge&lt;/a&gt; &lt;em&gt;Warning: En este hay que pensar de modos distintos.&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;videos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Videos!&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://pyvideo.org/&#34;&gt;PyVideo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>About Me</title>
       <link>https://rockneurotiko.github.io/about/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
@@ -150,6 +103,53 @@ Rock Neurotiko
 &lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to start with Python</title>
+      <link>https://rockneurotiko.github.io/python/how-to-start/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://rockneurotiko.github.io/python/how-to-start/</guid>
+      <description>
+
+&lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
+
+&lt;h4 id=&#34;tutoriales-y-cursos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Tutoriales y Cursos&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34;&gt;Python.org tutorial&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/course/pythonlearn&#34;&gt;Coursera (curso semanal)&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.checkio.org/&#34;&gt;Checkio&lt;/a&gt; (Aprender con retos) (Py3)&lt;/li&gt;
+&lt;li&gt;CodeAcademy. &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;[En]&lt;/a&gt; &lt;a href=&#34;http://www.codecademy.com/es/tracks/python-traduccion-al-espanol-america-latina-clone-1&#34;&gt;[Es]&lt;/a&gt; (Py2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/&#34;&gt;Learn Python The hardway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.openbookproject.net/thinkcs/python/english2e/&#34;&gt;How to Think Like a Computer Scientist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.fullstackpython.com/&#34;&gt;Full Stack Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/karan/Projects&#34;&gt;100 projectos para aprender un lenguaje&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The python challenge&lt;/a&gt; &lt;em&gt;Warning: En este hay que pensar de modos distintos.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;videos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Videos!&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pyvideo.org/&#34;&gt;PyVideo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
