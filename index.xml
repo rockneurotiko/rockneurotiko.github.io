@@ -2,92 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rock Neurotiko&#39;s web &lt;3</title>
-    <link>http://rockneurotiko.github.io/</link>
+    <link>https://rockneurotiko.github.io/</link>
     <description>Recent content on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://rockneurotiko.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockneurotiko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>About Me</title>
-      <link>http://rockneurotiko.github.io/about/</link>
+      <title>Lovely links &lt;3</title>
+      <link>https://rockneurotiko.github.io/links/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://rockneurotiko.github.io/about/</guid>
+      <guid>https://rockneurotiko.github.io/links/</guid>
       <description>
 
-&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://rockneurotiko.github.io/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
-
-&lt;p&gt;I work mostly in &lt;a href=&#34;http://elixir-lang.org/&#34;&gt;Elixir&lt;/a&gt; and Java.&lt;/p&gt;
-
-&lt;p&gt;My main interest is in server-side technology and massive scalability, but I&amp;rsquo;ve been known to dabble in native mobile development, user facing web applications and various other projects.&lt;/p&gt;
-
-&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
-
-&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to start with Python</title>
-      <link>http://rockneurotiko.github.io/python/how-to-start/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://rockneurotiko.github.io/python/how-to-start/</guid>
-      <description>
-
-&lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
-
-&lt;h4 id=&#34;tutoriales-y-cursos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Tutoriales y Cursos&lt;/h4&gt;
+&lt;h3 id=&#34;cursos-presentaciones-etc:424069113a08a4256349764ee38dbbbf&#34;&gt;Cursos, presentaciones, etc&amp;hellip;&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34;&gt;Python.org tutorial&lt;/a&gt; (Py3)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/course/pythonlearn&#34;&gt;Coursera (curso semanal)&lt;/a&gt; (Py3)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.checkio.org/&#34;&gt;Checkio&lt;/a&gt; (Aprender con retos) (Py3)&lt;/li&gt;
-&lt;li&gt;CodeAcademy. &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;[En]&lt;/a&gt; &lt;a href=&#34;http://www.codecademy.com/es/tracks/python-traduccion-al-espanol-america-latina-clone-1&#34;&gt;[Es]&lt;/a&gt; (Py2)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2014-2015&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;Presentacion SIG Python (PDF)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/how-to-start&#34;&gt;Collecion de links para empezar a aprender Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Cursos/Inicio/PythonIntro.odp&#34;&gt;Curso de iniciacion en Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013-2014&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rockneurotiko/CosasUniversidad/tree/master/Cursos/Python&#34;&gt;Curso Python ETSI-Inf (FI) UPM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/links&#34;&gt;Coleccion de links interesantes e indispensables (Python)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
+&lt;h3 id=&#34;plantillas:424069113a08a4256349764ee38dbbbf&#34;&gt;Plantillas&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/&#34;&gt;Learn Python The hardway&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.openbookproject.net/thinkcs/python/english2e/&#34;&gt;How to Think Like a Computer Scientist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.fullstackpython.com/&#34;&gt;Full Stack Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/karan/Projects&#34;&gt;100 projectos para aprender un lenguaje&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The python challenge&lt;/a&gt; &lt;em&gt;Warning: En este hay que pensar de modos distintos.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.png&#34;&gt;Plantilla Presentaciones Python .png&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.otp&#34;&gt;Plantilla Presentaciones Python .otp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;videos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Videos!&lt;/h4&gt;
+&lt;h3 id=&#34;firefox-os-apps:424069113a08a4256349764ee38dbbbf&#34;&gt;Firefox OS apps!&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://pyvideo.org/&#34;&gt;PyVideo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>License</title>
-      <link>http://rockneurotiko.github.io/license/</link>
+      <link>https://rockneurotiko.github.io/license/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://rockneurotiko.github.io/license/</guid>
+      <guid>https://rockneurotiko.github.io/license/</guid>
       <description>
 
 &lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
@@ -112,54 +82,84 @@ Rock Neurotiko
     </item>
     
     <item>
-      <title>Lovely links &lt;3</title>
-      <link>http://rockneurotiko.github.io/links/</link>
+      <title>How to start with Python</title>
+      <link>https://rockneurotiko.github.io/python/how-to-start/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://rockneurotiko.github.io/links/</guid>
+      <guid>https://rockneurotiko.github.io/python/how-to-start/</guid>
       <description>
 
-&lt;h3 id=&#34;cursos-presentaciones-etc:424069113a08a4256349764ee38dbbbf&#34;&gt;Cursos, presentaciones, etc&amp;hellip;&lt;/h3&gt;
+&lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
+
+&lt;h4 id=&#34;tutoriales-y-cursos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Tutoriales y Cursos&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2014-2015&lt;/strong&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;Presentacion SIG Python (PDF)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/python/how-to-start&#34;&gt;Collecion de links para empezar a aprender Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Cursos/Inicio/PythonIntro.odp&#34;&gt;Curso de iniciacion en Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2013-2014&lt;/strong&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rockneurotiko/CosasUniversidad/tree/master/Cursos/Python&#34;&gt;Curso Python ETSI-Inf (FI) UPM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/python/links&#34;&gt;Coleccion de links interesantes e indispensables (Python)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34;&gt;Python.org tutorial&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/course/pythonlearn&#34;&gt;Coursera (curso semanal)&lt;/a&gt; (Py3)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.checkio.org/&#34;&gt;Checkio&lt;/a&gt; (Aprender con retos) (Py3)&lt;/li&gt;
+&lt;li&gt;CodeAcademy. &lt;a href=&#34;http://www.codecademy.com/en/tracks/python&#34;&gt;[En]&lt;/a&gt; &lt;a href=&#34;http://www.codecademy.com/es/tracks/python-traduccion-al-espanol-america-latina-clone-1&#34;&gt;[Es]&lt;/a&gt; (Py2)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;plantillas:424069113a08a4256349764ee38dbbbf&#34;&gt;Plantillas&lt;/h3&gt;
+&lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.png&#34;&gt;Plantilla Presentaciones Python .png&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.otp&#34;&gt;Plantilla Presentaciones Python .otp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://learnpythonthehardway.org/book/&#34;&gt;Learn Python The hardway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.openbookproject.net/thinkcs/python/english2e/&#34;&gt;How to Think Like a Computer Scientist&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.fullstackpython.com/&#34;&gt;Full Stack Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/karan/Projects&#34;&gt;100 projectos para aprender un lenguaje&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The python challenge&lt;/a&gt; &lt;em&gt;Warning: En este hay que pensar de modos distintos.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;firefox-os-apps:424069113a08a4256349764ee38dbbbf&#34;&gt;Firefox OS apps!&lt;/h3&gt;
+&lt;h4 id=&#34;videos:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Videos!&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pyvideo.org/&#34;&gt;PyVideo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
+      <title>About Me</title>
+      <link>https://rockneurotiko.github.io/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://rockneurotiko.github.io/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://rockneurotiko.github.io/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;http://elixir-lang.org/&#34;&gt;Elixir&lt;/a&gt; and Java.&lt;/p&gt;
+
+&lt;p&gt;My main interest is in server-side technology and massive scalability, but I&amp;rsquo;ve been known to dabble in native mobile development, user facing web applications and various other projects.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Post test!</title>
-      <link>http://rockneurotiko.github.io/blog/2015/03/04/post-test/</link>
+      <link>https://rockneurotiko.github.io/blog/2015/03/04/post-test/</link>
       <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://rockneurotiko.github.io/blog/2015/03/04/post-test/</guid>
+      <guid>https://rockneurotiko.github.io/blog/2015/03/04/post-test/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0:a8158e2ae96b1b34e1f733f49d15bcfd&#34;&gt;:)&lt;/h2&gt;
@@ -186,10 +186,10 @@ main = print (compress [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39
     
     <item>
       <title></title>
-      <link>http://rockneurotiko.github.io/python/links/</link>
+      <link>https://rockneurotiko.github.io/python/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://rockneurotiko.github.io/python/links/</guid>
+      <guid>https://rockneurotiko.github.io/python/links/</guid>
       <description>
 
 &lt;h3 id=&#34;begginner:424069113a08a4256349764ee38dbbbf&#34;&gt;Begginner&lt;/h3&gt;
