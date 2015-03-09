@@ -10,49 +10,6 @@
     <atom:link href="https://rockneurotiko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Lovely links &lt;3</title>
-      <link>https://rockneurotiko.github.io/links/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rockneurotiko.github.io/links/</guid>
-      <description>
-
-&lt;h3 id=&#34;cursos-presentaciones-etc:424069113a08a4256349764ee38dbbbf&#34;&gt;Cursos, presentaciones, etc&amp;hellip;&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2014-2015&lt;/strong&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;Presentacion SIG Python (PDF)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/how-to-start&#34;&gt;Collecion de links para empezar a aprender Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Cursos/Inicio/PythonIntro.odp&#34;&gt;Curso de iniciacion en Python&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2013-2014&lt;/strong&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/rockneurotiko/CosasUniversidad/tree/master/Cursos/Python&#34;&gt;Curso Python ETSI-Inf (FI) UPM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/links&#34;&gt;Coleccion de links interesantes e indispensables (Python)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;plantillas:424069113a08a4256349764ee38dbbbf&#34;&gt;Plantillas&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.png&#34;&gt;Plantilla Presentaciones Python .png&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.otp&#34;&gt;Plantilla Presentaciones Python .otp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;firefox-os-apps:424069113a08a4256349764ee38dbbbf&#34;&gt;Firefox OS apps!&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>License</title>
       <link>https://rockneurotiko.github.io/license/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
@@ -151,6 +108,49 @@ Rock Neurotiko
 &lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
 
 &lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lovely links &lt;3</title>
+      <link>https://rockneurotiko.github.io/links/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://rockneurotiko.github.io/links/</guid>
+      <description>
+
+&lt;h3 id=&#34;cursos-presentaciones-etc:424069113a08a4256349764ee38dbbbf&#34;&gt;Cursos, presentaciones, etc&amp;hellip;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2014-2015&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;Presentacion SIG Python (PDF)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/how-to-start&#34;&gt;Collecion de links para empezar a aprender Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Cursos/Inicio/PythonIntro.odp&#34;&gt;Curso de iniciacion en Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2013-2014&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rockneurotiko/CosasUniversidad/tree/master/Cursos/Python&#34;&gt;Curso Python ETSI-Inf (FI) UPM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/python/links&#34;&gt;Coleccion de links interesantes e indispensables (Python)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;plantillas:424069113a08a4256349764ee38dbbbf&#34;&gt;Plantillas&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.png&#34;&gt;Plantilla Presentaciones Python .png&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Templates/plantilla.otp&#34;&gt;Plantilla Presentaciones Python .otp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;firefox-os-apps:424069113a08a4256349764ee38dbbbf&#34;&gt;Firefox OS apps!&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/rings/install.html&#34;&gt;Ringtones for Firefox OS 1.2+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
