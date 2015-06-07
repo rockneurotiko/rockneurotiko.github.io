@@ -11,8 +11,8 @@ var codec = document.getElementById("mycode");
 
 // Right now don't do anything with theme
 
-code.textContent = code;
+codec.textContent = code;
 
 if(lang !== "" && lang !== "detect" && lang !== "autodetect") {
-    code.className = lang;
+    codec.className = lang;
 }
