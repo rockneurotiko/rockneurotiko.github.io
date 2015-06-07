@@ -4,7 +4,15 @@ function get(name){
     else return '';
 }
 
+var code=get("code");
+var lang=get("language");
+var theme=get("theme");
+var codec = document.getElementById("mycode");
 
-console.log(get("code"));
-console.log(get("language"));
-console.log(get("theme"));
+// Right now don't do anything with theme
+
+code.textContent = code;
+
+if(lang !== "" && lang !== "detect" && lang !== "autodetect") {
+    code.className = lang;
+}
