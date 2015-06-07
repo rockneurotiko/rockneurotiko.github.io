@@ -1,6 +1,9 @@
+/*global hljs */
 function get(name){
-    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-        return decodeURIComponent(name[1]);
+    var namel = (new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)'));
+    namel = namel.exec(window.location.search);
+    if(namel)
+        return decodeURIComponent(namel[1]);
     else return '';
 }
 
@@ -17,6 +20,9 @@ var initialize = function initialize() {
     if(lang !== "" && lang !== "detect" && lang !== "autodetect") {
         codec.className = lang;
     }
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
+    hljs.highlightBlock(codec);
 };
 
 if(window.attachEvent) {
