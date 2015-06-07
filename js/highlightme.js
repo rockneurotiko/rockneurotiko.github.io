@@ -4,7 +4,7 @@ function get(name){
     else return '';
 }
 
-window.onload = function() {
+var initialize = function initialize() {
     var code=get("code");
     var lang=get("language");
     var theme=get("theme");
@@ -17,5 +17,19 @@ window.onload = function() {
     if(lang !== "" && lang !== "detect" && lang !== "autodetect") {
         codec.className = lang;
     }
-    hljs.initHighlightingOnLoad();
 };
+
+if(window.attachEvent) {
+    window.attachEvent('onload', initialize);
+} else {
+    if(window.onload) {
+        var curronload = window.onload;
+        var newonload = function() {
+            curronload();
+            initialize();
+        };
+        window.onload = newonload;
+    } else {
+        window.onload = initialize;
+    }
+}
