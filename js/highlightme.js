@@ -28,7 +28,7 @@ function listStyles() {
 
 var initialize = function initialize() {
     var code=get("code");
-    var lang=get("language");
+    var lang=get("language") || get("lang");
     var theme=get("theme");
     var codec = document.getElementById("mycode");
 
