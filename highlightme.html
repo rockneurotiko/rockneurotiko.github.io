@@ -96,22 +96,27 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a id="langnav" href="#">Undetected <span class="sr-only">(current)</span></a></li>
-                        <button type="button" onclick="toggleedit();" class="btn btn-default navbar-btn">Toggle Edit!</button>
-                        <button type="button" onclick="rehighlight();" class="btn btn-default navbar-btn">Re-Highlight</button>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Languages<span class="caret"></span></a>
-                            <ul id="languagesdrop" class="dropdown-menu mydrop" role="menu"></ul>
-                        </li>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Styles<span class="caret"></span></a>
-                            <ul id="stylesdrop" class="dropdown-menu mydrop" role="menu"></ul>
-                        </li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Languages<span class="caret"></span>
+                            </button>
+                            <ul id="languagesdrop" class="dropdown-menu mydrop" role="menu">
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Styles<span class="caret"></span>
+                            </button>
+                            <ul id="stylesdrop" class="dropdown-menu mydrop" role="menu">
+                            </ul>
+                        </div>
 
+                        <button type="button" onclick="toggleedit();" class="btn btn-success navbar-btn">Toggle Edit!</button>
+
+                        <button type="button" onclick="rehighlight();" class="btn btn-warning navbar-btn">Re-Highlight</button>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <button type="button" onclick="copyLink();" class="btn btn-default navbar-btn">Copy link!</button>
-                        <button type="button" onclick="gotonewlink();" class="btn btn-default navbar-btn">Generate link!</button>
+                        <button type="button" onclick="copyLink();" class="btn btn-info navbar-btn">Copy link!</button>
+                        <button type="button" onclick="gotonewlink();" class="btn btn-info navbar-btn">Generate link!</button>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
