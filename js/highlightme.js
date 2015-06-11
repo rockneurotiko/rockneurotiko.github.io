@@ -2,7 +2,6 @@
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-    // return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
 function copyToClipboard(text) {
@@ -19,20 +18,29 @@ function get(name){
 
 
 function scrollToDrop(drop) {
+    $(drop).scrollTop(0);
     var pos = $(drop + ' li.active').position().top;
     if (pos > 100) {
         $(drop).scrollTop(pos - 100);
     }
 }
 
+
+function toggleActiveClass(drop, name) {
+    $(drop + " li").removeClass("active");
+    var selector = $(drop).find("li:contains(\"" + name + "\")");
+    selector.map(function(v, a) {
+        if (a.textContent.toLowerCase().replace(' ', '_') == name.toLowerCase().replace(' ', '_'))
+            a.className = "active";
+    });
+}
+
+
 function selectStyle(style) {
     $('link[title]').each(function(i, link) {
         link.disabled = (link.title != style);
     });
-    $("#stylesdrop li").removeClass("active");
-    $("#stylesdrop").find("li:contains(\"" + style + "\")").addClass("active");
-    var t = $('#stylesdrop li.active');
-    var t2 = t.position().top;
+    toggleActiveClass('#stylesdrop', style);
 }
 
 function listStyles() {
@@ -52,12 +60,18 @@ function safeEnter() {
     var str = $("#mycode").html();
     var regex = /<br\s*[\/]?>/gi;
     $("#mycode").html(str.replace(regex, "\n"));
+    // Add \n at the end :)
+    var text = $("#mycode").text();
+    if (text[text.length] != "\n")
+        $("#mycode").html($("#mycode").html() + "\n");
 }
 
 function rehighlight() {
     hljs.initHighlighting.called = false;
     hljs.initHighlighting();
-    $("#langnav").text(getLangDetected());
+    var lang = getLangDetected();
+    $("#langnav").text(lang);
+    toggleActiveClass("#languagesdrop", lang);
     safeEnter();
 }
 
@@ -99,24 +113,24 @@ function gotonewlink() {
     window.location.href = linkgenerate();
 }
 
+function fillDrop(name, array, fname, f1, f2) {
+    var drop = $(name);
+    for (var i in array) {
+        var l = array[i];
+        drop.append('<li><a href="#" onclick="' + fname + '(\'' + f1(l) + '\');">' + f1(l) + '</a></li>');
+    }
+}
+
+function id(n) { return n; };
+
+function fCapit(s) {return s.capitalizeFirstLetter();};
 
 function setStylesDrop() {
-    var langsdrop = $("#stylesdrop");
-    var langs = listStyles();
-    for (var i in langs) {
-        var l = langs[i];
-        langsdrop.append('<li><a href="#" onclick="selectStyle(\'' + l.capitalizeFirstLetter() + '\');">' + l + '</a></li>');
-    }
+    fillDrop('#stylesdrop', listStyles(), 'selectStyle', fCapit, id);
 };
 
-
 function setLanguagesDrop() {
-    var langsdrop = $("#languagesdrop");
-    var langs = hljs.listLanguages();
-    for (var i in langs) {
-        var l = langs[i];
-        langsdrop.append('<li><a href="#" onclick="setLang(\'' + l + '\');">' + l + '</a></li>');
-    }
+    fillDrop('#languagesdrop', hljs.listLanguages(), 'setLang', fCapit, id);
 };
 
 function initializeListeners() {
@@ -126,12 +140,10 @@ function initializeListeners() {
             if(evnt.attributeName == "aria-expanded") { // which attribute you want to watch for changes
                 if(evnt.newValue.search(/'true'/i) == -1) {
                     scrollToDrop('#stylesdrop');
+                    scrollToDrop('#languagesdrop');
                 }
             }
         }
-    });
-    $("#stylesdrop").on('show', function() {
-        scrollToDrop('#stylesdrop');
     });
 }
 
@@ -145,8 +157,6 @@ var initialize = function initialize() {
 
     setLanguagesDrop();
     setStylesDrop();
-
-
 
     if(lang !== "" && lang !== "detect" && lang !== "autodetect") {
         codec.className = lang;
