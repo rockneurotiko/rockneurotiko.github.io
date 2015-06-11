@@ -40,7 +40,11 @@
     border-radius: 15px;
 }
 
+
+
 #langnav {
     background-color: #494949;
     margin-right: 4px;
+    pointer-events: none;
+    cursor: default;
 }

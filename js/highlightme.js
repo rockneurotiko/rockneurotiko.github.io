@@ -71,7 +71,7 @@ function rehighlight() {
     hljs.initHighlighting();
     var lang = getLangDetected();
     $("#langnav").text(lang);
-    toggleActiveClass("#languagesdrop", lang);
+    toggleActiveClass("#languagesdrop", lang.capitalizeFirstLetter());
     safeEnter();
 }
 
