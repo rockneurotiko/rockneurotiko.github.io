@@ -91,6 +91,7 @@ function toggleedit() {
         btn.removeClass('btn-danger');
         btn.addClass('btn-success');
     } else {
+        $("#generatelinkbtn").removeClass("disabled");
         btn.text('Stop Edit!');
         btn.removeClass('btn-success');
         btn.addClass('btn-danger');
