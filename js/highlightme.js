@@ -52,16 +52,23 @@ function rehighlight() {
 function setLang(lang) {
     var c = $("#mycode");
     c.attr('class', lang);
-    gotonewlink();
-    // window.location.reload();
-    // rehighlight();
+    gotonewlink(); // Reload, just rehighlight don't wors :(
 }
 
 function toggleedit() {
     var edit = $('#mycode').attr("contenteditable")  == 'true' || false;
+    var btn = $('#editbutton');
     $("#mycode").attr("contenteditable", !edit);
-    if (edit)
+    if (edit) {
         rehighlight();
+        btn.text('Start Edit!');
+        btn.removeClass('btn-danger');
+        btn.addClass('btn-success');
+    } else {
+        btn.text('Stop Edit!');
+        btn.removeClass('btn-success');
+        btn.addClass('btn-danger');
+    }
 }
 
 function copyLink() {
