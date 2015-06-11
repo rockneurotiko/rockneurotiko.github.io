@@ -5,6 +5,10 @@ String.prototype.capitalizeFirstLetter = function() {
     // return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+function copyToClipboard(text) {
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}
+
 function get(name){
     var namel = (new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)'));
     namel = namel.exec(window.location.search);
@@ -22,8 +26,78 @@ function selectStyle(style) {
 function listStyles() {
     var l = [];
     $('link[title]').each(function(i, link) {
-        l.append(link.title);
+        l.push(link.title);
     });
+    return l;
+};
+
+function getLangDetected() {
+    var c = $("#mycode").attr('class') || '';
+    return c.replace(' ', '').replace('hljs', '');
+}
+
+function safeEnter() {
+    var str = $("#mycode").html();
+    var regex = /<br\s*[\/]?>/gi;
+    $("#mycode").html(str.replace(regex, "\n"));
+}
+
+function rehighlight() {
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
+    $("#langnav").text(getLangDetected());
+    safeEnter();
+}
+
+function setLang(lang) {
+    var c = $("#mycode");
+    c.attr('class', lang);
+    gotonewlink();
+    // window.location.reload();
+    // rehighlight();
+}
+
+function toggleedit() {
+    var edit = $('#mycode').attr("contenteditable")  == 'true' || false;
+    $("#mycode").attr("contenteditable", !edit);
+    if (edit)
+        rehighlight();
+}
+
+function copyLink() {
+    copyToClipboard(linkgenerate());
+}
+
+function linkgenerate() {
+    var url = window.location.href.split("?")[0];
+    var mc = $("#mycode");
+    var text = encodeURIComponent(mc.text());
+    var lang = encodeURIComponent(getLangDetected());
+    return url + "?" + "lang=" + lang + "&code=" + text;
+}
+
+function gotonewlink() {
+    window.location.href = linkgenerate();
+}
+
+
+function setStylesDrop() {
+    var langsdrop = $("#stylesdrop");
+    var langs = listStyles();
+    for (var i in langs) {
+        var l = langs[i];
+        langsdrop.append('<li><a href="#" onclick="selectStyle(\'' + l + '\');">' + l + '</a></li>');
+    }
+};
+
+
+function setLanguagesDrop() {
+    var langsdrop = $("#languagesdrop");
+    var langs = hljs.listLanguages();
+    for (var i in langs) {
+        var l = langs[i];
+        langsdrop.append('<li><a href="#" onclick="setLang(\'' + l + '\');">' + l + '</a></li>');
+    }
 };
 
 var initialize = function initialize() {
@@ -41,10 +115,9 @@ var initialize = function initialize() {
     if (theme === '')
         theme = 'monokai sublime';
     selectStyle(theme.capitalizeFirstLetter());
-
-    hljs.initHighlighting.called = false;
-    hljs.initHighlighting();
-    // hljs.highlightBlock(codec);
+    rehighlight();
+    setLanguagesDrop();
+    setStylesDrop();
 };
 
 if(window.attachEvent) {
