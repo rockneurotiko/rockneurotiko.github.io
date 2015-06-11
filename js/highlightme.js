@@ -122,7 +122,12 @@ var initialize = function initialize() {
     if (theme === '')
         theme = 'monokai sublime';
     selectStyle(theme.capitalizeFirstLetter());
+
     rehighlight();
+    if (code === '') {
+        toggleedit();
+
+    }
     setLanguagesDrop();
     setStylesDrop();
 };
