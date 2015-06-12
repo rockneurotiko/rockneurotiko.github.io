@@ -62,6 +62,9 @@ function safeEnter() {
     $("#mycode").html(str.replace(regex, "\n"));
     // Add \n at the end :)
     var text = $("#mycode").text();
+    if (text[0] != '\n')
+        $('#mycode').html('\n' + $('#mycode').html());
+    text = $("#mycode").text();
     if (text[text.length] != "\n")
         $("#mycode").html($("#mycode").html() + "\n");
 }
