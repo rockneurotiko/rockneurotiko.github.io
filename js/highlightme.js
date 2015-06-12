@@ -148,10 +148,7 @@ function initializeListeners() {
     });
 }
 
-var initialize = function initialize() {
-    var code=get("code");
-    var lang=get("language") || get("lang");
-    var theme=get("theme");
+var asyncinit = function asyncinit(code, lang, theme) {
     var codec = document.getElementById("mycode");
 
     codec.textContent = code;
@@ -173,6 +170,24 @@ var initialize = function initialize() {
     }
 
     initializeListeners();
+};
+
+var initialize = function initialize() {
+    var id=get("id") || '';
+    var code, lang, theme;
+    if (id != '') {
+        $.getJSON('codefiles/' + id + '.json', function(json) {
+            code = json.code || '';
+            lang = json.language || json.lang || '';
+            theme = json.theme || '';
+            asyncinit(code, lang, theme);
+        });
+    } else {
+        code=get("code");
+        lang=get("language") || get("lang");
+        theme=get("theme");
+        asyncinit(code, lang, theme);
+    }
 };
 
 if(window.attachEvent) {
