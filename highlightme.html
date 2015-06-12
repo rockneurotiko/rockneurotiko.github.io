@@ -72,7 +72,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="https://raw.githubusercontent.com/meetselva/attrchange/master/js/attrchange.js"></script>
+        <script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js"></script>
         <link rel="stylesheet" href="css/highlightme.css"></link>
         <script src="js/highlight.pack.js"></script>
         <script src="js/highlightme.js"></script>
@@ -96,7 +96,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" style="width: 50%;">
                         <li class="active"><a id="langnav" href="#">Undetected <span class="sr-only">(current)</span></a></li>
 
                         <div class="btn-group">
@@ -123,9 +123,11 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-<!--    Use https://github.com/google/code-prettify      -->
-        <pre class="myprecode">
+        <!--    Use https://github.com/google/code-prettify      -->
+        <div class="outer">
+            <pre class="myprecode">
             <code id="mycode"></code>
         </pre>
+        </div>
     </body>
 </html>

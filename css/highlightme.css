@@ -28,19 +28,31 @@
     font-size: 11px;
     width: 100%;
     padding-bottom: 0px;
+    position: relative;
+    height: 99%;
+}
+
+.outer {
+    position: absolute;
+    top: 30px; /* Header Height */
+    right: 4px;
+    left: 2px;
+    bottom: 0px; /* Footer Height */
+    /* margin-top: 2px; */
+    /* width: 100%; */
 }
 
 #mycode {
-    height:91%;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    /* height:91%; */
     padding-top: 1em;
     padding-bottom: 1em;
     margin-top: -1.2em;
-    margin-bottom: -2.0em;
+    /* margin-bottom: -2.0em; */
     border: 0px solid #CCC;
     border-radius: 15px;
 }
-
-
 
 #langnav {
     background-color: #494949;

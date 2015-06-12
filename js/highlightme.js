@@ -162,6 +162,7 @@ var asyncinit = function asyncinit(code, lang, theme) {
     // Right now don't do anything with theme
     if (theme === '')
         theme = 'monokai sublime';
+    selectStyle('Default');
     selectStyle(theme.capitalizeFirstLetter());
 
     rehighlight();
