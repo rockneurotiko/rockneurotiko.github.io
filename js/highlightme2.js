@@ -227,6 +227,15 @@ function setLanguagesDrop() {
     fillDrop('#languagesdrop', modeList, 'setLang', fCapit, id);
 };
 
+function localSaveJson() {
+    var code = editor.getValue();
+    var lang = editor.getOption('mode');
+    var theme = editor.getOption('theme');
+    var rjson = {lang: lang, theme: theme, code: code};
+    var blob = new Blob([JSON.stringify(rjson, null, 4)], {type: "text/json;charset=utf-8"});
+    saveAs(blob, "awesome_code_" + lang + ".json");
+};
+
 function initializeListeners() {
     $(".dropdown-toggle").attrchange({
         trackValues: true, // set to true so that the event object is updated with old & new values
