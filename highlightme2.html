@@ -1,0 +1,229 @@
+<meta charset="UTF-8">
+<!-- <html> -->
+    <!-- <head> -->
+        <title>Source Code HighLighter! <3></title>
+        <link rel="stylesheet" href="codemirror/theme/3024-day.css">
+        <link rel="stylesheet" href="codemirror/theme/3024-night.css">
+        <link rel="stylesheet" href="codemirror/theme/ambiance.css">
+        <link rel="stylesheet" href="codemirror/theme/base16-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/base16-light.css">
+        <link rel="stylesheet" href="codemirror/theme/blackboard.css">
+        <link rel="stylesheet" href="codemirror/theme/cobalt.css">
+        <link rel="stylesheet" href="codemirror/theme/colorforth.css">
+        <link rel="stylesheet" href="codemirror/theme/eclipse.css">
+        <link rel="stylesheet" href="codemirror/theme/elegant.css">
+        <link rel="stylesheet" href="codemirror/theme/erlang-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/lesser-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/liquibyte.css">
+        <link rel="stylesheet" href="codemirror/theme/mbo.css">
+        <link rel="stylesheet" href="codemirror/theme/mdn-like.css">
+        <link rel="stylesheet" href="codemirror/theme/midnight.css">
+        <link rel="stylesheet" href="codemirror/theme/monokai.css">
+        <link rel="stylesheet" href="codemirror/theme/neat.css">
+        <link rel="stylesheet" href="codemirror/theme/neo.css">
+        <link rel="stylesheet" href="codemirror/theme/night.css">
+        <link rel="stylesheet" href="codemirror/theme/paraiso-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/paraiso-light.css">
+        <link rel="stylesheet" href="codemirror/theme/pastel-on-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/rubyblue.css">
+        <link rel="stylesheet" href="codemirror/theme/solarized.css">
+        <link rel="stylesheet" href="codemirror/theme/the-matrix.css">
+        <link rel="stylesheet" href="codemirror/theme/tomorrow-night-bright.css">
+        <link rel="stylesheet" href="codemirror/theme/tomorrow-night-eighties.css">
+        <link rel="stylesheet" href="codemirror/theme/ttcn.css">
+        <link rel="stylesheet" href="codemirror/theme/twilight.css">
+        <link rel="stylesheet" href="codemirror/theme/vibrant-ink.css">
+        <link rel="stylesheet" href="codemirror/theme/xq-dark.css">
+        <link rel="stylesheet" href="codemirror/theme/xq-light.css">
+        <link rel="stylesheet" href="codemirror/theme/zenburn.css">
+
+        <link rel="stylesheet" href="codemirror/addon/dialog/dialog.css">
+
+        <!-- <script src="codemirror/mode/meta.js/meta.js.js"></script> -->
+
+        <!-- <script src="codemirror/mode/apl/aps.js"></script>
+        <script src="codemirror/mode/asciiarmor/asciiarmor.js"></script>
+        <script src="codemirror/mode/asn.1/1.js"></script>
+        <script src="codemirror/mode/asterisk/asterisk.js"></script>
+        <script src="codemirror/mode/clike/clike.js"></script>
+        <script src="codemirror/mode/clojure/clojure.js"></script>
+        <script src="codemirror/mode/10 cmake/cmake.js"></script>
+        <script src="codemirror/mode/cobol/cobol.js"></script>
+        <script src="codemirror/mode/coffeescript/coffeescript.js"></script>
+        <script src="codemirror/mode/commonlisp/commonlisp.js"></script>
+        <script src="codemirror/mode/css/css.js"></script>
+        <script src="codemirror/mode/cypher/cypher.js"></script>
+        <script src="codemirror/mode/d/d.js"></script>
+        <script src="codemirror/mode/dart/dart.js"></script>
+        <script src="codemirror/mode/diff/diff.js"></script>
+        <script src="codemirror/mode/django/django.js"></script>
+        <script src="codemirror/mode/dtd/dtd.js"></script>
+        <script src="codemirror/mode/dylan/dylan.js"></script>
+        <script src="codemirror/mode/ebnf/ebnf.js"></script>
+        <script src="codemirror/mode/ecl/ecl.js"></script>
+        <script src="codemirror/mode/eiffel/eiffel.js"></script>
+        <script src="codemirror/mode/erlang/erlang.js"></script>
+        <script src="codemirror/mode/forth/forth.js"></script>
+        <script src="codemirror/mode/fortran/fortran.js"></script>
+        <script src="codemirror/mode/gas/gas.js"></script>
+        <script src="codemirror/mode/gfm/gfm.js"></script>
+        <script src="codemirror/mode/gherkin/gherkin.js"></script>
+        <script src="codemirror/mode/go/go.js"></script>
+        <script src="codemirror/mode/groovy/groovy.js"></script>
+        <script src="codemirror/mode/haml/haml.js"></script>
+        <script src="codemirror/mode/haskell/haskell.js"></script>
+        <script src="codemirror/mode/haxe/haxe.js"></script>
+        <script src="codemirror/mode/htmlembedded/htmlembedded.js"></script>
+        <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="codemirror/mode/http/http.js"></script>
+        <script src="codemirror/mode/idl/idl.js"></script>
+        <script src="codemirror/mode/index.html/index.html.js"></script>
+        <script src="codemirror/mode/jade/jade.js"></script>
+        <script src="codemirror/mode/javascript/javascript.js"></script>
+        <script src="codemirror/mode/jinja2/jinja2.js"></script>
+        <script src="codemirror/mode/julia/julia.js"></script>
+        <script src="codemirror/mode/kotlin/kotlin.js"></script>
+        <script src="codemirror/mode/livescript/livescript.js"></script>
+        <script src="codemirror/mode/lua/lua.js"></script>
+        <script src="codemirror/mode/markdown/markdown.js"></script>
+        <script src="codemirror/mode/mathematica/mathematica.js"></script>
+        <script src="codemirror/mode/meta.js/meta.js.js"></script>
+        <script src="codemirror/mode/mirc/mirc.js"></script>
+        <script src="codemirror/mode/mllike/mllike.js"></script>
+        <script src="codemirror/mode/modelica/modelica.js"></script>
+        <script src="codemirror/mode/mumps/mumps.js"></script>
+        <script src="codemirror/mode/nginx/nginx.js"></script>
+        <script src="codemirror/mode/ntriples/ntriples.js"></script>
+        <script src="codemirror/mode/octave/octave.js"></script>
+        <script src="codemirror/mode/pascal/pascal.js"></script>
+        <script src="codemirror/mode/pegjs/pegjs.js"></script>
+        <script src="codemirror/mode/perl/perl.js"></script>
+        <script src="codemirror/mode/php/php.js"></script>
+        <script src="codemirror/mode/pig/pig.js"></script>
+        <script src="codemirror/mode/properties/properties.js"></script>
+        <script src="codemirror/mode/puppet/puppet.js"></script>
+        <script src="codemirror/mode/python/python.js"></script>
+        <script src="codemirror/mode/q/q.js"></script>
+        <script src="codemirror/mode/r/r.js"></script>
+        <script src="codemirror/mode/rpm/rpm.js"></script>
+        <script src="codemirror/mode/rst/rst.js"></script>
+        <script src="codemirror/mode/ruby/ruby.js"></script>
+        <script src="codemirror/mode/rust/rust.js"></script>
+        <script src="codemirror/mode/sass/sass.js"></script>
+        <script src="codemirror/mode/scheme/scheme.js"></script>
+        <script src="codemirror/mode/shell/shell.js"></script>
+        <script src="codemirror/mode/sieve/sieve.js"></script>
+        <script src="codemirror/mode/slim/slim.js"></script>
+        <script src="codemirror/mode/smalltalk/smalltalk.js"></script>
+        <script src="codemirror/mode/smarty/smarty.js"></script>
+        <script src="codemirror/mode/solr/solr.js"></script>
+        <script src="codemirror/mode/soy/soy.js"></script>
+        <script src="codemirror/mode/sparql/sparql.js"></script>
+        <script src="codemirror/mode/spreadsheet/spreadsheet.js"></script>
+        <script src="codemirror/mode/sql/sql.js"></script>
+        <script src="codemirror/mode/stex/stex.js"></script>
+        <script src="codemirror/mode/stylus/stylus.js"></script>
+        <script src="codemirror/mode/tcl/tcl.js"></script>
+        <script src="codemirror/mode/textile/textile.js"></script>
+        <script src="codemirror/mode/tiddlywiki/tiddlywiki.js"></script>
+        <script src="codemirror/mode/tiki/tiki.js"></script>
+        <script src="codemirror/mode/toml/toml.js"></script>
+        <script src="codemirror/mode/tornado/tornado.js"></script>
+        <script src="codemirror/mode/troff/troff.js"></script>
+        <script src="codemirror/mode/ttcn/ttcn.js"></script>
+        <script src="codemirror/mode/ttcn-cfg/ttcn-cfg.js"></script>
+        <script src="codemirror/mode/turtle/turtle.js"></script>
+        <script src="codemirror/mode/vb/vb.js"></script>
+        <script src="codemirror/mode/vbscript/vbscript.js"></script>
+        <script src="codemirror/mode/velocity/velocity.js"></script>
+        <script src="codemirror/mode/verilog/verilog.js"></script>
+        <script src="codemirror/mode/xml/xml.js"></script>
+        <script src="codemirror/mode/xquery/xquery.js"></script>
+        <script src="codemirror/mode/yaml/yaml.js"></script>
+        <script src="codemirror/mode/z80/z80.js"></script>
+        -->
+
+        <link rel=stylesheet href="codemirror/doc/docs.css">
+        <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+        <script src="codemirror/lib/codemirror.js"></script>
+        <script src="codemirror/addon/mode/loadmode.js"></script>
+        <script src="codemirror/mode/meta.js"></script>
+
+        <script src="codemirror/keymap/emacs.js"></script>
+        <script src="codemirror/addon/comment/comment.js"></script>
+        <script src="codemirror/addon/dialog/dialog.js"></script>
+        <script src="codemirror/addon/search/searchcursor.js"></script>
+        <script src="codemirror/addon/search/search.js"></script>
+        <script src="codemirror/addon/selection/active-line.js"></script>
+        <script src="codemirror/addon/edit/matchbrackets.js"></script>
+
+        <script src="js/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js"></script>
+        <link rel="stylesheet" href="css/highlightme2.css"></link>
+        <script src="js/highlightme2.js"></script>
+
+    <!-- </head> -->
+
+    <!-- <body> -->
+
+
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">HighlightMe! :-)</a>
+                </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" style="width: 50%;">
+                        <li class="active"><a id="langnav" href="#">Undetected <span class="sr-only">(current)</span></a></li>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Languages<span class="caret"></span>
+                            </button>
+                            <ul id="languagesdrop" class="dropdown-menu mydrop" role="menu">
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Styles<span class="caret"></span>
+                            </button>
+                            <ul id="stylesdrop" class="dropdown-menu mydrop" role="menu">
+                            </ul>
+                        </div>
+
+                        <!-- <button id="editbutton" type="button" onclick="toggleedit();" class="btn btn-success navbar-btn">Start Edit!</button> -->
+
+                        <!-- <button type="button" onclick="rehighlight();" class="btn btn-warning navbar-btn">Re-Highlight</button> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <button type="button" onclick="copyLink();" class="btn btn-info navbar-btn">Copy link!</button>
+                        <button id="generatelinkbtn" type="button" onclick="gotonewlink();" class="btn btn-info navbar-btn disabled">Generate link!</button>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--    Use https://github.com/google/code-prettify      -->
+        <div class="outer">
+            <form class="myprecode">
+                <textarea id="mycode" name="code">
+            </textarea>
+        </form>
+
+        <!-- <div class="outer">
+        <pre class="myprecode">
+        <code id="mycode"></code>
+        </pre>
+        </div> -->
+    <!-- </body> -->
+<!-- </html> -->
