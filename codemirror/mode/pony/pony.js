@@ -1,468 +1,115 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: http://codemirror.net/LICENSE
-
+/* Example definition of a simple mode that understands a subset of
+ * JavaScript:
+ */
+/*global CodeMirror */
 (function(mod) {
     if (typeof exports == "object" && typeof module == "object") // CommonJS
-        mod(require("../../lib/codemirror"));
+        mod(require("../../lib/codemirror"), require("../../addon/mode/simple"));
     else if (typeof define == "function" && define.amd) // AMD
-        define(["../../lib/codemirror"], mod);
+        define(["../../lib/codemirror", "../../addon/mode/simple"], mod);
     else // Plain browser env
         mod(CodeMirror);
 })(function(CodeMirror) {
     "use strict";
 
-    CodeMirror.defineMode("pony", function() {
-        var indentUnit = 4, altIndentUnit = 2;
-        var valKeywords = {
-            "if": "if-style", "while": "if-style", "loop": "else-style", "else": "else-style",
-            "do": "else-style", "ret": "else-style", "fail": "else-style",
+    function wordRegexp(words) {
+        // return new RegExp("^((" + words.join(")|(") + "))\\b");
+        return new RegExp("^(" + words.join("|") + ")\\b");
+    }
 
-            "actor": "atom", "new": "let", "be": "let", "fun": "let",
+    CodeMirror.defineSimpleMode("pony", {
+        // The start state contains the rules that are intially used
+        start: [
+            {regex: /"""/, token: "string", push: "multiline"},
+            { regex: /"(?:[^\\]|\\.)*?"/, token: "string" },
 
-            "break": "atom", "cont": "atom", "const": "let", "resource": "fn",
-            "let": "let", "fn": "fn", "for": "for", "alt": "alt", "iface": "iface",
-            "impl": "impl", "type": "type", "enum": "enum", "mod": "mod",
-            "as": "op", "true": "atom", "false": "atom", "assert": "op", "check": "op",
-            "claim": "op", "native": "ignore", "unsafe": "ignore", "import": "else-style",
-            "export": "else-style", "copy": "op", "log": "op", "log_err": "op",
-            "use": "op", "bind": "op", "self": "atom", "struct": "enum"
-        };
-        var typeKeywords = function() {
-            var keywords = {"fn": "fn", "block": "fn", "obj": "obj"};
-            // var atoms = "bool uint int i8 i16 i32 i64 u8 u16 u32 u64 float f32 f64 str char".split(" ");
-            var atoms = "Bool";
-            for (var i = 0, e = atoms.length; i < e; ++i) keywords[atoms[i]] = "atom";
-            return keywords;
-        }();
-        var operatorChar = /[+\-*&%=<>!?|\.@]/;
+            { regex: /=>/, token: "tag", indent: true},
 
-        // Tokenizer
+            // use!!!!
+            {regex: /(use)(\s+)("(?:[^\\]|\\.)*?")/,
+             token: ['keyword', null, 'string']},
 
-        // Used as scratch variable to communicate multiple values without
-        // consing up tons of objects.
-        var tcat, content;
-        function r(tc, style) {
-            tcat = tc;
-            return style;
-        }
+            // Actor regs
+            {regex: /(actor)(\s+)([A-Za-z$][\w]*)/,
+             token: ['keyword', null, 'variable-2'],
+             indent: true},
 
-        function tokenBase(stream, state) {
-            var ch = stream.next();
-            if (ch == '"') {
-                state.tokenize = tokenString;
-                return state.tokenize(stream, state);
-            }
-            if (ch == "'") {
-                tcat = "atom";
-                if (stream.eat("\\")) {
-                    if (stream.skipTo("'")) { stream.next(); return "string"; }
-                    else { return "error"; }
-                } else {
-                    stream.next();
-                    return stream.eat("'") ? "string" : "error";
-                }
-            }
-            if (ch == "/") {
-                if (stream.eat("/")) { stream.skipToEnd(); return "comment"; }
-                if (stream.eat("*")) {
-                    state.tokenize = tokenComment(1);
-                    return state.tokenize(stream, state);
-                }
-            }
-            if (ch == "#") {
-                if (stream.eat("[")) { tcat = "open-attr"; return null; }
-                stream.eatWhile(/\w/);
-                return r("macro", "meta");
-            }
-            if (ch == ":" && stream.match(":<")) {
-                return r("op", null);
-            }
-            if (ch.match(/\d/) || (ch == "." && stream.eat(/\d/))) {
-                var flp = false;
-                if (!stream.match(/^x[\da-f]+/i) && !stream.match(/^b[01]+/)) {
-                    stream.eatWhile(/\d/);
-                    if (stream.eat(".")) { flp = true; stream.eatWhile(/\d/); }
-                    if (stream.match(/^e[+\-]?\d+/i)) { flp = true; }
-                }
-                if (flp) stream.match(/^f(?:32|64)/);
-                else stream.match(/^[ui](?:8|16|32|64)/);
-                return r("atom", "number");
-            }
-            if (ch.match(/[()\[\]{}:;,]/)) return r(ch, null);
-            if (ch == "-" && stream.eat(">")) return r("->", null);
-            if (ch.match(operatorChar)) {
-                stream.eatWhile(operatorChar);
-                return r("op", null);
-            }
-            stream.eatWhile(/\w/);
-            content = stream.current();
-            if (stream.match(/^::\w/)) {
-                stream.backUp(1);
-                return r("prefix", "variable-2");
-            }
-            if (state.keywords.propertyIsEnumerable(content))
-                return r(state.keywords[content], content.match(/true|false/) ? "atom" : "keyword");
-            return r("name", "variable");
-        }
+            {regex: /(consume)(\s+)([_A-Za-z$][\w]*)*/,
+             token: ['keyword', null, 'variable-2']},
 
-        function tokenString(stream, state) {
-            var ch, escaped = false;
-            while (ch = stream.next()) {
-                if (ch == '"' && !escaped) {
-                    state.tokenize = tokenBase;
-                    return r("atom", "string");
-                }
-                escaped = !escaped && ch == "\\";
-            }
-            // Hack to not confuse the parser when a string is split in
-            // pieces.
-            return r("op", "string");
-        }
+            {regex: wordRegexp(["I8", "I16", "I32", "I64", "I128", "Bool", "U8", "U16", "U32", "U64", "U128", "F32", "F64", "Array", "Env", "File", "Float", "Range", "Number", "Options", "Signed", "Unsigned"]), token: ['atom']},
 
-        function tokenComment(depth) {
-            return function(stream, state) {
-                var lastCh = null, ch;
-                while (ch = stream.next()) {
-                    if (ch == "/" && lastCh == "*") {
-                        if (depth == 1) {
-                            state.tokenize = tokenBase;
-                            break;
-                        } else {
-                            state.tokenize = tokenComment(depth - 1);
-                            return state.tokenize(stream, state);
-                        }
-                    }
-                    if (ch == "*" && lastCh == "/") {
-                        state.tokenize = tokenComment(depth + 1);
-                        return state.tokenize(stream, state);
-                    }
-                    lastCh = ch;
-                }
-                return "comment";
-            };
-        }
+            // {regex: /(var|let)(\s+)([_A-Za-z][\w]*):(\s+)([A-Za-z][A-Za-z0-9\s$]*)/,
+            //  token: ['keyword', null, 'variable-2', null, 'variable-3']},
+            {regex: /(var|let)(\s+)([_A-Za-z][\w]*)/,
+             token: ['keyword', null, 'variable-2']},
 
-        // Parser
+            {regex: /comment/,token: 'comment'},
+            {regex: /atom/,token: 'atom'},
+            {regex: /keyword/,token: 'keyword'},
+            {regex: /property/,token: 'property'},
+            {regex: /attribute/,token: 'attribute'},
+            {regex: /builtin/,token: 'builtin'},
+            {regex: /variable-3/,token: 'variable-3'},
+            {regex: /variable-2/,token: 'variable-2'},
+            {regex: /variable/,token: 'variable'},
+            {regex: /header/,token: 'header'},
+            {regex: /link/, token: 'link'},
+            {regex: /error/, token: 'error'},
+            {regex: /tag/,token: 'tag'},
+            {regex: /def/,token: 'def'},
+            {regex: /bracket/, token: 'bracket'},
+            {regex: /number/,token: 'number'},
+            {regex: /string-2/, token: "string-2"},
+            {regex: /string/, token: 'string'},
 
-        var cx = {state: null, stream: null, marked: null, cc: null};
-        function pass() {
-            for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
-        }
-        function cont() {
-            pass.apply(null, arguments);
-            return true;
-        }
+            {regex: /:\s*/, token: "tag", push: 'htype'},
+            // Keywords
+            {regex: wordRegexp(['new', 'be', 'fun', 'iso|10', 'trn', 'ref', 'val', 'box|10', 'tag|10', 'break', 'continue', 'return', 'error', 'if', 'then', 'elseif', 'else', 'end', 'match', 'where', 'try', 'with', 'recover|10', 'consume|10', 'object', 'while', 'do', 'repeat', 'until', 'for', 'in', 'type', 'interface', 'trait', 'primitive|10', 'class', 'actor|10']),
+             token: ['keyword']},
+            // Rules are matched in the order in which they appear, so there is
+            // no ambiguity between this one and the one above
+            {regex: /(?:function|var|return|if|for|while|else|do|this)\b/,
+             token: "keyword"},
+            {regex: /true|false|null|undefined/, token: "atom"},
+            {regex: /0x[a-f\d]+|[-+]?(?:\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/i,
+             token: "number"},
+            {regex: /\/\/.*/, token: "comment"},
+            {regex: /\/(?:[^\\]|\\.)*?\//, token: "variable-3"},
+            // A next property will cause the mode to move to a different state
+            // {regex: /\/\*/, token: "comment", next: "comment"},
+            {regex: /[-+\/*=<>!]+/, token: "operator"},
+            // indent and dedent properties guide autoindentation
+            {regex: /[\{\[\(]/, indent: true},
+            {regex: /[\}\]\)]/, dedent: true},
 
-        function pushlex(type, info) {
-            var result = function() {
-                var state = cx.state;
-                state.lexical = {indented: state.indented, column: cx.stream.column(),
-                                 type: type, prev: state.lexical, info: info};
-            };
-            result.lex = true;
-            return result;
-        }
-        function poplex() {
-            var state = cx.state;
-            if (state.lexical.prev) {
-                if (state.lexical.type == ")")
-                    state.indented = state.lexical.indented;
-                state.lexical = state.lexical.prev;
-            }
-        }
-        function typecx() { cx.state.keywords = typeKeywords; }
-        function valcx() { cx.state.keywords = valKeywords; }
-        poplex.lex = typecx.lex = valcx.lex = true;
+            {regex: /[a-z$][\w$]*/, token: "variable"},
 
-        function commasep(comb, end) {
-            function more(type) {
-                if (type == ",") return cont(comb, more);
-                if (type == end) return cont();
-                return cont(more);
-            }
-            return function(type) {
-                if (type == end) return cont();
-                return pass(comb, more);
-            };
+            {regex: /@[_A-Za-z][\w]*/, token: "atom"}
+        ],
+        multiline: [
+            {regex: /"""/, token: "string", pop: true},
+            {regex: /./, token: "string"}
+        ],
+        htype: [
+            {regex: /(\s+)(iso|tag)/, pop: true, token: [null, "tag"]},
+            {regex: /(\s+)/, pop: true, token: null},
+            {regex: /[_A-Za-z][\w$]*/, token: 'variable-3'}
+        ],
+        // The multi-line comment state.
+        comment: [
+            // {regex: /.*?\*\//, token: "comment", next: "start"},
+            // {regex: /.*/, token: "comment"}
+        ],
+        // The meta property contains global information about the mode. It
+        // can contain properties like lineComment, which are supported by
+        // all modes, and also directives like dontIndentStates, which are
+        // specific to simple modes.
+        meta: {
+            dontIndentStates: ["comment"],
+            lineComment: "//"
         }
-
-        function stat_of(comb, tag) {
-            return cont(pushlex("stat", tag), comb, poplex, block);
-        }
-        function block(type) {
-            if (type == "}") return cont();
-            if (type == "let") return stat_of(letdef1, "let");
-            if (type == "fn") return stat_of(fndef);
-            if (type == "type") return cont(pushlex("stat"), tydef, endstatement, poplex, block);
-            if (type == "enum") return stat_of(enumdef);
-            if (type == "mod") return stat_of(mod);
-            if (type == "iface") return stat_of(iface);
-            if (type == "impl") return stat_of(impl);
-            if (type == "open-attr") return cont(pushlex("]"), commasep(expression, "]"), poplex);
-            if (type == "ignore" || type.match(/[\]\);,]/)) return cont(block);
-            return pass(pushlex("stat"), expression, poplex, endstatement, block);
-        }
-        function endstatement(type) {
-            if (type == ";") return cont();
-            return pass();
-        }
-        function expression(type) {
-            if (type == "atom" || type == "name") return cont(maybeop);
-            if (type == "{") return cont(pushlex("}"), exprbrace, poplex);
-            if (type.match(/[\[\(]/)) return matchBrackets(type, expression);
-            if (type.match(/[\]\)\};,]/)) return pass();
-            if (type == "if-style") return cont(expression, expression);
-            if (type == "else-style" || type == "op") return cont(expression);
-            if (type == "for") return cont(pattern, maybetype, inop, expression, expression);
-            if (type == "alt") return cont(expression, altbody);
-            if (type == "fn") return cont(fndef);
-            if (type == "macro") return cont(macro);
-            return cont();
-        }
-        function maybeop(type) {
-            if (content == ".") return cont(maybeprop);
-            if (content == "::<"){return cont(typarams, maybeop);}
-            if (type == "op" || content == ":") return cont(expression);
-            if (type == "(" || type == "[") return matchBrackets(type, expression);
-            return pass();
-        }
-        function maybeprop() {
-            if (content.match(/^\w+$/)) {cx.marked = "variable"; return cont(maybeop);}
-            return pass(expression);
-        }
-        function exprbrace(type) {
-            if (type == "op") {
-                if (content == "|") return cont(blockvars, poplex, pushlex("}", "block"), block);
-                if (content == "||") return cont(poplex, pushlex("}", "block"), block);
-            }
-            if (content == "mutable" || (content.match(/^\w+$/) && cx.stream.peek() == ":"
-                                         && !cx.stream.match("::", false)))
-                return pass(record_of(expression));
-            return pass(block);
-        }
-        function record_of(comb) {
-            function ro(type) {
-                if (content == "mutable" || content == "with") {cx.marked = "keyword"; return cont(ro);}
-                if (content.match(/^\w*$/)) {cx.marked = "variable"; return cont(ro);}
-                if (type == ":") return cont(comb, ro);
-                if (type == "}") return cont();
-                return cont(ro);
-            }
-            return ro;
-        }
-        function blockvars(type) {
-            if (type == "name") {cx.marked = "def"; return cont(blockvars);}
-            if (type == "op" && content == "|") return cont();
-            return cont(blockvars);
-        }
-
-        function letdef1(type) {
-            if (type.match(/[\]\)\};]/)) return cont();
-            if (content == "=") return cont(expression, letdef2);
-            if (type == ",") return cont(letdef1);
-            return pass(pattern, maybetype, letdef1);
-        }
-        function letdef2(type) {
-            if (type.match(/[\]\)\};,]/)) return pass(letdef1);
-            else return pass(expression, letdef2);
-        }
-        function maybetype(type) {
-            if (type == ":") return cont(typecx, rtype, valcx);
-            return pass();
-        }
-        function inop(type) {
-            if (type == "name" && content == "in") {cx.marked = "keyword"; return cont();}
-            return pass();
-        }
-        function fndef(type) {
-            if (content == "@" || content == "~") {cx.marked = "keyword"; return cont(fndef);}
-            if (type == "name") {cx.marked = "def"; return cont(fndef);}
-            if (content == "<") return cont(typarams, fndef);
-            if (type == "{") return pass(expression);
-            if (type == "(") return cont(pushlex(")"), commasep(argdef, ")"), poplex, fndef);
-            if (type == "->") return cont(typecx, rtype, valcx, fndef);
-            if (type == ";") return cont();
-            return cont(fndef);
-        }
-        function tydef(type) {
-            if (type == "name") {cx.marked = "def"; return cont(tydef);}
-            if (content == "<") return cont(typarams, tydef);
-            if (content == "=") return cont(typecx, rtype, valcx);
-            return cont(tydef);
-        }
-        function enumdef(type) {
-            if (type == "name") {cx.marked = "def"; return cont(enumdef);}
-            if (content == "<") return cont(typarams, enumdef);
-            if (content == "=") return cont(typecx, rtype, valcx, endstatement);
-            if (type == "{") return cont(pushlex("}"), typecx, enumblock, valcx, poplex);
-            return cont(enumdef);
-        }
-        function enumblock(type) {
-            if (type == "}") return cont();
-            if (type == "(") return cont(pushlex(")"), commasep(rtype, ")"), poplex, enumblock);
-            if (content.match(/^\w+$/)) cx.marked = "def";
-            return cont(enumblock);
-        }
-        function mod(type) {
-            if (type == "name") {cx.marked = "def"; return cont(mod);}
-            if (type == "{") return cont(pushlex("}"), block, poplex);
-            return pass();
-        }
-        function iface(type) {
-            if (type == "name") {cx.marked = "def"; return cont(iface);}
-            if (content == "<") return cont(typarams, iface);
-            if (type == "{") return cont(pushlex("}"), block, poplex);
-            return pass();
-        }
-        function impl(type) {
-            if (content == "<") return cont(typarams, impl);
-            if (content == "of" || content == "for") {cx.marked = "keyword"; return cont(rtype, impl);}
-            if (type == "name") {cx.marked = "def"; return cont(impl);}
-            if (type == "{") return cont(pushlex("}"), block, poplex);
-            return pass();
-        }
-        function typarams() {
-            if (content == ">") return cont();
-            if (content == ",") return cont(typarams);
-            if (content == ":") return cont(rtype, typarams);
-            return pass(rtype, typarams);
-        }
-        function argdef(type) {
-            if (type == "name") {cx.marked = "def"; return cont(argdef);}
-            if (type == ":") return cont(typecx, rtype, valcx);
-            return pass();
-        }
-        function rtype(type) {
-            if (type == "name") {cx.marked = "variable-3"; return cont(rtypemaybeparam); }
-            if (content == "mutable") {cx.marked = "keyword"; return cont(rtype);}
-            if (type == "atom") return cont(rtypemaybeparam);
-            if (type == "op" || type == "obj") return cont(rtype);
-            if (type == "fn") return cont(fntype);
-            if (type == "{") return cont(pushlex("{"), record_of(rtype), poplex);
-            return matchBrackets(type, rtype);
-        }
-        function rtypemaybeparam() {
-            if (content == "<") return cont(typarams);
-            return pass();
-        }
-        function fntype(type) {
-            if (type == "(") return cont(pushlex("("), commasep(rtype, ")"), poplex, fntype);
-            if (type == "->") return cont(rtype);
-            return pass();
-        }
-        function pattern(type) {
-            if (type == "name") {cx.marked = "def"; return cont(patternmaybeop);}
-            if (type == "atom") return cont(patternmaybeop);
-            if (type == "op") return cont(pattern);
-            if (type.match(/[\]\)\};,]/)) return pass();
-            return matchBrackets(type, pattern);
-        }
-        function patternmaybeop(type) {
-            if (type == "op" && content == ".") return cont();
-            if (content == "to") {cx.marked = "keyword"; return cont(pattern);}
-            else return pass();
-        }
-        function altbody(type) {
-            if (type == "{") return cont(pushlex("}", "alt"), altblock1, poplex);
-            return pass();
-        }
-        function altblock1(type) {
-            if (type == "}") return cont();
-            if (type == "|") return cont(altblock1);
-            if (content == "when") {cx.marked = "keyword"; return cont(expression, altblock2);}
-            if (type.match(/[\]\);,]/)) return cont(altblock1);
-            return pass(pattern, altblock2);
-        }
-        function altblock2(type) {
-            if (type == "{") return cont(pushlex("}", "alt"), block, poplex, altblock1);
-            else return pass(altblock1);
-        }
-
-        function macro(type) {
-            if (type.match(/[\[\(\{]/)) return matchBrackets(type, expression);
-            return pass();
-        }
-
-        function matchBrackets(type, comb) {
-            if (type == "[") return cont(pushlex("]"), commasep(comb, "]"), poplex);
-            if (type == "(") return cont(pushlex(")"), commasep(comb, ")"), poplex);
-            // if (type == "{") return cont(pushlex("}"), commasep(comb, "}"), poplex);
-            return cont();
-        }
-
-        function parse(state, stream, style) {
-            var cc = state.cc;
-            // Communicate our context to the combinators.
-            // (Less wasteful than consing up a hundred closures on every call.)
-            cx.state = state; cx.stream = stream; cx.marked = null, cx.cc = cc;
-
-            while (true) {
-                var combinator = cc.length ? cc.pop() : block;
-                if (combinator(tcat)) {
-                    while(cc.length && cc[cc.length - 1].lex)
-                        cc.pop()();
-                    return cx.marked || style;
-                }
-            }
-        }
-
-        return {
-            startState: function() {
-                return {
-                    tokenize: tokenBase,
-                    cc: [],
-                    lexical: {indented: -indentUnit, column: 0, type: "top", align: false},
-                    keywords: valKeywords,
-                    indented: 0
-                };
-            },
-
-            token: function(stream, state) {
-                if (stream.sol()) {
-                    if (!state.lexical.hasOwnProperty("align"))
-                        state.lexical.align = false;
-                    state.indented = stream.indentation();
-                }
-                if (stream.eatSpace()) return null;
-                tcat = content = null;
-                var style = state.tokenize(stream, state);
-                if (style == "comment") return style;
-                if (!state.lexical.hasOwnProperty("align"))
-                    state.lexical.align = true;
-                if (tcat == "prefix") return style;
-                if (!content) content = stream.current();
-                return parse(state, stream, style);
-            },
-
-            indent: function(state, textAfter) {
-                if (state.tokenize != tokenBase)
-                    return state.tokenize.isString ? CodeMirror.Pass : 0;
-
-                var scope = top(state);
-                var closing = textAfter && textAfter.charAt(0) == scope.type;
-                if (scope.align != null)
-                    return scope.align - (closing ? 1 : 0);
-                else if (closing && state.scopes.length > 1)
-                    return state.scopes[state.scopes.length - 2].offset;
-                else
-                    return scope.offset;
-                // if (state.tokenize != tokenBase) return 0;
-                // var firstChar = textAfter && textAfter.charAt(0), lexical = state.lexical,
-                //     type = lexical.type, closing = firstChar == type;
-                // if (type == "stat") return lexical.indented + indentUnit;
-                // if (lexical.align) return lexical.column + (closing ? 0 : 1);
-                // return lexical.indented + (closing ? 0 : (lexical.info == "alt" ? altIndentUnit : indentUnit));
-            },
-
-            // electricChars: "{}",
-            // blockCommentStart: "/*",
-            // blockCommentEnd: "*/",
-            closeBrackets: {triples: "'\"'"},
-            lineComment: "//",
-            fold: "indent"
-        };
     });
 
     CodeMirror.defineMIME("text/x-pony", "pony");
-
 });

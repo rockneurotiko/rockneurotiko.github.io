@@ -1,4 +1,4 @@
-/*global hljs, $, CodeMirror */
+/*global Blob, saveAs, $, CodeMirror */
 
 
 var modeList = [
@@ -63,6 +63,7 @@ var modeList = [
     "perl",
     "php",
     "pig",
+    "pony",
     "properties",
     "puppet",
     "python",
@@ -283,8 +284,8 @@ var asyncinit = function asyncinit(code, lang, theme) {
         lineNumbers: true,
         styleActiveLine: true,
         matchBrackets: true,
-        theme: theme,
-        keyMap: "emacs"
+        theme: theme
+        // keyMap: "emacs"
         // mode: lang
     });
 

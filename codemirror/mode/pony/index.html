@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="../../lib/codemirror.css">
 <script src="../../lib/codemirror.js"></script>
+<script src="../../addon/mode/simple.js"></script>
 <script src="pony.js"></script>
 <style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
 <div id=nav>
@@ -18,7 +19,7 @@
   </ul>
   <ul>
     <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Rust</a>
+    <li><a class=active href="#">Pony</a>
   </ul>
 </div>
 
@@ -28,6 +29,26 @@
 
 <div><textarea id="code" name="code">
 use "collections"
+// Just a comment
+
+comment
+atom
+keyword
+property
+attribute
+builtin
+variable
+variable-2
+variable-3
+header
+link
+error
+tag
+def
+bracket
+number
+string-2
+string
 
 actor UDPSocket
   var _notify: UDPNotify
@@ -208,5 +229,5 @@ actor UDPSocket
       });
     </script>
 
-    <p><strong>MIME types defined:</strong> <code>text/x-rustsrc</code>.</p>
+    <p><strong>MIME types defined:</strong> <code>text/x-pony</code>.</p>
   </article>
