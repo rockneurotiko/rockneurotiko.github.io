@@ -1,4 +1,4 @@
-/*global Blob, saveAs, $, CodeMirror */
+/*global Blob, saveAs, $, CodeMirror, JSEncrypt */
 
 
 var modeList = [
@@ -389,19 +389,31 @@ var initialize = function initialize() {
     var id=get("id") || '';
     var fromurl=get("fromurl") || '';
     var finalurl = '';
+
     if (id != '') {
-        finalurl = 'codefiles/'+ id + '.json';
+        finalurl = 'codefiles/'+ id + '.json?';
     }
+
     if (fromurl != '') {
         finalurl = fromurl + '?callback=?';
     }
 
     var code, lang, theme;
     if (finalurl != '') {
+        if (use_rsa) {
+            var pciph = encrypt.encrypt(ultra_password);
+            finalurl = finalurl + "&encrypted=" + ultra_password + "&rsaenc=" + pciph;
+        }
         $.getJSON(finalurl, function(json) {
+            json = handleDecrypt(json);
             code = json.code || '';
             lang = json.language || json.lang || json.mode || '';
             theme = json.theme || '';
+            asyncinit(code, lang, theme);
+        }).fail(function() {
+            code=get("code");
+            lang=get("language") || get("lang") || get("mode");
+            theme=get("theme");
             asyncinit(code, lang, theme);
         });
     } else {
@@ -411,6 +423,48 @@ var initialize = function initialize() {
         asyncinit(code, lang, theme);
     }
 };
+
+function handleDecrypt(message) {
+    if (!message.encrypted) {
+        return message;
+    }
+    if (message.algorithm != 'AES') {
+        return message.msg;
+    }
+    var offset = message.offset;
+    var key = CryptoJS.enc.Hex.parse(ultra_password),
+        iv = CryptoJS.enc.Hex.parse(message.iv),
+        cipher = CryptoJS.lib.CipherParams.create({
+            ciphertext: CryptoJS.enc.Base64.parse(message.msg)
+        }),
+        result = CryptoJS.AES.decrypt(cipher, key, {iv: iv, mode: CryptoJS.mode.CFB});
+
+    return JSON.parse(result.toString(CryptoJS.enc.Utf8));
+}
+
+var ultra_password = '12345678901234561234567890123456';
+ultra_password = "01ab38d5e05c92aa098921d9d4626107133c7e2ab0e4849558921ebcc242bcb0";
+var use_rsa = true;
+// var get_rsa_path = 'http://95.122.125.127:5000/getsshpub?callback=?';
+var get_rsa_path = 'http://localhost:5000/getsshpub?callback=?';
+var rsa_pub_key = '';
+var encrypt = new JSEncrypt();
+// create own private, 512 maybe?
+
+function load_rsa_pub() {
+    if (!use_rsa) {
+        return;
+    }
+    use_rsa = false;  // by default
+    $.getJSON(get_rsa_path, function(json) {
+        if (json.status == 'ok') {
+            encrypt.setPublicKey(json.key);
+            use_rsa = true;
+        }
+    });
+}
+
+load_rsa_pub();
 
 if(window.attachEvent) {
     window.attachEvent('onload', initialize);

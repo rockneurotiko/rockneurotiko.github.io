@@ -17,6 +17,8 @@
         return new RegExp("^(" + words.join("|") + ")\\b");
     }
 
+    var capabilities = /(iso|trn|ref|val|box|tag)/;
+
     CodeMirror.defineSimpleMode("pony", {
         // The start state contains the rules that are intially used
         start: [
@@ -108,7 +110,7 @@
 
         // Function definition :)
         fdec: [
-            {regex: /(iso|tag|ref)/, token: 'tag'},
+            {regex: capabilities, token: 'tag'},
             {regex: /\s+/, token: null},
             {regex: /[_a-z][\w]*/, token: 'variable-2'},
             {regex: /\(/, token: 'bracket', next: 'insideParameters'},
@@ -124,7 +126,7 @@
         // Type patterns
         htype: [
             {regex: /\s+/, token: null},
-            {regex: /([_A-Za-z][\w$]*)(\s+)(iso|tag|ref|val)/, pop: true, token: ['variable-3', null, "tag"]},
+            {regex: /([_A-Za-z][\w$]*)(\s+)(iso|trn|ref|val|box|tag)/, pop: true, token: ['variable-3', null, "tag"]},
             {regex: /[_A-Za-z][\w$]*/, pop: true, token: 'variable-3'},
         ],
         // The meta property contains global information about the mode. It
