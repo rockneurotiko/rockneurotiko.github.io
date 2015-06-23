@@ -287,7 +287,7 @@ function setEditorFeatures() {
 
 function localSaveJson() {
     var code = editor.getValue();
-    var lang = editor.getOption('mode');
+    var lang = parseMode(editor.getOption('mode')).mode;
     var theme = editor.getOption('theme');
     var rjson = {lang: lang, theme: theme, code: code};
     var blob = new Blob([JSON.stringify(rjson, null, 4)], {type: "text/json;charset=utf-8"});
@@ -423,6 +423,7 @@ var asyncinit = function asyncinit(code, lang, theme, hidespinner) {
         theme = styles[Math.floor(Math.random() * styles.length)];
     }
 
+    lang = parseMode(lang).mode;
     if (modeList.indexOf(lang) == -1) {
         lang = 'Unknown';
     }
@@ -462,7 +463,7 @@ var initialize = function initialize() {
     }
 
     if (idinternal != '') {
-        finalurl = 'codefiles/'+ id + '.json?';
+        finalurl = 'codefiles/'+ idinternal + '.json?';
     }
 
     if (fromurl != '') {

@@ -1,0 +1,5 @@
+﻿{
+    "lang": "lua",
+    "theme": "Monokai",
+    "code": "\nlocal function fileSizeBytes(path)\n  f = io.open(path, 'rb')\n  if f == nil then\n    return 0\n  end\n  local size = string.len(f:read(\"*all\"))\n  return size\nend\n\n\nlocal function fileSizeKB(path)\n  return fileSizeBytes(path) / 1024\nend\n\nlocal function fileSizeMB(path)\n  return fileSizeKB(path) / 1024\nend\n"
+}
