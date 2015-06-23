@@ -1,5 +1,4 @@
-/*global Blob, saveAs, $, CodeMirror, JSEncrypt */
-
+/*global Blob, saveAs, $, CodeMirror, RSAKey, CryptoJS, rng_seed_time, rng_get_bytes, byte2Hex */
 
 var modeList = [
     "apl",
@@ -108,17 +107,40 @@ var modeList = [
     "z80"];
 
 var features = [
-    ['Line Numbers', "toggleEditorOpt('lineNumbers', 'bool');"],
-    ['Line Wrapping', "toggleEditorOpt('lineWrapping', 'bool');"],
-    ['Active line with style', "toggleEditorOpt('styleActiveLine', 'bool');"],
-    ['Match brackets', "toggleEditorOpt('matchBrackets', 'bool');"],
-    ['Auto Close Brackets', "toggleEditorOpt('autoCloseBrackets', 'bool');"],
-    ['Auto Close Tags', "toggleEditorOpt('autoCloseTags', 'bool');"],
-    ['Auto Complete', "toggleEditorOpt('extraKeys', 'object', 'Ctrl-Space', 'autocomplete')"],
-    ['Fold code', "toggleEditorOpt('foldGutter', 'bool');"],
-    ['Lint code', "toggleEditorOpt('lint', 'bool');"],
-    ['Highlight Selection', "toggleEditorOpt('highlightSelectionMatches', 'object', 'showToken', /\\w/)"]
+    ['Line Numbers',
+     "toggleEditorOpt('lineNumbers', 'bool');",
+     function() {toggleEditorOpt('lineNumbers', 'bool');}],
+    ['Line Wrapping',
+     "toggleEditorOpt('lineWrapping', 'bool');",
+     function() {toggleEditorOpt('lineWrapping', 'bool');}],
+    ['Active line with style',
+     "toggleEditorOpt('styleActiveLine', 'bool');",
+     function() {toggleEditorOpt('styleActiveLine', 'bool');}],
+    ['Match brackets',
+     "toggleEditorOpt('matchBrackets', 'bool');",
+     function() {toggleEditorOpt('matchBrackets', 'bool');}],
+    ['Auto Close Brackets',
+     "toggleEditorOpt('autoCloseBrackets', 'bool');",
+     function() {toggleEditorOpt('autoCloseBrackets', 'bool');}],
+    ['Auto Close Tags',
+     "toggleEditorOpt('autoCloseTags', 'bool');",
+     function() {toggleEditorOpt('autoCloseTags', 'bool');}],
+    ['Auto Complete',
+     "toggleEditorOpt('extraKeys', 'object', 'Ctrl-Space', 'autocomplete')",
+     function() {toggleEditorOpt('extraKeys', 'object', 'Ctrl-Space', 'autocomplete');}],
+    ['Fold code',
+     "toggleEditorOpt('foldGutter', 'bool');",
+     function() {toggleEditorOpt('foldGutter', 'bool');}],
+    ['Lint code',
+     "toggleEditorOpt('lint', 'bool');",
+     function() {toggleEditorOpt('lint', 'bool');}],
+    ['Highlight Selection',
+     "toggleEditorOpt('highlightSelectionMatches', 'object', 'showToken', /\\w/)",
+     function() {toggleEditorOpt('highlightSelectionMatches', 'object', 'showToken', /\\w/);}]
 ];
+
+var baseremoteurl = 'http://codefiles.neurotiko.com';
+// baseremoteurl = 'http://localhost:5000';
 
 var editor = null;
 String.prototype.capitalizeFirstLetter = function() {
@@ -210,7 +232,9 @@ function generatelink() {
     return url + "?" + "lang=" + lang + '&theme=' + theme + "&code=" + text;
 }
 
-function fillDrop(name, array, fname, f1, f2) {
+function fillDrop(name, array, fname, f1, f2, other) {
+
+    var a = '<input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span></span>';
     var drop = $(name);
     var f, text;
     for (var i in array) {
@@ -222,7 +246,11 @@ function fillDrop(name, array, fname, f1, f2) {
             f = fname + '(\'' + f1(l) + '\');';
             text = f1(l);
         }
-        drop.append('<li><a href="#" onclick="' + f + '">' + text + '</a></li>');
+        var prev = (other) ? '<li><input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span onclick="': '<li><a href="#" onclick="';
+        var end = (other) ? '</span></li>' : '</a></li>';
+        drop.append(prev + f + '">' + text + end);
+        // drop.append(prev + '<a href="#" onclick="' + f + '">' + text + '</a>' + end);
+        // drop.append('<li><a href="#" onclick="' + f + '">' + text + '</a></li>');
     }
 }
 
@@ -239,7 +267,22 @@ function setLanguagesDrop() {
 };
 
 function setEditorFeatures() {
-    fillDrop('#featuresdrop', features, '', id, id);
+    // var myData = [];
+    // for(var i=0; i < features.length; i++) {
+    //     myData.push({'id': i, 'label': features[i][0], 'isChecked': true});
+    // }
+    // $("#featuresdrop2").dropdownCheckbox({
+    //     data: myData,
+    //     title: "Editor Options",
+    //     btnClass: 'btn btn-primary'
+    // });
+    // var items = $('#featuresdrop2').dropdownCheckbox("items");
+    // var elems = $('#featuresdrop2 li');
+    // for(var l in items) {
+    //     $(elems[items[l].id]).on('click', features[items[l].id][2]);
+    // }
+
+    fillDrop('#featuresdrop', features, '', id, id, true);
 };
 
 function localSaveJson() {
@@ -335,28 +378,14 @@ function parseMode(mode) {
     return {mode: rmode, spec: spec};
 }
 
-var asyncinit = function asyncinit(code, lang, theme) {
-    var codec = document.getElementById("mycode");
 
-    codec.textContent = code;
-
-    if (theme === '') {
-        theme = 'monokai';
-    } else if (theme === 'random') {
-        var styles = listStyles();
-        theme = styles[Math.floor(Math.random() * styles.length)];
-    }
-
-    if (modeList.indexOf(lang) == -1) {
-        lang = 'Unknown';
-    }
-
+function initializeUI() {
     editor = CodeMirror.fromTextArea(document.getElementById('mycode'), {
         lineNumbers: true,
         lineWrapping: true,
         styleActiveLine: true,
         matchBrackets: true,
-        theme: theme,
+        theme: 'monokai',
         autoCloseBrackets: true,
         autoCloseTags: true,
         extraKeys: {"Ctrl-Space": "autocomplete",
@@ -373,11 +402,38 @@ var asyncinit = function asyncinit(code, lang, theme) {
     setStylesDrop();
     setEditorFeatures();
 
+    initializeListeners();
+}
+
+var asyncinit = function asyncinit(code, lang, theme, hidespinner) {
+    if (typeof hidespinner == 'undefined') {
+        hidespinner = true;
+    }
+
+    if (typeof editor == 'undefined' || !editor) {
+        initializeUI();
+    }
+
+    editor.setValue(code);
+
+    if (theme === '') {
+        theme = 'monokai';
+    } else if (theme === 'random') {
+        var styles = listStyles();
+        theme = styles[Math.floor(Math.random() * styles.length)];
+    }
+
+    if (modeList.indexOf(lang) == -1) {
+        lang = 'Unknown';
+    }
+
     setLang(lang);
 
     selectStyle(theme.capitalizeFirstLetter());
 
-    initializeListeners();
+    if (hidespinner) {
+        $('#spinnerframe').hide();
+    }
 };
 
 var initialize = function initialize() {
@@ -385,25 +441,36 @@ var initialize = function initialize() {
     CodeMirror.commands.autocomplete = function(cm) {
         cm.showHint({hint: CodeMirror.hint.anyword});
     };
+    initializeUI();
+    // asyncinit('', '', '', false);
 
+    var idinternal=get("idinternal") || '';
     var id=get("id") || '';
     var fromurl=get("fromurl") || '';
     var finalurl = '';
 
+    var elegiblersa = false;
+
     if (id != '') {
+        finalurl = baseremoteurl +'/' + id + '?callback=?';
+        if (use_rsa) {
+            var pciph = rsa.encrypt(ultra_password);
+            finalurl = finalurl + "&cypherkey=" + pciph;
+        } else {
+            finalurl = finalurl + "&plainkey=" + ultra_password;
+        }
+    }
+
+    if (idinternal != '') {
         finalurl = 'codefiles/'+ id + '.json?';
     }
 
     if (fromurl != '') {
-        finalurl = fromurl + '?callback=?';
+        finalurl = fromurl + '?callback=?';  // Use jsonp callback mode
     }
 
     var code, lang, theme;
     if (finalurl != '') {
-        if (use_rsa) {
-            var pciph = encrypt.encrypt(ultra_password);
-            finalurl = finalurl + "&encrypted=" + ultra_password + "&rsaenc=" + pciph;
-        }
         $.getJSON(finalurl, function(json) {
             json = handleDecrypt(json);
             code = json.code || '';
@@ -426,9 +493,11 @@ var initialize = function initialize() {
 
 function handleDecrypt(message) {
     if (!message.encrypted) {
+        window.console.warn("Message not encrypted");
         return message;
     }
     if (message.algorithm != 'AES') {
+        window.console.warn("Message not ciphered with AES");
         return message.msg;
     }
     var offset = message.offset;
@@ -442,13 +511,17 @@ function handleDecrypt(message) {
     return JSON.parse(result.toString(CryptoJS.enc.Utf8));
 }
 
-var ultra_password = '12345678901234561234567890123456';
-ultra_password = "01ab38d5e05c92aa098921d9d4626107133c7e2ab0e4849558921ebcc242bcb0";
+rng_seed_time();
+var pwdarr = Array(32);
+rng_get_bytes(pwdarr);
+var ultra_password = '';
+for(var i=0; i < pwdarr.length; i++) {
+    ultra_password = ultra_password + byte2Hex(pwdarr[i]);
+}
+
 var use_rsa = true;
-// var get_rsa_path = 'http://95.122.125.127:5000/getsshpub?callback=?';
-var get_rsa_path = 'http://localhost:5000/getsshpub?callback=?';
-var rsa_pub_key = '';
-var encrypt = new JSEncrypt();
+var get_rsa_path = baseremoteurl + '/getsshpub?callback=?';
+var rsa = new RSAKey();
 // create own private, 512 maybe?
 
 function load_rsa_pub() {
@@ -458,7 +531,7 @@ function load_rsa_pub() {
     use_rsa = false;  // by default
     $.getJSON(get_rsa_path, function(json) {
         if (json.status == 'ok') {
-            encrypt.setPublicKey(json.key);
+            rsa.setPublic(json.n, json.e);
             use_rsa = true;
         }
     });

@@ -79,7 +79,14 @@
         <script src="https://rawgithub.com/stubbornella/csslint/master/release/csslint.js"></script>
 
         <script src="js/jquery.min.js"></script>
-        <script src="js/jsencrypt.min.js"></script>
+<!--    RSA      -->
+        <script src="js/jsbn.js" type="text/javascript" language="JavaScript"></script>
+        <script src="js/prng4.js" type="text/javascript" language="JavaScript"></script>
+        <script src="js/rng.js" type="text/javascript" language="JavaScript"></script>
+        <script src="js/rsa.js" type="text/javascript" language="JavaScript"></script>
+        <script src="js/base64.js" type="text/javascript" language="JavaScript"></script>
+
+<!--    AES      -->
         <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
         <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-cfb.js"></script>
 
@@ -87,12 +94,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js"></script>
         <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/master/FileSaver.min.js"></script>
+        <script type"text/javascript" src="js/bootstrap-dropdown-checkbox.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-dropdown-checkbox.css">
+
         <link rel="stylesheet" href="css/highlightme2.css"></link>
+        <link rel="stylesheet" href="css/spinner.css"></link>
         <script src="js/highlightme2.js"></script>
 
     </head>
 
     <body>
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -108,7 +120,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav" style="width: 50%;">
+                    <ul class="nav navbar-nav" style="width: 60%;">
                         <li class="active"><a id="langnav" href="#">Undetected <span class="sr-only">(current)</span></a></li>
 
                         <div class="btn-group">
@@ -126,9 +138,11 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Editor Options<span class="caret"></span>
                             </button>
-                            <ul id="featuresdrop" class="dropdown-menu mydrop" role="menu">
-                            </ul>
+                            <ul id="featuresdrop" class="dropdown-menu mydrop" role="menu"></ul>
                         </div>
+
+                        <div id="featuresdrop2" class="dropdown-checkbox dropdown btn-group"></div>
+
                         <li class="active"><a id="stylenav" href="#"><span class="sr-only">(current)</span></a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -138,6 +152,29 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+
+        <div id="spinnerframe">
+            <div id="fadingBarsG">
+                <div id="fadingBarsG_1" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_2" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_3" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_4" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_5" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_6" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_7" class="fadingBarsG">
+                </div>
+                <div id="fadingBarsG_8" class="fadingBarsG">
+                </div>
+            </div>
+            <div style="position: absolute;width: 100%; height: 100%; z-index: 19;left:0;top:28px;background-color:#6D6D6D;opacity:0.5;"></div>
+        </div>
+
         <!--    Here goes the code :)      -->
         <div class="outer">
             <form class="myprecode">

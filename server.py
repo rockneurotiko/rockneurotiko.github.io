@@ -5,9 +5,10 @@ import json
 import string
 import time
 import codecs
-import requests
+# import requests
+import binascii
+from mycrypto import Cryptor
 from base64 import b64encode, b64decode
-from Crypto.Cipher import AES
 from functools import wraps
 from flask import Flask, request, current_app, safe_join, jsonify
 
@@ -17,37 +18,40 @@ is_raspberry = os.uname()[-1] == 'armv6l'
 app = Flask(__name__, static_url_path='')
 host = '0.0.0.0' if is_raspberry else 'localhost'
 files_path = '/home/pi/codefiles' if is_raspberry else '.'
-ip = None
+domain = 'http://codefiles.neurotiko.com'
+# ip = None
 global privkey, pubkey
 privkey = pubkey = remotepub = None
 
 
 def load_rsa_keys():
     try:
-        with open('ssh_keys/private2.pem', 'rb') as f:
+        privatepath = safe_join(files_path, 'ssh_keys/private2.pem')
+        with open(privatepath, 'rb') as f:
             content = f.read()
         _privkey = rsa.PrivateKey.load_pkcs1(content)
-        with open('ssh_keys/pubkey2', 'rb') as f:
+        pubpath = safe_join(files_path, 'ssh_keys/pubkey2')
+        with open(pubpath, 'rb') as f:
             content = f.read()
         _pubkey = rsa.PublicKey.load_pkcs1(content)
-        with open('ssh_keys/pubkey_remote.pem', 'r') as f:
-            content = f.read()
-        global privkey, pubkey, remotepub
-        (privkey, pubkey, remotepub) = (_privkey, _pubkey, content)
+        # with open('ssh_keys/pubkey_remote.pem', 'r') as f:
+        #     content = f.read()
+        global privkey, pubkey
+        (privkey, pubkey) = (_privkey, _pubkey)
     except Exception as e:
         print(e)
         return
 
 
-def get_ip():
-    global ip  # Check every 24 hours
-    if ip is not None:
-        return ip
-    r = requests.get("http://ipecho.net/plain")
-    if r.ok:
-        ip = r.text
-        return r.text
-    return None
+# def get_ip():
+#     global ip  # Check every 24 hours
+#     if ip is not None:
+#         return ip
+#     r = requests.get("http://ipecho.net/plain")
+#     if r.ok:
+#         ip = r.text
+#         return r.text
+#     return None
 
 
 def build_path(path, did):
@@ -135,10 +139,14 @@ def del_codefile(path):
 @jsonp
 def get_sshpub():
     try:
-        if remotepub is not None:
-            return json.dumps({'status': 'ok', 'key': remotepub})
-        elif pubkey is not None:
-            return json.dumps({'status': 'ok', 'key': pubkey.save_pkcs1().decode('utf8')})
+        # if remotepub is not None:
+        #     return json.dumps({'status': 'ok', 'key': remotepub})
+        # elif pubkey is not None:
+        #     return json.dumps({'status': 'ok', 'key': pubkey.save_pkcs1().decode('utf8')})
+        if pubkey is not None:
+            n = '%x' % pubkey.n
+            e = '%x' % pubkey.e
+            return json.dumps({'status': 'ok', 'n': n, 'e': e})
         else:
             return json.dumps({'status': 'error'})
     except:
@@ -163,25 +171,23 @@ class IO:
         return b64encode(self.outm).decode('utf8')
 
 
-from mycrypto import Cryptor
-import binascii
-
-
 def handle_encryption(request, message):
-    reqencrypt = request.args.get('encrypted', False)
-    rsaenc = request.args.get('rsaenc', False)
-    if rsaenc:
+    def encryptWithKey(key, message):
+        iv, encrypted = Cryptor.encrypt(message, key)
+        return iv, binascii.b2a_base64(encrypted).rstrip().decode('utf8')
+    plainkey = request.args.get('plainkey', False)
+    cypherkey = request.args.get('cypherkey', False)
+    key = None
+    if cypherkey:
         global privkey
-        print(rsa.decrypt(b64decode(rsaenc), privkey))
-    if reqencrypt:
-        if len(reqencrypt) != 64:
-            return message
-        iv, encrypted = Cryptor.encrypt(message, reqencrypt)
-        encrypted = binascii.b2a_base64(encrypted).rstrip().decode('utf8')
+        key = rsa.decrypt(binascii.unhexlify(cypherkey), privkey).decode('utf8')
+    elif plainkey:
+        key = plainkey
+    if key is not None and len(key) == 64:
+        iv, encrypted = encryptWithKey(key, message)
         result = {'encrypted': True, 'algorithm': 'AES', 'iv': iv.decode('utf8'), 'msg': encrypted}
         return json.dumps(result)
-    else:
-        return message
+    return message
 
 
 @app.route('/<path:path>/<string:did>', methods=['GET'])
@@ -231,13 +237,12 @@ def post_codefile():
     _, fpath = build_path(relat_path, did)
     with open(fpath, 'w') as f:
         f.write(json.dumps(newf))
-    extern_ip = get_ip()
-    uri = 'http://{}:5000/{}/{}'.format(extern_ip, relat_path, did) if extern_ip is not None else ''
+    uri = '{}/{}/{}'.format(domain, relat_path, did)
     resp = {'status': 'ok', 'msg': '', 'id': did, 'uri': uri}
-    return jsonify(resp)
+    return json.dumps(resp)
     # Some AUTH?
 
 
+load_rsa_keys()
 if __name__ == "__main__":
-    load_rsa_keys()
-    app.run(host=host, debug=True)
+    app.run(host=host, debug=False)
