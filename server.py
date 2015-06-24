@@ -10,7 +10,7 @@ import binascii
 from mycrypto import Cryptor
 from base64 import b64encode, b64decode
 from functools import wraps
-from flask import Flask, request, current_app, safe_join, make_response, abort
+from flask import Flask, request, current_app, safe_join, make_response, url_for
 from flask.ext.jsonpify import jsonify
 
 import getpass
@@ -203,6 +203,10 @@ def put_codefile(content, path, petition_params):
     return {'status': 'ok', 'result': True, 'content': minimize_content(content)}
 
 
+def generate_uri(path, did):
+    return url_for('get_codefile', path='tmp', did='TESTDID', _external=True)
+
+
 @app.route('/getsshpub', methods=['GET'])
 def get_sshpub():
     try:
@@ -260,7 +264,7 @@ def post_codefile():
     _, fpath = build_path(relat_path, did)
     with open(fpath, 'w') as f:
         f.write(json.dumps(newf))
-    uri = '{}/{}/{}'.format(domain, relat_path, did)
+    uri = generate_uri(relat_path, did)
     resp = {'status': 'ok',
             'result': True,
             'msg': '',
