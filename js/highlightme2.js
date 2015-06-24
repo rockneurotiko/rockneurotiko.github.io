@@ -1,148 +1,5 @@
 /*global Blob, saveAs, $, CodeMirror, RSAKey, CryptoJS, rng_seed_time, rng_get_bytes, byte2Hex */
 
-var modeList = [
-    "apl",
-    "asciiarmor",
-    "asn.1",
-    "asterisk",
-    "clike",
-    "clojure",
-    "cmake",
-    "cobol",
-    "coffeescript",
-    "commonlisp",
-    "css",
-    "cypher",
-    "d",
-    "dart",
-    "diff",
-    "django",
-    "dockerfile",
-    "dtd",
-    "dylan",
-    "ebnf",
-    "ecl",
-    "eiffel",
-    "erlang",
-    "forth",
-    "fortran",
-    "gas",
-    "gfm",
-    "gherkin",
-    "go",
-    "groovy",
-    "haml",
-    "handlebars",
-    "haskell",
-    "haxe",
-    "htmlembedded",
-    "htmlmixed",
-    "http",
-    "idl",
-    "index.html",
-    "jade",
-    "javascript",
-    "jinja2",
-    "julia",
-    "kotlin",
-    "livescript",
-    "lua",
-    "markdown",
-    "mathematica",
-    "meta.js",
-    "mirc",
-    "mllike",
-    "modelica",
-    "mumps",
-    "nginx",
-    "ntriples",
-    "octave",
-    "pascal",
-    "pegjs",
-    "perl",
-    "php",
-    "pig",
-    "pony",
-    "properties",
-    "puppet",
-    "python",
-    "q",
-    "r",
-    "rpm",
-    "rst",
-    "ruby",
-    "rust",
-    "sass",
-    "scala",
-    "scheme",
-    "shell",
-    "sieve",
-    "slim",
-    "smalltalk",
-    "smarty",
-    "solr",
-    "soy",
-    "sparql",
-    "spreadsheet",
-    "sql",
-    "stex",
-    "stylus",
-    "tcl",
-    "textile",
-    "tiddlywiki",
-    "tiki",
-    "toml",
-    "tornado",
-    "troff",
-    "ttcn",
-    "ttcn-cfg",
-    "turtle",
-    "vb",
-    "vbscript",
-    "velocity",
-    "verilog",
-    "xml",
-    "xquery",
-    "yaml",
-    "z80"];
-
-var features = [
-    ['Line Numbers',
-     "toggleEditorOpt('lineNumbers', 'bool');",
-     function() {toggleEditorOpt('lineNumbers', 'bool');}],
-    ['Line Wrapping',
-     "toggleEditorOpt('lineWrapping', 'bool');",
-     function() {toggleEditorOpt('lineWrapping', 'bool');}],
-    ['Active line with style',
-     "toggleEditorOpt('styleActiveLine', 'bool');",
-     function() {toggleEditorOpt('styleActiveLine', 'bool');}],
-    ['Match brackets',
-     "toggleEditorOpt('matchBrackets', 'bool');",
-     function() {toggleEditorOpt('matchBrackets', 'bool');}],
-    ['Auto Close Brackets',
-     "toggleEditorOpt('autoCloseBrackets', 'bool');",
-     function() {toggleEditorOpt('autoCloseBrackets', 'bool');}],
-    ['Auto Close Tags',
-     "toggleEditorOpt('autoCloseTags', 'bool');",
-     function() {toggleEditorOpt('autoCloseTags', 'bool');}],
-    ['Auto Complete',
-     "toggleEditorOpt('extraKeys', 'object', 'Ctrl-Space', 'autocomplete')",
-     function() {toggleEditorOpt('extraKeys', 'object', 'Ctrl-Space', 'autocomplete');}],
-    ['Fold code',
-     "toggleEditorOpt('foldGutter', 'bool');",
-     function() {toggleEditorOpt('foldGutter', 'bool');}],
-    ['Lint code',
-     "toggleEditorOpt('lint', 'bool');",
-     function() {toggleEditorOpt('lint', 'bool');}],
-    ['Highlight Selection',
-     "toggleEditorOpt('highlightSelectionMatches', 'object', 'showToken', /\\w/)",
-     function() {toggleEditorOpt('highlightSelectionMatches', 'object', 'showToken', /\\w/);}]
-];
-
-var baseremoteurl = 'http://codefiles.neurotiko.com';
-// baseremoteurl = 'http://localhost:5000';
-
-var editor = null;
 String.prototype.capitalizeFirstLetter = function() {
     return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
@@ -234,7 +91,7 @@ function generatelink() {
 
 function fillDrop(name, array, fname, f1, f2, other) {
 
-    var a = '<input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span></span>';
+    // var a = '<input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span></span>';
     var drop = $(name);
     var f, text;
     for (var i in array) {
@@ -246,11 +103,10 @@ function fillDrop(name, array, fname, f1, f2, other) {
             f = fname + '(\'' + f1(l) + '\');';
             text = f1(l);
         }
-        var prev = (other) ? '<li><input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span onclick="': '<li><a href="#" onclick="';
-        var end = (other) ? '</span></li>' : '</a></li>';
-        drop.append(prev + f + '">' + text + end);
-        // drop.append(prev + '<a href="#" onclick="' + f + '">' + text + '</a>' + end);
-        // drop.append('<li><a href="#" onclick="' + f + '">' + text + '</a></li>');
+        // var prev = (other) ? '<li><input id="ui-multiselect-0-option-0" type="checkbox" title="Option 1" value="option1" name="multiselect_0" aria-selected="false"></input><span onclick="': '<li><a href="#" onclick="';
+        // var end = (other) ? '</span></li>' : '</a></li>';
+        // drop.append(prev + f + '">' + text + end);
+        drop.append('<li><a href="#" onclick="' + f + '">' + text + '</a></li>');
     }
 }
 
@@ -267,22 +123,22 @@ function setLanguagesDrop() {
 };
 
 function setEditorFeatures() {
-    // var myData = [];
-    // for(var i=0; i < features.length; i++) {
-    //     myData.push({'id': i, 'label': features[i][0], 'isChecked': true});
-    // }
-    // $("#featuresdrop2").dropdownCheckbox({
-    //     data: myData,
-    //     title: "Editor Options",
-    //     btnClass: 'btn btn-primary'
-    // });
-    // var items = $('#featuresdrop2').dropdownCheckbox("items");
-    // var elems = $('#featuresdrop2 li');
-    // for(var l in items) {
-    //     $(elems[items[l].id]).on('click', features[items[l].id][2]);
-    // }
+    var myData = [];
+    for(var i=0; i < features.length; i++) {
+        myData.push({'id': i, 'label': features[i][0], 'isChecked': features[i][3]});
+    }
+    $("#featuresdrop2").dropdownCheckbox({
+        data: myData,
+        title: "Editor Options",
+        btnClass: 'btn btn-primary'
+    });
+    var items = $('#featuresdrop2').dropdownCheckbox("items");
+    var elems = $('#featuresdrop2 li');
+    for(var l in items) {
+        $(elems[items[l].id]).on('click', features[items[l].id][2]);
+    }
 
-    fillDrop('#featuresdrop', features, '', id, id, true);
+    // fillDrop('#featuresdrop', features, '', id, id, true);
 };
 
 function localSaveJson() {
@@ -381,6 +237,7 @@ function parseMode(mode) {
 
 function initializeUI() {
     editor = CodeMirror.fromTextArea(document.getElementById('mycode'), {
+        scrollbarStyle: 'overlay',
         lineNumbers: true,
         lineWrapping: true,
         styleActiveLine: true,
@@ -388,15 +245,22 @@ function initializeUI() {
         theme: 'monokai',
         autoCloseBrackets: true,
         autoCloseTags: true,
-        extraKeys: {"Ctrl-Space": "autocomplete",
+        showCursorWhenSelecting: true,
+        showTrailingSpace: true,
+        extraKeys: {"Alt-/": "autocomplete",
                     "Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
         foldGutter: true,
         gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter", "CodeMirror-lint-markers"],
         lint: true,
-        highlightSelectionMatches: {showToken: /\w/}
-        // keyMap: "emacs"
-        // mode: lang
+        highlightSelectionMatches: {showToken: /\w/},
+        keyMap: "emacs"
     });
+
+    for(var f in features) {
+        if (!features[f][3]) {
+            features[f][2]({buttons: 1});
+        }
+    }
 
     setLanguagesDrop();
     setStylesDrop();
@@ -554,4 +418,4 @@ if(window.attachEvent) {
         window.onload = initialize;
     }
 }
-// Improvements: buffers?
+// Improvements: buffers?, let choose between normal autocomplete or tern!, jshint?

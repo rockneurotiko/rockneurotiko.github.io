@@ -41,6 +41,7 @@
         <link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
         <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css" />
         <link rel="stylesheet" href="codemirror/addon/lint/lint.css">
+        <link rel="stylesheet" href="codemirror/addon/scroll/simplescrollbars.css">
 
         <link rel=stylesheet href="codemirror/doc/docs.css">
         <link rel="stylesheet" href="codemirror/lib/codemirror.css">
@@ -50,6 +51,10 @@
         <script src="codemirror/mode/meta.js"></script>
 
         <script src="codemirror/keymap/emacs.js"></script>
+        <script src="codemirror/keymap/sublime.js"></script>
+        <script src="codemirror/keymap/vim.js"></script>
+
+
         <script src="codemirror/addon/comment/comment.js"></script>
         <script src="codemirror/addon/mode/simple.js"></script>
         <script src="codemirror/addon/dialog/dialog.js"></script>
@@ -73,6 +78,9 @@
         <script src="codemirror/addon/lint/json-lint.js"></script>
         <script src="codemirror/addon/lint/css-lint.js"></script>
         <script src="codemirror/addon/search/match-highlighter.js"></script>
+        <script src="codemirror/addon/display/placeholder.js"></script>
+        <script src="codemirror/addon/scroll/simplescrollbars.js"></script>
+        <script src="codemirror/addon/edit/trailingspace.js"></script>
 
         <script src="//ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js"></script>
         <script src="https://rawgithub.com/zaach/jsonlint/79b553fb65c192add9066da64043458981b3972b/lib/jsonlint.js"></script>
@@ -99,6 +107,7 @@
 
         <link rel="stylesheet" href="css/highlightme2.css"></link>
         <link rel="stylesheet" href="css/spinner.css"></link>
+        <script src="js/constants.js"></script>
         <script src="js/highlightme2.js"></script>
 
     </head>
@@ -135,11 +144,11 @@
                             <ul id="stylesdrop" class="dropdown-menu mydrop" role="menu">
                             </ul>
                         </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Editor Options<span class="caret"></span>
-                            </button>
-                            <ul id="featuresdrop" class="dropdown-menu mydrop" role="menu"></ul>
-                        </div>
+                        <!-- <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Editor Options<span class="caret"></span>
+                        </button>
+                        <ul id="featuresdrop" class="dropdown-menu mydrop" role="menu"></ul>
+                        </div> -->
 
                         <div id="featuresdrop2" class="dropdown-checkbox dropdown btn-group"></div>
 
@@ -178,7 +187,7 @@
         <!--    Here goes the code :)      -->
         <div class="outer">
             <form class="myprecode">
-                <textarea id="mycode" name="code">
+                <textarea id="mycode" name="code" placeholder="Write your awesome code here :-)">
             </textarea>
         </form>
 
