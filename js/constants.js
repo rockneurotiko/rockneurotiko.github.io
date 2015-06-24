@@ -156,6 +156,9 @@ var features = [
      false]
 ];
 
+var move = function move() {};
+var repeated = move;
+
 var editorModes = {
     emacs: {
         bindings: {
@@ -271,7 +274,7 @@ var editorModes = {
             "Ctrl-X H": "selectAll",
 
             "Ctrl-Q Tab": repeated("insertTab"),
-            "Ctrl-U": addPrefixMap
+            "Ctrl-U": 'addPrefixMap'
         }
     },
 
