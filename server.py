@@ -5,7 +5,6 @@ import json
 import string
 import time
 import codecs
-# import requests
 import binascii
 from mycrypto import Cryptor
 from base64 import b64encode, b64decode
