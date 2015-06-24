@@ -72,17 +72,23 @@ class BaseRemoteException(Exception):
 
 class Exception400(BaseRemoteException):
     def __init__(self, message):
-        super().__init__(message, 400, {'status': 'error'})
+        self.message = message
+        self.status_code = 400
+        self.payload = {'status': 'error'}
 
 
 class Exception404(BaseRemoteException):
     def __init__(self, message):
-        super().__init__(message, 404, {'status': 'error'})
+        self.message = message
+        self.status_code = 404
+        self.payload = {'status': 'error'}
 
 
 class Exception410(BaseRemoteException):
     def __init__(self, message):
-        super().__init__(message, 410, {'status': 'error'})
+        self.message = message
+        self.status_code = 410
+        self.payload = {'status': 'error'}
 
 
 @app.errorhandler(BaseRemoteException)
@@ -158,6 +164,8 @@ def handle_encryption(request, message, cypherkey=None, plainkey=None):
     elif plainkey:
         key = plainkey
     if key is not None and len(key) == 64:
+        if type(message) is not str:
+            message = json.dumps(message)
         iv, encrypted = encryptWithKey(key, message)
         result = {'encrypted': True, 'algorithm': 'AES', 'iv': iv.decode('utf8'), 'msg': encrypted}
         return result
@@ -203,7 +211,7 @@ def put_codefile(content, path, petition_params):
 
 
 def generate_uri(path, did):
-    return url_for('get_codefile', path='tmp', did='TESTDID', _external=True)
+    return url_for('get_codefile', path='tmp', did=did, _external=True)
 
 
 @app.route('/getsshpub', methods=['GET'])
