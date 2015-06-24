@@ -157,7 +157,10 @@ var features = [
 ];
 
 var move = function move() {};
-var repeated = move;
+var repeated = move,
+    byWord=1, byLine=1, byPage=1, byParagraph=1, bySentence=1, byExpr=1, killTo=move,
+    toEnclosingExpr=1, Pos=move, operateOnWord=move, getPrefix=move, kill=move;
+
 
 var editorModes = {
     emacs: {
