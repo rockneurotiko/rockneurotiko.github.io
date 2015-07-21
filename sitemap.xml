@@ -3,13 +3,13 @@
   
   <url>
     <loc>https://rockneurotiko.github.io/</loc>
-    <lastmod>2015-03-06T00:00:00+00:00</lastmod>
+    <lastmod>2015-07-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/license/</loc>
-    <lastmod>2015-03-06T00:00:00+00:00</lastmod>
+    <loc>https://rockneurotiko.github.io/blog/2015/07/21/gentle-introduction-to-telegram-bots./</loc>
+    <lastmod>2015-07-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -19,6 +19,11 @@
   
   <url>
     <loc>https://rockneurotiko.github.io/about/</loc>
+    <lastmod>2015-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rockneurotiko.github.io/license/</loc>
     <lastmod>2015-03-06T00:00:00+00:00</lastmod>
   </url>
   

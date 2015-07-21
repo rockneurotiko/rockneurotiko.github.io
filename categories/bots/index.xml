@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Rock Neurotiko&#39;s web &lt;3</title>
-    <link>https://rockneurotiko.github.io/post/</link>
-    <description>Recent content in Posts on Rock Neurotiko&#39;s web &lt;3</description>
+    <title>Bots on Rock Neurotiko&#39;s web &lt;3</title>
+    <link>https://rockneurotiko.github.io/categories/bots/</link>
+    <description>Recent content in Bots on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockneurotiko.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rockneurotiko.github.io/categories/bots/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gentle introduction to Telegram Bots.</title>
@@ -77,36 +77,6 @@
 &lt;p&gt;If you don&amp;rsquo;t know some programming&amp;hellip; well, I guess that you should search in google to llearn programming first ;-)&lt;/p&gt;
 
 &lt;p&gt;Cheers, and may the Bot be with you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Post test!</title>
-      <link>https://rockneurotiko.github.io/blog/2015/03/04/post-test/</link>
-      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rockneurotiko.github.io/blog/2015/03/04/post-test/</guid>
-      <description>
-
-&lt;h2 id=&#34;toc_0:a8158e2ae96b1b34e1f733f49d15bcfd&#34;&gt;:)&lt;/h2&gt;
-
-&lt;p&gt;Haskell test:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-haskell&#34;&gt;import Data.List
-
-compress :: Eq a =&amp;gt; [a] -&amp;gt; [a]
-compress (x:y:zs)
-| x == y   = compress(y:zs)
-| otherwise = x : compress(y:zs)
-compress ys = ys
-
-main = print (compress [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;b&#39;, &#39;a&#39;])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Python test:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&amp;quot;test&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
