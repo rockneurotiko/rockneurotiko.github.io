@@ -1,0 +1,4 @@
+[package]
+name = "philosophers"
+version = "0.1.0"
+authors = ["Rock Neurotiko <miguelglafuente@gmail.com>"]

@@ -39,32 +39,6 @@ Rock Neurotiko
     </item>
     
     <item>
-      <title>About Me</title>
-      <link>https://rockneurotiko.github.io/about/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://rockneurotiko.github.io/about/</guid>
-      <description>
-
-&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://rockneurotiko.github.io/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
-
-&lt;p&gt;I work mostly in &lt;a href=&#34;http://elixir-lang.org/&#34;&gt;Elixir&lt;/a&gt; and Java.&lt;/p&gt;
-
-&lt;p&gt;My main interest is in server-side technology and massive scalability, but I&amp;rsquo;ve been known to dabble in native mobile development, user facing web applications and various other projects.&lt;/p&gt;
-
-&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
-
-&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Lovely links &lt;3</title>
       <link>https://rockneurotiko.github.io/links/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
@@ -104,6 +78,30 @@ Rock Neurotiko
 &lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://rockneurotiko.github.io/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://rockneurotiko.github.io/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://rockneurotiko.github.io/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

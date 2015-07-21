@@ -87,6 +87,10 @@
         <script src="https://rawgithub.com/stubbornella/csslint/master/release/csslint.js"></script>
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.min.css"></link>
+        <link rel="stylesheet" href="css/jquery-ui.theme.min.css"></link>
+        <link rel="stylesheet" href="css/font-awesome.min.css"></link>
 <!--    RSA      -->
         <script src="js/jsbn.js" type="text/javascript" language="JavaScript"></script>
         <script src="js/prng4.js" type="text/javascript" language="JavaScript"></script>
@@ -129,7 +133,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav" style="width: 60%;">
+                    <ul class="nav navbar-nav" style="width: 50%;">
                         <li class="active"><a id="langnav" href="#">Undetected <span class="sr-only">(current)</span></a></li>
 
                         <div class="btn-group">
@@ -157,6 +161,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <button type="button" onclick="copyLink();" class="btn btn-info navbar-btn">Copy link!</button>
                         <button type="button" onclick="localSaveJson();" class="btn btn-info navbar-btn">Save in JSON!</button>
+                        <span class="fa-stack fa-lg" data-toggle="modal" data-target="#basicModal" style="cursor: pointer; cursor: hand;">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                        </span>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -187,9 +195,44 @@
         <!--    Here goes the code :)      -->
         <div class="outer">
             <form class="myprecode">
-                <textarea id="mycode" name="code" placeholder="Write your awesome code here :-)">
-            </textarea>
-        </form>
+                <textarea id="mycode" name="code" placeholder="Write your awesome code here :-)"></textarea>
+            </form>
+        </div>
+
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog" style="width: 70%;">
+                <div class="modal-content" style="height: 80%;">
+                    Text / content outside accordion
+                    <div id="accordion" style="height: 90%">
+                        <h3><a href="#">Section 1</a></h3>
+
+                        <div>
+                            <p>The quick brown fox jump over the lazy dogs - section 1</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 1</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 1</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 1</p>
+                        </div>
+                        <h3><a href="#">Section 2</a></h3>
+
+                        <div>
+                            <p>The quick brown fox jump over the lazy dogs - section 2</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 2</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 2</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 2</p>
+                            <p>The quick brown fox jump over the lazy dogs - section 2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+            $("#accordion").accordion({
+                heightStyle: "content",
+                icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+            });
+            });
+        </script>
 
     </body>
 </html>
