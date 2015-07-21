@@ -34,7 +34,7 @@
 &lt;p&gt;At first, let&amp;rsquo;s see some &amp;ldquo;definitions&amp;rdquo; (by myself).&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Telegram&lt;/code&gt;: Telegram is an instant messaging system, multi-platform, focuses in security and privacy.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Telegram&lt;/code&gt;: Telegram is an instant messaging system, multi-platform, focused in the security and privacy of the users.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;Bot&lt;/code&gt;: A bot it&amp;rsquo;s a computer program that perform some operations automatically.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -56,7 +56,7 @@
 
 &lt;p&gt;You can take a look at that project, it have so many plugins, and so good!&lt;/p&gt;
 
-&lt;p&gt;You have to configure the bot in a real telegram account, with a phone number, and it looks like a normal user (actually you can log with the same number in another client and see all the messages).&lt;/p&gt;
+&lt;p&gt;You have to configure the bot in a real telegram account, with a phone number, and it looks like a normal user, because it&amp;rsquo;s a normal user! (actually you can log with the same number in another client and see all the messages).&lt;/p&gt;
 
 &lt;p&gt;It worked pretty well, and it&amp;rsquo;s really powerful. Telegram saw it too, and they decided to create a Bot API so people can build the bots in their favourite language without using mtproto (and more improvements over traditional bots).&lt;/p&gt;
 
@@ -66,7 +66,7 @@
 
 &lt;p&gt;That post is really great, but don&amp;rsquo;t help too much to the developers, lucky of us they released two more pages, the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;introduction for developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;API specification&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This too links are really needed to continue developing bots (knowing programming too!).&lt;/p&gt;
+&lt;p&gt;This two links are really needed to continue developing bots (knowing programming too!).&lt;/p&gt;
 
 &lt;p&gt;We are going to close this post here, with the homework of reading the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;introduction for developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;API specification&lt;/a&gt; before the next post (I don&amp;rsquo;t know when will be).&lt;/p&gt;
 
@@ -77,30 +77,6 @@
 &lt;p&gt;If you don&amp;rsquo;t know some programming&amp;hellip; well, I guess that you should search in google to learn programming first ;-)&lt;/p&gt;
 
 &lt;p&gt;Cheers, and may the Bot be with you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://web.neurotiko.com/about/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://web.neurotiko.com/about/</guid>
-      <description>
-
-&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
-
-&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
-
-&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -173,6 +149,30 @@ Rock Neurotiko
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://web.neurotiko.com/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
