@@ -38,7 +38,7 @@
 &lt;li&gt;&lt;code&gt;Bot&lt;/code&gt;: A bot it&amp;rsquo;s a computer program that perform some operations automatically.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The first question could be: &amp;ldquo;Why a bot in Telegram?&amp;rdquo;. Well, the bots let you automate things and makes your life easier, for example, if you want to send an image to a friend, or search an image of something, instead of open a web-browser and search for an image, you can talk to a bot and tell him: &lt;code&gt;Image of &amp;lt;something&amp;gt;&lt;/code&gt;, and he returns you an image of that!&lt;/p&gt;
+&lt;p&gt;The first question could be: &amp;ldquo;Why a bot in Telegram?&amp;rdquo;. Well, the bots let you automate things and makes your life easier. For example, if you want to send an image to a friend, or search an image of something, instead of open a web-browser and search for an image, you can talk to a bot and tell him: &lt;code&gt;Image of &amp;lt;something&amp;gt;&lt;/code&gt;, and he returns you an image of that!&lt;/p&gt;
 
 &lt;p&gt;This is a really simple bot, but can be as complex as you want, for example, a bot that connects with a programmable coffee pot and you set the time and type of coffee to make =D&lt;/p&gt;
 
@@ -74,9 +74,62 @@
 
 &lt;p&gt;If you know some programming, you can see the video &lt;a href=&#34;http://www.youtube.com/watch?v=CF9S4QZuV30&#34;&gt;Learn Go in one video&lt;/a&gt;, it&amp;rsquo;s really great explained!&lt;/p&gt;
 
-&lt;p&gt;If you don&amp;rsquo;t know some programming&amp;hellip; well, I guess that you should search in google to llearn programming first ;-)&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t know some programming&amp;hellip; well, I guess that you should search in google to learn programming first ;-)&lt;/p&gt;
 
 &lt;p&gt;Cheers, and may the Bot be with you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>http://web.neurotiko.com/license/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/license/</guid>
+      <description>
+
+&lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
+
+&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Code license&lt;/h3&gt;
+
+&lt;p&gt;All source code files and snippets found on this web, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2015 Rock Neurotiko
+
+-------------------------------------------------------------------------
+&amp;quot;THE BEER-WARE LICENSE&amp;quot; (Revision 42):
+[miguelglafuente @at@ gmail .dot. com] wrote this file.
+As long as you retain this notice you can do whatever you want with this stuff.
+If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+Rock Neurotiko
+-------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://web.neurotiko.com/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -120,59 +173,6 @@
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://web.neurotiko.com/about/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://web.neurotiko.com/about/</guid>
-      <description>
-
-&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
-
-&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
-
-&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>License</title>
-      <link>http://web.neurotiko.com/license/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://web.neurotiko.com/license/</guid>
-      <description>
-
-&lt;h3 id=&#34;content-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Content license&lt;/h3&gt;
-
-&lt;p&gt;All non-code blog content is licensed under &lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/3.0/&#34;&gt;Creative Commons BY-NC-SA&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;code-license:53e892b8b41cc4caece1cfd5ef21d6e7&#34;&gt;Code license&lt;/h3&gt;
-
-&lt;p&gt;All source code files and snippets found on this web, unless otherwise explicitly noted, are licensed under the terms below.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;Copyright 2015 Rock Neurotiko
-
--------------------------------------------------------------------------
-&amp;quot;THE BEER-WARE LICENSE&amp;quot; (Revision 42):
-[miguelglafuente @at@ gmail .dot. com] wrote this file.
-As long as you retain this notice you can do whatever you want with this stuff.
-If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
-Rock Neurotiko
--------------------------------------------------------------------------
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
