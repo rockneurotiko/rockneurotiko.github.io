@@ -1,0 +1,106 @@
+Elm.Counter = Elm.Counter || {};
+Elm.Counter.make = function (_elm) {
+   "use strict";
+   _elm.Counter = _elm.Counter || {};
+   if (_elm.Counter.values)
+   return _elm.Counter.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Counter",
+   $Basics = Elm.Basics.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var countStyle = $Html$Attributes.style(_L.fromArray([{ctor: "_Tuple2"
+                                                         ,_0: "font-size"
+                                                         ,_1: "20px"}
+                                                        ,{ctor: "_Tuple2"
+                                                         ,_0: "font-family"
+                                                         ,_1: "monospace"}
+                                                        ,{ctor: "_Tuple2"
+                                                         ,_0: "display"
+                                                         ,_1: "inline-block"}
+                                                        ,{ctor: "_Tuple2"
+                                                         ,_0: "width"
+                                                         ,_1: "50px"}
+                                                        ,{ctor: "_Tuple2"
+                                                         ,_0: "text-align"
+                                                         ,_1: "center"}]));
+   var Context = F2(function (a,
+   b) {
+      return {_: {}
+             ,actions: a
+             ,remove: b};
+   });
+   var update = F2(function (action,
+   model) {
+      return function () {
+         switch (action.ctor)
+         {case "Decrement":
+            return model - 1;
+            case "Increment":
+            return model + 1;}
+         _U.badCase($moduleName,
+         "between lines 24 and 26");
+      }();
+   });
+   var Decrement = {ctor: "Decrement"};
+   var Increment = {ctor: "Increment"};
+   var view = F2(function (address,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([]),
+      _L.fromArray([A2($Html.button,
+                   _L.fromArray([A2($Html$Events.onClick,
+                   address,
+                   Decrement)]),
+                   _L.fromArray([$Html.text("-")]))
+                   ,A2($Html.div,
+                   _L.fromArray([countStyle]),
+                   _L.fromArray([$Html.text($Basics.toString(model))]))
+                   ,A2($Html.button,
+                   _L.fromArray([A2($Html$Events.onClick,
+                   address,
+                   Increment)]),
+                   _L.fromArray([$Html.text("+")]))]));
+   });
+   var viewWithRemoveButton = F2(function (context,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([]),
+      _L.fromArray([A2($Html.button,
+                   _L.fromArray([A2($Html$Events.onClick,
+                   context.actions,
+                   Decrement)]),
+                   _L.fromArray([$Html.text("-")]))
+                   ,A2($Html.div,
+                   _L.fromArray([countStyle]),
+                   _L.fromArray([$Html.text($Basics.toString(model))]))
+                   ,A2($Html.button,
+                   _L.fromArray([A2($Html$Events.onClick,
+                   context.actions,
+                   Increment)]),
+                   _L.fromArray([$Html.text("+")]))
+                   ,A2($Html.div,
+                   _L.fromArray([countStyle]),
+                   _L.fromArray([]))
+                   ,A2($Html.button,
+                   _L.fromArray([A2($Html$Events.onClick,
+                   context.remove,
+                   {ctor: "_Tuple0"})]),
+                   _L.fromArray([$Html.text("X")]))]));
+   });
+   var init = function (count) {
+      return count;
+   };
+   _elm.Counter.values = {_op: _op
+                         ,init: init
+                         ,update: update
+                         ,view: view
+                         ,viewWithRemoveButton: viewWithRemoveButton
+                         ,Context: Context};
+   return _elm.Counter.values;
+};
