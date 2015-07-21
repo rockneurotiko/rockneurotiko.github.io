@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on Rock Neurotiko&#39;s web &lt;3</title>
-    <link>https://rockneurotiko.github.io/categories/go/</link>
+    <link>http://web.neurotiko.com/categories/go/</link>
     <description>Recent content in Go on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockneurotiko.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://web.neurotiko.com/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gentle introduction to Telegram Bots.</title>
-      <link>https://rockneurotiko.github.io/blog/2015/07/21/gentle-introduction-to-telegram-bots./</link>
+      <link>http://web.neurotiko.com/blog/2015/07/21/gentle-introduction-to-telegram-bots./</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://rockneurotiko.github.io/blog/2015/07/21/gentle-introduction-to-telegram-bots./</guid>
+      <guid>http://web.neurotiko.com/blog/2015/07/21/gentle-introduction-to-telegram-bots./</guid>
       <description>&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m &lt;code&gt;Rock Neurotiko&lt;/code&gt;, 23 years old, Spanish and I&amp;rsquo;m studying Computer Engineering career.&lt;/p&gt;
@@ -29,7 +29,7 @@
 
 &lt;p&gt;But stop talking about me, let&amp;rsquo;s start talk about &lt;code&gt;Telegram&lt;/code&gt; and &lt;code&gt;Bots&lt;/code&gt;, I&amp;rsquo;m pretty sure that is why you are here.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://rockneurotiko.github.io/images/go-bots/simply-write.jpg&#34; alt=&#34;One does not simply write a Telegram Bot Meme&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/simply-write.jpg&#34; alt=&#34;One does not simply write a Telegram Bot Meme&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At first, let&amp;rsquo;s see some &amp;ldquo;definitions&amp;rdquo; (by myself).&lt;/p&gt;
 

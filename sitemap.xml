@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://rockneurotiko.github.io/</loc>
+    <loc>http://web.neurotiko.com/</loc>
     <lastmod>2015-07-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/blog/2015/07/21/gentle-introduction-to-telegram-bots./</loc>
+    <loc>http://web.neurotiko.com/blog/2015/07/21/gentle-introduction-to-telegram-bots./</loc>
     <lastmod>2015-07-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/links/</loc>
+    <loc>http://web.neurotiko.com/links/</loc>
     <lastmod>2015-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/about/</loc>
+    <loc>http://web.neurotiko.com/about/</loc>
     <lastmod>2015-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/license/</loc>
+    <loc>http://web.neurotiko.com/license/</loc>
     <lastmod>2015-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/python/how-to-start/</loc>
+    <loc>http://web.neurotiko.com/python/how-to-start/</loc>
     <lastmod>2015-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/blog/2015/03/04/post-test/</loc>
+    <loc>http://web.neurotiko.com/blog/2015/03/04/post-test/</loc>
     <lastmod>2015-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://rockneurotiko.github.io/python/links/</loc>
+    <loc>http://web.neurotiko.com/python/links/</loc>
   </url>
   
 </urlset>
