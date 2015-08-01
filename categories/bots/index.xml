@@ -6,16 +6,271 @@
     <description>Recent content in Bots on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://web.neurotiko.com/categories/bots/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Bot Revolution. Know your API or die hard.</title>
+      <link>http://web.neurotiko.com/bots/2015/07/27/bots-know-your-api/</link>
+      <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2015/07/27/bots-know-your-api/</guid>
+      <description>
+
+&lt;!-- -------------- --&gt;
+
+&lt;!-- **All posts of the serie.** --&gt;
+
+&lt;!-- 1. [Gentle introduction to Telegram Bots.](/bots/2015/07/21/bots-introduction/) --&gt;
+
+&lt;!-- 2. [*Bot Revolution. Know your API or die hard.*](#) --&gt;
+
+&lt;!-- -------------- --&gt;
+
+&lt;p&gt;Hello Friend, it&amp;rsquo;s good to see you again. Did you made your homework? Did you readed the two links? If don&amp;rsquo;t, go read it now to full understand this post.&lt;/p&gt;
+
+&lt;p&gt;The links that I&amp;rsquo;m talking are the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;Bot introduction to developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;Telegram Bot API&lt;/a&gt;. Open this links in another tabs or window and let&amp;rsquo;s talk about it!&lt;/p&gt;
+
+&lt;p&gt;I know that you didn&amp;rsquo;t readed it, and if you did, you can check that you are right with what you think! :-)&lt;/p&gt;
+
+&lt;h2 id=&#34;bot-introduction:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Bot Introduction&lt;/h2&gt;
+
+&lt;p&gt;This post starts explaining what can you do with bots, and they give better examples that the one I writed in my last post, my favourites are &amp;ldquo;Create custom tools&amp;rdquo; and &amp;ldquo;Build single and multiplayer games&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The bots don&amp;rsquo;t work in a normal account, they have a special &lt;code&gt;Bot&lt;/code&gt; account, this accounts don&amp;rsquo;t have phone number, have to be created with @BotFather (we&amp;rsquo;ll see how in other post), and you don&amp;rsquo;t have to use MTProto, you will have an API to use this bots. This is great because you don&amp;rsquo;t have to use MTProto, but sucks too because you don&amp;rsquo;t have full functionality.&lt;/p&gt;
+
+&lt;h4 id=&#34;nice-things-of-bots:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Nice things of Bots.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The status is &lt;code&gt;bot&lt;/code&gt;, no timestamp showing the last connection.&lt;/li&gt;
+&lt;li&gt;Once you process the messages, they are removed from server.&lt;/li&gt;
+&lt;li&gt;The bots can&amp;rsquo;t start talking with users/chats, they have to start the communication.&lt;/li&gt;
+&lt;li&gt;The username ends with &lt;code&gt;bot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;great-things-of-bots:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;GREAT things of Bots.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keyboard: The bot accounts can send/remove custom keyboards, this is really nice to force the user to send the interactions that you want, really useful for simplify interaction or to build games (I saw a TicTacToe bot the other day that uses a keyboard for the layout!)&lt;/li&gt;
+&lt;li&gt;Commands: The main way to communicate with the bot are with the commands, the commands ALWAYS start with &lt;code&gt;/&lt;/code&gt;, and you can use up to 32 characters to build the command. Examples of commands are: &lt;code&gt;/help&lt;/code&gt; and &lt;code&gt;/play thisgame&lt;/code&gt;, you can set a base list of commands with @BotFather and will show in a special menu and autocomplete. When in group, you can send a command to a single bot mentioning after the command: &lt;code&gt;/help@awesomebot&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: When a user start talking with a bot, the first thing that is sended is &lt;code&gt;/start&lt;/code&gt;, with an optional parameter using &lt;code&gt;Deep Linking&lt;/code&gt;. How to use Deep Linking? You can give an user a link to start talking with your bot, that looks like: &lt;code&gt;http://telegram.me/usernamebot&lt;/code&gt;, you can force the parameter with &lt;code&gt;http://telegram.me/usernamebot?start=PAYLOAD&lt;/code&gt;. If you use the first way, when the user press the Start button it will send &lt;code&gt;/start&lt;/code&gt;, if you use the second way it will send &lt;code&gt;/start PAYLOAD&lt;/code&gt; automatically. This is really great for authentication :)&lt;/li&gt;
+&lt;li&gt;Privacy mode: This is one of my favourites features, this is a mode that can be enabled or disabled, by default is enabled. If you have it enabled you will only receive &lt;code&gt;commands&lt;/code&gt; (messages that start with &lt;code&gt;/&lt;/code&gt;, and if the command have the @usernamebot will be sended only to that bot), messages that mention your bot (@usernamebot), replies to your bot messages and service messages (user enter/leave a group, &amp;hellip;). If you have the privacy disabled the bot will receive all messages. I really love to have privacy mode enabled, in that way the bot receive way long less messages, and gives security to the users, because the privacy mode can be seen in the user list, so you can know if a bot have access to all your messages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;botfather:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;BotFather&lt;/h4&gt;
+
+&lt;p&gt;I&amp;rsquo;ve mentioned @BotFather, you can talk to him in &lt;a href=&#34;http://telegram.me/botfather&#34;&gt;http://telegram.me/botfather&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first thing is create the user sending him the command &lt;code&gt;/newbot&lt;/code&gt; and answering his questions (name, username, &amp;hellip;), it will give you a token that you will have to use when you build your bot logic. You can always get the token again with the &lt;code&gt;/token&lt;/code&gt; command or &lt;code&gt;/revoke&lt;/code&gt; to change the token.&lt;/p&gt;
+
+&lt;p&gt;The bot have more commands like &lt;code&gt;/setuserpic&lt;/code&gt; or &lt;code&gt;/setcommands&lt;/code&gt;, check the original post to see them!&lt;/p&gt;
+
+&lt;p&gt;Did you created the token? If no, go and do it!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a bot:
+&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/create_bot.png&#34; alt=&#34;Create a bot token&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Revoke the key:
+&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/revoke_bot.png&#34; alt=&#34;Revoke key token&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The token is the one he say, in the images &lt;code&gt;120665297:AAGmLR8B43VsPQQ3P99oVTCHehUXkC_Y2s4&lt;/code&gt; and &lt;code&gt;120665297:AAHacmu0S7RzqY4BKnnSBlcKoh8_UpyKh94&lt;/code&gt; when revoked.&lt;/p&gt;
+
+&lt;p&gt;P.D: Don&amp;rsquo;t try to use that tokens, are already revoked ;-)&lt;/p&gt;
+
+&lt;h2 id=&#34;bot-api:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Bot API&lt;/h2&gt;
+
+&lt;p&gt;Do you remember the &lt;code&gt;token&lt;/code&gt; that @BotFather gived to you when you created the bot? You are going to use it here, I will use &lt;code&gt;&amp;lt;token&amp;gt;&lt;/code&gt; to represent it.&lt;/p&gt;
+
+&lt;p&gt;The URL to make the request are &lt;code&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/METHOD_NAME&lt;/code&gt;. The methods support &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;, if you do &lt;code&gt;GET&lt;/code&gt; and the method take parameters you will have to use &lt;code&gt;URL query string&lt;/code&gt;, if you use &lt;code&gt;POST&lt;/code&gt; you can use &lt;code&gt;URL query string&lt;/code&gt;, &lt;code&gt;x-www-form-urlencoded&lt;/code&gt; or &lt;code&gt;multipart/form-data&lt;/code&gt; (for upload media you need to use multipart).&lt;/p&gt;
+
+&lt;p&gt;All the responses when you call this methods are JSON, an &lt;code&gt;ok&lt;/code&gt; boolean field that explains if the request were well or don&amp;rsquo;t. If &lt;code&gt;ok&lt;/code&gt; is false, there will be other two fields, &lt;code&gt;error_code&lt;/code&gt; and &lt;code&gt;description&lt;/code&gt;. If the requests gone well and &lt;code&gt;ok&lt;/code&gt; is true, there will be one more field, &lt;code&gt;result&lt;/code&gt; with the data that you wanted.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Good result
+{
+    ok: true,
+    result: []
+}
+// Bad result example
+{
+    ok: false,
+    error_code: 401,
+    description: &amp;quot;Error: Unauthorized&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;types:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Types&lt;/h3&gt;
+
+&lt;p&gt;This are the &lt;code&gt;types&lt;/code&gt; or &lt;code&gt;schemas&lt;/code&gt; that the JSON and the data you send will need to follow. This are the fields that you need to search if you want the data.&lt;/p&gt;
+
+&lt;p&gt;You can see all the types &lt;a href=&#34;https://core.telegram.org/bots/api#available-types&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, if you want to get the message id, you see the Message type that have a message_id field that is an integer, just grab it.&lt;/p&gt;
+
+&lt;p&gt;Or, if you want to get the chat id of a message to answer him, you need the chat field in the message, and inside that chat, the id field.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Message:
+{
+    message_id: 97,
+    // ...
+}
+
+// Chat id:
+{
+    chat: {
+        id: 11,
+        // ...
+    }
+    // ...
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are developing a library that communicates with the API, make sure that have this types well known, if don&amp;rsquo;t, just read them when you need it :)&lt;/p&gt;
+
+&lt;h3 id=&#34;methods:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Methods!&lt;/h3&gt;
+
+&lt;p&gt;This are the methods that you can call in the telegram API to do something. They are pretty self-explained, and the libraries usually have wrappers, so you can just use the methods the library provide. But is great that you know what methods are and the possibilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Note: &amp;quot;user&amp;quot; here refers to a single user or a chat.&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getMe&lt;/code&gt;: Returns the information of the bot. Useful to know if the token is right.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendMessage&lt;/code&gt;: Send a message to some user.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;forwardMessage&lt;/code&gt;: Forward some message from some user to another.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendPhoto&lt;/code&gt;: Send a photo to a user, uploaded from disk or with an id (already uploaded photo)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendAudio&lt;/code&gt;: The same as photo but with an audio.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendDocument&lt;/code&gt;: The same as photo but with a document.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendSticker&lt;/code&gt;: The same as photo but with a sticker.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendVideo&lt;/code&gt;: The same as photo but with a video.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendLocation&lt;/code&gt;: Send a location (latitud and longitude)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendChatAction&lt;/code&gt;: Send an action that is showed in the bot status (typing, sending photo, &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getUserProfilePhotos&lt;/code&gt;: Get the information about all the photos a user had have.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt;: Get the update messages directly&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setWebhook&lt;/code&gt;: Set a webhook URL.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The last two are the most weird, but the most important! Let&amp;rsquo;s talk about it!&lt;/p&gt;
+
+&lt;h2 id=&#34;a-simple-architecture-of-a-bot:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;A simple architecture of a bot.&lt;/h2&gt;
+
+&lt;p&gt;So&amp;hellip; How is a simple workflow of a bot?&lt;/p&gt;
+
+&lt;p&gt;A bot works like a server, is waiting for messages, and when a message arrives, just do something, answer a text, save in DB, send some photo, whatever you want.&lt;/p&gt;
+
+&lt;p&gt;To send things to the user, the methods to call are pretty obvius, the &amp;ldquo;send*&amp;rdquo; methods (sendMessage, sendPhoto, &amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;But, how do we get the messages? You have two options, really differents!&lt;/p&gt;
+
+&lt;p&gt;Using a webhook, or using the getUpdates method.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the easiest one, &lt;code&gt;getUpdates&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;getupdates-method:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;getUpdates method&lt;/h3&gt;
+
+&lt;p&gt;This is really simple, you just need to do a GET petition to the getUpdates method, and it will return you a list with the messages.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt; without messages:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    &amp;quot;ok&amp;quot;: true,
+    &amp;quot;result&amp;quot;: []
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt; with one message:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    &amp;quot;ok&amp;quot;: true,
+    &amp;quot;result&amp;quot;: [{
+        &amp;quot;update_id&amp;quot;: 967681107,
+        &amp;quot;message&amp;quot;: {
+            &amp;quot;message_id&amp;quot;: 73,
+            &amp;quot;from&amp;quot;: {
+                &amp;quot;id&amp;quot;: 15738534,
+                &amp;quot;first_name&amp;quot;: &amp;quot;Rock&amp;quot;,
+                &amp;quot;last_name&amp;quot;: &amp;quot;Neurotiko&amp;quot;,
+                &amp;quot;username&amp;quot;: &amp;quot;rock_neurotiko&amp;quot;
+            },
+            &amp;quot;chat&amp;quot;: {
+                &amp;quot;id&amp;quot;: 15738534,
+                &amp;quot;first_name&amp;quot;: &amp;quot;Rock&amp;quot;,
+                &amp;quot;last_name&amp;quot;: &amp;quot;Neurotiko&amp;quot;,
+                &amp;quot;username&amp;quot;: &amp;quot;rock_neurotiko&amp;quot;
+            },
+            &amp;quot;date&amp;quot;: 1438429763,
+            &amp;quot;text&amp;quot;: &amp;quot;Hi lovely readers! &amp;lt;3&amp;quot;
+        }
+    }]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can test it simply by going to the url, replacing &lt;code&gt;&amp;lt;token&amp;gt;&lt;/code&gt; with the token @BotFather gived to you: &lt;a href=&#34;https://api.telegram.org/bot&amp;lt;token&amp;gt;/getUpdates&#34;&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/getUpdates&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice that if you call to &amp;ldquo;getUpdates&amp;rdquo; again, and again, the messages are not removed! To get the messages after the last one (so you don&amp;rsquo;t process every time the same messages), you need to use the &lt;code&gt;offset&lt;/code&gt; parameter (read the documentation of the library you are using). The offset need to be setted as the last &lt;code&gt;update_id&lt;/code&gt; you received plus one. For example, in the previously message, the &lt;code&gt;update_id&lt;/code&gt; are, so I need to set the offset as &lt;code&gt;967681107 + 1 = 967681108&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the offset is needed, when you use the offset, all previous messages are erased. But not only because that, it&amp;rsquo;s because the getUpdates have a limit of 100 messages, if you don&amp;rsquo;t use the messages and the messages grow up to 100, you won&amp;rsquo;t get the newer messages.&lt;/p&gt;
+
+&lt;p&gt;So&amp;hellip; Use the offset! (to try in browser, just add at the end of the url &lt;code&gt;?offset=number&lt;/code&gt;, eg: &lt;code&gt;https://.../getUpdates?offset=967681108&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Another thing, really important. As you can see, the answer is inmediate, that means that if you don&amp;rsquo;t have messages you are going to asking the server many, many times just for nothing. This are petitions that you are doing for not getting anything. To solve that, the great telegram engineers let you use a technique called &lt;a href=&#34;https://en.wikipedia.org/wiki/Push_technology#Long_polling&#34;&gt;&lt;code&gt;long-polling&lt;/code&gt;&lt;/a&gt;, that emulates push notifications but using GET petitions.&lt;/p&gt;
+
+&lt;p&gt;This is done just by openining a connection and not returning to you the result unless some interesting result comes or some timeout lead to the end.&lt;/p&gt;
+
+&lt;p&gt;In the telegram API you can use this!! Like the offset parameter, you can use the &lt;code&gt;timeout&lt;/code&gt; parameter to set the long-polling. You can set any integer, but in my experience, they answer after 20 seconds even if you asked for more.&lt;/p&gt;
+
+&lt;p&gt;In the browser, just add the parameter to the offset one: &lt;code&gt;?offset=number&amp;amp;timeout=20&lt;/code&gt;, eg: &lt;code&gt;https://.../getUpdates?offset=967681108&amp;amp;timeout=20&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you do it in the browser you will see that the tab tries to load, and after 20 seconds will return the empty array of messages (if you didn&amp;rsquo;t have any messages or used the offset properly), but, if you reload again, and talk to your bot, the server will return you the messages inmediatly =D&lt;/p&gt;
+
+&lt;p&gt;Summary for &lt;code&gt;getUpdates&lt;/code&gt;: Use &lt;code&gt;offset&lt;/code&gt; and &lt;code&gt;timeout&lt;/code&gt; parameters!&lt;/p&gt;
+
+&lt;h3 id=&#34;webhook-method:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Webhook method&lt;/h3&gt;
+
+&lt;p&gt;In this way you don&amp;rsquo;t have to do any GET petition, telegram will send you the messages instead.&lt;/p&gt;
+
+&lt;p&gt;You need a server with a domain and SSL verified (this is really important, you can&amp;rsquo;t use a self-signed SSL), and you expose some url. I usually use some path like &lt;code&gt;/bot/&amp;lt;token&amp;gt;&lt;/code&gt;, so no one will can send fake messages to me, because they would need to know my token.&lt;/p&gt;
+
+&lt;p&gt;So, if your domain is &lt;code&gt;https://example.org&lt;/code&gt;, you want telegram to send you the messages to &lt;code&gt;https://example.org/bot/&amp;lt;token&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To say telegram that you want that, you need to call the method &lt;code&gt;setWebhook&lt;/code&gt; with that URL and start the server.&lt;/p&gt;
+
+&lt;p&gt;Telegram will send you the messages one by one to that URL, just like a normal web server :)&lt;/p&gt;
+
+&lt;h3 id=&#34;what-way-do-i-choose:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;What way do I choose?&lt;/h3&gt;
+
+&lt;p&gt;That depends to you and what you want, if you are going to have many requests, you should use the webhook, it can handle better many messages, and it&amp;rsquo;s faster. The webhook are real PUSH data.&lt;/p&gt;
+
+&lt;p&gt;If you are not going to have 50 requests/second, you can use getUpdates if you prefer.&lt;/p&gt;
+
+&lt;p&gt;Also, if you don&amp;rsquo;t have a web server with domain and verified SSL, you will have to use the getUpdates.&lt;/p&gt;
+
+&lt;p&gt;My suggestion are: If you have domain and SSL, use webhook, if don&amp;rsquo;t, use getUpdates. When you are testing, use getUpdates :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Gentle introduction to Telegram Bots.</title>
-      <link>http://web.neurotiko.com/blog/2015/07/21/gentle-introduction-to-telegram-bots./</link>
+      <link>http://web.neurotiko.com/bots/2015/07/21/bots-introduction/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://web.neurotiko.com/blog/2015/07/21/gentle-introduction-to-telegram-bots./</guid>
-      <description>&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
+      <guid>http://web.neurotiko.com/bots/2015/07/21/bots-introduction/</guid>
+      <description>&lt;!-- -------------- --&gt;
+
+&lt;!-- **All posts of the serie.** --&gt;
+
+&lt;!-- 1. [*Gentle introduction to Telegram Bots.*](#) --&gt;
+
+&lt;!-- 2. [Bot Revolution. Know your API or die hard.](/bots/2015/07/24/bots-know-your-api/) --&gt;
+
+&lt;!-- -------------- --&gt;
+
+&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m &lt;code&gt;Rock Neurotiko&lt;/code&gt;, 23 years old, Spanish and I&amp;rsquo;m studying the Computer Engineering career.&lt;/p&gt;
 

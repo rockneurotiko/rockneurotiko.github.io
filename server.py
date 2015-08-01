@@ -259,6 +259,7 @@ def post_codefile():
     relat_path = 'tmp'
     print(request.json)
     print(request.form)
+    print(request.files)
     petition_params = extract_request(request)
     code = petition_params.get('code')
     if not code:
