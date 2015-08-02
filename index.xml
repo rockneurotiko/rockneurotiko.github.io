@@ -6,32 +6,20 @@
     <description>Recent content on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://web.neurotiko.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bot Revolution. Know your API or die hard.</title>
-      <link>http://web.neurotiko.com/bots/2015/07/27/bots-know-your-api/</link>
-      <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+      <link>http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://web.neurotiko.com/bots/2015/07/27/bots-know-your-api/</guid>
+      <guid>http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/</guid>
       <description>
-
-&lt;!-- -------------- --&gt;
-
-&lt;!-- **All posts of the serie.** --&gt;
-
-&lt;!-- 1. [Gentle introduction to Telegram Bots.](/bots/2015/07/21/bots-introduction/) --&gt;
-
-&lt;!-- 2. [*Bot Revolution. Know your API or die hard.*](#) --&gt;
-
-&lt;!-- -------------- --&gt;
 
 &lt;p&gt;Hello Friend, it&amp;rsquo;s good to see you again. Did you made your homework? Did you readed the two links? If don&amp;rsquo;t, go read it now to full understand this post.&lt;/p&gt;
 
 &lt;p&gt;The links that I&amp;rsquo;m talking are the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;Bot introduction to developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;Telegram Bot API&lt;/a&gt;. Open this links in another tabs or window and let&amp;rsquo;s talk about it!&lt;/p&gt;
-
-&lt;p&gt;I know that you didn&amp;rsquo;t readed it, and if you did, you can check that you are right with what you think! :-)&lt;/p&gt;
 
 &lt;h2 id=&#34;bot-introduction:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Bot Introduction&lt;/h2&gt;
 
@@ -251,6 +239,10 @@
 &lt;p&gt;Also, if you don&amp;rsquo;t have a web server with domain and verified SSL, you will have to use the getUpdates.&lt;/p&gt;
 
 &lt;p&gt;My suggestion are: If you have domain and SSL, use webhook, if don&amp;rsquo;t, use getUpdates. When you are testing, use getUpdates :)&lt;/p&gt;
+
+&lt;h2 id=&#34;see-you-friend:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;See you friend!&lt;/h2&gt;
+
+&lt;p&gt;So, that&amp;rsquo;s all for today. In the next posts we&amp;rsquo;ll probably be implementing some simple bots, so you can see how easy is with a nice API library.&lt;/p&gt;
 </description>
     </item>
     
@@ -260,17 +252,7 @@
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>http://web.neurotiko.com/bots/2015/07/21/bots-introduction/</guid>
-      <description>&lt;!-- -------------- --&gt;
-
-&lt;!-- **All posts of the serie.** --&gt;
-
-&lt;!-- 1. [*Gentle introduction to Telegram Bots.*](#) --&gt;
-
-&lt;!-- 2. [Bot Revolution. Know your API or die hard.](/bots/2015/07/24/bots-know-your-api/) --&gt;
-
-&lt;!-- -------------- --&gt;
-
-&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
+      <description>&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m &lt;code&gt;Rock Neurotiko&lt;/code&gt;, 23 years old, Spanish and I&amp;rsquo;m studying the Computer Engineering career.&lt;/p&gt;
 
@@ -365,30 +347,6 @@ Rock Neurotiko
     </item>
     
     <item>
-      <title>About Me</title>
-      <link>http://web.neurotiko.com/about/</link>
-      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://web.neurotiko.com/about/</guid>
-      <description>
-
-&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
-
-&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
-
-&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Lovely links &lt;3</title>
       <link>http://web.neurotiko.com/links/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
@@ -428,6 +386,30 @@ Rock Neurotiko
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/kdbReader/install.html&#34;&gt;kdb Reader for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/AppsFire/ln/install.html&#34;&gt;ln for Firefox OS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://web.neurotiko.com/about/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/about/</guid>
+      <description>
+
+&lt;p&gt;Here will go a little description about me. I guess. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://web.neurotiko.com/links&#34;&gt;Links&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hi, I&amp;rsquo;m Rock! I&amp;rsquo;m a software engineer living and working in Madrid (Spain).&lt;/p&gt;
+
+&lt;p&gt;I work mostly in &lt;a href=&#34;Scala&#34;&gt;http://www.scala-lang.org/&lt;/a&gt; and &lt;a href=&#34;Python&#34;&gt;https://www.python.org/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check out my &lt;a href=&#34;https://github.com/rockneurotiko&#34;&gt;GitHub page&lt;/a&gt; to see what I&amp;rsquo;ve been up to recently!&lt;/p&gt;
+
+&lt;h3 id=&#34;contact:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;d like to get in touch, you can find me on &lt;a href=&#34;http://www.linkedin.com/in/miguelglafuente&#34;&gt;LinkedIn&lt;/a&gt; or reach me at &lt;a href=&#34;mailto:miguelglafuente__REMOVETHIS__@gmail.com&#34;&gt;miguelglafuente @at@ gmail .dot. com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
