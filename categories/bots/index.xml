@@ -6,8 +6,251 @@
     <description>Recent content in Bots on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://web.neurotiko.com/categories/bots/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Start coding some simple bots.</title>
+      <link>http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/</link>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/</guid>
+      <description>
+
+&lt;p&gt;Hello Friend, welcome to this bot travel again.&lt;/p&gt;
+
+&lt;p&gt;Today, we are going to start coding our first bots! Yay! ^^&lt;/p&gt;
+
+&lt;p&gt;To accomplish this we are going to use the &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; language and my library &lt;a href=&#34;https://github.com/rockneurotiko/go-tgbot&#34;&gt;go-tgbot&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-go-and-tgbot:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Install Go and TgBot&lt;/h2&gt;
+
+&lt;p&gt;First of all, we need to install Go and the library. I&amp;rsquo;m going to explain it for linux, if you are going to use Mac it will probably be really similar, and in Windows you will have to search in Google.&lt;/p&gt;
+
+&lt;p&gt;Your distribution will probably have Go in the repositories, for example in ArchLinux &lt;code&gt;pacman install go&lt;/code&gt; will install it, probably in apt based distributions will be similar.&lt;/p&gt;
+
+&lt;p&gt;If don&amp;rsquo;t, they distribute binaries for &lt;code&gt;FreeBSD &amp;gt;= 8&lt;/code&gt;, &lt;code&gt;Linux &amp;gt;= 2.6.23 (With glibc)&lt;/code&gt;, &lt;code&gt;Mac OS X &amp;gt;= 10.6&lt;/code&gt; and &lt;code&gt;Windows &amp;gt;= XP&lt;/code&gt;. You can download them and install in &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;the official web&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After install it, you need some environment variables, this will work in FreeBSD, Linux and Mac OS X, for Windows search how to do it (Sorry, I don&amp;rsquo;t use Windows, so I don&amp;rsquo;t have idea &amp;lt;3)&lt;/p&gt;
+
+&lt;p&gt;Add at the end of your &lt;code&gt;.bashrc&lt;/code&gt;, &lt;code&gt;.zshrc&lt;/code&gt;, &lt;code&gt;.cshrc&lt;/code&gt; or whatever &lt;code&gt;*rc&lt;/code&gt; you use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=$PATH:/usr/local/go/bin
+
+# The GOPATH is where Go will install all the libraries and binaries, I like to have it in $HOME/go, but you can use the directory you want, make sure that it exist (mkdir $HOME/go)
+export GOPATH=$HOME/go
+export PATH=$PATH:=$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Read &lt;a href=&#34;https://golang.org/doc/code.html&#34;&gt;this post&lt;/a&gt; to know how Go work with GOPATH and how to write Go Code.&lt;/p&gt;
+
+&lt;p&gt;When you have all installed, open a new terminal to have all the environment variables setted (or execute &lt;code&gt;source ~/.bshrc&lt;/code&gt; or the &lt;code&gt;*rc&lt;/code&gt; you use).&lt;/p&gt;
+
+&lt;p&gt;Install the library is really easy, just execute this in your terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get -u github.com/rockneurotiko/go-tgbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install the library in &lt;code&gt;$GOPATH/src/github.com/rockneurotiko/go-tgbot&lt;/code&gt;, but you don&amp;rsquo;t have to worry about this.&lt;/p&gt;
+
+&lt;h2 id=&#34;hello-world-bot:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Hello world bot!&lt;/h2&gt;
+
+&lt;p&gt;In programming is common to write a hello world program that print &amp;ldquo;Hello World!&amp;rdquo; in the terminal.&lt;/p&gt;
+
+&lt;p&gt;I like to do what I consider a &amp;ldquo;hello world&amp;rdquo; program for bots. This is just a bot that will answer &amp;ldquo;Hello World!&amp;rdquo; to any message.&lt;/p&gt;
+
+&lt;p&gt;We use the &lt;code&gt;main&lt;/code&gt; package because it will be an executable, and we import the &lt;code&gt;tgbot&lt;/code&gt; library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;github.com/rockneurotiko/go-tgbot&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, we are going to need the main function that will be executed when we run the bot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+  // Create a new bot with the token
+  bot := tgbot.New(&amp;quot;YourBotToken&amp;quot;)
+
+  // Add a handler for all messages
+  bot.AnyMsgFn(sayhelloworld)
+
+  // Start the bot using GetUpdates method
+  bot.SimpleStart()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And at last, we need the handler function (&lt;code&gt;sayhelloworld&lt;/code&gt;) that we add as handler to the bot.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func sayhelloworld(bot tgbot.TgBot, msg tgbot.Message) {
+  // This is a beauty way of sending messages ^^
+  bot.Answer(msg).Text(&amp;quot;Hello World!&amp;quot;).End()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can download the example &lt;a href=&#34;http://web.neurotiko.com/code/bots/helloworld.go&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to explain some things about the code, you have the full documentation in &lt;a href=&#34;https://github.com/rockneurotiko/go-tgbot&#34;&gt;the project&lt;/a&gt;, but it&amp;rsquo;s not updated (for example, the way of sending messages is not writed yet&amp;hellip; I don&amp;rsquo;t have time u.U)&lt;/p&gt;
+
+&lt;p&gt;I think that are four key things in the code:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create the bot.&lt;/p&gt;
+
+&lt;p&gt;The bot is created with the &lt;code&gt;tgbot.New(&amp;quot;YourBotToken&amp;quot;)&lt;/code&gt;, if the token is not valid, it will fail, so make sure that the token is valid. This function return an instance of &lt;code&gt;tgbot.TgBot&lt;/code&gt; struct.&lt;/p&gt;
+
+&lt;p&gt;The token is the one that &lt;code&gt;@BotFather&lt;/code&gt; gived to you when you created the bot (or revoke it with &lt;code&gt;/revoke&lt;/code&gt;, or ask for it with &lt;code&gt;/token&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add the handler.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;tgbot&lt;/code&gt; library work with handlers, doing all the hard work for you, in this case we are using the &lt;code&gt;AnyMsgFn&lt;/code&gt; to add a function handler for all messages, we&amp;rsquo;ll see most useful handlers than this in the serie ;-)&lt;/p&gt;
+
+&lt;p&gt;The parameters of the function that is passed to the handler is really important, in this case, you need &lt;code&gt;func(tgbot.TgBot, tgbot.Message)&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Do something in the handler.&lt;/p&gt;
+
+&lt;p&gt;In this case, we are just going to send &amp;ldquo;Hello World!&amp;rdquo; to the sender. This is straightforward with the &lt;code&gt;tgbot&lt;/code&gt;. You just need to say &lt;code&gt;Bot, answer the sender of this message the text &amp;quot;Hello World!&amp;quot;. Thanks&lt;/code&gt;, that in programming is translated to: &lt;code&gt;bot.Answer(msg).Text(&amp;quot;Hello World!&amp;quot;).End()&lt;/code&gt;. The &lt;code&gt;End()&lt;/code&gt; call at the end is necesary to actually execute it :)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Start the bot!&lt;/p&gt;
+
+&lt;p&gt;As we saw in the previous post, there are two ways of execute a bot, using &lt;code&gt;getUpdates&lt;/code&gt; or using a &lt;code&gt;webhook&lt;/code&gt;, the simplest one is &lt;code&gt;getUpdates&lt;/code&gt; so for now, we&amp;rsquo;ll be using this, and to do that, just execute at the end &lt;code&gt;bot.SimpleStart()&lt;/code&gt; (where &lt;code&gt;bot&lt;/code&gt; is the previous instance of &lt;code&gt;tgbot.TgBot&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s run it and test it! :)&lt;/p&gt;
+
+&lt;p&gt;Execute this in the terminal to run it (change &lt;code&gt;helloworld.go&lt;/code&gt; for your program file name):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go run helloworld.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/helloworld.png&#34; alt=&#34;Test hello world&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to compile it, you just need to execute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go build helloworld.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create a binary file called &lt;code&gt;helloworld&lt;/code&gt; (In windows is called &lt;code&gt;helloworld.exe&lt;/code&gt;), and you can execute as any binary (In windows double click :P) :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./helloworld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all!
+Really simple isn&amp;rsquo;t it? ^^&lt;/p&gt;
+
+&lt;h2 id=&#34;answering-commands:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Answering commands&lt;/h2&gt;
+
+&lt;p&gt;Yeah! Our first bot!&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s do it to answer the basic commands that every bot should have: &lt;code&gt;/start&lt;/code&gt; and &lt;code&gt;/help&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The use of commands is really common in bots, and because of that, &lt;code&gt;tgbot&lt;/code&gt; handle it in a special way.&lt;/p&gt;
+
+&lt;p&gt;Just in case you don&amp;rsquo;t know, a command start with &lt;code&gt;/&lt;/code&gt;, and are two ways of calling them, the &amp;ldquo;global&amp;rdquo; command (&lt;code&gt;/command&lt;/code&gt;) and the &amp;ldquo;specific&amp;rdquo; command (&lt;code&gt;/command@username&lt;/code&gt;). The difference between the &amp;ldquo;global&amp;rdquo; and the &amp;ldquo;specific&amp;rdquo; is that in group, if you use the &amp;ldquo;specific&amp;rdquo; way, the &lt;code&gt;@username&lt;/code&gt; bot will be the only one that receives that message. But you don&amp;rsquo;t have to worry about this with &lt;code&gt;tgbot&lt;/code&gt;, the library will do it for you!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start like the other bot, with the package and imports:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;github.com/rockneurotiko/go-tgbot&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now the main function, we are not using the &lt;code&gt;AnyMsgFn&lt;/code&gt; handler anymore, because we don&amp;rsquo;t want to answer to every message, instead we&amp;rsquo;ll be using &lt;code&gt;SimpleCommandFn&lt;/code&gt;, this handler works for commands without arguments, like this simple &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;help&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note how we are not setting the full command, for example we just say that the command is &lt;code&gt;start&lt;/code&gt; and the library will understand it and handle it correctly (bot &amp;ldquo;general&amp;rdquo; and &amp;ldquo;specific&amp;rdquo; ways).&lt;/p&gt;
+
+&lt;p&gt;If you are curious, the command &lt;code&gt;start&lt;/code&gt; internally is represented with the regular expression &lt;code&gt;^/start(?:@tutorialbot)?$&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+  // Create a new bot with the token
+  bot := tgbot.New(&amp;quot;YourBotToken&amp;quot;)
+
+  // Add a handler for the commands (Note the dot at the end of the first SimpleCommandFn to chain the handlers)
+  bot.SimpleCommandFn(`start`, start).
+    SimpleCommandFn(`help`, help)
+
+  // Start the bot using getUpdates method
+  bot.SimpleStart()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, we need to implement the handler functions, in this case, &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;help&lt;/code&gt;. The functions type is different from the &lt;code&gt;AnyMsgFn&lt;/code&gt; function, in this case the functions are &lt;code&gt;func(tgbot.TgBot, tgbot.Message, string) *string&lt;/code&gt;. The two first parameters are as before, instance of the bot and the message struct, the third parameter is the text of the message, and the return value &lt;code&gt;*string&lt;/code&gt; is because of an old way of sending text, we&amp;rsquo;ll use it in the &lt;code&gt;start&lt;/code&gt; handler function. (The *string at the end will maybe be removed in future versions)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Start handler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func start(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+  // The text to send!
+  answertext := `Welcome to @tutorialbot
+This are the current commands:
+- /help
+- /start`
+
+  // You can send it with this line instead of returning the pointer to the text.
+  // bot.Answer(msg).Text(answertext).End()
+
+  // The string pointer that we return, if it&#39;s not nil or empty string, it will be sended to the sender.
+  return &amp;amp;answertext
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help handler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func help(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+  // The text to send!
+  answertext := `Currently this is just a sample bot.
+The commands available are:
+- /help
+- /start
+
+@tutorialbot by @rock_neurotiko version 0.0.1`
+
+  // Send it replying the message
+  bot.Answer(msg).Text(answertext).ReplyToMessage(msg.ID).End()
+  return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The way of sending the message are implemented differently, in the &lt;code&gt;start&lt;/code&gt; function, the string is returned as a pointer, and the library will send it to the sender.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;help&lt;/code&gt; function instead, we use the pretty way (to me) of sending things. In this case I added one more thing, the &lt;code&gt;ReplyToMessage(msg.ID)&lt;/code&gt;. This will do that the bot send the text replying to the message. I love to read this chains in plain language: &lt;code&gt;Bot, answer the sender of this message with this text replying this message id. Thanks&lt;/code&gt; (The last &amp;ldquo;Thanks&amp;rdquo; is the &amp;ldquo;End()&amp;rdquo; call :P)&lt;/p&gt;
+
+&lt;p&gt;You can download the example &lt;a href=&#34;http://web.neurotiko.com/code/bots/simplecommands.go&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As before, let&amp;rsquo;s execute it (with &lt;code&gt;go run&lt;/code&gt; or building it and executing the binary) and this are the results:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/simplecommands.png&#34; alt=&#34;Test Simple Commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to have the commands in the client GUI, talk with &lt;a href=&#34;https://telegram.org/botfather&#34;&gt;@BotFather&lt;/a&gt;, send him the command &lt;code&gt;/setcommands&lt;/code&gt;, select the bot and send the text with the commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/setcommands.png&#34; alt=&#34;Set commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/setcommands_botview.png&#34; alt=&#34;Set commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Text used:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;start - Start the bot!
+help - Show the help text :)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;see-you:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;See you!&lt;/h2&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all for today! We made two bots! Two simple bots, but are two bots ^^&lt;/p&gt;
+
+&lt;p&gt;In the next posts I&amp;rsquo;ll show how to send other things more insteresting like images, audio, videos, documents and stickers.&lt;/p&gt;
+
+&lt;p&gt;If you have some idea for a good bot to implement for this posts series, please share it and let&amp;rsquo;s see if is simple enough but complicated at the same time for future posts.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m thinking too in doing future posts of implementing nice things like protect the bot with password, have a simple database with the users, &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Also, I&amp;rsquo;ll maybe do some screencast for more complicated bots :)&lt;/p&gt;
+
+&lt;p&gt;Let me know what do you thing, your ideas and what do you expect in the comments or in &lt;a href=&#34;https://telegram.me/rock_neurotiko&#34;&gt;telegram&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Bot Revolution. Know your API or die hard.</title>
@@ -240,7 +483,7 @@
 
 &lt;p&gt;My suggestion are: If you have domain and SSL, use webhook, if don&amp;rsquo;t, use getUpdates. When you are testing, use getUpdates :)&lt;/p&gt;
 
-&lt;h2 id=&#34;see-you-friend:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;See you friend!&lt;/h2&gt;
+&lt;h2 id=&#34;see-you:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;See you!&lt;/h2&gt;
 
 &lt;p&gt;So, that&amp;rsquo;s all for today. In the next posts we&amp;rsquo;ll probably be implementing some simple bots, so you can see how easy is with a nice API library.&lt;/p&gt;
 </description>

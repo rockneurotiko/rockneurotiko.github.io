@@ -4,3 +4,4 @@ web-*.txt.dat
 ssh_keys
 *.pyc
 *.json
+target/

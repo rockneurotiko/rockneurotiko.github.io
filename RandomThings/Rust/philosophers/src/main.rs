@@ -1,5 +1,8 @@
+extern crate rand;
+
 use std::thread;
 use std::sync::{Mutex, Arc};
+use rand::Rng;
 
 struct Philosopher {
     name: String,
@@ -16,13 +19,14 @@ impl Philosopher {
         }
     }
 
-    fn eat(&self, table: &Table) {
-        let _left = table.forks[self.left].lock().unwrap();
-        let _right = table.forks[self.right].lock().unwrap();
+    fn eat(self, table: &Table) {
+        let _left = table.forks[self.left].lock();
+        let _right = table.forks[self.right].lock();
 
-        println!("{} is eating!", self.name);
+        let randsleep = rand::thread_rng().gen_range(1000, 1500);
+        println!("{} is eating for {} ms!", self.name, randsleep);
 
-        thread::sleep_ms(1000);
+        thread::sleep_ms(randsleep);
 
         println!("{} is done eating!", self.name)
     }
@@ -59,5 +63,4 @@ fn main() {
     for h in handles {
         h.join().unwrap();
     }
-
 }

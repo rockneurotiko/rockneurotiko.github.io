@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Start coding some simple bots. &middot; Rock Neurotiko</title>
+
+  
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/highlight/monokai.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://web.neurotiko.com/apple-touch-icon-144-precomposed.png">
+  <link href="http://web.neurotiko.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+  
+
+  <meta name="description" content="First post explaining the tgbot library writing a simple bot.">
+  <meta name="keywords" content="telegram,bots,go,tgbot,API">
+  <link rel="author" href="http://plus.google.com/&#43;RockNeurotiko">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/d5ead05d8d898f27907328062fc002f9?s=200" alt="gravatar">
+        <h1><a href="/">Rock Neurotiko</a></h1>
+      <p class="lead">Open Web Contents.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/links/">Lovely links &lt;3</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a target="_blank" href="https://www.github.com/rockneurotiko"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      <a target="_blank" href="https://www.linkedin.com/in/miguelglafuente"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      <a target="_blank" href="https://plus.google.com/&#43;RockNeurotiko"><i class="fa fa-google-plus-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.facebook.com/rockneurotiko"><i class="fa fa-facebook-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.twitter.com/BinaryRock"><i class="fa fa-twitter-square fa-3x"></i></a>
+      </li>
+    </ul>
+
+    <p>Copyright &copy; 2015 <a href="http://web.neurotiko.com/license/">License</a><br/>
+       
+  </div>
+</div>
+
+
+<div class="content container">
+    <div class="post">
+        <h1>Start coding some simple bots.</h1>
+        <span class="post-date">Aug 9, 2015 &middot; 8 minute read &middot; <a href="http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/#disqus_thread">Comments</a>
+            
+            <br/>
+            <a class="label" href="http://web.neurotiko.com/categories/telegram">telegram</a><a class="label" href="http://web.neurotiko.com/categories/bots">bots</a><a class="label" href="http://web.neurotiko.com/categories/go">go</a>
+            </span>
+
+        <hr></hr>
+        <p>
+            <strong>
+                All posts of the serie.
+            </strong>
+        </p>
+        <ol>
+            <li>
+                <a href="/bots/2015/07/21/bots-introduction/">
+                    Gentle introduction to Telegram Bots.
+                </a>
+            </li>
+            <li>
+                <a href="/bots/2015/08/03/bots-know-your-api/">
+                    Bot Revolution. Know your API or die hard.
+                </a>
+            </li>
+            <li>
+                <a href="/bots/2015/08/09/bots-coding-simple-bot">
+                    Start coding some simple bots.
+                </a>
+            </li>
+        </ol>
+        <hr></hr>
+
+        
+
+<p>Hello Friend, welcome to this bot travel again.</p>
+
+<p>Today, we are going to start coding our first bots! Yay! ^^</p>
+
+<p>To accomplish this we are going to use the <a href="https://golang.org">Go</a> language and my library <a href="https://github.com/rockneurotiko/go-tgbot">go-tgbot</a>.</p>
+
+<h2 id="install-go-and-tgbot:ded51b727fecdb73c46ab6317d1a5244">Install Go and TgBot</h2>
+
+<p>First of all, we need to install Go and the library. I&rsquo;m going to explain it for linux, if you are going to use Mac it will probably be really similar, and in Windows you will have to search in Google.</p>
+
+<p>Your distribution will probably have Go in the repositories, for example in ArchLinux <code>pacman install go</code> will install it, probably in apt based distributions will be similar.</p>
+
+<p>If don&rsquo;t, they distribute binaries for <code>FreeBSD &gt;= 8</code>, <code>Linux &gt;= 2.6.23 (With glibc)</code>, <code>Mac OS X &gt;= 10.6</code> and <code>Windows &gt;= XP</code>. You can download them and install in <a href="https://golang.org/doc/install">the official web</a>.</p>
+
+<p>After install it, you need some environment variables, this will work in FreeBSD, Linux and Mac OS X, for Windows search how to do it (Sorry, I don&rsquo;t use Windows, so I don&rsquo;t have idea &lt;3)</p>
+
+<p>Add at the end of your <code>.bashrc</code>, <code>.zshrc</code>, <code>.cshrc</code> or whatever <code>*rc</code> you use:</p>
+
+<pre><code class="language-bash">export PATH=$PATH:/usr/local/go/bin
+
+# The GOPATH is where Go will install all the libraries and binaries, I like to have it in $HOME/go, but you can use the directory you want, make sure that it exist (mkdir $HOME/go)
+export GOPATH=$HOME/go
+export PATH=$PATH:=$GOPATH/bin
+</code></pre>
+
+<p>Read <a href="https://golang.org/doc/code.html">this post</a> to know how Go work with GOPATH and how to write Go Code.</p>
+
+<p>When you have all installed, open a new terminal to have all the environment variables setted (or execute <code>source ~/.bshrc</code> or the <code>*rc</code> you use).</p>
+
+<p>Install the library is really easy, just execute this in your terminal:</p>
+
+<pre><code class="language-bash">go get -u github.com/rockneurotiko/go-tgbot
+</code></pre>
+
+<p>This will install the library in <code>$GOPATH/src/github.com/rockneurotiko/go-tgbot</code>, but you don&rsquo;t have to worry about this.</p>
+
+<h2 id="hello-world-bot:ded51b727fecdb73c46ab6317d1a5244">Hello world bot!</h2>
+
+<p>In programming is common to write a hello world program that print &ldquo;Hello World!&rdquo; in the terminal.</p>
+
+<p>I like to do what I consider a &ldquo;hello world&rdquo; program for bots. This is just a bot that will answer &ldquo;Hello World!&rdquo; to any message.</p>
+
+<p>We use the <code>main</code> package because it will be an executable, and we import the <code>tgbot</code> library:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;github.com/rockneurotiko/go-tgbot&quot;
+</code></pre>
+
+<p>Then, we are going to need the main function that will be executed when we run the bot:</p>
+
+<pre><code class="language-go">func main() {
+  // Create a new bot with the token
+  bot := tgbot.New(&quot;YourBotToken&quot;)
+
+  // Add a handler for all messages
+  bot.AnyMsgFn(sayhelloworld)
+
+  // Start the bot using GetUpdates method
+  bot.SimpleStart()
+}
+</code></pre>
+
+<p>And at last, we need the handler function (<code>sayhelloworld</code>) that we add as handler to the bot.</p>
+
+<pre><code class="language-go">func sayhelloworld(bot tgbot.TgBot, msg tgbot.Message) {
+  // This is a beauty way of sending messages ^^
+  bot.Answer(msg).Text(&quot;Hello World!&quot;).End()
+}
+</code></pre>
+
+<p>You can download the example <a href="/code/bots/helloworld.go">here</a>.</p>
+
+<p>I&rsquo;m going to explain some things about the code, you have the full documentation in <a href="https://github.com/rockneurotiko/go-tgbot">the project</a>, but it&rsquo;s not updated (for example, the way of sending messages is not writed yet&hellip; I don&rsquo;t have time u.U)</p>
+
+<p>I think that are four key things in the code:</p>
+
+<ul>
+<li><p>Create the bot.</p>
+
+<p>The bot is created with the <code>tgbot.New(&quot;YourBotToken&quot;)</code>, if the token is not valid, it will fail, so make sure that the token is valid. This function return an instance of <code>tgbot.TgBot</code> struct.</p>
+
+<p>The token is the one that <code>@BotFather</code> gived to you when you created the bot (or revoke it with <code>/revoke</code>, or ask for it with <code>/token</code>)</p></li>
+
+<li><p>Add the handler.</p>
+
+<p>The <code>tgbot</code> library work with handlers, doing all the hard work for you, in this case we are using the <code>AnyMsgFn</code> to add a function handler for all messages, we&rsquo;ll see most useful handlers than this in the serie ;-)</p>
+
+<p>The parameters of the function that is passed to the handler is really important, in this case, you need <code>func(tgbot.TgBot, tgbot.Message)</code></p></li>
+
+<li><p>Do something in the handler.</p>
+
+<p>In this case, we are just going to send &ldquo;Hello World!&rdquo; to the sender. This is straightforward with the <code>tgbot</code>. You just need to say <code>Bot, answer the sender of this message the text &quot;Hello World!&quot;. Thanks</code>, that in programming is translated to: <code>bot.Answer(msg).Text(&quot;Hello World!&quot;).End()</code>. The <code>End()</code> call at the end is necesary to actually execute it :)</p></li>
+
+<li><p>Start the bot!</p>
+
+<p>As we saw in the previous post, there are two ways of execute a bot, using <code>getUpdates</code> or using a <code>webhook</code>, the simplest one is <code>getUpdates</code> so for now, we&rsquo;ll be using this, and to do that, just execute at the end <code>bot.SimpleStart()</code> (where <code>bot</code> is the previous instance of <code>tgbot.TgBot</code>).</p></li>
+</ul>
+
+<p>Let&rsquo;s run it and test it! :)</p>
+
+<p>Execute this in the terminal to run it (change <code>helloworld.go</code> for your program file name):</p>
+
+<pre><code class="language-bash">go run helloworld.go
+</code></pre>
+
+<p><img src="/images/go-bots/helloworld.png" alt="Test hello world" /></p>
+
+<p>If you want to compile it, you just need to execute:</p>
+
+<pre><code class="language-bash">go build helloworld.go
+</code></pre>
+
+<p>This will create a binary file called <code>helloworld</code> (In windows is called <code>helloworld.exe</code>), and you can execute as any binary (In windows double click :P) :</p>
+
+<pre><code class="language-bash">./helloworld
+</code></pre>
+
+<p>And that&rsquo;s all!
+Really simple isn&rsquo;t it? ^^</p>
+
+<h2 id="answering-commands:ded51b727fecdb73c46ab6317d1a5244">Answering commands</h2>
+
+<p>Yeah! Our first bot!</p>
+
+<p>Now, let&rsquo;s do it to answer the basic commands that every bot should have: <code>/start</code> and <code>/help</code>.</p>
+
+<p>The use of commands is really common in bots, and because of that, <code>tgbot</code> handle it in a special way.</p>
+
+<p>Just in case you don&rsquo;t know, a command start with <code>/</code>, and are two ways of calling them, the &ldquo;global&rdquo; command (<code>/command</code>) and the &ldquo;specific&rdquo; command (<code>/command@username</code>). The difference between the &ldquo;global&rdquo; and the &ldquo;specific&rdquo; is that in group, if you use the &ldquo;specific&rdquo; way, the <code>@username</code> bot will be the only one that receives that message. But you don&rsquo;t have to worry about this with <code>tgbot</code>, the library will do it for you!</p>
+
+<p>Let&rsquo;s start like the other bot, with the package and imports:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;github.com/rockneurotiko/go-tgbot&quot;
+</code></pre>
+
+<p>Now the main function, we are not using the <code>AnyMsgFn</code> handler anymore, because we don&rsquo;t want to answer to every message, instead we&rsquo;ll be using <code>SimpleCommandFn</code>, this handler works for commands without arguments, like this simple <code>start</code> and <code>help</code>.</p>
+
+<p>Note how we are not setting the full command, for example we just say that the command is <code>start</code> and the library will understand it and handle it correctly (bot &ldquo;general&rdquo; and &ldquo;specific&rdquo; ways).</p>
+
+<p>If you are curious, the command <code>start</code> internally is represented with the regular expression <code>^/start(?:@tutorialbot)?$</code></p>
+
+<pre><code class="language-go">func main() {
+  // Create a new bot with the token
+  bot := tgbot.New(&quot;YourBotToken&quot;)
+
+  // Add a handler for the commands (Note the dot at the end of the first SimpleCommandFn to chain the handlers)
+  bot.SimpleCommandFn(`start`, start).
+    SimpleCommandFn(`help`, help)
+
+  // Start the bot using getUpdates method
+  bot.SimpleStart()
+}
+</code></pre>
+
+<p>Again, we need to implement the handler functions, in this case, <code>start</code> and <code>help</code>. The functions type is different from the <code>AnyMsgFn</code> function, in this case the functions are <code>func(tgbot.TgBot, tgbot.Message, string) *string</code>. The two first parameters are as before, instance of the bot and the message struct, the third parameter is the text of the message, and the return value <code>*string</code> is because of an old way of sending text, we&rsquo;ll use it in the <code>start</code> handler function. (The *string at the end will maybe be removed in future versions)</p>
+
+<ul>
+<li>Start handler</li>
+</ul>
+
+<pre><code class="language-go">func start(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+  // The text to send!
+  answertext := `Welcome to @tutorialbot
+This are the current commands:
+- /help
+- /start`
+
+  // You can send it with this line instead of returning the pointer to the text.
+  // bot.Answer(msg).Text(answertext).End()
+
+  // The string pointer that we return, if it's not nil or empty string, it will be sended to the sender.
+  return &amp;answertext
+}
+</code></pre>
+
+<ul>
+<li>Help handler</li>
+</ul>
+
+<pre><code class="language-go">func help(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+  // The text to send!
+  answertext := `Currently this is just a sample bot.
+The commands available are:
+- /help
+- /start
+
+@tutorialbot by @rock_neurotiko version 0.0.1`
+
+  // Send it replying the message
+  bot.Answer(msg).Text(answertext).ReplyToMessage(msg.ID).End()
+  return nil
+}
+</code></pre>
+
+<p>The way of sending the message are implemented differently, in the <code>start</code> function, the string is returned as a pointer, and the library will send it to the sender.</p>
+
+<p>In the <code>help</code> function instead, we use the pretty way (to me) of sending things. In this case I added one more thing, the <code>ReplyToMessage(msg.ID)</code>. This will do that the bot send the text replying to the message. I love to read this chains in plain language: <code>Bot, answer the sender of this message with this text replying this message id. Thanks</code> (The last &ldquo;Thanks&rdquo; is the &ldquo;End()&rdquo; call :P)</p>
+
+<p>You can download the example <a href="/code/bots/simplecommands.go">here</a>.</p>
+
+<p>As before, let&rsquo;s execute it (with <code>go run</code> or building it and executing the binary) and this are the results:</p>
+
+<p><img src="/images/go-bots/simplecommands.png" alt="Test Simple Commands" /></p>
+
+<p>If you want to have the commands in the client GUI, talk with <a href="https://telegram.org/botfather">@BotFather</a>, send him the command <code>/setcommands</code>, select the bot and send the text with the commands:</p>
+
+<p><img src="/images/go-bots/setcommands.png" alt="Set commands" /></p>
+
+<p><img src="/images/go-bots/setcommands_botview.png" alt="Set commands" /></p>
+
+<p>Text used:</p>
+
+<pre><code>start - Start the bot!
+help - Show the help text :)
+</code></pre>
+
+<h2 id="see-you:ded51b727fecdb73c46ab6317d1a5244">See you!</h2>
+
+<p>And that&rsquo;s all for today! We made two bots! Two simple bots, but are two bots ^^</p>
+
+<p>In the next posts I&rsquo;ll show how to send other things more insteresting like images, audio, videos, documents and stickers.</p>
+
+<p>If you have some idea for a good bot to implement for this posts series, please share it and let&rsquo;s see if is simple enough but complicated at the same time for future posts.</p>
+
+<p>I&rsquo;m thinking too in doing future posts of implementing nice things like protect the bot with password, have a simple database with the users, &hellip;</p>
+
+<p>Also, I&rsquo;ll maybe do some screencast for more complicated bots :)</p>
+
+<p>Let me know what do you thing, your ideas and what do you expect in the comments or in <a href="https://telegram.me/rock_neurotiko">telegram</a></p>
+
+    </div>
+    <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+ var disqus_shortname = "rockneurotiko";
+ (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+ }());
+</script>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rockneurotiko';
+    var disqus_identifier = 'http:\/\/web.neurotiko.com\/bots\/2015\/08\/09\/bots-coding-simple-bot\/';
+    var disqus_title = 'Start coding some simple bots.';
+    var disqus_url = 'http:\/\/web.neurotiko.com\/bots\/2015\/08\/09\/bots-coding-simple-bot\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://web.neurotiko.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+ var _gaq=[['_setAccount','UA-65942144-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+
