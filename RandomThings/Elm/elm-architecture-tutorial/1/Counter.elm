@@ -8,21 +8,19 @@ import StartApp
 
 main =
   StartApp.start
-    { model = 0
-    , update = update
-    , view = view
-    }
-
+            { model = 0
+            , update = update
+            , view = view
+            }
+  StartApp
 
 -- MODEL
 
 type alias Model = Int
 
-
 -- UPDATE
 
 type Action = Increment | Decrement
-
 update : Action -> Model -> Model
 update action model =
   case action of
@@ -35,8 +33,8 @@ update action model =
 view : Signal.Address Action -> Model -> Html
 view address model =
   div []
-    [ button [ onClick address Decrement ] [ text "-" ]
-    , div [ countStyle ] [ text (toString model) ]
+        [ button [ onClick address Decrement ] [ text "-" ]
+        , div [ countStyle ] [ text (toString model) ]
     , button [ onClick address Increment ] [ text "+" ]
     ]
 

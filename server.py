@@ -257,6 +257,7 @@ def del_req_codefile(path, did):
 @app.route('/', methods=['POST'])
 def post_codefile():
     relat_path = 'tmp'
+    print(request.headers)
     print(request.json)
     print(request.form)
     print(request.files)

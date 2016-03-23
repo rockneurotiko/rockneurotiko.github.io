@@ -62,47 +62,52 @@
       </li>
     </ul>
 
-    <p>Copyright &copy; 2015 <a href="http://web.neurotiko.com/license/">License</a><br/>
+    <p>Copyright &copy; 2016 <a href="http://web.neurotiko.com/license/">License</a><br/>
        
   </div>
 </div>
 
 
 <div class="content container">
-    <div class="post">
-        <h1>Start coding some simple bots.</h1>
-        <span class="post-date">Aug 9, 2015 &middot; 8 minute read &middot; <a href="http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/#disqus_thread">Comments</a>
-            
-            <br/>
-            <a class="label" href="http://web.neurotiko.com/categories/telegram">telegram</a><a class="label" href="http://web.neurotiko.com/categories/bots">bots</a><a class="label" href="http://web.neurotiko.com/categories/go">go</a>
-            </span>
+  <div class="post">
+    <h1>Start coding some simple bots.</h1>
+    <span class="post-date">Aug 9, 2015 &middot; 8 minute read &middot; <a href="http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/#disqus_thread">Comments</a>
+      
+      <br/>
+      <a class="label" href="http://web.neurotiko.com/categories/telegram">telegram</a><a class="label" href="http://web.neurotiko.com/categories/bots">bots</a><a class="label" href="http://web.neurotiko.com/categories/go">go</a>
+      </span>
 
-        <hr></hr>
-        <p>
-            <strong>
-                All posts of the serie.
-            </strong>
-        </p>
-        <ol>
-            <li>
-                <a href="/bots/2015/07/21/bots-introduction/">
-                    Gentle introduction to Telegram Bots.
-                </a>
-            </li>
-            <li>
-                <a href="/bots/2015/08/03/bots-know-your-api/">
-                    Bot Revolution. Know your API or die hard.
-                </a>
-            </li>
-            <li>
-                <a href="/bots/2015/08/09/bots-coding-simple-bot">
-                    Start coding some simple bots.
-                </a>
-            </li>
-        </ol>
-        <hr></hr>
+    <hr></hr>
+    <p>
+      <strong>
+        All posts of the serie.
+      </strong>
+    </p>
+    <ol>
+      <li>
+        <a href="/bots/2015/07/21/bots-introduction/">
+          Gentle introduction to Telegram Bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/03/bots-know-your-api/">
+          Bot Revolution. Know your API or die hard.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/09/bots-coding-simple-bot">
+          Start coding some simple bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2016/03/23/bots-coding-complex-bot">
+          Let's keep coding more bots.
+        </a>
+      </li>
+    </ol>
+    <hr></hr>
 
-        
+    
 
 <p>Hello Friend, welcome to this bot travel again.</p>
 
@@ -156,22 +161,22 @@ import &quot;github.com/rockneurotiko/go-tgbot&quot;
 <p>Then, we are going to need the main function that will be executed when we run the bot:</p>
 
 <pre><code class="language-go">func main() {
-  // Create a new bot with the token
-  bot := tgbot.New(&quot;YourBotToken&quot;)
+// Create a new bot with the token
+bot := tgbot.New(&quot;YourBotToken&quot;)
 
-  // Add a handler for all messages
-  bot.AnyMsgFn(sayhelloworld)
+// Add a handler for all messages
+bot.AnyMsgFn(sayhelloworld)
 
-  // Start the bot using GetUpdates method
-  bot.SimpleStart()
+// Start the bot using GetUpdates method
+bot.SimpleStart()
 }
 </code></pre>
 
 <p>And at last, we need the handler function (<code>sayhelloworld</code>) that we add as handler to the bot.</p>
 
 <pre><code class="language-go">func sayhelloworld(bot tgbot.TgBot, msg tgbot.Message) {
-  // This is a beauty way of sending messages ^^
-  bot.Answer(msg).Text(&quot;Hello World!&quot;).End()
+// This is a beauty way of sending messages ^^
+bot.Answer(msg).Text(&quot;Hello World!&quot;).End()
 }
 </code></pre>
 
@@ -182,26 +187,32 @@ import &quot;github.com/rockneurotiko/go-tgbot&quot;
 <p>I think that are four key things in the code:</p>
 
 <ul>
-<li><p>Create the bot.</p>
+<li>Create the bot.</li>
+</ul>
 
 <p>The bot is created with the <code>tgbot.New(&quot;YourBotToken&quot;)</code>, if the token is not valid, it will fail, so make sure that the token is valid. This function return an instance of <code>tgbot.TgBot</code> struct.</p>
 
-<p>The token is the one that <code>@BotFather</code> gived to you when you created the bot (or revoke it with <code>/revoke</code>, or ask for it with <code>/token</code>)</p></li>
+<p>The token is the one that <code>@BotFather</code> gived to you when you created the bot (or revoke it with <code>/revoke</code>, or ask for it with <code>/token</code>)</p>
 
-<li><p>Add the handler.</p>
+<ul>
+<li>Add the handler.</li>
+</ul>
 
 <p>The <code>tgbot</code> library work with handlers, doing all the hard work for you, in this case we are using the <code>AnyMsgFn</code> to add a function handler for all messages, we&rsquo;ll see most useful handlers than this in the serie ;-)</p>
 
-<p>The parameters of the function that is passed to the handler is really important, in this case, you need <code>func(tgbot.TgBot, tgbot.Message)</code></p></li>
+<p>The parameters of the function that is passed to the handler is really important, in this case, you need <code>func(tgbot.TgBot, tgbot.Message)</code></p>
 
-<li><p>Do something in the handler.</p>
-
-<p>In this case, we are just going to send &ldquo;Hello World!&rdquo; to the sender. This is straightforward with the <code>tgbot</code>. You just need to say <code>Bot, answer the sender of this message the text &quot;Hello World!&quot;. Thanks</code>, that in programming is translated to: <code>bot.Answer(msg).Text(&quot;Hello World!&quot;).End()</code>. The <code>End()</code> call at the end is necesary to actually execute it :)</p></li>
-
-<li><p>Start the bot!</p>
-
-<p>As we saw in the previous post, there are two ways of execute a bot, using <code>getUpdates</code> or using a <code>webhook</code>, the simplest one is <code>getUpdates</code> so for now, we&rsquo;ll be using this, and to do that, just execute at the end <code>bot.SimpleStart()</code> (where <code>bot</code> is the previous instance of <code>tgbot.TgBot</code>).</p></li>
+<ul>
+<li>Do something in the handler.</li>
 </ul>
+
+<p>In this case, we are just going to send &ldquo;Hello World!&rdquo; to the sender. This is straightforward with the <code>tgbot</code>. You just need to say <code>Bot, answer the sender of this message the text &quot;Hello World!&quot;. Thanks</code>, that in programming is translated to: <code>bot.Answer(msg).Text(&quot;Hello World!&quot;).End()</code>. The <code>End()</code> call at the end is necesary to actually execute it :)</p>
+
+<ul>
+<li>Start the bot!</li>
+</ul>
+
+<p>As we saw in the previous post, there are two ways of execute a bot, using <code>getUpdates</code> or using a <code>webhook</code>, the simplest one is <code>getUpdates</code> so for now, we&rsquo;ll be using this, and to do that, just execute at the end <code>bot.SimpleStart()</code> (where <code>bot</code> is the previous instance of <code>tgbot.TgBot</code>).</p>
 
 <p>Let&rsquo;s run it and test it! :)</p>
 
@@ -249,15 +260,15 @@ import &quot;github.com/rockneurotiko/go-tgbot&quot;
 <p>If you are curious, the command <code>start</code> internally is represented with the regular expression <code>^/start(?:@tutorialbot)?$</code></p>
 
 <pre><code class="language-go">func main() {
-  // Create a new bot with the token
-  bot := tgbot.New(&quot;YourBotToken&quot;)
+// Create a new bot with the token
+bot := tgbot.New(&quot;YourBotToken&quot;)
 
-  // Add a handler for the commands (Note the dot at the end of the first SimpleCommandFn to chain the handlers)
-  bot.SimpleCommandFn(`start`, start).
-    SimpleCommandFn(`help`, help)
+// Add a handler for the commands (Note the dot at the end of the first SimpleCommandFn to chain the handlers)
+bot.SimpleCommandFn(`start`, start).
+SimpleCommandFn(`help`, help)
 
-  // Start the bot using getUpdates method
-  bot.SimpleStart()
+// Start the bot using getUpdates method
+bot.SimpleStart()
 }
 </code></pre>
 
@@ -268,17 +279,17 @@ import &quot;github.com/rockneurotiko/go-tgbot&quot;
 </ul>
 
 <pre><code class="language-go">func start(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
-  // The text to send!
-  answertext := `Welcome to @tutorialbot
+// The text to send!
+answertext := `Welcome to @tutorialbot
 This are the current commands:
 - /help
 - /start`
 
-  // You can send it with this line instead of returning the pointer to the text.
-  // bot.Answer(msg).Text(answertext).End()
+// You can send it with this line instead of returning the pointer to the text.
+// bot.Answer(msg).Text(answertext).End()
 
-  // The string pointer that we return, if it's not nil or empty string, it will be sended to the sender.
-  return &amp;answertext
+// The string pointer that we return, if it's not nil or empty string, it will be sended to the sender.
+return &amp;answertext
 }
 </code></pre>
 
@@ -287,17 +298,17 @@ This are the current commands:
 </ul>
 
 <pre><code class="language-go">func help(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
-  // The text to send!
-  answertext := `Currently this is just a sample bot.
+// The text to send!
+answertext := `Currently this is just a sample bot.
 The commands available are:
 - /help
 - /start
 
-@tutorialbot by @rock_neurotiko version 0.0.1`
+@tutorialbot by @rockneurotiko version 0.0.1`
 
-  // Send it replying the message
-  bot.Answer(msg).Text(answertext).ReplyToMessage(msg.ID).End()
-  return nil
+// Send it replying the message
+bot.Answer(msg).Text(answertext).ReplyToMessage(msg.ID).End()
+return nil
 }
 </code></pre>
 
@@ -335,21 +346,21 @@ help - Show the help text :)
 
 <p>Also, I&rsquo;ll maybe do some screencast for more complicated bots :)</p>
 
-<p>Let me know what do you thing, your ideas and what do you expect in the comments or in <a href="https://telegram.me/rock_neurotiko">telegram</a></p>
+<p>Let me know what do you thing, your ideas and what do you expect in the comments or in <a href="https://telegram.me/rockneurotiko">telegram</a></p>
 
-    </div>
-    <div id="disqus_thread"></div>
+  </div>
+  <div id="disqus_thread"></div>
 </div>
 
 
 <script type="text/javascript">
- var disqus_shortname = "rockneurotiko";
- (function () {
-     var s = document.createElement('script'); s.async = true;
-     s.type = 'text/javascript';
-     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
- }());
+  var disqus_shortname = "rockneurotiko";
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 </script>
 
 
