@@ -359,7 +359,7 @@ bot.Answer(msg).Text(&amp;quot;WRONG!&amp;quot;).End()
 
 &lt;h2 id=&#34;final-thoughts:195ba8806499f77d18c040fee96c8e80&#34;&gt;Final thoughts&lt;/h2&gt;
 
-&lt;p&gt;You can see the full code &lt;a href=&#34;https://github.com/rockneurotiko/go-bots&#34;&gt;in my repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can see the full code &lt;a href=&#34;https://github.com/rockneurotiko/go-bots/blob/master/trivia/main.go&#34;&gt;in my repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;If you want to improve the bot, here are some ideas:&lt;/p&gt;
 
