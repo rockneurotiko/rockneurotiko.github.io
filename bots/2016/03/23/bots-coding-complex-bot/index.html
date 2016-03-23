@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="http://web.neurotiko.com/css/poole-overrides.css">
   <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-overrides.css">
   <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-x.css">
-  <link rel="stylesheet" href="http://web.neurotiko.com/css/highlight/monokai.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/highlight/zenburn.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -254,6 +254,12 @@ rkm := tgbot.ReplyKeyboardMarkup{
 }
 </code></pre>
 
+<p>We can test how it&rsquo;s going the bot!</p>
+
+<p>If you named the file <code>main.go</code> and the token are setted in the variable, just execute <code>go run main.go</code></p>
+
+<p><img src="/images/go-bots/trivia1.png" alt="Question image" /></p>
+
 <p>Ok, that wasn&rsquo;t that hard =D</p>
 
 <h2 id="concurrency-was-at-beginning-the-everything:195ba8806499f77d18c040fee96c8e80">concurrency. was At beginning the everything</h2>
@@ -447,6 +453,10 @@ bot.Answer(msg).Text(&quot;WRONG!&quot;).End()
     bot.Answer(msg).Text(&quot;WRONG!&quot;).End()
 }
 </code></pre>
+
+<p>Let&rsquo;s see how it looks ^^</p>
+
+<p><img src="/images/go-bots/trivia2.png" alt="Final bot" /></p>
 
 <h2 id="final-thoughts:195ba8806499f77d18c040fee96c8e80">Final thoughts</h2>
 

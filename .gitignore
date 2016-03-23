@@ -5,3 +5,4 @@ ssh_keys
 *.pyc
 *.json
 target/
+node_modules
