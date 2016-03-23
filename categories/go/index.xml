@@ -75,7 +75,7 @@
     token := &amp;quot;&amp;quot;
 
     bot := tgbot.New(token).
-    SimpleCommandFn(`question`, questionHandler)
+        SimpleCommandFn(`question`, questionHandler)
 
     bot.SimpleStart()
 }
