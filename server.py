@@ -233,6 +233,13 @@ def get_codefile(path, did):
     return jsonify(handle_encryption(request, content))
 
 
+@app.route('/hook/<string:did>', methods=['POST'])
+def test(did):
+    print(request.json)
+    print(request.form)
+    return ""
+
+
 @app.route('/<path:path>/<string:did>', methods=['PUT'])
 def put_req_codefile(path, did):
     _, fpath = build_path(path, did)
