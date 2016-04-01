@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pythons on Rock Neurotiko&#39;s web &lt;3</title>
-    <link>https://rockneurotiko.github.io/python/</link>
+    <link>http://web.neurotiko.com/python/</link>
     <description>Recent content in Pythons on Rock Neurotiko&#39;s web &lt;3</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://rockneurotiko.github.io/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://web.neurotiko.com/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>How to start with Python</title>
-      <link>https://rockneurotiko.github.io/python/how-to-start/</link>
+      <link>http://web.neurotiko.com/python/how-to-start/</link>
       <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://rockneurotiko.github.io/python/how-to-start/</guid>
+      <guid>http://web.neurotiko.com/python/how-to-start/</guid>
       <description>
 
 &lt;h3 id=&#34;links:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Links&lt;/h3&gt;
@@ -31,7 +31,7 @@
 &lt;h4 id=&#34;libros-y-mas:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;Libros y mas.&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/Universidad/ACM/SIGPython/Learning%20Python%205th%20Ed%202013.pdf&#34;&gt;Learning Python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/evandrix/Splat/blob/master/._/PAPERS/Python%20Essential%20Reference%204th%20Edition.pdf?raw=true&#34;&gt;Python Essential Reference&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://docs.python-guide.org/en/latest/&#34;&gt;The Hitchiker’s Guide to Python!&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://do1.dr-chuck.com/py4inf/EN-us/book.pdf&#34;&gt;Python for Informatics&lt;/a&gt;&lt;/li&gt;
@@ -51,17 +51,17 @@
 &lt;h4 id=&#34;sig-files:b98b23636d194e3213f7e07e2ade9d7f&#34;&gt;SIG Files!&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://rockneurotiko.github.io/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://web.neurotiko.com/Universidad/ACM/SIGPython/IntroduccionSIG.pdf&#34;&gt;PDF Presentacion inicial del SIG&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://rockneurotiko.github.io/python/links/</link>
+      <link>http://web.neurotiko.com/python/links/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://rockneurotiko.github.io/python/links/</guid>
+      <guid>http://web.neurotiko.com/python/links/</guid>
       <description>
 
 &lt;h3 id=&#34;begginner:424069113a08a4256349764ee38dbbbf&#34;&gt;Begginner&lt;/h3&gt;

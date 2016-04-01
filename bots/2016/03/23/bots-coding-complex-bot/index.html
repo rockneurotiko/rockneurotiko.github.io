@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Let&#39;s keep coding more bots. &middot; Rock Neurotiko</title>
+
+  
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/highlight/zenburn.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://web.neurotiko.com/apple-touch-icon-144-precomposed.png">
+  <link href="http://web.neurotiko.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+  
+
+  <meta name="description" content="Writing more complex bots.">
+  <meta name="keywords" content="telegram,bots,go,tgbot,API">
+  <link rel="author" href="http://plus.google.com/&#43;RockNeurotiko">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/d5ead05d8d898f27907328062fc002f9?s=200" alt="gravatar">
+        <h1><a href="/">Rock Neurotiko</a></h1>
+      <p class="lead">Open Web Contents.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/links/">Lovely links &lt;3</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a target="_blank" href="https://www.github.com/rockneurotiko"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      <a target="_blank" href="https://www.linkedin.com/in/miguelglafuente"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      <a target="_blank" href="https://plus.google.com/&#43;RockNeurotiko"><i class="fa fa-google-plus-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.facebook.com/rockneurotiko"><i class="fa fa-facebook-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.twitter.com/BinaryRock"><i class="fa fa-twitter-square fa-3x"></i></a>
+      </li>
+    </ul>
+
+    <p>Copyright &copy; 2016 <a href="http://web.neurotiko.com/license/">License</a><br/>
+       
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Let&#39;s keep coding more bots.</h1>
+    <span class="post-date">Mar 23, 2016 &middot; 9 minute read &middot; <a href="http://web.neurotiko.com/bots/2016/03/23/bots-coding-complex-bot/#disqus_thread">Comments</a>
+      
+      <br/>
+      <a class="label" href="http://web.neurotiko.com/categories/telegram">telegram</a><a class="label" href="http://web.neurotiko.com/categories/bots">bots</a><a class="label" href="http://web.neurotiko.com/categories/go">go</a>
+      </span>
+
+    <hr></hr>
+    <p>
+      <strong>
+        All posts of the serie.
+      </strong>
+    </p>
+    <ol>
+      <li>
+        <a href="/bots/2015/07/21/bots-introduction/">
+          Gentle introduction to Telegram Bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/03/bots-know-your-api/">
+          Bot Revolution. Know your API or die hard.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/09/bots-coding-simple-bot">
+          Start coding some simple bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2016/03/23/bots-coding-complex-bot">
+          Let's keep coding more bots.
+        </a>
+      </li>
+    </ol>
+    <hr></hr>
+
+    
+
+<p>Hello Friend, it&rsquo;s been a long time without writing, but here we are, coding some more bots :)</p>
+
+<p>The other day some one talked to me in Telegram asking me to write some more posts with more complex bots, and&hellip; well, let&rsquo;s program! =D</p>
+
+<h2 id="the-idea:195ba8806499f77d18c040fee96c8e80">The idea</h2>
+
+<p>First of all, we need the idea to build the bot, without it, we won&rsquo;t be able to write anything.</p>
+
+<p>Let&rsquo;s start with some intermediate-idea, just some ask-answer bot, without database or API connections to get started in this world.</p>
+
+<p>And a really simple ask-answer bot is a trivia bot.</p>
+
+<h2 id="break-it-in-parts:195ba8806499f77d18c040fee96c8e80">Break it in parts</h2>
+
+<p>So, let&rsquo;s think about the idea.</p>
+
+<p>The bot will have some questions with the answers and the solution, this will be loaded at startup or hard-coded in the code. When the user asks for a question, the bot will get a random one, and send it, with a keyboard with the possible answers, and replying to the message. And finally, when the user answers, we should check if it&rsquo;s the correct one, and answer if it&rsquo;s right or wrong.</p>
+
+<p>So&hellip;</p>
+
+<ul>
+<li>In-memory &ldquo;database&rdquo;, with questions and answers</li>
+<li>Handler to send a question</li>
+<li>Handler to receive the answer</li>
+</ul>
+
+<p>With this we have some parts to start coding, let&rsquo;s go!</p>
+
+<h2 id="the-data-are-your-friend:195ba8806499f77d18c040fee96c8e80">The Data are your friend</h2>
+
+<p>To save and build the questions we are going to use a struct, for example:</p>
+
+<pre><code class="language-go">type question struct {
+    Question string   `json:&quot;question&quot;`
+    Answers  []string `json:&quot;answers&quot;`
+    Solution int      `json:&quot;solution&quot;`
+}
+</code></pre>
+
+<p>Here we are defining a struct question, with the &ldquo;q&rdquo; in lowercase, so it&rsquo;s not an exported struct, that have three fields, a Question that is an string, some Answers that is a list of strings, and a Solution, that is just the position in the answers where the good answer is (starting in zero, because we are programmers).</p>
+
+<p>Let&rsquo;s define a first &ldquo;database&rdquo;:</p>
+
+<pre><code class="language-go">var questions = []question{
+    question{&quot;Current year?&quot;, []string{&quot;1994&quot;, &quot;2015&quot;, &quot;2016&quot;, &quot;2017&quot;}, 2},
+}
+</code></pre>
+
+<p>A simple question, with some answers, and the index of the good answer.</p>
+
+<h2 id="i-have-some-questions:195ba8806499f77d18c040fee96c8e80">I have some questions&hellip;</h2>
+
+<p>Before we code the function to send the question/answers, we need to build the bot and the handler, as we saw in the previous post, this is really easy:</p>
+
+<pre><code class="language-go">func main() {
+    token := &quot;&quot;
+
+    bot := tgbot.New(token).
+        SimpleCommandFn(`question`, questionHandler)
+
+    bot.SimpleStart()
+}
+</code></pre>
+
+<p>Just the main function, with a token variable, we create the bot with the token, and set the handler with a Simple Command, so that handler will be executed with <code>/question</code> and <code>/question@usernamebot</code></p>
+
+<p>To start the handler, because this is a Simple Command, the initial function is like this:</p>
+
+<pre><code class="language-go">func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+
+    return nil
+}
+</code></pre>
+
+<p>What do we need to do? First, choose a random question, then build the keyboard, and at last send the question with the keyboard.</p>
+
+<p>To choose a random question we are going to use <code>rand.Intn</code>, to build the keyboard, that are of type <code>[][]string</code>, we will define a function to transform a <code>[]string</code> into that with two strings top, and then build the <code>tgbot.ReplyKeyboardMarkup</code>.</p>
+
+<ul>
+<li>Choose the random number:</li>
+</ul>
+
+<pre><code class="language-go">r := rand.Intn(len(questions))
+choosen := questions[r]
+</code></pre>
+
+<ul>
+<li>Function to transform a list of strings into a list of list with at max two strings in the inner lists</li>
+</ul>
+
+<pre><code class="language-go">func buildKeyboard(ops []string) [][]string {
+    keylayout := [][]string{{}}
+    for _, k := range ops {
+        if len(keylayout[len(keylayout)-1]) == 2 {
+            keylayout = append(keylayout, []string{k})
+        } else {
+            keylayout[len(keylayout)-1] = append(keylayout[len(keylayout)-1], k)
+        }
+    }
+    return keylayout
+}
+</code></pre>
+
+<ul>
+<li>Build the keyboard (selective false and resize false)</li>
+</ul>
+
+<pre><code class="language-go">keyl := buildKeyboard(choosen.Answers)
+rkm := tgbot.ReplyKeyboardMarkup{
+    Keyboard:        keyl,
+    ResizeKeyboard:  false,
+    OneTimeKeyboard: true,
+    Selective:       false,
+}
+</code></pre>
+
+<ul>
+<li>Send it!</li>
+</ul>
+
+<pre><code class="language-go">bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+</code></pre>
+
+<ul>
+<li>Sum it up!</li>
+</ul>
+
+<pre><code class="language-go">func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+    r := rand.Intn(len(questions))
+    choosen := questions[r]
+
+    keyl := buildKeyboard(choosen.Answers)
+    rkm := tgbot.ReplyKeyboardMarkup{
+        Keyboard:        keyl,
+        ResizeKeyboard:  false,
+        OneTimeKeyboard: true,
+        Selective:       false,
+    }
+
+    bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+
+    return nil
+}
+</code></pre>
+
+<p>We can test how it&rsquo;s going the bot!</p>
+
+<p>If you named the file <code>main.go</code> and the token are setted in the variable, just execute <code>go run main.go</code></p>
+
+<p><img src="/images/go-bots/trivia1.png" alt="Question image" /></p>
+
+<p>Ok, that wasn&rsquo;t that hard =D</p>
+
+<h2 id="concurrency-was-at-beginning-the-everything:195ba8806499f77d18c040fee96c8e80">concurrency. was At beginning the everything</h2>
+
+<p>At this point, our user will receive the question and the answers, and we want to get, process and know if the answer is right.</p>
+
+<p>And we are facing our first not expected problem&hellip; How do we know what question are the user answering to know if it&rsquo;s correct? Even more, how do we even know if the user are answering any question?</p>
+
+<p>We need to save, in some way, if the user are answering AND some kind of reference to the question.</p>
+
+<p>Our first approach can be: Just have a global <code>map[int]int</code> where you save in the key the user and in the value the question number, and this is not bad at all, actually we are going to use something similar, but when you are used to built some web apps with many users using it at the same time, and your app are concurrent&hellip; You are in trouble.</p>
+
+<p>But in go, for something so simple like this, we can built a really simple way to use a simple concurrent datastructure.</p>
+
+<p>We are going to use sync.RWMutex, in this way the write operations will be blocking, but the read operations won&rsquo;t.</p>
+
+<p>Thanks to the struct extensions in Go, we can declare our data structure in this way:</p>
+
+<pre><code class="language-go">type usersAnsweringStruct struct {
+    *sync.RWMutex
+    Users map[int]int
+}
+</code></pre>
+
+<p>This kind of struct say that is extending *sync.RWMutex, and have a field Users.</p>
+
+<p>And let&rsquo;s create a global instance of this struct:</p>
+
+<pre><code class="language-go">var usersAnswering = usersAnsweringStruct{&amp;sync.RWMutex{}, make(map[int]int)}
+</code></pre>
+
+<p>In this way, when we want to read something we just need to do something like:</p>
+
+<pre><code class="language-go">usersAnswering.RLock()
+// Use usersAnswering.Users
+usersAnswering.RUnlock()
+</code></pre>
+
+<p>BUT, in my experience, is much more easy to provide an easy to use API of the structure, so&hellip; let&rsquo;s built it! We are going to need <code>get</code>, <code>set</code> and <code>del</code></p>
+
+<ul>
+<li>get</li>
+</ul>
+
+<p>We are just going to RLock the instance, read, and RUnlock it, then return the results.</p>
+
+<pre><code class="language-go">func (users *usersAnsweringStruct) get(user int) (int, bool) {
+    users.RLock()
+    i, ok := users.Users[user]
+    users.RUnlock()
+    return i, ok
+}
+</code></pre>
+
+<p>If you know some Go, you can be thinking: Why call RUnlock by hand instead of using <code>defer users.RUnlock()</code>? Well, because calling it manually are faster, and in this simple example, we don&rsquo;t need to defer the call, we don&rsquo;t have weird code branches or complex calls, we are just locking, single operation and unlocking. (This will be applied to all the methods)</p>
+
+<ul>
+<li>set</li>
+</ul>
+
+<p>In the same way, just lock, set and unlock, but in this case, we use <code>Lock</code> and <code>Unlock</code> to do a write lock</p>
+
+<pre><code class="language-go">func (users *usersAnsweringStruct) set(user int, value int) {
+    users.Lock()
+    users.Users[user] = value
+    users.Unlock()
+}
+</code></pre>
+
+<ul>
+<li>del</li>
+</ul>
+
+<p>Just the same as set but deleting the key</p>
+
+<pre><code class="language-go">func (users *usersAnsweringStruct) del(user int) {
+    users.Lock()
+    delete(users.Users, user)
+    users.Unlock()
+}
+</code></pre>
+
+<p>So&hellip;. We just have our beauty easy to use interface over our data structure, and we can do things like <code>usersAnswering.del(userID)</code> without thinking about concurrency, it&rsquo;s all handled now! YAY!</p>
+
+<p>Before we start coding our super answer handler, we have to save that the user are answering :)</p>
+
+<p>Let&rsquo;s modify the <code>questionHandler</code> by adding a <code>set</code> operation (<code>usersAnswering.set(msg.Chat.ID, r)</code>) before the answer:</p>
+
+<pre><code class="language-go">func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+    r := rand.Intn(len(questions))
+    choosen := questions[r]
+
+    keyl := buildKeyboard(choosen.Answers)
+    rkm := tgbot.ReplyKeyboardMarkup{
+        Keyboard:        keyl,
+        ResizeKeyboard:  false,
+        OneTimeKeyboard: true,
+        Selective:       false,
+    }
+
+    usersAnswering.set(msg.Chat.ID, r)
+
+    bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+
+    return nil
+}
+</code></pre>
+
+<p>Now we can move on!</p>
+
+<p>Note: If we were using a database, someone maybe will think in saving the user information to the database and check it, but I think that it&rsquo;s better in this &ldquo;cache&rdquo;, it&rsquo;s concurrent-safe, and it&rsquo;s much more faster than the database, and we don&rsquo;t want to have many database operations concurrently, it&rsquo;s a really slow task. (Maybe I would think in doing this if my system must be distributed in many servers, if that are the system I would use <code>Redis</code> to save this kind of fast-access data)</p>
+
+<h2 id="do-you-have-my-answer:195ba8806499f77d18c040fee96c8e80">Do you have my answer?</h2>
+
+<p>I always love to think about the handler first, and then write it. This one is really tricky, because it will be human-text, it&rsquo;s not a command, and we don&rsquo;t know easily any regexp to build it, so&hellip; We are going to use a generic handler and we&rsquo;ll decide inside.</p>
+
+<p>We are going to use the <code>NotCalledFn</code>, that it will be called&hellip; well&hellip; if any of the other handlers has not been called =D</p>
+
+<pre><code class="language-go">bot := tgbot.New(token).
+    SimpleCommandFn(`question`, questionHandler).
+    NotCalledFn(maybeAnswerHandler)
+</code></pre>
+
+<p>The NotCalled handler are a really generic one, let&rsquo;s start, as always, with the empty function:</p>
+
+<pre><code class="language-go">func maybeAnswerHandler(bot tgbot.TgBot, msg tgbot.Message) {
+
+}
+</code></pre>
+
+<p>First, because this function can be called with ANY event, we want to be sure that the message have text:</p>
+
+<pre><code class="language-go">if msg.Text == nil {
+    return
+}
+
+text := *msg.Text
+</code></pre>
+
+<p>Then we want to get the user from our cache, delete from it (because once we get it once, we can safely remove from it) and check if it&rsquo;s answering and the int value are on bounds.</p>
+
+<pre><code class="language-go">i, ok := usersAnswering.get(msg.Chat.ID)
+
+usersAnswering.del(msg.Chat.ID) // We can safely remove right now
+
+if !ok || i &lt; 0 || i &gt;= len(questions) {
+    bot.Answer(msg).Text(&quot;You need to start a /question first&quot;).End()
+    return
+}
+</code></pre>
+
+<p>Once we know that the user ARE answering and the we have the question, let&rsquo;s check the answer with the solution and act.</p>
+
+<pre><code class="language-go">choosen := questions[i]
+goodone := choosen.Answers[choosen.Solution]
+
+if text == goodone {
+    bot.Answer(msg).Text(&quot;SUCCESS!&quot;).End()
+    return
+}
+
+bot.Answer(msg).Text(&quot;WRONG!&quot;).End()
+</code></pre>
+
+<p>Let&rsquo;s see the full function:</p>
+
+<pre><code class="language-go">func maybeAnswerHandler(bot tgbot.TgBot, msg tgbot.Message) {
+    if msg.Text == nil {
+        return
+    }
+
+    text := *msg.Text
+
+    i, ok := usersAnswering.get(msg.Chat.ID)
+
+    usersAnswering.del(msg.Chat.ID) // We can safely remove right now
+
+    if !ok || i &lt; 0 || i &gt;= len(questions) {
+        bot.Answer(msg).Text(&quot;You need to start a /question first&quot;).End()
+        return
+    }
+
+    choosen := questions[i]
+    goodone := choosen.Answers[choosen.Solution]
+
+    if text == goodone {
+        bot.Answer(msg).Text(&quot;SUCCESS!&quot;).End()
+        return
+    }
+
+    bot.Answer(msg).Text(&quot;WRONG!&quot;).End()
+}
+</code></pre>
+
+<p>Let&rsquo;s see how it looks ^^</p>
+
+<p><img src="/images/go-bots/trivia2.png" alt="Final bot" /></p>
+
+<h2 id="final-thoughts:195ba8806499f77d18c040fee96c8e80">Final thoughts</h2>
+
+<p>You can see the full code <a href="https://github.com/rockneurotiko/go-bots/blob/master/trivia/main.go">in my repository</a>.</p>
+
+<p>If you want to improve the bot, here are some ideas:</p>
+
+<ul>
+<li>Load the questions and the token from a JSON like:</li>
+</ul>
+
+<pre><code class="language-json">{
+    &quot;token&quot;: &quot;AABBABBABA&quot;,
+    &quot;questions&quot;: [{
+        &quot;question&quot;: &quot;The question?&quot;,
+        &quot;answers&quot;: [&quot;answer1&quot;, &quot;answer2&quot;, &quot;answer3&quot;],
+        &quot;solution&quot;: 1
+    }, {
+        &quot;question&quot;: &quot;The question 2?&quot;,
+        &quot;answers&quot;: [&quot;answer4&quot;, &quot;answer5&quot;, &quot;answer6&quot;],
+        &quot;solution&quot;: 0
+    }]
+}
+
+</code></pre>
+
+<ul>
+<li><p>Check that the text in the answer is not a command</p></li>
+
+<li><p>On the start of the program, check that all the solutions are in the range of the answers</p></li>
+
+<li><p>Allow the admin to add questions with some command/s (hint: Add it at the end of the questions, so you don&rsquo;t have to worry about &ldquo;users already answering&rdquo;)</p></li>
+
+<li><p>Save success and fail numbers for every chat, and provide some stats, ranking, &hellip;.</p></li>
+
+<li><p>Use some API to get trivia questions. <a href="https://market.mashape.com/pareshchouhan/trivia/">Like this</a></p></li>
+
+<li><p>If you want to learn more about concurrency, you can build the data synchronization using a goroutine and a channel where you wait for Read, Set or Delete actions. This approach are similar to what I made in the <a href="https://github.com/rockneurotiko/go-bots/blob/master/downloader/downloader/dispatcher.go">downloader bot</a> to dispatch works using a Queue (this code are much more complex that what you should write, because the downloader code are to dispatch works, not to &ldquo;do&rdquo; the actualy work). To learn more about concurrency patterns in Go, check <a href="http://divan.github.io/posts/go_concurrency_visualize/">this great blog post</a> or search in google, there are great articles and videos.</p></li>
+</ul>
+
+<h2 id="thanks:195ba8806499f77d18c040fee96c8e80">Thanks!</h2>
+
+<p>And that&rsquo;s all!</p>
+
+<p>It wasn&rsquo;t that hard, didn&rsquo;t it?</p>
+
+<p>All you need to do now are program your own bots and let your imagination fly ;-)</p>
+
+<p>Good luck, and remember that you can be in touch with be in <a href="https://telegram.me/rockneurotiko">Telegram</a></p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+  var disqus_shortname = "rockneurotiko";
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rockneurotiko';
+    var disqus_identifier = 'http:\/\/web.neurotiko.com\/bots\/2016\/03\/23\/bots-coding-complex-bot\/';
+    var disqus_title = 'Let\x27s keep coding more bots.';
+    var disqus_url = 'http:\/\/web.neurotiko.com\/bots\/2016\/03\/23\/bots-coding-complex-bot\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://web.neurotiko.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+ var _gaq=[['_setAccount','UA-65942144-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

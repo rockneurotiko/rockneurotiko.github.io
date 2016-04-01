@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Bot Revolution. Know your API or die hard. &middot; Rock Neurotiko</title>
+
+  
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://web.neurotiko.com/css/highlight/zenburn.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://web.neurotiko.com/apple-touch-icon-144-precomposed.png">
+  <link href="http://web.neurotiko.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+  
+
+  <meta name="description" content="Walkthrough the Telegram bot API explaining it.">
+  <meta name="keywords" content="telegram,bots,go,tgbot,API">
+  <link rel="author" href="http://plus.google.com/&#43;RockNeurotiko">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="https://www.gravatar.com/avatar/d5ead05d8d898f27907328062fc002f9?s=200" alt="gravatar">
+        <h1><a href="/">Rock Neurotiko</a></h1>
+      <p class="lead">Open Web Contents.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://web.neurotiko.com/links/">Lovely links &lt;3</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a target="_blank" href="https://www.github.com/rockneurotiko"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      <a target="_blank" href="https://www.linkedin.com/in/miguelglafuente"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      <a target="_blank" href="https://plus.google.com/&#43;RockNeurotiko"><i class="fa fa-google-plus-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.facebook.com/rockneurotiko"><i class="fa fa-facebook-square fa-3x"></i></a>
+      <a target="_blank" href="https://www.twitter.com/BinaryRock"><i class="fa fa-twitter-square fa-3x"></i></a>
+      </li>
+    </ul>
+
+    <p>Copyright &copy; 2016 <a href="http://web.neurotiko.com/license/">License</a><br/>
+       
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Bot Revolution. Know your API or die hard.</h1>
+    <span class="post-date">Aug 3, 2015 &middot; 10 minute read &middot; <a href="http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/#disqus_thread">Comments</a>
+      
+      <br/>
+      <a class="label" href="http://web.neurotiko.com/categories/telegram">telegram</a><a class="label" href="http://web.neurotiko.com/categories/bots">bots</a><a class="label" href="http://web.neurotiko.com/categories/go">go</a>
+      </span>
+
+    <hr></hr>
+    <p>
+      <strong>
+        All posts of the serie.
+      </strong>
+    </p>
+    <ol>
+      <li>
+        <a href="/bots/2015/07/21/bots-introduction/">
+          Gentle introduction to Telegram Bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/03/bots-know-your-api/">
+          Bot Revolution. Know your API or die hard.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2015/08/09/bots-coding-simple-bot">
+          Start coding some simple bots.
+        </a>
+      </li>
+      <li>
+        <a href="/bots/2016/03/23/bots-coding-complex-bot">
+          Let's keep coding more bots.
+        </a>
+      </li>
+    </ol>
+    <hr></hr>
+
+    
+
+<p>Hello Friend, it&rsquo;s good to see you again. Did you made your homework? Did you readed the two links? If don&rsquo;t, go read it now to full understand this post.</p>
+
+<p>The links that I&rsquo;m talking are the <a href="https://core.telegram.org/bots">Bot introduction to developers</a> and the <a href="https://core.telegram.org/bots/api">Telegram Bot API</a>. Open this links in another tabs or window and let&rsquo;s talk about it!</p>
+
+<h2 id="bot-introduction:5ecaa8bbf252ff719cf377a71241523b">Bot Introduction</h2>
+
+<p>This post starts explaining what can you do with bots, and they give better examples that the one I writed in my last post, my favourites are &ldquo;Create custom tools&rdquo; and &ldquo;Build single and multiplayer games&rdquo;.</p>
+
+<p>The bots don&rsquo;t work in a normal account, they have a special <code>Bot</code> account, this accounts don&rsquo;t have phone number, have to be created with @BotFather (we&rsquo;ll see how in other post), and you don&rsquo;t have to use MTProto, you will have an API to use this bots. This is great because you don&rsquo;t have to use MTProto, but sucks too because you don&rsquo;t have full functionality.</p>
+
+<h4 id="nice-things-of-bots:5ecaa8bbf252ff719cf377a71241523b">Nice things of Bots.</h4>
+
+<ul>
+<li>The status is <code>bot</code>, no timestamp showing the last connection.</li>
+<li>Once you process the messages, they are removed from server.</li>
+<li>The bots can&rsquo;t start talking with users/chats, they have to start the communication.</li>
+<li>The username ends with <code>bot</code></li>
+</ul>
+
+<h4 id="great-things-of-bots:5ecaa8bbf252ff719cf377a71241523b">GREAT things of Bots.</h4>
+
+<ul>
+<li>Keyboard: The bot accounts can send/remove custom keyboards, this is really nice to force the user to send the interactions that you want, really useful for simplify interaction or to build games (I saw a TicTacToe bot the other day that uses a keyboard for the layout!)</li>
+<li>Commands: The main way to communicate with the bot are with the commands, the commands ALWAYS start with <code>/</code>, and you can use up to 32 characters to build the command. Examples of commands are: <code>/help</code> and <code>/play thisgame</code>, you can set a base list of commands with @BotFather and will show in a special menu and autocomplete. When in group, you can send a command to a single bot mentioning after the command: <code>/help@awesomebot</code></li>
+<li>Start: When a user start talking with a bot, the first thing that is sended is <code>/start</code>, with an optional parameter using <code>Deep Linking</code>. How to use Deep Linking? You can give an user a link to start talking with your bot, that looks like: <code>http://telegram.me/usernamebot</code>, you can force the parameter with <code>http://telegram.me/usernamebot?start=PAYLOAD</code>. If you use the first way, when the user press the Start button it will send <code>/start</code>, if you use the second way it will send <code>/start PAYLOAD</code> automatically. This is really great for authentication :)</li>
+<li>Privacy mode: This is one of my favourites features, this is a mode that can be enabled or disabled, by default is enabled. If you have it enabled you will only receive <code>commands</code> (messages that start with <code>/</code>, and if the command have the @usernamebot will be sended only to that bot), messages that mention your bot (@usernamebot), replies to your bot messages and service messages (user enter/leave a group, &hellip;). If you have the privacy disabled the bot will receive all messages. I really love to have privacy mode enabled, in that way the bot receive way long less messages, and gives security to the users, because the privacy mode can be seen in the user list, so you can know if a bot have access to all your messages.</li>
+</ul>
+
+<h4 id="botfather:5ecaa8bbf252ff719cf377a71241523b">BotFather</h4>
+
+<p>I&rsquo;ve mentioned @BotFather, you can talk to him in <a href="http://telegram.me/botfather">http://telegram.me/botfather</a>.</p>
+
+<p>The first thing is create the user sending him the command <code>/newbot</code> and answering his questions (name, username, &hellip;), it will give you a token that you will have to use when you build your bot logic. You can always get the token again with the <code>/token</code> command or <code>/revoke</code> to change the token.</p>
+
+<p>The bot have more commands like <code>/setuserpic</code> or <code>/setcommands</code>, check the original post to see them!</p>
+
+<p>Did you created the token? If no, go and do it!</p>
+
+<ul>
+<li><p>Create a bot:
+<img src="/images/go-bots/create_bot.png" alt="Create a bot token" /></p></li>
+
+<li><p>Revoke the key:
+<img src="/images/go-bots/revoke_bot.png" alt="Revoke key token" /></p></li>
+</ul>
+
+<p>The token is the one he say, in the images <code>120665297:AAGmLR8B43VsPQQ3P99oVTCHehUXkC_Y2s4</code> and <code>120665297:AAHacmu0S7RzqY4BKnnSBlcKoh8_UpyKh94</code> when revoked.</p>
+
+<p>P.D: Don&rsquo;t try to use that tokens, are already revoked ;-)</p>
+
+<h2 id="bot-api:5ecaa8bbf252ff719cf377a71241523b">Bot API</h2>
+
+<p>Do you remember the <code>token</code> that @BotFather gived to you when you created the bot? You are going to use it here, I will use <code>&lt;token&gt;</code> to represent it.</p>
+
+<p>The URL to make the request are <code>https://api.telegram.org/bot&lt;token&gt;/METHOD_NAME</code>. The methods support <code>GET</code> and <code>POST</code>, if you do <code>GET</code> and the method take parameters you will have to use <code>URL query string</code>, if you use <code>POST</code> you can use <code>URL query string</code>, <code>x-www-form-urlencoded</code> or <code>multipart/form-data</code> (for upload media you need to use multipart).</p>
+
+<p>All the responses when you call this methods are JSON, an <code>ok</code> boolean field that explains if the request were well or don&rsquo;t. If <code>ok</code> is false, there will be other two fields, <code>error_code</code> and <code>description</code>. If the requests gone well and <code>ok</code> is true, there will be one more field, <code>result</code> with the data that you wanted.</p>
+
+<pre><code class="language-javascript">// Good result
+{
+    ok: true,
+    result: []
+}
+// Bad result example
+{
+    ok: false,
+    error_code: 401,
+    description: &quot;Error: Unauthorized&quot;
+}
+</code></pre>
+
+<h3 id="types:5ecaa8bbf252ff719cf377a71241523b">Types</h3>
+
+<p>This are the <code>types</code> or <code>schemas</code> that the JSON and the data you send will need to follow. This are the fields that you need to search if you want the data.</p>
+
+<p>You can see all the types <a href="https://core.telegram.org/bots/api#available-types">here</a>.</p>
+
+<p>For example, if you want to get the message id, you see the Message type that have a message_id field that is an integer, just grab it.</p>
+
+<p>Or, if you want to get the chat id of a message to answer him, you need the chat field in the message, and inside that chat, the id field.</p>
+
+<pre><code class="language-javascript">// Message:
+{
+    message_id: 97,
+    // ...
+}
+
+// Chat id:
+{
+    chat: {
+        id: 11,
+        // ...
+    }
+    // ...
+}
+
+</code></pre>
+
+<p>If you are developing a library that communicates with the API, make sure that have this types well known, if don&rsquo;t, just read them when you need it :)</p>
+
+<h3 id="methods:5ecaa8bbf252ff719cf377a71241523b">Methods!</h3>
+
+<p>This are the methods that you can call in the telegram API to do something. They are pretty self-explained, and the libraries usually have wrappers, so you can just use the methods the library provide. But is great that you know what methods are and the possibilities.</p>
+
+<p><code>Note: &quot;user&quot; here refers to a single user or a chat.</code></p>
+
+<ul>
+<li><code>getMe</code>: Returns the information of the bot. Useful to know if the token is right.</li>
+<li><code>sendMessage</code>: Send a message to some user.</li>
+<li><code>forwardMessage</code>: Forward some message from some user to another.</li>
+<li><code>sendPhoto</code>: Send a photo to a user, uploaded from disk or with an id (already uploaded photo)</li>
+<li><code>sendAudio</code>: The same as photo but with an audio.</li>
+<li><code>sendDocument</code>: The same as photo but with a document.</li>
+<li><code>sendSticker</code>: The same as photo but with a sticker.</li>
+<li><code>sendVideo</code>: The same as photo but with a video.</li>
+<li><code>sendLocation</code>: Send a location (latitud and longitude)</li>
+<li><code>sendChatAction</code>: Send an action that is showed in the bot status (typing, sending photo, &hellip;)</li>
+<li><code>getUserProfilePhotos</code>: Get the information about all the photos a user had have.</li>
+<li><code>getUpdates</code>: Get the update messages directly</li>
+<li><code>setWebhook</code>: Set a webhook URL.</li>
+</ul>
+
+<p>The last two are the most weird, but the most important! Let&rsquo;s talk about it!</p>
+
+<h2 id="a-simple-architecture-of-a-bot:5ecaa8bbf252ff719cf377a71241523b">A simple architecture of a bot.</h2>
+
+<p>So&hellip; How is a simple workflow of a bot?</p>
+
+<p>A bot works like a server, is waiting for messages, and when a message arrives, just do something, answer a text, save in DB, send some photo, whatever you want.</p>
+
+<p>To send things to the user, the methods to call are pretty obvius, the &ldquo;send*&rdquo; methods (sendMessage, sendPhoto, &hellip;).</p>
+
+<p>But, how do we get the messages? You have two options, really differents!</p>
+
+<p>Using a webhook, or using the getUpdates method.</p>
+
+<p>Let&rsquo;s start with the easiest one, <code>getUpdates</code></p>
+
+<h3 id="getupdates-method:5ecaa8bbf252ff719cf377a71241523b">getUpdates method</h3>
+
+<p>This is really simple, you just need to do a GET petition to the getUpdates method, and it will return you a list with the messages.</p>
+
+<ul>
+<li><code>getUpdates</code> without messages:</li>
+</ul>
+
+<pre><code class="language-javascript">{
+    &quot;ok&quot;: true,
+    &quot;result&quot;: []
+}
+</code></pre>
+
+<ul>
+<li><code>getUpdates</code> with one message:</li>
+</ul>
+
+<pre><code class="language-javascript">{
+    &quot;ok&quot;: true,
+    &quot;result&quot;: [{
+        &quot;update_id&quot;: 967681107,
+        &quot;message&quot;: {
+            &quot;message_id&quot;: 73,
+            &quot;from&quot;: {
+                &quot;id&quot;: 15738534,
+                &quot;first_name&quot;: &quot;Rock&quot;,
+                &quot;last_name&quot;: &quot;Neurotiko&quot;,
+                &quot;username&quot;: &quot;rock_neurotiko&quot;
+            },
+            &quot;chat&quot;: {
+                &quot;id&quot;: 15738534,
+                &quot;first_name&quot;: &quot;Rock&quot;,
+                &quot;last_name&quot;: &quot;Neurotiko&quot;,
+                &quot;username&quot;: &quot;rock_neurotiko&quot;
+            },
+            &quot;date&quot;: 1438429763,
+            &quot;text&quot;: &quot;Hi lovely readers! &lt;3&quot;
+        }
+    }]
+}
+</code></pre>
+
+<p>You can test it simply by going to the url, replacing <code>&lt;token&gt;</code> with the token @BotFather gived to you: <a href="https://api.telegram.org/bot&lt;token&gt;/getUpdates">https://api.telegram.org/bot&lt;token&gt;/getUpdates</a></p>
+
+<p>Notice that if you call to &ldquo;getUpdates&rdquo; again, and again, the messages are not removed! To get the messages after the last one (so you don&rsquo;t process every time the same messages), you need to use the <code>offset</code> parameter (read the documentation of the library you are using). The offset need to be setted as the last <code>update_id</code> you received plus one. For example, in the previously message, the <code>update_id</code> are, so I need to set the offset as <code>967681107 + 1 = 967681108</code></p>
+
+<p>Using the offset is needed, when you use the offset, all previous messages are erased. But not only because that, it&rsquo;s because the getUpdates have a limit of 100 messages, if you don&rsquo;t use the messages and the messages grow up to 100, you won&rsquo;t get the newer messages.</p>
+
+<p>So&hellip; Use the offset! (to try in browser, just add at the end of the url <code>?offset=number</code>, eg: <code>https://.../getUpdates?offset=967681108</code>)</p>
+
+<p>Another thing, really important. As you can see, the answer is inmediate, that means that if you don&rsquo;t have messages you are going to asking the server many, many times just for nothing. This are petitions that you are doing for not getting anything. To solve that, the great telegram engineers let you use a technique called <a href="https://en.wikipedia.org/wiki/Push_technology#Long_polling"><code>long-polling</code></a>, that emulates push notifications but using GET petitions.</p>
+
+<p>This is done just by openining a connection and not returning to you the result unless some interesting result comes or some timeout lead to the end.</p>
+
+<p>In the telegram API you can use this!! Like the offset parameter, you can use the <code>timeout</code> parameter to set the long-polling. You can set any integer, but in my experience, they answer after 20 seconds even if you asked for more.</p>
+
+<p>In the browser, just add the parameter to the offset one: <code>?offset=number&amp;timeout=20</code>, eg: <code>https://.../getUpdates?offset=967681108&amp;timeout=20</code></p>
+
+<p>If you do it in the browser you will see that the tab tries to load, and after 20 seconds will return the empty array of messages (if you didn&rsquo;t have any messages or used the offset properly), but, if you reload again, and talk to your bot, the server will return you the messages inmediatly =D</p>
+
+<p>Summary for <code>getUpdates</code>: Use <code>offset</code> and <code>timeout</code> parameters!</p>
+
+<h3 id="webhook-method:5ecaa8bbf252ff719cf377a71241523b">Webhook method</h3>
+
+<p>In this way you don&rsquo;t have to do any GET petition, telegram will send you the messages instead.</p>
+
+<p>You need a server with a domain and SSL verified (this is really important, you can&rsquo;t use a self-signed SSL), and you expose some url. I usually use some path like <code>/bot/&lt;token&gt;</code>, so no one will can send fake messages to me, because they would need to know my token.</p>
+
+<p>So, if your domain is <code>https://example.org</code>, you want telegram to send you the messages to <code>https://example.org/bot/&lt;token&gt;</code>.</p>
+
+<p>To say telegram that you want that, you need to call the method <code>setWebhook</code> with that URL and start the server.</p>
+
+<p>Telegram will send you the messages one by one to that URL, just like a normal web server :)</p>
+
+<h3 id="what-way-do-i-choose:5ecaa8bbf252ff719cf377a71241523b">What way do I choose?</h3>
+
+<p>That depends to you and what you want, if you are going to have many requests, you should use the webhook, it can handle better many messages, and it&rsquo;s faster. The webhook are real PUSH data.</p>
+
+<p>If you are not going to have 50 requests/second, you can use getUpdates if you prefer.</p>
+
+<p>Also, if you don&rsquo;t have a web server with domain and verified SSL, you will have to use the getUpdates.</p>
+
+<p>My suggestion are: If you have domain and SSL, use webhook, if don&rsquo;t, use getUpdates. When you are testing, use getUpdates :)</p>
+
+<h2 id="see-you:5ecaa8bbf252ff719cf377a71241523b">See you!</h2>
+
+<p>So, that&rsquo;s all for today. In the next posts we&rsquo;ll probably be implementing some simple bots, so you can see how easy is with a nice API library.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+  var disqus_shortname = "rockneurotiko";
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'rockneurotiko';
+    var disqus_identifier = 'http:\/\/web.neurotiko.com\/bots\/2015\/08\/03\/bots-know-your-api\/';
+    var disqus_title = 'Bot Revolution. Know your API or die hard.';
+    var disqus_url = 'http:\/\/web.neurotiko.com\/bots\/2015\/08\/03\/bots-know-your-api\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://web.neurotiko.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+ var _gaq=[['_setAccount','UA-65942144-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>
+

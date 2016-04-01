@@ -264,6 +264,10 @@ def del_req_codefile(path, did):
 @app.route('/', methods=['POST'])
 def post_codefile():
     relat_path = 'tmp'
+    print(request.headers)
+    print(request.json)
+    print(request.form)
+    print(request.files)
     petition_params = extract_request(request)
     code = petition_params.get('code')
     if not code:

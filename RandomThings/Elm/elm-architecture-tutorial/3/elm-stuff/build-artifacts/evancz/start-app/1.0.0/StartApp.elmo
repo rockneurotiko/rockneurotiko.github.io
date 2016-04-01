@@ -1,0 +1,50 @@
+Elm.StartApp = Elm.StartApp || {};
+Elm.StartApp.make = function (_elm) {
+   "use strict";
+   _elm.StartApp = _elm.StartApp || {};
+   if (_elm.StartApp.values)
+   return _elm.StartApp.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "StartApp",
+   $Html = Elm.Html.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var start = function (app) {
+      return function () {
+         var actions = $Signal.mailbox($Maybe.Nothing);
+         var address = A2($Signal.forwardTo,
+         actions.address,
+         $Maybe.Just);
+         var model = A3($Signal.foldp,
+         F2(function (_v0,model) {
+            return function () {
+               switch (_v0.ctor)
+               {case "Just":
+                  return A2(app.update,
+                    _v0._0,
+                    model);}
+               _U.badCase($moduleName,
+               "on line 92, column 34 to 57");
+            }();
+         }),
+         app.model,
+         actions.signal);
+         return A2($Signal.map,
+         app.view(address),
+         model);
+      }();
+   };
+   var App = F3(function (a,b,c) {
+      return {_: {}
+             ,model: a
+             ,update: c
+             ,view: b};
+   });
+   _elm.StartApp.values = {_op: _op
+                          ,App: App
+                          ,start: start};
+   return _elm.StartApp.values;
+};

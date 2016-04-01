@@ -1,0 +1,146 @@
+Elm.CounterList = Elm.CounterList || {};
+Elm.CounterList.make = function (_elm) {
+   "use strict";
+   _elm.CounterList = _elm.CounterList || {};
+   if (_elm.CounterList.values)
+   return _elm.CounterList.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "CounterList",
+   $Basics = Elm.Basics.make(_elm),
+   $Counter = Elm.Counter.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm);
+   var update = F2(function (action,
+   model) {
+      return function () {
+         switch (action.ctor)
+         {case "Insert":
+            return _U.replace([["counters"
+                               ,A2($List._op["::"],
+                               {ctor: "_Tuple2"
+                               ,_0: model.nextID
+                               ,_1: $Counter.init(0)},
+                               model.counters)]
+                              ,["nextID",model.nextID + 1]],
+              model);
+            case "Modify":
+            return function () {
+                 var updateCounter = function (_v4) {
+                    return function () {
+                       switch (_v4.ctor)
+                       {case "_Tuple2":
+                          return _U.eq(_v4._0,
+                            action._0) ? {ctor: "_Tuple2"
+                                         ,_0: _v4._0
+                                         ,_1: A2($Counter.update,
+                                         action._1,
+                                         _v4._1)} : {ctor: "_Tuple2"
+                                                    ,_0: _v4._0
+                                                    ,_1: _v4._1};}
+                       _U.badCase($moduleName,
+                       "between lines 59 and 61");
+                    }();
+                 };
+                 return _U.replace([["counters"
+                                    ,A2($List.map,
+                                    updateCounter,
+                                    model.counters)]],
+                 model);
+              }();
+            case "Remove":
+            return _U.replace([["counters"
+                               ,A2($List.filter,
+                               function (_v8) {
+                                  return function () {
+                                     switch (_v8.ctor)
+                                     {case "_Tuple2":
+                                        return !_U.eq(_v8._0,
+                                          action._0);}
+                                     _U.badCase($moduleName,
+                                     "on line 54, column 55 to 70");
+                                  }();
+                               },
+                               model.counters)]],
+              model);}
+         _U.badCase($moduleName,
+         "between lines 45 and 63");
+      }();
+   });
+   var Modify = F2(function (a,b) {
+      return {ctor: "Modify"
+             ,_0: a
+             ,_1: b};
+   });
+   var Remove = function (a) {
+      return {ctor: "Remove"
+             ,_0: a};
+   };
+   var viewCounter = F2(function (address,
+   _v12) {
+      return function () {
+         switch (_v12.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var context = A2($Counter.Context,
+                 A2($Signal.forwardTo,
+                 address,
+                 Modify(_v12._0)),
+                 A2($Signal.forwardTo,
+                 address,
+                 $Basics.always(Remove(_v12._0))));
+                 return A2($Counter.viewWithRemoveButton,
+                 context,
+                 _v12._1);
+              }();}
+         _U.badCase($moduleName,
+         "between lines 77 and 82");
+      }();
+   });
+   var Insert = {ctor: "Insert"};
+   var view = F2(function (address,
+   model) {
+      return function () {
+         var insert = A2($Html.button,
+         _L.fromArray([A2($Html$Events.onClick,
+         address,
+         Insert)]),
+         _L.fromArray([$Html.text("Add")]));
+         return A2($Html.div,
+         _L.fromArray([]),
+         A2($List._op["::"],
+         insert,
+         A2($List.map,
+         viewCounter(address),
+         model.counters)));
+      }();
+   });
+   var init = {_: {}
+              ,counters: _L.fromArray([])
+              ,nextID: 0};
+   var Model = F2(function (a,b) {
+      return {_: {}
+             ,counters: a
+             ,nextID: b};
+   });
+   var main = $StartApp.start({_: {}
+                              ,model: init
+                              ,update: update
+                              ,view: view});
+   _elm.CounterList.values = {_op: _op
+                             ,main: main
+                             ,Model: Model
+                             ,init: init
+                             ,Insert: Insert
+                             ,Remove: Remove
+                             ,Modify: Modify
+                             ,update: update
+                             ,view: view
+                             ,viewCounter: viewCounter};
+   return _elm.CounterList.values;
+};

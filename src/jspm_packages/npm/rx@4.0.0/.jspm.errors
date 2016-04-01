@@ -1,0 +1,29 @@
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/asyncintro.js:29:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/asyncintro.js:29:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/asyncintro.js:29:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/core-intro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/core-intro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/core-intro.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/intro.js:25:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/intro.js:25:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro-compat.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro-compat.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro-compat.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/liteintro.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro-compat.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro-compat.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro-compat.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/litetestintro.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/outro.js:1:1: Unexpected token }
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/subintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/subintro.js:28:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/subintro.js:28:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/suboutro.js:1:3: Illegal return statement,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/suboutro.js:2:1: Unexpected token }
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/testintro.js:29:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/testintro.js:29:1: Unexpected token End of File,/home/rock/.jspm/packages/npm/rx@4.0.0/src/core/headers/testintro.js:29:1: Unexpected token End of File
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:2:7: Semi-colon expected,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:2:7: Unexpected token .,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:2:8: Semi-colon expected,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:3:27: Unexpected token ;,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:3:20: Unexpected token =,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/compat/observable.js:4:1: Unexpected token }
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:2:7: Semi-colon expected,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:2:7: Unexpected token .,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:2:8: Semi-colon expected,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:3:27: Unexpected token ;,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:3:20: Unexpected token =,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable.js:4:1: Unexpected token }
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:19: Unexpected token i,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:21: Unexpected token <,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:23: Unexpected token len,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:26: Unexpected token ;,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:28: Unexpected token i,/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:31: Unexpected token ),/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/catch.js:16:33: Semi-colon expected
+
+/home/rock/.jspm/packages/npm/rx@4.0.0/src/modular/modern/observable/combinelatest.js:4:25: Semi-colon expected

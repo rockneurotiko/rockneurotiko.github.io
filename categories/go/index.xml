@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Rock Neurotiko&#39;s web &lt;3</title>
+    <link>http://web.neurotiko.com/categories/go/</link>
+    <description>Recent content in Go on Rock Neurotiko&#39;s web &lt;3</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://web.neurotiko.com/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Let&#39;s keep coding more bots.</title>
+      <link>http://web.neurotiko.com/bots/2016/03/23/bots-coding-complex-bot/</link>
+      <pubDate>Wed, 23 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2016/03/23/bots-coding-complex-bot/</guid>
+      <description>
+
+&lt;p&gt;Hello Friend, it&amp;rsquo;s been a long time without writing, but here we are, coding some more bots :)&lt;/p&gt;
+
+&lt;p&gt;The other day some one talked to me in Telegram asking me to write some more posts with more complex bots, and&amp;hellip; well, let&amp;rsquo;s program! =D&lt;/p&gt;
+
+&lt;h2 id=&#34;the-idea:195ba8806499f77d18c040fee96c8e80&#34;&gt;The idea&lt;/h2&gt;
+
+&lt;p&gt;First of all, we need the idea to build the bot, without it, we won&amp;rsquo;t be able to write anything.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with some intermediate-idea, just some ask-answer bot, without database or API connections to get started in this world.&lt;/p&gt;
+
+&lt;p&gt;And a really simple ask-answer bot is a trivia bot.&lt;/p&gt;
+
+&lt;h2 id=&#34;break-it-in-parts:195ba8806499f77d18c040fee96c8e80&#34;&gt;Break it in parts&lt;/h2&gt;
+
+&lt;p&gt;So, let&amp;rsquo;s think about the idea.&lt;/p&gt;
+
+&lt;p&gt;The bot will have some questions with the answers and the solution, this will be loaded at startup or hard-coded in the code. When the user asks for a question, the bot will get a random one, and send it, with a keyboard with the possible answers, and replying to the message. And finally, when the user answers, we should check if it&amp;rsquo;s the correct one, and answer if it&amp;rsquo;s right or wrong.&lt;/p&gt;
+
+&lt;p&gt;So&amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In-memory &amp;ldquo;database&amp;rdquo;, with questions and answers&lt;/li&gt;
+&lt;li&gt;Handler to send a question&lt;/li&gt;
+&lt;li&gt;Handler to receive the answer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With this we have some parts to start coding, let&amp;rsquo;s go!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-data-are-your-friend:195ba8806499f77d18c040fee96c8e80&#34;&gt;The Data are your friend&lt;/h2&gt;
+
+&lt;p&gt;To save and build the questions we are going to use a struct, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type question struct {
+    Question string   `json:&amp;quot;question&amp;quot;`
+    Answers  []string `json:&amp;quot;answers&amp;quot;`
+    Solution int      `json:&amp;quot;solution&amp;quot;`
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we are defining a struct question, with the &amp;ldquo;q&amp;rdquo; in lowercase, so it&amp;rsquo;s not an exported struct, that have three fields, a Question that is an string, some Answers that is a list of strings, and a Solution, that is just the position in the answers where the good answer is (starting in zero, because we are programmers).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s define a first &amp;ldquo;database&amp;rdquo;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;var questions = []question{
+    question{&amp;quot;Current year?&amp;quot;, []string{&amp;quot;1994&amp;quot;, &amp;quot;2015&amp;quot;, &amp;quot;2016&amp;quot;, &amp;quot;2017&amp;quot;}, 2},
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A simple question, with some answers, and the index of the good answer.&lt;/p&gt;
+
+&lt;h2 id=&#34;i-have-some-questions:195ba8806499f77d18c040fee96c8e80&#34;&gt;I have some questions&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;Before we code the function to send the question/answers, we need to build the bot and the handler, as we saw in the previous post, this is really easy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+    token := &amp;quot;&amp;quot;
+
+    bot := tgbot.New(token).
+        SimpleCommandFn(`question`, questionHandler)
+
+    bot.SimpleStart()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just the main function, with a token variable, we create the bot with the token, and set the handler with a Simple Command, so that handler will be executed with &lt;code&gt;/question&lt;/code&gt; and &lt;code&gt;/question@usernamebot&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To start the handler, because this is a Simple Command, the initial function is like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+
+    return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What do we need to do? First, choose a random question, then build the keyboard, and at last send the question with the keyboard.&lt;/p&gt;
+
+&lt;p&gt;To choose a random question we are going to use &lt;code&gt;rand.Intn&lt;/code&gt;, to build the keyboard, that are of type &lt;code&gt;[][]string&lt;/code&gt;, we will define a function to transform a &lt;code&gt;[]string&lt;/code&gt; into that with two strings top, and then build the &lt;code&gt;tgbot.ReplyKeyboardMarkup&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Choose the random number:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;r := rand.Intn(len(questions))
+choosen := questions[r]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Function to transform a list of strings into a list of list with at max two strings in the inner lists&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func buildKeyboard(ops []string) [][]string {
+    keylayout := [][]string{{}}
+    for _, k := range ops {
+        if len(keylayout[len(keylayout)-1]) == 2 {
+            keylayout = append(keylayout, []string{k})
+        } else {
+            keylayout[len(keylayout)-1] = append(keylayout[len(keylayout)-1], k)
+        }
+    }
+    return keylayout
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Build the keyboard (selective false and resize false)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;keyl := buildKeyboard(choosen.Answers)
+rkm := tgbot.ReplyKeyboardMarkup{
+    Keyboard:        keyl,
+    ResizeKeyboard:  false,
+    OneTimeKeyboard: true,
+    Selective:       false,
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Send it!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sum it up!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+    r := rand.Intn(len(questions))
+    choosen := questions[r]
+
+    keyl := buildKeyboard(choosen.Answers)
+    rkm := tgbot.ReplyKeyboardMarkup{
+        Keyboard:        keyl,
+        ResizeKeyboard:  false,
+        OneTimeKeyboard: true,
+        Selective:       false,
+    }
+
+    bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+
+    return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can test how it&amp;rsquo;s going the bot!&lt;/p&gt;
+
+&lt;p&gt;If you named the file &lt;code&gt;main.go&lt;/code&gt; and the token are setted in the variable, just execute &lt;code&gt;go run main.go&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/trivia1.png&#34; alt=&#34;Question image&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, that wasn&amp;rsquo;t that hard =D&lt;/p&gt;
+
+&lt;h2 id=&#34;concurrency-was-at-beginning-the-everything:195ba8806499f77d18c040fee96c8e80&#34;&gt;concurrency. was At beginning the everything&lt;/h2&gt;
+
+&lt;p&gt;At this point, our user will receive the question and the answers, and we want to get, process and know if the answer is right.&lt;/p&gt;
+
+&lt;p&gt;And we are facing our first not expected problem&amp;hellip; How do we know what question are the user answering to know if it&amp;rsquo;s correct? Even more, how do we even know if the user are answering any question?&lt;/p&gt;
+
+&lt;p&gt;We need to save, in some way, if the user are answering AND some kind of reference to the question.&lt;/p&gt;
+
+&lt;p&gt;Our first approach can be: Just have a global &lt;code&gt;map[int]int&lt;/code&gt; where you save in the key the user and in the value the question number, and this is not bad at all, actually we are going to use something similar, but when you are used to built some web apps with many users using it at the same time, and your app are concurrent&amp;hellip; You are in trouble.&lt;/p&gt;
+
+&lt;p&gt;But in go, for something so simple like this, we can built a really simple way to use a simple concurrent datastructure.&lt;/p&gt;
+
+&lt;p&gt;We are going to use sync.RWMutex, in this way the write operations will be blocking, but the read operations won&amp;rsquo;t.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the struct extensions in Go, we can declare our data structure in this way:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type usersAnsweringStruct struct {
+    *sync.RWMutex
+    Users map[int]int
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This kind of struct say that is extending *sync.RWMutex, and have a field Users.&lt;/p&gt;
+
+&lt;p&gt;And let&amp;rsquo;s create a global instance of this struct:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;var usersAnswering = usersAnsweringStruct{&amp;amp;sync.RWMutex{}, make(map[int]int)}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this way, when we want to read something we just need to do something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;usersAnswering.RLock()
+// Use usersAnswering.Users
+usersAnswering.RUnlock()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;BUT, in my experience, is much more easy to provide an easy to use API of the structure, so&amp;hellip; let&amp;rsquo;s built it! We are going to need &lt;code&gt;get&lt;/code&gt;, &lt;code&gt;set&lt;/code&gt; and &lt;code&gt;del&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;get&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We are just going to RLock the instance, read, and RUnlock it, then return the results.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func (users *usersAnsweringStruct) get(user int) (int, bool) {
+    users.RLock()
+    i, ok := users.Users[user]
+    users.RUnlock()
+    return i, ok
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you know some Go, you can be thinking: Why call RUnlock by hand instead of using &lt;code&gt;defer users.RUnlock()&lt;/code&gt;? Well, because calling it manually are faster, and in this simple example, we don&amp;rsquo;t need to defer the call, we don&amp;rsquo;t have weird code branches or complex calls, we are just locking, single operation and unlocking. (This will be applied to all the methods)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the same way, just lock, set and unlock, but in this case, we use &lt;code&gt;Lock&lt;/code&gt; and &lt;code&gt;Unlock&lt;/code&gt; to do a write lock&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func (users *usersAnsweringStruct) set(user int, value int) {
+    users.Lock()
+    users.Users[user] = value
+    users.Unlock()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;del&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just the same as set but deleting the key&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func (users *usersAnsweringStruct) del(user int) {
+    users.Lock()
+    delete(users.Users, user)
+    users.Unlock()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So&amp;hellip;. We just have our beauty easy to use interface over our data structure, and we can do things like &lt;code&gt;usersAnswering.del(userID)&lt;/code&gt; without thinking about concurrency, it&amp;rsquo;s all handled now! YAY!&lt;/p&gt;
+
+&lt;p&gt;Before we start coding our super answer handler, we have to save that the user are answering :)&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s modify the &lt;code&gt;questionHandler&lt;/code&gt; by adding a &lt;code&gt;set&lt;/code&gt; operation (&lt;code&gt;usersAnswering.set(msg.Chat.ID, r)&lt;/code&gt;) before the answer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func questionHandler(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+    r := rand.Intn(len(questions))
+    choosen := questions[r]
+
+    keyl := buildKeyboard(choosen.Answers)
+    rkm := tgbot.ReplyKeyboardMarkup{
+        Keyboard:        keyl,
+        ResizeKeyboard:  false,
+        OneTimeKeyboard: true,
+        Selective:       false,
+    }
+
+    usersAnswering.set(msg.Chat.ID, r)
+
+    bot.Answer(msg).Text(choosen.Question).ReplyToMessage(msg.ID).Keyboard(rkm).End()
+
+    return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can move on!&lt;/p&gt;
+
+&lt;p&gt;Note: If we were using a database, someone maybe will think in saving the user information to the database and check it, but I think that it&amp;rsquo;s better in this &amp;ldquo;cache&amp;rdquo;, it&amp;rsquo;s concurrent-safe, and it&amp;rsquo;s much more faster than the database, and we don&amp;rsquo;t want to have many database operations concurrently, it&amp;rsquo;s a really slow task. (Maybe I would think in doing this if my system must be distributed in many servers, if that are the system I would use &lt;code&gt;Redis&lt;/code&gt; to save this kind of fast-access data)&lt;/p&gt;
+
+&lt;h2 id=&#34;do-you-have-my-answer:195ba8806499f77d18c040fee96c8e80&#34;&gt;Do you have my answer?&lt;/h2&gt;
+
+&lt;p&gt;I always love to think about the handler first, and then write it. This one is really tricky, because it will be human-text, it&amp;rsquo;s not a command, and we don&amp;rsquo;t know easily any regexp to build it, so&amp;hellip; We are going to use a generic handler and we&amp;rsquo;ll decide inside.&lt;/p&gt;
+
+&lt;p&gt;We are going to use the &lt;code&gt;NotCalledFn&lt;/code&gt;, that it will be called&amp;hellip; well&amp;hellip; if any of the other handlers has not been called =D&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;bot := tgbot.New(token).
+    SimpleCommandFn(`question`, questionHandler).
+    NotCalledFn(maybeAnswerHandler)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The NotCalled handler are a really generic one, let&amp;rsquo;s start, as always, with the empty function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func maybeAnswerHandler(bot tgbot.TgBot, msg tgbot.Message) {
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;First, because this function can be called with ANY event, we want to be sure that the message have text:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;if msg.Text == nil {
+    return
+}
+
+text := *msg.Text
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we want to get the user from our cache, delete from it (because once we get it once, we can safely remove from it) and check if it&amp;rsquo;s answering and the int value are on bounds.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;i, ok := usersAnswering.get(msg.Chat.ID)
+
+usersAnswering.del(msg.Chat.ID) // We can safely remove right now
+
+if !ok || i &amp;lt; 0 || i &amp;gt;= len(questions) {
+    bot.Answer(msg).Text(&amp;quot;You need to start a /question first&amp;quot;).End()
+    return
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once we know that the user ARE answering and the we have the question, let&amp;rsquo;s check the answer with the solution and act.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;choosen := questions[i]
+goodone := choosen.Answers[choosen.Solution]
+
+if text == goodone {
+    bot.Answer(msg).Text(&amp;quot;SUCCESS!&amp;quot;).End()
+    return
+}
+
+bot.Answer(msg).Text(&amp;quot;WRONG!&amp;quot;).End()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see the full function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func maybeAnswerHandler(bot tgbot.TgBot, msg tgbot.Message) {
+    if msg.Text == nil {
+        return
+    }
+
+    text := *msg.Text
+
+    i, ok := usersAnswering.get(msg.Chat.ID)
+
+    usersAnswering.del(msg.Chat.ID) // We can safely remove right now
+
+    if !ok || i &amp;lt; 0 || i &amp;gt;= len(questions) {
+        bot.Answer(msg).Text(&amp;quot;You need to start a /question first&amp;quot;).End()
+        return
+    }
+
+    choosen := questions[i]
+    goodone := choosen.Answers[choosen.Solution]
+
+    if text == goodone {
+        bot.Answer(msg).Text(&amp;quot;SUCCESS!&amp;quot;).End()
+        return
+    }
+
+    bot.Answer(msg).Text(&amp;quot;WRONG!&amp;quot;).End()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how it looks ^^&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/trivia2.png&#34; alt=&#34;Final bot&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;final-thoughts:195ba8806499f77d18c040fee96c8e80&#34;&gt;Final thoughts&lt;/h2&gt;
+
+&lt;p&gt;You can see the full code &lt;a href=&#34;https://github.com/rockneurotiko/go-bots/blob/master/trivia/main.go&#34;&gt;in my repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want to improve the bot, here are some ideas:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Load the questions and the token from a JSON like:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;token&amp;quot;: &amp;quot;AABBABBABA&amp;quot;,
+    &amp;quot;questions&amp;quot;: [{
+        &amp;quot;question&amp;quot;: &amp;quot;The question?&amp;quot;,
+        &amp;quot;answers&amp;quot;: [&amp;quot;answer1&amp;quot;, &amp;quot;answer2&amp;quot;, &amp;quot;answer3&amp;quot;],
+        &amp;quot;solution&amp;quot;: 1
+    }, {
+        &amp;quot;question&amp;quot;: &amp;quot;The question 2?&amp;quot;,
+        &amp;quot;answers&amp;quot;: [&amp;quot;answer4&amp;quot;, &amp;quot;answer5&amp;quot;, &amp;quot;answer6&amp;quot;],
+        &amp;quot;solution&amp;quot;: 0
+    }]
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Check that the text in the answer is not a command&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;On the start of the program, check that all the solutions are in the range of the answers&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Allow the admin to add questions with some command/s (hint: Add it at the end of the questions, so you don&amp;rsquo;t have to worry about &amp;ldquo;users already answering&amp;rdquo;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Save success and fail numbers for every chat, and provide some stats, ranking, &amp;hellip;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use some API to get trivia questions. &lt;a href=&#34;https://market.mashape.com/pareshchouhan/trivia/&#34;&gt;Like this&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you want to learn more about concurrency, you can build the data synchronization using a goroutine and a channel where you wait for Read, Set or Delete actions. This approach are similar to what I made in the &lt;a href=&#34;https://github.com/rockneurotiko/go-bots/blob/master/downloader/downloader/dispatcher.go&#34;&gt;downloader bot&lt;/a&gt; to dispatch works using a Queue (this code are much more complex that what you should write, because the downloader code are to dispatch works, not to &amp;ldquo;do&amp;rdquo; the actualy work). To learn more about concurrency patterns in Go, check &lt;a href=&#34;http://divan.github.io/posts/go_concurrency_visualize/&#34;&gt;this great blog post&lt;/a&gt; or search in google, there are great articles and videos.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;thanks:195ba8806499f77d18c040fee96c8e80&#34;&gt;Thanks!&lt;/h2&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all!&lt;/p&gt;
+
+&lt;p&gt;It wasn&amp;rsquo;t that hard, didn&amp;rsquo;t it?&lt;/p&gt;
+
+&lt;p&gt;All you need to do now are program your own bots and let your imagination fly ;-)&lt;/p&gt;
+
+&lt;p&gt;Good luck, and remember that you can be in touch with be in &lt;a href=&#34;https://telegram.me/rockneurotiko&#34;&gt;Telegram&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Start coding some simple bots.</title>
+      <link>http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/</link>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2015/08/09/bots-coding-simple-bot/</guid>
+      <description>
+
+&lt;p&gt;Hello Friend, welcome to this bot travel again.&lt;/p&gt;
+
+&lt;p&gt;Today, we are going to start coding our first bots! Yay! ^^&lt;/p&gt;
+
+&lt;p&gt;To accomplish this we are going to use the &lt;a href=&#34;https://golang.org&#34;&gt;Go&lt;/a&gt; language and my library &lt;a href=&#34;https://github.com/rockneurotiko/go-tgbot&#34;&gt;go-tgbot&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-go-and-tgbot:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Install Go and TgBot&lt;/h2&gt;
+
+&lt;p&gt;First of all, we need to install Go and the library. I&amp;rsquo;m going to explain it for linux, if you are going to use Mac it will probably be really similar, and in Windows you will have to search in Google.&lt;/p&gt;
+
+&lt;p&gt;Your distribution will probably have Go in the repositories, for example in ArchLinux &lt;code&gt;pacman install go&lt;/code&gt; will install it, probably in apt based distributions will be similar.&lt;/p&gt;
+
+&lt;p&gt;If don&amp;rsquo;t, they distribute binaries for &lt;code&gt;FreeBSD &amp;gt;= 8&lt;/code&gt;, &lt;code&gt;Linux &amp;gt;= 2.6.23 (With glibc)&lt;/code&gt;, &lt;code&gt;Mac OS X &amp;gt;= 10.6&lt;/code&gt; and &lt;code&gt;Windows &amp;gt;= XP&lt;/code&gt;. You can download them and install in &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;the official web&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After install it, you need some environment variables, this will work in FreeBSD, Linux and Mac OS X, for Windows search how to do it (Sorry, I don&amp;rsquo;t use Windows, so I don&amp;rsquo;t have idea &amp;lt;3)&lt;/p&gt;
+
+&lt;p&gt;Add at the end of your &lt;code&gt;.bashrc&lt;/code&gt;, &lt;code&gt;.zshrc&lt;/code&gt;, &lt;code&gt;.cshrc&lt;/code&gt; or whatever &lt;code&gt;*rc&lt;/code&gt; you use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=$PATH:/usr/local/go/bin
+
+# The GOPATH is where Go will install all the libraries and binaries, I like to have it in $HOME/go, but you can use the directory you want, make sure that it exist (mkdir $HOME/go)
+export GOPATH=$HOME/go
+export PATH=$PATH:=$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Read &lt;a href=&#34;https://golang.org/doc/code.html&#34;&gt;this post&lt;/a&gt; to know how Go work with GOPATH and how to write Go Code.&lt;/p&gt;
+
+&lt;p&gt;When you have all installed, open a new terminal to have all the environment variables setted (or execute &lt;code&gt;source ~/.bshrc&lt;/code&gt; or the &lt;code&gt;*rc&lt;/code&gt; you use).&lt;/p&gt;
+
+&lt;p&gt;Install the library is really easy, just execute this in your terminal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go get -u github.com/rockneurotiko/go-tgbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will install the library in &lt;code&gt;$GOPATH/src/github.com/rockneurotiko/go-tgbot&lt;/code&gt;, but you don&amp;rsquo;t have to worry about this.&lt;/p&gt;
+
+&lt;h2 id=&#34;hello-world-bot:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Hello world bot!&lt;/h2&gt;
+
+&lt;p&gt;In programming is common to write a hello world program that print &amp;ldquo;Hello World!&amp;rdquo; in the terminal.&lt;/p&gt;
+
+&lt;p&gt;I like to do what I consider a &amp;ldquo;hello world&amp;rdquo; program for bots. This is just a bot that will answer &amp;ldquo;Hello World!&amp;rdquo; to any message.&lt;/p&gt;
+
+&lt;p&gt;We use the &lt;code&gt;main&lt;/code&gt; package because it will be an executable, and we import the &lt;code&gt;tgbot&lt;/code&gt; library:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;github.com/rockneurotiko/go-tgbot&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, we are going to need the main function that will be executed when we run the bot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+// Create a new bot with the token
+bot := tgbot.New(&amp;quot;YourBotToken&amp;quot;)
+
+// Add a handler for all messages
+bot.AnyMsgFn(sayhelloworld)
+
+// Start the bot using GetUpdates method
+bot.SimpleStart()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And at last, we need the handler function (&lt;code&gt;sayhelloworld&lt;/code&gt;) that we add as handler to the bot.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func sayhelloworld(bot tgbot.TgBot, msg tgbot.Message) {
+// This is a beauty way of sending messages ^^
+bot.Answer(msg).Text(&amp;quot;Hello World!&amp;quot;).End()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can download the example &lt;a href=&#34;http://web.neurotiko.com/code/bots/helloworld.go&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to explain some things about the code, you have the full documentation in &lt;a href=&#34;https://github.com/rockneurotiko/go-tgbot&#34;&gt;the project&lt;/a&gt;, but it&amp;rsquo;s not updated (for example, the way of sending messages is not writed yet&amp;hellip; I don&amp;rsquo;t have time u.U)&lt;/p&gt;
+
+&lt;p&gt;I think that are four key things in the code:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create the bot.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The bot is created with the &lt;code&gt;tgbot.New(&amp;quot;YourBotToken&amp;quot;)&lt;/code&gt;, if the token is not valid, it will fail, so make sure that the token is valid. This function return an instance of &lt;code&gt;tgbot.TgBot&lt;/code&gt; struct.&lt;/p&gt;
+
+&lt;p&gt;The token is the one that &lt;code&gt;@BotFather&lt;/code&gt; gived to you when you created the bot (or revoke it with &lt;code&gt;/revoke&lt;/code&gt;, or ask for it with &lt;code&gt;/token&lt;/code&gt;)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add the handler.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code&gt;tgbot&lt;/code&gt; library work with handlers, doing all the hard work for you, in this case we are using the &lt;code&gt;AnyMsgFn&lt;/code&gt; to add a function handler for all messages, we&amp;rsquo;ll see most useful handlers than this in the serie ;-)&lt;/p&gt;
+
+&lt;p&gt;The parameters of the function that is passed to the handler is really important, in this case, you need &lt;code&gt;func(tgbot.TgBot, tgbot.Message)&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Do something in the handler.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In this case, we are just going to send &amp;ldquo;Hello World!&amp;rdquo; to the sender. This is straightforward with the &lt;code&gt;tgbot&lt;/code&gt;. You just need to say &lt;code&gt;Bot, answer the sender of this message the text &amp;quot;Hello World!&amp;quot;. Thanks&lt;/code&gt;, that in programming is translated to: &lt;code&gt;bot.Answer(msg).Text(&amp;quot;Hello World!&amp;quot;).End()&lt;/code&gt;. The &lt;code&gt;End()&lt;/code&gt; call at the end is necesary to actually execute it :)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Start the bot!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As we saw in the previous post, there are two ways of execute a bot, using &lt;code&gt;getUpdates&lt;/code&gt; or using a &lt;code&gt;webhook&lt;/code&gt;, the simplest one is &lt;code&gt;getUpdates&lt;/code&gt; so for now, we&amp;rsquo;ll be using this, and to do that, just execute at the end &lt;code&gt;bot.SimpleStart()&lt;/code&gt; (where &lt;code&gt;bot&lt;/code&gt; is the previous instance of &lt;code&gt;tgbot.TgBot&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s run it and test it! :)&lt;/p&gt;
+
+&lt;p&gt;Execute this in the terminal to run it (change &lt;code&gt;helloworld.go&lt;/code&gt; for your program file name):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go run helloworld.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/helloworld.png&#34; alt=&#34;Test hello world&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to compile it, you just need to execute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;go build helloworld.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create a binary file called &lt;code&gt;helloworld&lt;/code&gt; (In windows is called &lt;code&gt;helloworld.exe&lt;/code&gt;), and you can execute as any binary (In windows double click :P) :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./helloworld
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all!
+Really simple isn&amp;rsquo;t it? ^^&lt;/p&gt;
+
+&lt;h2 id=&#34;answering-commands:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;Answering commands&lt;/h2&gt;
+
+&lt;p&gt;Yeah! Our first bot!&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s do it to answer the basic commands that every bot should have: &lt;code&gt;/start&lt;/code&gt; and &lt;code&gt;/help&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The use of commands is really common in bots, and because of that, &lt;code&gt;tgbot&lt;/code&gt; handle it in a special way.&lt;/p&gt;
+
+&lt;p&gt;Just in case you don&amp;rsquo;t know, a command start with &lt;code&gt;/&lt;/code&gt;, and are two ways of calling them, the &amp;ldquo;global&amp;rdquo; command (&lt;code&gt;/command&lt;/code&gt;) and the &amp;ldquo;specific&amp;rdquo; command (&lt;code&gt;/command@username&lt;/code&gt;). The difference between the &amp;ldquo;global&amp;rdquo; and the &amp;ldquo;specific&amp;rdquo; is that in group, if you use the &amp;ldquo;specific&amp;rdquo; way, the &lt;code&gt;@username&lt;/code&gt; bot will be the only one that receives that message. But you don&amp;rsquo;t have to worry about this with &lt;code&gt;tgbot&lt;/code&gt;, the library will do it for you!&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start like the other bot, with the package and imports:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;github.com/rockneurotiko/go-tgbot&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now the main function, we are not using the &lt;code&gt;AnyMsgFn&lt;/code&gt; handler anymore, because we don&amp;rsquo;t want to answer to every message, instead we&amp;rsquo;ll be using &lt;code&gt;SimpleCommandFn&lt;/code&gt;, this handler works for commands without arguments, like this simple &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;help&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note how we are not setting the full command, for example we just say that the command is &lt;code&gt;start&lt;/code&gt; and the library will understand it and handle it correctly (bot &amp;ldquo;general&amp;rdquo; and &amp;ldquo;specific&amp;rdquo; ways).&lt;/p&gt;
+
+&lt;p&gt;If you are curious, the command &lt;code&gt;start&lt;/code&gt; internally is represented with the regular expression &lt;code&gt;^/start(?:@tutorialbot)?$&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func main() {
+// Create a new bot with the token
+bot := tgbot.New(&amp;quot;YourBotToken&amp;quot;)
+
+// Add a handler for the commands (Note the dot at the end of the first SimpleCommandFn to chain the handlers)
+bot.SimpleCommandFn(`start`, start).
+SimpleCommandFn(`help`, help)
+
+// Start the bot using getUpdates method
+bot.SimpleStart()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, we need to implement the handler functions, in this case, &lt;code&gt;start&lt;/code&gt; and &lt;code&gt;help&lt;/code&gt;. The functions type is different from the &lt;code&gt;AnyMsgFn&lt;/code&gt; function, in this case the functions are &lt;code&gt;func(tgbot.TgBot, tgbot.Message, string) *string&lt;/code&gt;. The two first parameters are as before, instance of the bot and the message struct, the third parameter is the text of the message, and the return value &lt;code&gt;*string&lt;/code&gt; is because of an old way of sending text, we&amp;rsquo;ll use it in the &lt;code&gt;start&lt;/code&gt; handler function. (The *string at the end will maybe be removed in future versions)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Start handler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func start(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+// The text to send!
+answertext := `Welcome to @tutorialbot
+This are the current commands:
+- /help
+- /start`
+
+// You can send it with this line instead of returning the pointer to the text.
+// bot.Answer(msg).Text(answertext).End()
+
+// The string pointer that we return, if it&#39;s not nil or empty string, it will be sended to the sender.
+return &amp;amp;answertext
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Help handler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;func help(bot tgbot.TgBot, msg tgbot.Message, text string) *string {
+// The text to send!
+answertext := `Currently this is just a sample bot.
+The commands available are:
+- /help
+- /start
+
+@tutorialbot by @rockneurotiko version 0.0.1`
+
+// Send it replying the message
+bot.Answer(msg).Text(answertext).ReplyToMessage(msg.ID).End()
+return nil
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The way of sending the message are implemented differently, in the &lt;code&gt;start&lt;/code&gt; function, the string is returned as a pointer, and the library will send it to the sender.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;help&lt;/code&gt; function instead, we use the pretty way (to me) of sending things. In this case I added one more thing, the &lt;code&gt;ReplyToMessage(msg.ID)&lt;/code&gt;. This will do that the bot send the text replying to the message. I love to read this chains in plain language: &lt;code&gt;Bot, answer the sender of this message with this text replying this message id. Thanks&lt;/code&gt; (The last &amp;ldquo;Thanks&amp;rdquo; is the &amp;ldquo;End()&amp;rdquo; call :P)&lt;/p&gt;
+
+&lt;p&gt;You can download the example &lt;a href=&#34;http://web.neurotiko.com/code/bots/simplecommands.go&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As before, let&amp;rsquo;s execute it (with &lt;code&gt;go run&lt;/code&gt; or building it and executing the binary) and this are the results:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/simplecommands.png&#34; alt=&#34;Test Simple Commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to have the commands in the client GUI, talk with &lt;a href=&#34;https://telegram.org/botfather&#34;&gt;@BotFather&lt;/a&gt;, send him the command &lt;code&gt;/setcommands&lt;/code&gt;, select the bot and send the text with the commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/setcommands.png&#34; alt=&#34;Set commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/setcommands_botview.png&#34; alt=&#34;Set commands&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Text used:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;start - Start the bot!
+help - Show the help text :)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;see-you:ded51b727fecdb73c46ab6317d1a5244&#34;&gt;See you!&lt;/h2&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all for today! We made two bots! Two simple bots, but are two bots ^^&lt;/p&gt;
+
+&lt;p&gt;In the next posts I&amp;rsquo;ll show how to send other things more insteresting like images, audio, videos, documents and stickers.&lt;/p&gt;
+
+&lt;p&gt;If you have some idea for a good bot to implement for this posts series, please share it and let&amp;rsquo;s see if is simple enough but complicated at the same time for future posts.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m thinking too in doing future posts of implementing nice things like protect the bot with password, have a simple database with the users, &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Also, I&amp;rsquo;ll maybe do some screencast for more complicated bots :)&lt;/p&gt;
+
+&lt;p&gt;Let me know what do you thing, your ideas and what do you expect in the comments or in &lt;a href=&#34;https://telegram.me/rockneurotiko&#34;&gt;telegram&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bot Revolution. Know your API or die hard.</title>
+      <link>http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/</guid>
+      <description>
+
+&lt;p&gt;Hello Friend, it&amp;rsquo;s good to see you again. Did you made your homework? Did you readed the two links? If don&amp;rsquo;t, go read it now to full understand this post.&lt;/p&gt;
+
+&lt;p&gt;The links that I&amp;rsquo;m talking are the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;Bot introduction to developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;Telegram Bot API&lt;/a&gt;. Open this links in another tabs or window and let&amp;rsquo;s talk about it!&lt;/p&gt;
+
+&lt;h2 id=&#34;bot-introduction:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Bot Introduction&lt;/h2&gt;
+
+&lt;p&gt;This post starts explaining what can you do with bots, and they give better examples that the one I writed in my last post, my favourites are &amp;ldquo;Create custom tools&amp;rdquo; and &amp;ldquo;Build single and multiplayer games&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The bots don&amp;rsquo;t work in a normal account, they have a special &lt;code&gt;Bot&lt;/code&gt; account, this accounts don&amp;rsquo;t have phone number, have to be created with @BotFather (we&amp;rsquo;ll see how in other post), and you don&amp;rsquo;t have to use MTProto, you will have an API to use this bots. This is great because you don&amp;rsquo;t have to use MTProto, but sucks too because you don&amp;rsquo;t have full functionality.&lt;/p&gt;
+
+&lt;h4 id=&#34;nice-things-of-bots:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Nice things of Bots.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The status is &lt;code&gt;bot&lt;/code&gt;, no timestamp showing the last connection.&lt;/li&gt;
+&lt;li&gt;Once you process the messages, they are removed from server.&lt;/li&gt;
+&lt;li&gt;The bots can&amp;rsquo;t start talking with users/chats, they have to start the communication.&lt;/li&gt;
+&lt;li&gt;The username ends with &lt;code&gt;bot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;great-things-of-bots:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;GREAT things of Bots.&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keyboard: The bot accounts can send/remove custom keyboards, this is really nice to force the user to send the interactions that you want, really useful for simplify interaction or to build games (I saw a TicTacToe bot the other day that uses a keyboard for the layout!)&lt;/li&gt;
+&lt;li&gt;Commands: The main way to communicate with the bot are with the commands, the commands ALWAYS start with &lt;code&gt;/&lt;/code&gt;, and you can use up to 32 characters to build the command. Examples of commands are: &lt;code&gt;/help&lt;/code&gt; and &lt;code&gt;/play thisgame&lt;/code&gt;, you can set a base list of commands with @BotFather and will show in a special menu and autocomplete. When in group, you can send a command to a single bot mentioning after the command: &lt;code&gt;/help@awesomebot&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: When a user start talking with a bot, the first thing that is sended is &lt;code&gt;/start&lt;/code&gt;, with an optional parameter using &lt;code&gt;Deep Linking&lt;/code&gt;. How to use Deep Linking? You can give an user a link to start talking with your bot, that looks like: &lt;code&gt;http://telegram.me/usernamebot&lt;/code&gt;, you can force the parameter with &lt;code&gt;http://telegram.me/usernamebot?start=PAYLOAD&lt;/code&gt;. If you use the first way, when the user press the Start button it will send &lt;code&gt;/start&lt;/code&gt;, if you use the second way it will send &lt;code&gt;/start PAYLOAD&lt;/code&gt; automatically. This is really great for authentication :)&lt;/li&gt;
+&lt;li&gt;Privacy mode: This is one of my favourites features, this is a mode that can be enabled or disabled, by default is enabled. If you have it enabled you will only receive &lt;code&gt;commands&lt;/code&gt; (messages that start with &lt;code&gt;/&lt;/code&gt;, and if the command have the @usernamebot will be sended only to that bot), messages that mention your bot (@usernamebot), replies to your bot messages and service messages (user enter/leave a group, &amp;hellip;). If you have the privacy disabled the bot will receive all messages. I really love to have privacy mode enabled, in that way the bot receive way long less messages, and gives security to the users, because the privacy mode can be seen in the user list, so you can know if a bot have access to all your messages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;botfather:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;BotFather&lt;/h4&gt;
+
+&lt;p&gt;I&amp;rsquo;ve mentioned @BotFather, you can talk to him in &lt;a href=&#34;http://telegram.me/botfather&#34;&gt;http://telegram.me/botfather&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first thing is create the user sending him the command &lt;code&gt;/newbot&lt;/code&gt; and answering his questions (name, username, &amp;hellip;), it will give you a token that you will have to use when you build your bot logic. You can always get the token again with the &lt;code&gt;/token&lt;/code&gt; command or &lt;code&gt;/revoke&lt;/code&gt; to change the token.&lt;/p&gt;
+
+&lt;p&gt;The bot have more commands like &lt;code&gt;/setuserpic&lt;/code&gt; or &lt;code&gt;/setcommands&lt;/code&gt;, check the original post to see them!&lt;/p&gt;
+
+&lt;p&gt;Did you created the token? If no, go and do it!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a bot:
+&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/create_bot.png&#34; alt=&#34;Create a bot token&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Revoke the key:
+&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/revoke_bot.png&#34; alt=&#34;Revoke key token&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The token is the one he say, in the images &lt;code&gt;120665297:AAGmLR8B43VsPQQ3P99oVTCHehUXkC_Y2s4&lt;/code&gt; and &lt;code&gt;120665297:AAHacmu0S7RzqY4BKnnSBlcKoh8_UpyKh94&lt;/code&gt; when revoked.&lt;/p&gt;
+
+&lt;p&gt;P.D: Don&amp;rsquo;t try to use that tokens, are already revoked ;-)&lt;/p&gt;
+
+&lt;h2 id=&#34;bot-api:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Bot API&lt;/h2&gt;
+
+&lt;p&gt;Do you remember the &lt;code&gt;token&lt;/code&gt; that @BotFather gived to you when you created the bot? You are going to use it here, I will use &lt;code&gt;&amp;lt;token&amp;gt;&lt;/code&gt; to represent it.&lt;/p&gt;
+
+&lt;p&gt;The URL to make the request are &lt;code&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/METHOD_NAME&lt;/code&gt;. The methods support &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;, if you do &lt;code&gt;GET&lt;/code&gt; and the method take parameters you will have to use &lt;code&gt;URL query string&lt;/code&gt;, if you use &lt;code&gt;POST&lt;/code&gt; you can use &lt;code&gt;URL query string&lt;/code&gt;, &lt;code&gt;x-www-form-urlencoded&lt;/code&gt; or &lt;code&gt;multipart/form-data&lt;/code&gt; (for upload media you need to use multipart).&lt;/p&gt;
+
+&lt;p&gt;All the responses when you call this methods are JSON, an &lt;code&gt;ok&lt;/code&gt; boolean field that explains if the request were well or don&amp;rsquo;t. If &lt;code&gt;ok&lt;/code&gt; is false, there will be other two fields, &lt;code&gt;error_code&lt;/code&gt; and &lt;code&gt;description&lt;/code&gt;. If the requests gone well and &lt;code&gt;ok&lt;/code&gt; is true, there will be one more field, &lt;code&gt;result&lt;/code&gt; with the data that you wanted.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Good result
+{
+    ok: true,
+    result: []
+}
+// Bad result example
+{
+    ok: false,
+    error_code: 401,
+    description: &amp;quot;Error: Unauthorized&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;types:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Types&lt;/h3&gt;
+
+&lt;p&gt;This are the &lt;code&gt;types&lt;/code&gt; or &lt;code&gt;schemas&lt;/code&gt; that the JSON and the data you send will need to follow. This are the fields that you need to search if you want the data.&lt;/p&gt;
+
+&lt;p&gt;You can see all the types &lt;a href=&#34;https://core.telegram.org/bots/api#available-types&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, if you want to get the message id, you see the Message type that have a message_id field that is an integer, just grab it.&lt;/p&gt;
+
+&lt;p&gt;Or, if you want to get the chat id of a message to answer him, you need the chat field in the message, and inside that chat, the id field.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Message:
+{
+    message_id: 97,
+    // ...
+}
+
+// Chat id:
+{
+    chat: {
+        id: 11,
+        // ...
+    }
+    // ...
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are developing a library that communicates with the API, make sure that have this types well known, if don&amp;rsquo;t, just read them when you need it :)&lt;/p&gt;
+
+&lt;h3 id=&#34;methods:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Methods!&lt;/h3&gt;
+
+&lt;p&gt;This are the methods that you can call in the telegram API to do something. They are pretty self-explained, and the libraries usually have wrappers, so you can just use the methods the library provide. But is great that you know what methods are and the possibilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Note: &amp;quot;user&amp;quot; here refers to a single user or a chat.&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getMe&lt;/code&gt;: Returns the information of the bot. Useful to know if the token is right.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendMessage&lt;/code&gt;: Send a message to some user.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;forwardMessage&lt;/code&gt;: Forward some message from some user to another.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendPhoto&lt;/code&gt;: Send a photo to a user, uploaded from disk or with an id (already uploaded photo)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendAudio&lt;/code&gt;: The same as photo but with an audio.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendDocument&lt;/code&gt;: The same as photo but with a document.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendSticker&lt;/code&gt;: The same as photo but with a sticker.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendVideo&lt;/code&gt;: The same as photo but with a video.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendLocation&lt;/code&gt;: Send a location (latitud and longitude)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sendChatAction&lt;/code&gt;: Send an action that is showed in the bot status (typing, sending photo, &amp;hellip;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getUserProfilePhotos&lt;/code&gt;: Get the information about all the photos a user had have.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt;: Get the update messages directly&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setWebhook&lt;/code&gt;: Set a webhook URL.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The last two are the most weird, but the most important! Let&amp;rsquo;s talk about it!&lt;/p&gt;
+
+&lt;h2 id=&#34;a-simple-architecture-of-a-bot:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;A simple architecture of a bot.&lt;/h2&gt;
+
+&lt;p&gt;So&amp;hellip; How is a simple workflow of a bot?&lt;/p&gt;
+
+&lt;p&gt;A bot works like a server, is waiting for messages, and when a message arrives, just do something, answer a text, save in DB, send some photo, whatever you want.&lt;/p&gt;
+
+&lt;p&gt;To send things to the user, the methods to call are pretty obvius, the &amp;ldquo;send*&amp;rdquo; methods (sendMessage, sendPhoto, &amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;But, how do we get the messages? You have two options, really differents!&lt;/p&gt;
+
+&lt;p&gt;Using a webhook, or using the getUpdates method.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the easiest one, &lt;code&gt;getUpdates&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;getupdates-method:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;getUpdates method&lt;/h3&gt;
+
+&lt;p&gt;This is really simple, you just need to do a GET petition to the getUpdates method, and it will return you a list with the messages.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt; without messages:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    &amp;quot;ok&amp;quot;: true,
+    &amp;quot;result&amp;quot;: []
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getUpdates&lt;/code&gt; with one message:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    &amp;quot;ok&amp;quot;: true,
+    &amp;quot;result&amp;quot;: [{
+        &amp;quot;update_id&amp;quot;: 967681107,
+        &amp;quot;message&amp;quot;: {
+            &amp;quot;message_id&amp;quot;: 73,
+            &amp;quot;from&amp;quot;: {
+                &amp;quot;id&amp;quot;: 15738534,
+                &amp;quot;first_name&amp;quot;: &amp;quot;Rock&amp;quot;,
+                &amp;quot;last_name&amp;quot;: &amp;quot;Neurotiko&amp;quot;,
+                &amp;quot;username&amp;quot;: &amp;quot;rock_neurotiko&amp;quot;
+            },
+            &amp;quot;chat&amp;quot;: {
+                &amp;quot;id&amp;quot;: 15738534,
+                &amp;quot;first_name&amp;quot;: &amp;quot;Rock&amp;quot;,
+                &amp;quot;last_name&amp;quot;: &amp;quot;Neurotiko&amp;quot;,
+                &amp;quot;username&amp;quot;: &amp;quot;rock_neurotiko&amp;quot;
+            },
+            &amp;quot;date&amp;quot;: 1438429763,
+            &amp;quot;text&amp;quot;: &amp;quot;Hi lovely readers! &amp;lt;3&amp;quot;
+        }
+    }]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can test it simply by going to the url, replacing &lt;code&gt;&amp;lt;token&amp;gt;&lt;/code&gt; with the token @BotFather gived to you: &lt;a href=&#34;https://api.telegram.org/bot&amp;lt;token&amp;gt;/getUpdates&#34;&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/getUpdates&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice that if you call to &amp;ldquo;getUpdates&amp;rdquo; again, and again, the messages are not removed! To get the messages after the last one (so you don&amp;rsquo;t process every time the same messages), you need to use the &lt;code&gt;offset&lt;/code&gt; parameter (read the documentation of the library you are using). The offset need to be setted as the last &lt;code&gt;update_id&lt;/code&gt; you received plus one. For example, in the previously message, the &lt;code&gt;update_id&lt;/code&gt; are, so I need to set the offset as &lt;code&gt;967681107 + 1 = 967681108&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the offset is needed, when you use the offset, all previous messages are erased. But not only because that, it&amp;rsquo;s because the getUpdates have a limit of 100 messages, if you don&amp;rsquo;t use the messages and the messages grow up to 100, you won&amp;rsquo;t get the newer messages.&lt;/p&gt;
+
+&lt;p&gt;So&amp;hellip; Use the offset! (to try in browser, just add at the end of the url &lt;code&gt;?offset=number&lt;/code&gt;, eg: &lt;code&gt;https://.../getUpdates?offset=967681108&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Another thing, really important. As you can see, the answer is inmediate, that means that if you don&amp;rsquo;t have messages you are going to asking the server many, many times just for nothing. This are petitions that you are doing for not getting anything. To solve that, the great telegram engineers let you use a technique called &lt;a href=&#34;https://en.wikipedia.org/wiki/Push_technology#Long_polling&#34;&gt;&lt;code&gt;long-polling&lt;/code&gt;&lt;/a&gt;, that emulates push notifications but using GET petitions.&lt;/p&gt;
+
+&lt;p&gt;This is done just by openining a connection and not returning to you the result unless some interesting result comes or some timeout lead to the end.&lt;/p&gt;
+
+&lt;p&gt;In the telegram API you can use this!! Like the offset parameter, you can use the &lt;code&gt;timeout&lt;/code&gt; parameter to set the long-polling. You can set any integer, but in my experience, they answer after 20 seconds even if you asked for more.&lt;/p&gt;
+
+&lt;p&gt;In the browser, just add the parameter to the offset one: &lt;code&gt;?offset=number&amp;amp;timeout=20&lt;/code&gt;, eg: &lt;code&gt;https://.../getUpdates?offset=967681108&amp;amp;timeout=20&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you do it in the browser you will see that the tab tries to load, and after 20 seconds will return the empty array of messages (if you didn&amp;rsquo;t have any messages or used the offset properly), but, if you reload again, and talk to your bot, the server will return you the messages inmediatly =D&lt;/p&gt;
+
+&lt;p&gt;Summary for &lt;code&gt;getUpdates&lt;/code&gt;: Use &lt;code&gt;offset&lt;/code&gt; and &lt;code&gt;timeout&lt;/code&gt; parameters!&lt;/p&gt;
+
+&lt;h3 id=&#34;webhook-method:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;Webhook method&lt;/h3&gt;
+
+&lt;p&gt;In this way you don&amp;rsquo;t have to do any GET petition, telegram will send you the messages instead.&lt;/p&gt;
+
+&lt;p&gt;You need a server with a domain and SSL verified (this is really important, you can&amp;rsquo;t use a self-signed SSL), and you expose some url. I usually use some path like &lt;code&gt;/bot/&amp;lt;token&amp;gt;&lt;/code&gt;, so no one will can send fake messages to me, because they would need to know my token.&lt;/p&gt;
+
+&lt;p&gt;So, if your domain is &lt;code&gt;https://example.org&lt;/code&gt;, you want telegram to send you the messages to &lt;code&gt;https://example.org/bot/&amp;lt;token&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To say telegram that you want that, you need to call the method &lt;code&gt;setWebhook&lt;/code&gt; with that URL and start the server.&lt;/p&gt;
+
+&lt;p&gt;Telegram will send you the messages one by one to that URL, just like a normal web server :)&lt;/p&gt;
+
+&lt;h3 id=&#34;what-way-do-i-choose:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;What way do I choose?&lt;/h3&gt;
+
+&lt;p&gt;That depends to you and what you want, if you are going to have many requests, you should use the webhook, it can handle better many messages, and it&amp;rsquo;s faster. The webhook are real PUSH data.&lt;/p&gt;
+
+&lt;p&gt;If you are not going to have 50 requests/second, you can use getUpdates if you prefer.&lt;/p&gt;
+
+&lt;p&gt;Also, if you don&amp;rsquo;t have a web server with domain and verified SSL, you will have to use the getUpdates.&lt;/p&gt;
+
+&lt;p&gt;My suggestion are: If you have domain and SSL, use webhook, if don&amp;rsquo;t, use getUpdates. When you are testing, use getUpdates :)&lt;/p&gt;
+
+&lt;h2 id=&#34;see-you:5ecaa8bbf252ff719cf377a71241523b&#34;&gt;See you!&lt;/h2&gt;
+
+&lt;p&gt;So, that&amp;rsquo;s all for today. In the next posts we&amp;rsquo;ll probably be implementing some simple bots, so you can see how easy is with a nice API library.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gentle introduction to Telegram Bots.</title>
+      <link>http://web.neurotiko.com/bots/2015/07/21/bots-introduction/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://web.neurotiko.com/bots/2015/07/21/bots-introduction/</guid>
+      <description>&lt;p&gt;Hello there, I don&amp;rsquo;t know who you are, so let&amp;rsquo;s start with a simple presentation, because this is my first post in my blog (yay! after 1 year ^^), and probably this is your first post reading here. I&amp;rsquo;ll start with the presentation, you can do the same in the comments section ^^.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m &lt;code&gt;Rock Neurotiko&lt;/code&gt;, 23 years old, Spanish and I&amp;rsquo;m studying the Computer Engineering career.&lt;/p&gt;
+
+&lt;p&gt;I started the career loving &lt;code&gt;Python&lt;/code&gt;, and hating &lt;code&gt;Java&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now, four years after, I love many languages, the first ones that have comed to my mind are: &lt;code&gt;Scala&lt;/code&gt;, &lt;code&gt;Haskell&lt;/code&gt;, &lt;code&gt;TypeScript&lt;/code&gt;, &lt;code&gt;Go&lt;/code&gt;, &lt;code&gt;Ponylang&lt;/code&gt;, &lt;code&gt;Elm&lt;/code&gt;, &lt;code&gt;Julia&lt;/code&gt;, &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Python&lt;/code&gt; has been relegated to a second place.&lt;/p&gt;
+
+&lt;p&gt;I still hate &lt;code&gt;Java&lt;/code&gt; but &lt;code&gt;Perl&lt;/code&gt;, &lt;code&gt;Ruby&lt;/code&gt; and &lt;code&gt;PHP&lt;/code&gt; has joined to my hated languages.&lt;/p&gt;
+
+&lt;p&gt;But stop talking about me, let&amp;rsquo;s start talk about &lt;code&gt;Telegram&lt;/code&gt; and &lt;code&gt;Bots&lt;/code&gt;, I&amp;rsquo;m pretty sure that is why you are here.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://web.neurotiko.com/images/go-bots/simply-write.jpg&#34; alt=&#34;One does not simply write a Telegram Bot Meme&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At first, let&amp;rsquo;s see some &amp;ldquo;definitions&amp;rdquo; (by myself).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Telegram&lt;/code&gt;: Telegram is an instant messaging system, multi-platform, focused in the security and privacy of the users.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Bot&lt;/code&gt;: A bot it&amp;rsquo;s a computer program that perform some operations automatically.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first question could be: &amp;ldquo;Why a bot in Telegram?&amp;rdquo;. Well, the bots let you automate things and makes your life easier. For example, if you want to send an image to a friend, or search an image of something, instead of open a web-browser and search for an image, you can talk to a bot and tell him: &lt;code&gt;Image of &amp;lt;something&amp;gt;&lt;/code&gt;, and he returns you an image of that!&lt;/p&gt;
+
+&lt;p&gt;This is a really simple bot, but can be as complex as you want, for example, a bot that connects with a programmable coffee pot and you set the time and type of coffee to make =D&lt;/p&gt;
+
+&lt;p&gt;The power of telegram is that you don&amp;rsquo;t have it only in your phone, you have it in your phone, in your computers, in your tablets, in every computer that you take. I use it every day, and I use the bots to help me in my day to day.&lt;/p&gt;
+
+&lt;p&gt;In every instant messaging system that I know, the people always try to make bots, and Telegram is not an exception.&lt;/p&gt;
+
+&lt;p&gt;The main communication with Telegram servers are with a binary protocol invented by them, it&amp;rsquo;s called MTProto, you can see &lt;a href=&#34;https://core.telegram.org/mtproto&#34;&gt;here&lt;/a&gt; the specification and all the links.&lt;/p&gt;
+
+&lt;p&gt;So, if you wanted to build a bot, you needed to communicate with the telegram servers using mtproto, and you had two options (as far as I know), do it manually in your language, or use &lt;a href=&#34;https://github.com/vysheng/tg/&#34;&gt;tg&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;tg&lt;/code&gt; is a telegram terminal client for Unix systems (now they have compatibility with windows using cygwin), is writed in C, and the magic is that they have a library wrapper for Lua! What does it means? It means that you can program your bots using Lua, without worrying about mtproto!&lt;/p&gt;
+
+&lt;p&gt;So, at the beginning (almost) all the bots were builted with &lt;code&gt;tg&lt;/code&gt; and Lua (they added support for Python and json output later).The most popular bot was (and maybe still are) &lt;a href=&#34;https://github.com/yagop/telegram-bot/&#34;&gt;telegram-bot&lt;/a&gt; by &lt;a href=&#34;https://github.com/yagop&#34;&gt;@yagop&lt;/a&gt;, telegram-bot is a multi-purpose bot based on plugins.&lt;/p&gt;
+
+&lt;p&gt;You can take a look at that project, it have so many plugins, and so good!&lt;/p&gt;
+
+&lt;p&gt;You have to configure the bot in a real telegram account, with a phone number, and it looks like a normal user, because it&amp;rsquo;s a normal user! (actually you can log with the same number in another client and see all the messages).&lt;/p&gt;
+
+&lt;p&gt;It worked pretty well, and it&amp;rsquo;s really powerful. Telegram saw it too, and they decided to create a Bot API so people can build the bots in their favourite language without using mtproto (and more improvements over traditional bots).&lt;/p&gt;
+
+&lt;p&gt;They released it in mid-june (if my memory don&amp;rsquo;t fail), and it was a really surprise, at least to the people in the telegram-bot development group.&lt;/p&gt;
+
+&lt;p&gt;They opened the &lt;code&gt;Bot Revolution&lt;/code&gt; as they call it with a &lt;a href=&#34;https://telegram.org/blog/bot-revolution&#34;&gt;blog post&lt;/a&gt; and released some bots builted in the platform&amp;rsquo;s Beta (listed in the &lt;a href=&#34;https://telegram.org/blog/bot-revolution&#34;&gt;blog-post&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;That post is really great, but don&amp;rsquo;t help too much to the developers, lucky of us they released two more pages, the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;introduction for developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;API specification&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This two links are really needed to continue developing bots (knowing programming too!).&lt;/p&gt;
+
+&lt;p&gt;We are going to close this post here, with the homework of reading the &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;introduction for developers&lt;/a&gt; and the &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;API specification&lt;/a&gt; before the next post (I don&amp;rsquo;t know when will be).&lt;/p&gt;
+
+&lt;p&gt;I almost forgot, you should start learning &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;, it will be the language that I will be using ;-)&lt;/p&gt;
+
+&lt;p&gt;If you know some programming, you can see the video &lt;a href=&#34;http://www.youtube.com/watch?v=CF9S4QZuV30&#34;&gt;Learn Go in one video&lt;/a&gt;, it&amp;rsquo;s really great explained!&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t know some programming&amp;hellip; well, I guess that you should search in google to learn programming first ;-)&lt;/p&gt;
+
+&lt;p&gt;Cheers, and may the Bot be with you.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
