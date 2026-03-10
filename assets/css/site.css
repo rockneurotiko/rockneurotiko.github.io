@@ -2,169 +2,171 @@
 @source "../../lib";
 
 @theme {
-  --font-sans: ui-rounded, "Hiragino Maru Gothic ProN", system-ui, sans-serif;
-  --color-brand: #0d9488;
-  --color-brand-light: #ccfbf1;
-  --color-surface: #fafaf9;
-  --color-paper: #f5f5f4;
+  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
 }
+
+* { box-sizing: border-box; }
 
 body {
-  font-family: var(--font-sans);
-  background-color: #fafaf9;
+  font-family: var(--font-mono);
+  background-color: #0a0a12;
 }
 
-.prose-notebook h1,
-.prose-notebook h2,
-.prose-notebook h3,
-.prose-notebook h4 {
+/* ── Elixir Purple Glow — prose ─────────────────────────────── */
+
+.prose-elixir h1,
+.prose-elixir h2,
+.prose-elixir h3,
+.prose-elixir h4 {
+  font-family: var(--font-mono);
   font-weight: 700;
-  color: #1c1917;
+  color: #e9d5ff;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.3;
-  letter-spacing: -0.01em;
 }
 
-.prose-notebook h2 {
-  font-size: 1.375rem;
+.prose-elixir h2 {
+  font-size: 1.25rem;
+  border-bottom: 1px solid #3b1f6e;
   padding-bottom: 0.4rem;
-  border-bottom: 2px dashed #d6d3d1;
 }
-.prose-notebook h3 { font-size: 1.2rem; }
-.prose-notebook h4 { font-size: 1.05rem; }
 
-.prose-notebook p {
+.prose-elixir h3 { font-size: 1.1rem; color: #c4b5fd; }
+.prose-elixir h4 { font-size: 1rem; color: #a78bfa; }
+
+.prose-elixir p {
   margin-bottom: 1.4rem;
   line-height: 1.85;
-  color: #44403c;
+  color: #c4b5fd;
 }
 
-.prose-notebook a {
-  color: #0d9488;
-  font-weight: 500;
+.prose-elixir a {
+  color: #38bdf8;
   text-decoration: underline;
-  text-decoration-color: #99f6e4;
+  text-decoration-color: #0e4f6b;
   text-underline-offset: 3px;
   transition: color 150ms, text-decoration-color 150ms;
 }
 
-.prose-notebook a:hover {
-  color: #0f766e;
-  text-decoration-color: #0d9488;
+.prose-elixir a:hover {
+  color: #7dd3fc;
+  text-decoration-color: #38bdf8;
 }
 
-.prose-notebook ul,
-.prose-notebook ol {
-  margin: 1rem 0 1.4rem 1.25rem;
+.prose-elixir ul,
+.prose-elixir ol {
+  margin: 1rem 0 1.4rem 0;
   line-height: 1.85;
-  color: #44403c;
+  color: #c4b5fd;
 }
 
-.prose-notebook ul { list-style: none; padding-left: 0; }
-.prose-notebook ul li {
+.prose-elixir ul { list-style: none; padding-left: 0; }
+.prose-elixir ul li {
   padding-left: 1.5rem;
   position: relative;
   margin-bottom: 0.4rem;
 }
-.prose-notebook ul li::before {
-  content: "◆";
+.prose-elixir ul li::before {
+  content: "|>";
   position: absolute;
   left: 0;
-  color: #99f6e4;
-  font-size: 0.65em;
-  top: 0.35em;
+  color: #7e22ce;
+  font-size: 0.75em;
+  top: 0.2em;
+  font-weight: 700;
 }
-.prose-notebook ol { list-style: decimal; padding-left: 1.5rem; }
-.prose-notebook ol li { margin-bottom: 0.4rem; }
+.prose-elixir ol { list-style: decimal; padding-left: 1.5rem; }
+.prose-elixir ol li { margin-bottom: 0.4rem; }
 
-.prose-notebook blockquote {
-  border-left: 3px solid #0d9488;
+.prose-elixir blockquote {
+  border-left: 2px solid #7c3aed;
   padding: 0.75rem 1rem;
   margin: 1.5rem 0;
-  background: #f0fdfa;
-  border-radius: 0 8px 8px 0;
-  color: #0f766e;
+  background: #1a0f2e;
+  border-radius: 0 6px 6px 0;
+  color: #a78bfa;
   font-style: italic;
 }
 
-.prose-notebook code {
-  font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+.prose-elixir code {
+  font-family: var(--font-mono);
   font-size: 0.875em;
-  background: #f5f5f4;
-  border: 1px solid #e7e5e4;
+  background: #1a0f2e;
+  border: 1px solid #4c1d95;
   padding: 0.1em 0.4em;
   border-radius: 4px;
-  color: #0f766e;
+  color: #c084fc;
 }
 
-.prose-notebook pre {
-  font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
-  background: #1c1917;
-  color: #e7e5e4;
-  border-left: 3px solid #0d9488;
+.prose-elixir pre {
+  font-family: var(--font-mono);
+  background: #120d1e;
+  border: 1px solid #3b1f6e;
+  border-left: 3px solid #7c3aed;
   padding: 1.25rem 1.5rem;
   border-radius: 0 8px 8px 0;
   overflow-x: auto;
   margin: 1.5rem 0;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   line-height: 1.7;
+  box-shadow: inset 0 0 30px rgba(124, 58, 237, 0.05);
 }
 
-.prose-notebook pre code {
+.prose-elixir pre code {
   background: none;
   border: none;
   padding: 0;
-  color: inherit;
+  color: #e2d9f3;
 }
 
-.prose-notebook img {
+.prose-elixir img {
   max-width: 100%;
   height: auto;
   margin: 1.5rem 0;
-  border-radius: 10px;
-  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  border: 1px solid #3b1f6e;
 }
 
-.prose-notebook hr {
+.prose-elixir hr {
   border: none;
   text-align: center;
   margin: 2.5rem 0;
-  color: #a8a29e;
-  font-size: 1.25rem;
+  color: #4c1d95;
+  font-size: 1rem;
   letter-spacing: 0.5em;
 }
 
-.prose-notebook hr::after {
-  content: "✦ ✦ ✦";
+.prose-elixir hr::after {
+  content: "|> |> |>";
 }
 
-.prose-notebook strong {
+.prose-elixir strong {
   font-weight: 700;
-  color: #1c1917;
+  color: #e9d5ff;
 }
 
-.prose-notebook table {
+.prose-elixir table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  font-size: 0.9rem;
-  border-radius: 8px;
+  font-size: 0.875rem;
+  border: 1px solid #3b1f6e;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #e7e5e4;
 }
 
-.prose-notebook th {
-  background: #f0fdfa;
-  color: #0f766e;
+.prose-elixir th {
+  background: #1a0f2e;
+  color: #c084fc;
   padding: 0.6rem 0.75rem;
   text-align: left;
   font-weight: 700;
-  border-bottom: 2px solid #99f6e4;
+  border-bottom: 1px solid #4c1d95;
 }
 
-.prose-notebook td {
-  border-bottom: 1px solid #f5f5f4;
+.prose-elixir td {
+  border-bottom: 1px solid #1f1035;
   padding: 0.6rem 0.75rem;
-  color: #44403c;
+  color: #c4b5fd;
 }

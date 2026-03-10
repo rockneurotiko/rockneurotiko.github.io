@@ -11,23 +11,27 @@ defmodule Rock.HomePage do
     assigns = Map.put(assigns, :sorted_posts, posts)
 
     ~H"""
-    <section>
+    <section class="max-w-2xl">
       <div class="mb-10">
-        <h1 class="text-2xl font-bold text-stone-900 mb-1 tracking-tight">Rock Neurotiko's Blog</h1>
-        <p class="text-stone-400 text-sm">Notes on software, engineering, and building things.</p>
+        <h1 class="text-xl font-mono font-bold text-violet-100 mb-1">
+          <span class="text-purple-600">defmodule</span> <span class="text-purple-300">Blog</span> <span class="text-purple-600">do</span>
+        </h1>
+        <p class="font-mono text-xs text-purple-700 pl-4">fn -&gt; notes on elixir, code &amp; building things end</p>
       </div>
-      <ul class="space-y-3">
+      <div class="font-mono text-xs text-purple-700 mb-3 pl-1"># posts |&gt; Enum.sort_by(&amp;date, :desc)</div>
+      <ul class="space-y-2">
         <%= for post <- @sorted_posts do %>
           <li>
-            <a href="<%= post[:permalink] %>" class="group flex justify-between items-start gap-4 bg-white border border-stone-200 rounded-xl px-5 py-4 hover:border-teal-300 hover:shadow-sm transition-all duration-150">
-              <span class="font-medium text-stone-800 group-hover:text-teal-700 transition-colors leading-snug"><%= post[:title] %></span>
-              <time class="text-xs text-stone-400 shrink-0 mt-0.5 tabular-nums bg-stone-100 px-2 py-0.5 rounded-md" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
-                <%= Calendar.strftime(post[:date], "%b %Y") %>
+            <a href="<%= post[:permalink] %>" class="group flex justify-between items-start gap-4 bg-[#0f0f1a] border border-purple-900/40 rounded-lg px-4 py-3 hover:border-purple-500/60 hover:shadow-[0_0_12px_rgba(168,85,247,0.15)] transition-all duration-200">
+              <span class="font-mono text-sm text-violet-300 group-hover:text-purple-200 transition-colors leading-snug"><%= post[:title] %></span>
+              <time class="font-mono text-[10px] text-purple-700 shrink-0 mt-0.5 tabular-nums" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
+                <%= Calendar.strftime(post[:date], "%Y-%m") %>
               </time>
             </a>
           </li>
         <% end %>
       </ul>
+      <div class="mt-8 font-mono text-xs text-purple-800 pl-1">end</div>
     </section>
     """
   end
