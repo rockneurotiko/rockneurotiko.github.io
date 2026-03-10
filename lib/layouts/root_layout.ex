@@ -1,5 +1,5 @@
 defmodule Rock.RootLayout do
-  use Tableau.Layout
+  use Tableau.Layout, layout: nil
   import Rock
 
   def template(assigns) do
@@ -9,38 +9,32 @@ defmodule Rock.RootLayout do
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title><%= Enum.join(Enum.filter([@page[:title], "rock"], & &1), " | ") %></title>
+        <title><%= Enum.reject([@page[:title], "rock"], &is_nil/1) |> Enum.join(" | ") %></title>
         <link rel="stylesheet" href="/css/site.css" />
-        <script src="/js/site.js"></script>
       </head>
-      <body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col">
-        <header class="bg-stone-50 border-b border-stone-200">
-          <div class="max-w-2xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center bg-white border border-stone-200 rounded-2xl px-5 py-3 shadow-sm">
-              <a href="/" class="text-base font-semibold text-stone-800 no-underline hover:text-teal-700 transition-colors">
-                rock neurotiko
-              </a>
-              <nav class="flex gap-5 text-sm text-stone-500">
-                <a href="/" class="hover:text-teal-700 transition-colors font-medium">Home</a>
-                <a href="/about" class="hover:text-teal-700 transition-colors font-medium">About</a>
-              </nav>
-            </div>
+      <body class="bg-white text-gray-900 antialiased min-h-screen">
+        <header class="border-b border-gray-100">
+          <div class="max-w-2xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="font-bold text-lg tracking-tight text-gray-900 hover:text-gray-600 transition-colors" style="font-family: Georgia, serif;">rock</a>
+            <nav class="flex gap-6 text-sm text-gray-500">
+              <a href="/" class="hover:text-gray-900 transition-colors">home</a>
+              <a href="/about" class="hover:text-gray-900 transition-colors">about</a>
+            </nav>
           </div>
         </header>
-        <main class="flex-1">
+        <main class="max-w-2xl mx-auto px-6 py-12">
           <%= render @inner_content %>
         </main>
-        <footer class="mt-16 border-t border-stone-200 bg-white">
-          <div class="max-w-2xl mx-auto px-6 py-6 text-center text-sm text-stone-400">
-            <p class="mb-1">Thanks for reading</p>
-            <div class="flex justify-center gap-4 mt-2">
-              <a href="https://github.com/rockneurotiko" class="hover:text-teal-600 transition-colors">GitHub</a>
-              <span class="text-stone-300">&middot;</span>
-              <a href="https://telegram.me/rockneurotiko" class="hover:text-teal-600 transition-colors">Telegram</a>
+        <footer class="border-t border-gray-100 mt-16">
+          <div class="max-w-2xl mx-auto px-6 py-8 flex justify-between items-center text-sm text-gray-400">
+            <span>rock neurotiko</span>
+            <div class="flex gap-4">
+              <a href="https://github.com/rockneurotiko" class="hover:text-gray-700 transition-colors">github</a>
+              <a href="https://telegram.me/rockneurotiko" class="hover:text-gray-700 transition-colors">telegram</a>
             </div>
           </div>
         </footer>
-        <%= Tableau.live_reload(assigns) %>
+        <%= if Mix.env() == :dev do Tableau.live_reload(assigns) end %>
       </body>
     </html>
     """
