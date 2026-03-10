@@ -4,25 +4,21 @@ defmodule Rock.AboutPage do
 
   def template(assigns) do
     ~H"""
-    <div class="bg-indigo-700 text-white">
-      <div class="max-w-4xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-extrabold">About Me</h1>
-      </div>
-    </div>
-    <article class="max-w-4xl mx-auto px-6 py-12">
-      <div class="max-w-2xl space-y-4 text-gray-700 leading-relaxed text-lg">
+    <article class="max-w-2xl mx-auto px-6 py-12">
+      <h1 class="text-3xl font-bold text-stone-900 mb-8 border-l-4 border-teal-400 pl-4">About Me</h1>
+      <div class="bg-white rounded-2xl border border-stone-200 shadow-sm p-8 space-y-4 text-stone-700 leading-relaxed">
         <p>
-          I'm a software engineer based in <strong class="text-gray-900 font-semibold">Madrid</strong>. I work with Elixir, Scala, and Rust — among other things.
+          I'm a software engineer based in <strong class="text-stone-900 font-semibold">Madrid</strong>. I work with Elixir, Scala, and Rust — among other things.
         </p>
         <p>
           This is my corner of the internet where I write about programming, bots, and whatever else I find interesting.
         </p>
       </div>
-      <div class="mt-10 flex gap-4">
-        <a href="https://github.com/rockneurotiko" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+      <div class="mt-8 flex gap-3">
+        <a href="https://github.com/rockneurotiko" class="inline-flex items-center bg-white border border-stone-200 text-stone-700 font-medium text-sm px-5 py-2.5 rounded-xl shadow-sm hover:border-teal-300 hover:text-teal-700 transition-all">
           GitHub
         </a>
-        <a href="https://telegram.me/rockneurotiko" class="inline-flex items-center gap-2 border border-indigo-300 text-indigo-700 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-indigo-50 transition-colors">
+        <a href="https://telegram.me/rockneurotiko" class="inline-flex items-center bg-white border border-stone-200 text-stone-700 font-medium text-sm px-5 py-2.5 rounded-xl shadow-sm hover:border-teal-300 hover:text-teal-700 transition-all">
           Telegram
         </a>
       </div>

@@ -13,34 +13,31 @@ defmodule Rock.RootLayout do
         <link rel="stylesheet" href="/css/site.css" />
         <script src="/js/site.js"></script>
       </head>
-      <body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col">
-        <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-md">
-          <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-xl font-bold tracking-tight text-white no-underline hover:text-indigo-200 transition-colors">
-              Rock Neurotiko
-            </a>
-            <nav class="flex gap-6 text-sm font-medium text-indigo-200">
-              <a href="/" class="hover:text-white transition-colors">Home</a>
-              <a href="/about" class="hover:text-white transition-colors">About</a>
-            </nav>
+      <body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col">
+        <header class="bg-stone-50 border-b border-stone-200">
+          <div class="max-w-2xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center bg-white border border-stone-200 rounded-2xl px-5 py-3 shadow-sm">
+              <a href="/" class="text-base font-semibold text-stone-800 no-underline hover:text-teal-700 transition-colors">
+                rock neurotiko
+              </a>
+              <nav class="flex gap-5 text-sm text-stone-500">
+                <a href="/" class="hover:text-teal-700 transition-colors font-medium">Home</a>
+                <a href="/about" class="hover:text-teal-700 transition-colors font-medium">About</a>
+              </nav>
+            </div>
           </div>
         </header>
         <main class="flex-1">
           <%= render @inner_content %>
         </main>
-        <footer class="bg-gray-900 text-gray-400 mt-16 border-t-4 border-indigo-600">
-          <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-start gap-4">
-            <div>
-              <div class="text-white font-bold mb-1">Rock Neurotiko</div>
-              <div class="text-sm">Software engineer in Madrid</div>
+        <footer class="mt-16 border-t border-stone-200 bg-white">
+          <div class="max-w-2xl mx-auto px-6 py-6 text-center text-sm text-stone-400">
+            <p class="mb-1">Thanks for reading</p>
+            <div class="flex justify-center gap-4 mt-2">
+              <a href="https://github.com/rockneurotiko" class="hover:text-teal-600 transition-colors">GitHub</a>
+              <span class="text-stone-300">&middot;</span>
+              <a href="https://telegram.me/rockneurotiko" class="hover:text-teal-600 transition-colors">Telegram</a>
             </div>
-            <div class="text-sm flex gap-6">
-              <a href="https://github.com/rockneurotiko" class="hover:text-white transition-colors">GitHub</a>
-              <a href="https://telegram.me/rockneurotiko" class="hover:text-white transition-colors">Telegram</a>
-            </div>
-          </div>
-          <div class="max-w-4xl mx-auto px-6 pb-6 text-xs text-gray-600">
-            Built with <span class="text-indigo-400">Tableau</span> &amp; <span class="text-indigo-400">Elixir</span>
           </div>
         </footer>
         <%= Tableau.live_reload(assigns) %>
