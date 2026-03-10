@@ -4,24 +4,34 @@ defmodule Rock.AboutPage do
 
   def template(assigns) do
     ~H"""
-    <article class="max-w-2xl mx-auto px-6 py-12">
-      <h1 class="text-2xl font-semibold text-gray-900 mb-8">About Me</h1>
-      <div class="space-y-4 text-gray-700 leading-relaxed">
+    <article class="max-w-3xl mx-auto px-6 py-10">
+      <div class="text-xs text-emerald-700 mb-6">
+        <span class="text-emerald-600">$</span> cat <span class="text-amber-400">about.txt</span>
+      </div>
+      <h1 class="text-2xl font-bold text-emerald-200 mb-8">&gt; about me</h1>
+      <div class="space-y-4 text-emerald-400 leading-relaxed">
         <p>
-          I'm a software engineer based in Madrid. I work with Elixir, Scala, and Rust — among other things.
+          <span class="text-emerald-700 mr-2">&gt;&gt;</span>
+          Software engineer based in Madrid. Working with Elixir, Scala, and Rust.
         </p>
         <p>
-          This is my corner of the internet where I write about programming, bots, and whatever else I find interesting.
+          <span class="text-emerald-700 mr-2">&gt;&gt;</span>
+          This is my corner of the internet. I write about programming, bots, and whatever else I find interesting.
         </p>
       </div>
-      <ul class="mt-8 flex gap-6 text-sm">
-        <li>
-          <a href="https://github.com/rockneurotiko" class="text-gray-500 hover:text-gray-900 transition-colors">github</a>
-        </li>
-        <li>
-          <a href="https://telegram.me/rockneurotiko" class="text-gray-500 hover:text-gray-900 transition-colors">telegram</a>
-        </li>
-      </ul>
+      <div class="mt-10 text-xs text-emerald-700">
+        <div class="mb-2"><span class="text-emerald-600">$</span> cat <span class="text-amber-400">links.txt</span></div>
+        <ul class="space-y-1 pl-4">
+          <li>
+            <span class="text-gray-600">→ </span>
+            <a href="https://github.com/rockneurotiko" class="text-amber-500 hover:text-amber-300 transition-colors">github.com/rockneurotiko</a>
+          </li>
+          <li>
+            <span class="text-gray-600">→ </span>
+            <a href="https://telegram.me/rockneurotiko" class="text-amber-500 hover:text-amber-300 transition-colors">telegram.me/rockneurotiko</a>
+          </li>
+        </ul>
+      </div>
     </article>
     """
   end
