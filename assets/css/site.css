@@ -3,199 +3,167 @@
 
 @theme {
   --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
-  --color-gray-950: #030712;
 }
 
 * { box-sizing: border-box; }
 
 body {
   font-family: var(--font-mono);
-  background-color: #030712;
+  background-color: #0c0c0c;
 }
 
-/* ── Neon glow effects ─────────────────────────────────────── */
+/* ── Racing Dark Carbon — prose ─────────────────────────────── */
 
-.neon-text {
-  text-shadow: 0 0 10px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.3);
-}
-
-.neon-text-subtle {
-  text-shadow: 0 0 8px rgba(6, 182, 212, 0.25);
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.animate-blink {
-  animation: blink 1.1s step-end infinite;
-}
-
-/* ── Cyberpunk prose ───────────────────────────────────────── */
-
-.prose-cyber h1,
-.prose-cyber h2,
-.prose-cyber h3,
-.prose-cyber h4 {
+.prose-carbon h1,
+.prose-carbon h2,
+.prose-carbon h3,
+.prose-carbon h4 {
   font-family: var(--font-mono);
   font-weight: 700;
-  color: #f9fafb;
+  color: #fafafa;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.3;
 }
 
-.prose-cyber h2 {
-  font-size: 1.2rem;
-  color: #e2e8f0;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #1e3a4a;
+.prose-carbon h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-left: 2px solid #ef4444;
+  padding-left: 0.75rem;
+  color: #e4e4e7;
 }
 
-.prose-cyber h3 { font-size: 1.05rem; color: #cbd5e1; }
-.prose-cyber h4 { font-size: 0.95rem; color: #94a3b8; }
+.prose-carbon h3 { font-size: 1rem; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.03em; }
+.prose-carbon h4 { font-size: 0.9rem; color: #71717a; }
 
-.prose-cyber p {
+.prose-carbon p {
   margin-bottom: 1.4rem;
   line-height: 1.85;
-  color: #d1d5db;
+  color: #a1a1aa;
 }
 
-.prose-cyber a {
-  color: #06b6d4;
+.prose-carbon a {
+  color: #ef4444;
   text-decoration: underline;
-  text-decoration-color: #164e63;
+  text-decoration-color: #450a0a;
   text-underline-offset: 3px;
-  transition: color 150ms, text-shadow 150ms;
+  transition: color 150ms, text-decoration-color 150ms;
 }
 
-.prose-cyber a:hover {
-  color: #67e8f9;
-  text-decoration-color: #06b6d4;
-  text-shadow: 0 0 6px rgba(6, 182, 212, 0.4);
+.prose-carbon a:hover {
+  color: #fca5a5;
+  text-decoration-color: #ef4444;
 }
 
-.prose-cyber ul,
-.prose-cyber ol {
+.prose-carbon ul,
+.prose-carbon ol {
   margin: 1rem 0 1.4rem 0;
   line-height: 1.85;
-  color: #d1d5db;
+  color: #a1a1aa;
 }
 
-.prose-cyber ul { list-style: none; padding-left: 0; }
-.prose-cyber ul li {
+.prose-carbon ul { list-style: none; padding-left: 0; }
+.prose-carbon ul li {
   padding-left: 1.5rem;
   position: relative;
   margin-bottom: 0.4rem;
 }
-.prose-cyber ul li::before {
-  content: "▸";
+.prose-carbon ul li::before {
+  content: "—";
   position: absolute;
   left: 0;
-  color: #06b6d4;
+  color: #ef4444;
+  font-weight: 700;
 }
-.prose-cyber ol { list-style: decimal; padding-left: 1.5rem; }
-.prose-cyber ol li { margin-bottom: 0.4rem; }
+.prose-carbon ol { list-style: decimal; padding-left: 1.5rem; }
+.prose-carbon ol li { margin-bottom: 0.4rem; }
 
-.prose-cyber blockquote {
-  border-left: 2px solid #06b6d4;
+.prose-carbon blockquote {
+  border-left: 2px solid #ef4444;
   padding: 0.75rem 1rem;
   margin: 1.5rem 0;
-  background: #0c1a1f;
-  border-radius: 0 6px 6px 0;
-  color: #94a3b8;
+  background: #111111;
+  color: #71717a;
   font-style: italic;
 }
 
-.prose-cyber code {
+.prose-carbon code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: #0c1a1f;
-  border: 1px solid #164e63;
+  background: #181818;
+  border: 1px solid #27272a;
   padding: 0.1em 0.4em;
-  border-radius: 4px;
-  color: #06b6d4;
+  border-radius: 3px;
+  color: #f59e0b;
 }
 
-.prose-cyber pre {
+.prose-carbon pre {
   font-family: var(--font-mono);
-  background: #060f14;
-  border: 1px solid #1e3a4a;
-  border-top: 2px solid #06b6d4;
+  background: #0f0f0f;
+  border: 1px solid #27272a;
+  border-top: 2px solid #ef4444;
   padding: 1.25rem 1.5rem;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 4px 4px;
   overflow-x: auto;
   margin: 1.5rem 0;
   font-size: 0.85rem;
   line-height: 1.7;
-  position: relative;
 }
 
-.prose-cyber pre::before {
-  content: "● ● ●";
-  display: block;
-  font-size: 0.6rem;
-  color: #374151;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.3em;
-}
-
-.prose-cyber pre code {
+.prose-carbon pre code {
   background: none;
   border: none;
   padding: 0;
-  color: #e2e8f0;
+  color: #e4e4e7;
 }
 
-.prose-cyber img {
+.prose-carbon img {
   max-width: 100%;
   height: auto;
   margin: 1.5rem 0;
-  border-radius: 6px;
-  border: 1px solid #1e3a4a;
+  border: 1px solid #27272a;
 }
 
-.prose-cyber hr {
+.prose-carbon hr {
   border: none;
-  text-align: center;
+  border-top: 1px solid #ef4444;
   margin: 2.5rem 0;
-  color: #1e3a4a;
-  font-size: 0.75rem;
-  letter-spacing: 0.4em;
+  opacity: 0.3;
 }
 
-.prose-cyber hr::after {
-  content: "══════════════";
-  color: #1e3a4a;
-}
-
-.prose-cyber strong {
+.prose-carbon strong {
   font-weight: 700;
-  color: #f9fafb;
+  color: #fafafa;
 }
 
-.prose-cyber table {
+.prose-carbon table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.875rem;
-  border: 1px solid #1e3a4a;
-  border-radius: 6px;
-  overflow: hidden;
+  border: 1px solid #27272a;
 }
 
-.prose-cyber th {
-  background: #0c1a1f;
-  color: #06b6d4;
+.prose-carbon th {
+  background: #111111;
+  color: #fafafa;
   padding: 0.6rem 0.75rem;
   text-align: left;
   font-weight: 700;
-  border-bottom: 1px solid #1e3a4a;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid #ef4444;
 }
 
-.prose-cyber td {
-  border-bottom: 1px solid #111827;
+.prose-carbon td {
+  border-bottom: 1px solid #18181b;
   padding: 0.6rem 0.75rem;
-  color: #d1d5db;
+  color: #a1a1aa;
+}
+
+.prose-carbon tr:nth-child(even) td {
+  background: #0f0f0f;
 }
