@@ -1,17 +1,26 @@
 import Config
 
+config :tailwind,
+  version: "4.1.4",
+  default: [
+    args: ~w(
+      --input=assets/css/site.css
+      --output=_site/css/site.css
+    )
+  ]
+
 config :tableau, :reloader,
   patterns: [
     ~r"^lib/.*.ex",
     ~r"^(_posts|_pages)/.*.md",
-    ~r"^extra/.*.(css|js)"
+    ~r"^assets/.*.(css|js)"
   ]
 
 config :web_dev_utils, :reload_log, true
 # uncomment this if you use something like ngrok
 # config :web_dev_utils, :reload_url, "'wss://' + location.host + '/ws'"
 
-config :tableau, :assets, []
+config :tableau, :assets, tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
 
 config :tableau, :config,
   url: "http://localhost:4999",

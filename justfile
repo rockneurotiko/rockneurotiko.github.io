@@ -1,6 +1,10 @@
 default:
   @just --list
 
+setup:
+  mix deps.get
+  mix tailwind.install
+
 clean:
   rm -rf _site
 
