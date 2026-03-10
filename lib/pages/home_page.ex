@@ -8,21 +8,21 @@ defmodule Rock.HomePage do
 
   def template(assigns) do
     posts = Enum.sort_by(assigns[:posts] || [], & &1[:date], {:desc, Date})
-
     assigns = Map.put(assigns, :sorted_posts, posts)
 
     ~H"""
     <section>
-      <h1 class="text-2xl font-bold text-gray-900 mb-1" style="font-family: Georgia, serif; letter-spacing: -0.02em;">Rock Neurotiko's Blog</h1>
-      <p class="text-gray-400 text-sm mb-10">Notes on software, engineering, and everything in between.</p>
-      <ul class="divide-y divide-gray-100">
+      <div class="mb-8 text-xs text-[#166534]">
+        <div>$ ls -lt posts/</div>
+        <div class="mt-1 text-[#4b5563]">total <%= length(@sorted_posts) %></div>
+      </div>
+      <ul class="space-y-1">
         <%= for post <- @sorted_posts do %>
-          <li>
-            <a href="<%= post[:permalink] %>" class="flex justify-between items-baseline py-4 group">
-              <span class="text-gray-900 group-hover:text-gray-500 transition-colors"><%= post[:title] %></span>
-              <time class="text-sm text-gray-400 shrink-0 ml-6 tabular-nums" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
-                <%= Calendar.strftime(post[:date], "%b %d, %Y") %>
-              </time>
+          <li class="flex items-baseline gap-3 text-sm font-mono">
+            <span class="text-[#166534] shrink-0 tabular-nums w-24"><%= Calendar.strftime(post[:date], "%Y-%m-%d") %></span>
+            <span class="text-[#166534]">-rw-r--r--</span>
+            <a href="<%= post[:permalink] %>" class="text-[#4ade80] hover:text-[#fbbf24] transition-colors border-b border-transparent hover:border-[#fbbf24]">
+              <%= post[:title] %>
             </a>
           </li>
         <% end %>
