@@ -11,23 +11,29 @@ defmodule Rock.HomePage do
     assigns = Map.put(assigns, :sorted_posts, posts)
 
     ~H"""
-    <section>
-      <div class="mb-8 text-xs text-[#166534]">
-        <div>$ ls -lt posts/</div>
-        <div class="mt-1 text-[#4b5563]">total <%= length(@sorted_posts) %></div>
+    <div class="bg-gray-50 border-b border-gray-200 py-14">
+      <div class="max-w-5xl mx-auto px-6">
+        <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">Rock Neurotiko's Blog</h1>
+        <p class="text-gray-500 text-lg">Notes on software, engineering, and building things.</p>
       </div>
-      <ul class="space-y-1">
+    </div>
+    <div class="max-w-5xl mx-auto px-6 py-12">
+      <div class="grid gap-6 sm:grid-cols-2">
         <%= for post <- @sorted_posts do %>
-          <li class="flex items-baseline gap-3 text-sm font-mono">
-            <span class="text-[#166534] shrink-0 tabular-nums w-24"><%= Calendar.strftime(post[:date], "%Y-%m-%d") %></span>
-            <span class="text-[#166534]">-rw-r--r--</span>
-            <a href="<%= post[:permalink] %>" class="text-[#4ade80] hover:text-[#fbbf24] transition-colors border-b border-transparent hover:border-[#fbbf24]">
-              <%= post[:title] %>
-            </a>
-          </li>
+          <a href="<%= post[:permalink] %>" class="group block bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <%= for cat <- (post[:categories] || []) do %>
+                <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide"><%= cat %></span>
+              <% end %>
+            </div>
+            <h2 class="font-bold text-gray-900 text-lg leading-snug mb-2 group-hover:text-indigo-600 transition-colors"><%= post[:title] %></h2>
+            <time class="text-sm text-gray-400 tabular-nums" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
+              <%= Calendar.strftime(post[:date], "%B %d, %Y") %>
+            </time>
+          </a>
         <% end %>
-      </ul>
-    </section>
+      </div>
+    </div>
     """
   end
 end

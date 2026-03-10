@@ -10,30 +10,30 @@ defmodule Rock.RootLayout do
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><%= Enum.reject([@page[:title], "rock"], &is_nil/1) |> Enum.join(" | ") %></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/css/site.css" />
       </head>
-      <body class="bg-[#0a0f0a] text-[#4ade80] antialiased min-h-screen flex flex-col scanlines" style="font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;">
-        <header class="border-b border-[#166534]">
-          <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="font-bold text-[#4ade80] hover:text-[#86efac] transition-colors text-sm">
-              <span class="text-[#166534]">rock@blog</span><span class="text-[#6b7280]">:</span><span class="text-[#60a5fa]">~</span><span class="text-[#6b7280]">$</span>
-              <span class="ml-2 cursor-blink">_</span>
-            </a>
-            <nav class="flex gap-6 text-xs text-[#166534]">
-              <a href="/" class="hover:text-[#4ade80] transition-colors">./home</a>
-              <a href="/about" class="hover:text-[#4ade80] transition-colors">./about</a>
+      <body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col" style="font-family: 'Inter', system-ui, sans-serif;">
+        <header class="bg-indigo-600 sticky top-0 z-10 shadow-md">
+          <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="font-extrabold text-xl text-white tracking-tight hover:text-indigo-200 transition-colors">rock neurotiko</a>
+            <nav class="flex gap-1">
+              <a href="/" class="text-indigo-200 hover:text-white hover:bg-indigo-700 px-3 py-1.5 rounded-md text-sm font-medium transition-colors">Home</a>
+              <a href="/about" class="text-indigo-200 hover:text-white hover:bg-indigo-700 px-3 py-1.5 rounded-md text-sm font-medium transition-colors">About</a>
             </nav>
           </div>
         </header>
-        <main class="max-w-3xl mx-auto px-6 py-10 flex-1 w-full">
+        <main class="flex-1">
           <%= render @inner_content %>
         </main>
-        <footer class="border-t border-[#166534] mt-8">
-          <div class="max-w-3xl mx-auto px-6 py-5 flex justify-between items-center text-xs text-[#166534]">
-            <span>[process exited with code 0]</span>
+        <footer class="bg-gray-900 text-gray-400 mt-16">
+          <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col gap-2 sm:flex-row sm:justify-between items-center text-sm">
+            <span class="text-gray-500">Built with <span class="text-indigo-400">Tableau</span> &amp; Elixir</span>
             <div class="flex gap-4">
-              <a href="https://github.com/rockneurotiko" class="hover:text-[#4ade80] transition-colors">github</a>
-              <a href="https://telegram.me/rockneurotiko" class="hover:text-[#4ade80] transition-colors">telegram</a>
+              <a href="https://github.com/rockneurotiko" class="hover:text-white transition-colors">GitHub</a>
+              <a href="https://telegram.me/rockneurotiko" class="hover:text-white transition-colors">Telegram</a>
             </div>
           </div>
         </footer>

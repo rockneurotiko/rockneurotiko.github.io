@@ -4,26 +4,26 @@ defmodule Rock.PostLayout do
 
   def template(assigns) do
     ~H"""
-    <article>
-      <header class="mb-8 pb-6 border-b border-[#166534]">
-        <div class="text-xs text-[#6b7280] mb-3">
-          <span class="text-[#166534]">$</span> cat posts/<%= String.replace(@page.title, " ", "-") |> String.downcase() %>.md
-        </div>
-        <h1 class="text-2xl font-bold text-[#4ade80] mb-3 leading-tight" style="text-shadow: 0 0 20px rgba(74,222,128,0.3);">
-          &gt; <%= @page.title %>
-        </h1>
-        <div class="flex items-center gap-3 text-xs text-[#166534]">
-          <span>// <time datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>"><%= Calendar.strftime(@page.date, "%Y-%m-%d") %></time></span>
+    <div class="bg-indigo-700 text-white">
+      <div class="max-w-5xl mx-auto px-6 py-14">
+        <div class="flex flex-wrap gap-2 mb-4">
           <%= if @page[:categories] && length(@page[:categories]) > 0 do %>
-            <span class="text-[#4b5563]">|</span>
-            <span class="text-[#6b7280]">[<%= Enum.join(@page.categories, ", ") %>]</span>
+            <%= for cat <- @page.categories do %>
+              <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><%= cat %></span>
+            <% end %>
           <% end %>
         </div>
-      </header>
-      <div class="prose-terminal">
-        <%= render @inner_content %>
+        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight"><%= @page.title %></h1>
+        <time class="text-indigo-300 text-sm" datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>">
+          <%= Calendar.strftime(@page.date, "%B %d, %Y") %>
+        </time>
       </div>
-    </article>
+    </div>
+    <div class="max-w-3xl mx-auto px-6 py-12">
+      <article class="prose-mag">
+        <%= render @inner_content %>
+      </article>
+    </div>
     """
   end
 end
