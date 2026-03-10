@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../../lib";
 
 @theme {
   --font-sans: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa,

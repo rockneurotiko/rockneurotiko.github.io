@@ -16,12 +16,12 @@ defmodule Rock.HomePage do
       <ul class="space-y-1">
         <%= for post <- @sorted_posts do %>
           <li>
-            <a href={post[:permalink]} class="group flex justify-between items-baseline py-4 px-4 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-stone-200 transition-all duration-150">
+            <a href="<%= post[:permalink] %>" class="group flex justify-between items-baseline py-4 px-4 rounded-xl hover:bg-white hover:shadow-sm border border-transparent hover:border-stone-200 transition-all duration-150">
               <div class="flex items-baseline gap-3">
                 <span class="text-teal-400 text-sm select-none">&bull;</span>
                 <span class="text-stone-800 font-medium group-hover:text-teal-700 transition-colors"><%= post[:title] %></span>
               </div>
-              <time class="text-xs text-stone-400 shrink-0 ml-4" datetime={Calendar.strftime(post[:date], "%Y-%m-%d")}>
+              <time class="text-xs text-stone-400 shrink-0 ml-4" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
                 <%= Calendar.strftime(post[:date], "%b %Y") %>
               </time>
             </a>

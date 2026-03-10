@@ -6,7 +6,8 @@ config :tailwind,
     args: ~w(
       --input=assets/css/site.css
       --output=_site/css/site.css
-    )
+    ),
+    cd: Path.expand("..", __DIR__)
   ]
 
 config :tableau, :reloader,

@@ -9,7 +9,7 @@ defmodule Rock.PostLayout do
         <h1 class="text-3xl font-bold leading-tight text-stone-900 mb-4 border-l-4 border-teal-400 pl-4"><%= @page.title %></h1>
         <div class="flex items-center gap-3 flex-wrap">
           <span class="inline-flex items-center bg-teal-50 text-teal-700 text-xs font-medium px-3 py-1 rounded-full border border-teal-200">
-            <time datetime={Calendar.strftime(@page.date, "%Y-%m-%d")}>
+            <time datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>">
               <%= Calendar.strftime(@page.date, "%B %d, %Y") %>
             </time>
           </span>
