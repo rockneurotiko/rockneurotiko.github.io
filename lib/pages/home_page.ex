@@ -11,29 +11,24 @@ defmodule Rock.HomePage do
     assigns = Map.put(assigns, :sorted_posts, posts)
 
     ~H"""
-    <div class="bg-gray-50 border-b border-gray-200 py-14">
-      <div class="max-w-5xl mx-auto px-6">
-        <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">Rock Neurotiko's Blog</h1>
-        <p class="text-gray-500 text-lg">Notes on software, engineering, and building things.</p>
+    <section>
+      <div class="mb-10">
+        <h1 class="text-2xl font-bold text-stone-900 mb-1 tracking-tight">Rock Neurotiko's Blog</h1>
+        <p class="text-stone-400 text-sm">Notes on software, engineering, and building things.</p>
       </div>
-    </div>
-    <div class="max-w-5xl mx-auto px-6 py-12">
-      <div class="grid gap-6 sm:grid-cols-2">
+      <ul class="space-y-3">
         <%= for post <- @sorted_posts do %>
-          <a href="<%= post[:permalink] %>" class="group block bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-            <div class="flex flex-wrap gap-2 mb-3">
-              <%= for cat <- (post[:categories] || []) do %>
-                <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide"><%= cat %></span>
-              <% end %>
-            </div>
-            <h2 class="font-bold text-gray-900 text-lg leading-snug mb-2 group-hover:text-indigo-600 transition-colors"><%= post[:title] %></h2>
-            <time class="text-sm text-gray-400 tabular-nums" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
-              <%= Calendar.strftime(post[:date], "%B %d, %Y") %>
-            </time>
-          </a>
+          <li>
+            <a href="<%= post[:permalink] %>" class="group flex justify-between items-start gap-4 bg-white border border-stone-200 rounded-xl px-5 py-4 hover:border-teal-300 hover:shadow-sm transition-all duration-150">
+              <span class="font-medium text-stone-800 group-hover:text-teal-700 transition-colors leading-snug"><%= post[:title] %></span>
+              <time class="text-xs text-stone-400 shrink-0 mt-0.5 tabular-nums bg-stone-100 px-2 py-0.5 rounded-md" datetime="<%= Calendar.strftime(post[:date], "%Y-%m-%d") %>">
+                <%= Calendar.strftime(post[:date], "%b %Y") %>
+              </time>
+            </a>
+          </li>
         <% end %>
-      </div>
-    </div>
+      </ul>
+    </section>
     """
   end
 end

@@ -8,13 +8,9 @@ defmodule Rock.AboutPage do
 
   def template(assigns) do
     ~H"""
-    <div class="bg-indigo-700 text-white">
-      <div class="max-w-5xl mx-auto px-6 py-14">
-        <h1 class="text-4xl font-extrabold tracking-tight">About Me</h1>
-      </div>
-    </div>
-    <div class="max-w-3xl mx-auto px-6 py-12">
-      <div class="prose-mag">
+    <article>
+      <h1 class="text-3xl font-bold text-stone-900 mb-8 border-l-4 border-teal-400 pl-4" style="letter-spacing: -0.015em;">About Me</h1>
+      <div class="bg-white border border-stone-200 rounded-2xl p-8 shadow-sm prose-notebook">
         <p>Hi! I'm Rock Neurotiko, a software engineer based in Madrid.</p>
         <p>I work with Elixir, Scala, Rust, and other tools. This blog is where I share things I've learned and built.</p>
         <p>You can find me at:</p>
@@ -23,7 +19,7 @@ defmodule Rock.AboutPage do
           <li><a href="https://telegram.me/rockneurotiko">Telegram — rockneurotiko</a></li>
         </ul>
       </div>
-    </div>
+    </article>
     """
   end
 end

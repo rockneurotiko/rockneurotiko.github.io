@@ -4,26 +4,24 @@ defmodule Rock.PostLayout do
 
   def template(assigns) do
     ~H"""
-    <div class="bg-indigo-700 text-white">
-      <div class="max-w-5xl mx-auto px-6 py-14">
-        <div class="flex flex-wrap gap-2 mb-4">
+    <article>
+      <header class="mb-10">
+        <h1 class="text-3xl font-bold text-stone-900 mb-4 leading-tight border-l-4 border-teal-400 pl-4" style="letter-spacing: -0.015em;"><%= @page.title %></h1>
+        <div class="flex flex-wrap items-center gap-2 pl-5">
+          <span class="bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full">
+            <time datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>"><%= Calendar.strftime(@page.date, "%B %d, %Y") %></time>
+          </span>
           <%= if @page[:categories] && length(@page[:categories]) > 0 do %>
             <%= for cat <- @page.categories do %>
-              <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"><%= cat %></span>
+              <span class="bg-stone-100 text-stone-600 text-xs font-medium px-3 py-1 rounded-full"><%= cat %></span>
             <% end %>
           <% end %>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-4 tracking-tight"><%= @page.title %></h1>
-        <time class="text-indigo-300 text-sm" datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>">
-          <%= Calendar.strftime(@page.date, "%B %d, %Y") %>
-        </time>
-      </div>
-    </div>
-    <div class="max-w-3xl mx-auto px-6 py-12">
-      <article class="prose-mag">
+      </header>
+      <div class="prose-notebook">
         <%= render @inner_content %>
-      </article>
-    </div>
+      </div>
+    </article>
     """
   end
 end
