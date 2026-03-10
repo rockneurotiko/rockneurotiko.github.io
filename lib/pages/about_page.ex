@@ -4,33 +4,27 @@ defmodule Rock.AboutPage do
 
   def template(assigns) do
     ~H"""
-    <article class="max-w-3xl mx-auto px-6 py-10">
-      <div class="text-xs text-emerald-700 mb-6">
-        <span class="text-emerald-600">$</span> cat <span class="text-amber-400">about.txt</span>
+    <div class="bg-indigo-700 text-white">
+      <div class="max-w-4xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-extrabold">About Me</h1>
       </div>
-      <h1 class="text-2xl font-bold text-emerald-200 mb-8">&gt; about me</h1>
-      <div class="space-y-4 text-emerald-400 leading-relaxed">
+    </div>
+    <article class="max-w-4xl mx-auto px-6 py-12">
+      <div class="max-w-2xl space-y-4 text-gray-700 leading-relaxed text-lg">
         <p>
-          <span class="text-emerald-700 mr-2">&gt;&gt;</span>
-          Software engineer based in Madrid. Working with Elixir, Scala, and Rust.
+          I'm a software engineer based in <strong class="text-gray-900 font-semibold">Madrid</strong>. I work with Elixir, Scala, and Rust — among other things.
         </p>
         <p>
-          <span class="text-emerald-700 mr-2">&gt;&gt;</span>
-          This is my corner of the internet. I write about programming, bots, and whatever else I find interesting.
+          This is my corner of the internet where I write about programming, bots, and whatever else I find interesting.
         </p>
       </div>
-      <div class="mt-10 text-xs text-emerald-700">
-        <div class="mb-2"><span class="text-emerald-600">$</span> cat <span class="text-amber-400">links.txt</span></div>
-        <ul class="space-y-1 pl-4">
-          <li>
-            <span class="text-gray-600">→ </span>
-            <a href="https://github.com/rockneurotiko" class="text-amber-500 hover:text-amber-300 transition-colors">github.com/rockneurotiko</a>
-          </li>
-          <li>
-            <span class="text-gray-600">→ </span>
-            <a href="https://telegram.me/rockneurotiko" class="text-amber-500 hover:text-amber-300 transition-colors">telegram.me/rockneurotiko</a>
-          </li>
-        </ul>
+      <div class="mt-10 flex gap-4">
+        <a href="https://github.com/rockneurotiko" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+          GitHub
+        </a>
+        <a href="https://telegram.me/rockneurotiko" class="inline-flex items-center gap-2 border border-indigo-300 text-indigo-700 font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-indigo-50 transition-colors">
+          Telegram
+        </a>
       </div>
     </article>
     """
