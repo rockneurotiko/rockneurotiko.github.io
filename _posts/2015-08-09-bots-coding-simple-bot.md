@@ -254,5 +254,3 @@ If you have some idea for a good bot to implement for this posts series, please 
 I'm thinking too in doing future posts of implementing nice things like protect the bot with password, have a simple database with the users, ...
 
 Also, I'll maybe do some screencast for more complicated bots :)
-
-Let me know what do you thing, your ideas and what do you expect in the comments or in [telegram](https://telegram.me/rockneurotiko)

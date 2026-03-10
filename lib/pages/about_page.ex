@@ -8,26 +8,35 @@ defmodule Rock.AboutPage do
 
   def template(assigns) do
     ~H"""
-    <article class="max-w-2xl">
-      <div class="mb-8">
-        <p class="font-mono text-[9px] tracking-widest uppercase text-zinc-600 mb-1">DRIVER PROFILE</p>
-        <div class="h-[2px] w-full bg-red-600"></div>
+    <article class="max-w-2xl mx-auto">
+      <div class="mb-8 font-mono">
+        <span style="color: var(--accent);" class="text-sm">defmodule</span>
+        <span style="color: var(--text-bright);" class="text-xl font-bold ml-2">Rock.Neurotiko</span>
+        <span style="color: var(--accent);" class="text-sm ml-2">do</span>
       </div>
-      <div class="space-y-px font-mono text-sm">
-        <div class="flex border-b border-zinc-900 py-3">
-          <span class="text-[10px] tracking-widest uppercase text-zinc-600 w-28 shrink-0 pt-0.5">NAME</span>
-          <span class="text-white">Rock Neurotiko</span>
+      <div style="border-color: var(--border);" class="space-y-6 pl-5 border-l-2 font-mono text-sm">
+        <div>
+          <div style="color: var(--accent-2);" class="mb-2">@bio</div>
+          <p style="color: var(--text-base);" class="pl-4 leading-relaxed">
+            Hi! I'm Rock Neurotiko, a software engineer based in Madrid.
+            I mainly program in Elixir, enjoy videogames and cars.
+          </p>
         </div>
-        <div class="flex border-b border-zinc-900 py-3">
-          <span class="text-[10px] tracking-widest uppercase text-zinc-600 w-28 shrink-0 pt-0.5">BASE</span>
-          <span class="text-zinc-300">Madrid, Spain</span>
+        <div>
+          <div style="color: var(--accent-2);" class="mb-2">@stack</div>
+          <p style="color: var(--text-base);" class="pl-4 leading-relaxed">Elixir · Scala · Rust · and whatever the job demands</p>
         </div>
-        <div class="flex border-b border-zinc-900 py-3">
-          <span class="text-[10px] tracking-widest uppercase text-zinc-600 w-28 shrink-0 pt-0.5">STACK</span>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-zinc-900 border border-zinc-700 text-amber-500 px-2 py-0.5 rounded text-[10px] uppercase tracking-wide">Elixir</span>
-            <span class="bg-zinc-900 border border-zinc-700 text-zinc-400 px-2 py-0.5 rounded text-[10px] uppercase tracking-wide">Scala</span>
-            <span class="bg-zinc-900 border border-zinc-700 text-zinc-400 px-2 py-0.5 rounded text-[10px] uppercase tracking-wide">Rust</span>
+        <div>
+          <div style="color: var(--accent-2);" class="mb-2">@interests</div>
+          <p style="color: var(--text-base);" class="pl-4 leading-relaxed">🎮 Videogames · 🚗 Cars · ⚗️ Functional Programming</p>
+        </div>
+        <div>
+          <div style="color: var(--accent-2);" class="mb-2">@links</div>
+          <div class="pl-4 space-y-2">
+            <a href="https://github.com/rockneurotiko" style="color: var(--link);" class="flex items-center gap-2 hover:opacity-80 transition-opacity group">
+              <span style="color: var(--nav-dim);" class="group-hover:opacity-80 transition-opacity">#</span>
+              github.com/rockneurotiko
+            </a>
           </div>
         </div>
         <div class="flex border-b border-zinc-900 py-3">
@@ -38,11 +47,8 @@ defmodule Rock.AboutPage do
           <span class="text-[10px] tracking-widest uppercase text-zinc-600 w-28 shrink-0 pt-0.5">GITHUB</span>
           <a href="https://github.com/rockneurotiko" class="text-red-400 hover:text-red-300 transition-colors">github.com/rockneurotiko</a>
         </div>
-        <div class="flex py-3">
-          <span class="text-[10px] tracking-widest uppercase text-zinc-600 w-28 shrink-0 pt-0.5">TELEGRAM</span>
-          <a href="https://telegram.me/rockneurotiko" class="text-red-400 hover:text-red-300 transition-colors">telegram.me/rockneurotiko</a>
-        </div>
       </div>
+      <div style="color: var(--accent);" class="mt-8 font-mono text-sm">end</div>
     </article>
     """
   end

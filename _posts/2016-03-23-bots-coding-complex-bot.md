@@ -325,5 +325,3 @@ And that's all!
 It wasn't that hard, was it?
 
 All you need to do now is program your own bots and let your imagination fly ;-)
-
-Good luck, and remember that you can reach me on [Telegram](https://telegram.me/rockneurotiko).
