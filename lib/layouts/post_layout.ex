@@ -4,22 +4,20 @@ defmodule Rock.PostLayout do
 
   def template(assigns) do
     ~H"""
-    <article class="max-w-2xl">
+    <article class="max-w-2xl mx-auto">
       <header class="mb-10">
         <div class="flex flex-wrap items-center gap-2 mb-4 font-mono text-xs">
-          <span class="text-purple-700"># post</span>
-          <time class="text-purple-600" datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>">
-            <%= Calendar.strftime(@page.date, "%Y-%m-%d") %>
-          </time>
+          <time class="text-gray-500 tabular-nums" datetime="<%= Calendar.strftime(@page.date, "%Y-%m-%d") %>">[<%= Calendar.strftime(@page.date, "%Y.%m.%d") %>]</time>
           <%= if @page[:categories] && length(@page[:categories]) > 0 do %>
             <%= for cat <- @page.categories do %>
-              <span class="bg-purple-900/40 text-purple-400 border border-purple-800/50 px-2 py-0.5 rounded text-[10px] font-mono"><%= cat %></span>
+              <span class="bg-cyan-950/50 text-cyan-400 border border-cyan-800/50 px-2 py-0.5 rounded text-[10px] font-mono">#<%= cat %></span>
             <% end %>
           <% end %>
         </div>
-        <h1 class="text-2xl font-mono font-bold text-violet-100 leading-tight border-l-2 border-purple-500 pl-4" style="letter-spacing: -0.01em;"><%= @page.title %></h1>
+        <h1 class="font-mono font-bold text-white text-2xl leading-tight neon-text-subtle" style="letter-spacing: -0.01em;"><%= @page.title %></h1>
+        <div class="mt-3 h-px bg-gradient-to-r from-cyan-500/50 via-cyan-800/30 to-transparent"></div>
       </header>
-      <div class="prose-elixir">
+      <div class="prose-cyber">
         <%= render @inner_content %>
       </div>
     </article>
